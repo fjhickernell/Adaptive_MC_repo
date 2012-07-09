@@ -1,10 +1,25 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.21)  9 JUL 2012 13:16
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  9 JUL 2012 15:38
 entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**\input fixwidth.tex
-(./fixwidth.tex (/usr/share/texmf-texlive/tex/latex/base/article.cls
+**fixwidth.tex
+(./fixwidth.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2011-07-01, ngerman-x-2011-07-01, afrikaans, ancientgreek, ibycus, arabi
+c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
+h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
+h, french, galician, german, ngerman, swissgerman, monogreek, greek, hungarian,
+ icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, marathi, or
+iya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, kurmanji,
+ lao, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk, pol
+ish, portuguese, romanian, russian, sanskrit, serbian, serbianc, slovak, sloven
+ian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, welsh, loaded
+.
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/share/texmf-texlive/tex/latex/base/size10.clo
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -19,24 +34,24 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-(/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks14
 \ex@=\dimen103
 ))
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen104
 )
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count87
@@ -77,18 +92,18 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(/usr/share/texmf-texlive/tex/latex/amsfonts/amsfonts.sty
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 )
-(/usr/share/texmf-texlive/tex/latex/amsfonts/amssymb.sty
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2009/06/22 v3.00
 )
-(/usr/share/texmf-texlive/tex/latex/amscls/amsthm.sty
-Package: amsthm 2004/08/06 v2.20
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2009/07/02 v2.20.1
 \thm@style=\toks19
 \thm@bodyfont=\toks20
 \thm@headfont=\toks21
@@ -99,31 +114,31 @@ Package: amsthm 2004/08/06 v2.20
 \thm@headsep=\skip48
 \dth@everypar=\toks24
 )
-(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks25
 )
-(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/etc/texmf/tex/latex/config/graphics.cfg
-File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 91.
+Package graphics Info: Driver file: dvips.def on input line 91.
 
-(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
-\Gread@gobject=\count99
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
 ))
 \Gin@req@height=\dimen112
 \Gin@req@width=\dimen113
-) (./fixwidth.aux)
+)
+(./fixwidth.aux)
 \openout1 = `fixwidth.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
@@ -138,37 +153,22 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
 LaTeX Font Info:    ... okay on input line 19.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
 LaTeX Font Info:    ... okay on input line 19.
-
-(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count100
-\scratchdimen=\dimen114
-\scratchbox=\box28
-\nofMPsegments=\count101
-\nofMParguments=\count102
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count103
-\MPscratchDim=\dimen115
-\MPnumerator=\count104
-\everyMPtoPDFconversion=\toks27
-)
 LaTeX Font Info:    Try loading font information for U+msa on input line 56.
- (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+ (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 56.
-
-(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
+ (/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 
 LaTeX Warning: Citation `baha:sava:1956' undefined on input line 69.
 
-\c@theorem=\count105
-\c@prop=\count106
+\c@theorem=\count99
+\c@prop=\count100
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+]
 
 LaTeX Warning: Citation `sieg:1986' on page 2 undefined on input line 150.
 
@@ -198,15 +198,61 @@ LaTeX Warning: Citation `Pet95a' on page 4 undefined on input line 369.
 LaTeX Warning: Citation `mill:1986' on page 5 undefined on input line 388.
 
 LaTeX Font Info:    Try loading font information for U+euf on input line 403.
-(/usr/share/texmf-texlive/tex/latex/amsfonts/ueuf.fd
+(/usr/local/texlive/2011/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2009/06/22 v3.00 Euler Fraktur
 ) [5]
-<kurtmaxfig.pdf, id=37, 614.295pt x 794.97pt>
-File: kurtmaxfig.pdf Graphic file (type pdf)
- <use kurtmaxfig.pdf>
-<alphacompare.pdf, id=38, 614.295pt x 794.97pt>
-File: alphacompare.pdf Graphic file (type pdf)
- <use alphacompare.pdf>
+
+./fixwidth.tex:483: LaTeX Error: File `kurtmaxfig' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.483 ...\includegraphics[width=2.1in]{kurtmaxfig}
+                                                   \\
+? r
+OK, entering \nonstopmode...
+
+./fixwidth.tex:483: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.483 ...cludegraphics[width=2.1in]{kurtmaxfig} \\
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./fixwidth.tex:489: LaTeX Error: File `alphacompare' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.489 \includegraphics[width=2.1in]{alphacompare}
+                                                 \\
+I could not locate the file with any of these extensions:
+.eps,.ps,.eps.gz,.ps.gz,.eps.Z
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./fixwidth.tex:489: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.489 ...ludegraphics[width=2.1in]{alphacompare}\\
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
 Underfull \hbox (badness 5345) in paragraph at lines 492--492
 []\OT1/cmr/m/n/10 Figure 1: (a) The max-i-mum kur-to-sis, $\OML/cmm/m/it/10 ^^T
 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ; n[]; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :
@@ -226,11 +272,10 @@ Overfull \hbox (34.28674pt too wide) in paragraph at lines 556--556
 [] 
  []
 
-[7 <./kurtmaxfig.pdf> <./alphacompare.pdf>]
+[7]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 587.
 
-
-(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
+ (/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
@@ -250,69 +295,25 @@ Overfull \hbox (3.217pt too wide) detected at line 692
  []
 
 [9]
-Overfull \hb/n/10
- )$
+Overfull \hbox (10.02852pt too wide) detected at line 714
+\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = 1 + []
+ [] \OML/cmm/m/it/10 ;  [][] f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/1
+0 )  d\OML/cmm/m/it/10 x \OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 5
+4316\OML/cmm/m/it/10 :
  []
 
-[8]
-Overfull \hbox (21.69765pt too wide) detected at line 657
-\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = []  \O
-ML/cmm/m/it/10 ^^V \OT1/cmr/m/n/10 = [][] \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\O
-ML/cmm/m/it/10 x\OT1/cmr/m/n/10 )  d\OML/cmm/m/it/10 x;  ^^[[] \OT1/cmr/m/n/10 
-= [][][\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \
-OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^V\OT1/cmr/m/n/10 ][]  d\OML/cmm/m/it/10 
-x:
- []
+[10] (./fixwidth.aux)
 
+LaTeX Warning: There were undefined references.
 
-Overfull \hbox (3.217pt too wide) detected at line 668
-[]
- []
-
-
-LaTeX Warning: File `NormalErrFig.eps' not found on input line 673.
-
-
-! LaTeX Error: Unknown graphics extension: .eps.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.673 ...ludegraphics[width=3in]{NormalErrFig.eps}
-                                                  
-? x
- 
+ ) 
 Here is how much of TeX's memory you used:
- 1997 strings out of 495061
- 23580 string characters out of 1182621
- 80785 words of memory out of 3000000
- 5157 multiletter control sequences out of 15000+50000
- 15781 words of font info for 60 fonts, out of 3000000 for 9000
- 28 hyphenation exceptions out of 8191
- 27i,13n,22p,935b,271s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share
-/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texl
-ive/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/public/
-amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
-/cmmi5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
-/usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share
-/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texli
-ve/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/typ
-e1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type1/public/am
-sfonts/cm/cmr5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr
-7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/s
-hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-
-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-texlive/font
-s/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/pub
-lic/amsfonts/cm/cmtt10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfont
-s/euler/eufm10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbol
-s/msbm10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm
-7.pfb>
-Output written on fixwidth.pdf (8 pages, 277185 bytes).
-PDF statistics:
- 137 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1629 strings out of 493630
+ 18876 string characters out of 3143346
+ 75352 words of memory out of 3000000
+ 4917 multiletter control sequences out of 15000+200000
+ 15950 words of font info for 61 fonts, out of 3000000 for 9000
+ 831 hyphenation exceptions out of 8191
+ 27i,13n,22p,740b,226s stack positions out of 5000i,500n,10000p,200000b,50000s
 
+Output written on fixwidth.dvi (10 pages, 39764 bytes).

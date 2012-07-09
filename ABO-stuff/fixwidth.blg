@@ -1,10 +1,11 @@
-This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2011)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: fixwidth.aux
 I found no \bibdata command---while reading file fixwidth.aux
 I found no \bibstyle command---while reading file fixwidth.aux
-You've used 5 entries,
+You've used 7 entries,
             0 wiz_defined-function locations,
-            89 strings with 543 characters,
+            91 strings with 564 characters,
 and the built_in function-call counts, 0 in all, are:
 = -- 0
 > -- 0
