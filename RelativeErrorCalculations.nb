@@ -1,0 +1,78 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      1804,         68]
+NotebookOptionsPosition[      1346,         48]
+NotebookOutlinePosition[      1799,         66]
+CellTagsIndexPosition[      1756,         63]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Relative", " ", "Error", " ", "Calculations"}], "Title"]], "Input",\
+
+ CellChangeTimes->{{3.54964920893252*^9, 3.549649217535182*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+mutilde > (1-theta) epstilde >= 0\
+\>", "Section",
+ CellChangeTimes->{{3.549649282174108*^9, 3.5496493185163116`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mutilde", " ", "+", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "-", "theta"}], ")"}], " ", "epstilde"}]}], " ", "=", " ", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"muhat", " ", "-", " ", "epshat"}], ")"}], "*", 
+   RowBox[{"(", 
+    RowBox[{"1", " ", "-", " ", 
+     RowBox[{"theta", " ", "*", " ", "epstilde"}]}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.549649347488188*^9, 3.549649421965324*^9}}]
+}, Open  ]]
+},
+WindowSize->{1318, 982},
+WindowMargins->{{3, Automatic}, {Automatic, 0}},
+Magnification:>FEPrivate`If[
+  FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.5, 1.5 Inherited],
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 5, \
+2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 170, 4, 76, "Input"],
+Cell[CellGroupData[{
+Cell[752, 28, 128, 3, 100, "Section"],
+Cell[883, 33, 447, 12, 40, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

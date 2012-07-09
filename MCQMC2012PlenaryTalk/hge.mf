@@ -1,0 +1,4243 @@
+%%% From: dak@hparc0.aus.hp.com (Dave Kruger)
+%%% Newsgroups: comp.text.tex
+%%% Subject: Here is MF Source for Old English Font
+%%% Date: 19 Sep 91 22:13:22 GMT
+%%% Organization: HP Australasian Response Centre (Melbourne)
+%%% 
+%%% I've had eight requests for this so far.  The best answer to the copyright
+%%% question came from  walsh@vax1.cs.umass.edu (Norman Walsh) who said:
+%%% 
+%%% > The Hershey fonts were designed by Dr. ??? Hershey while he worked at one
+%%% > of the US Govt. offices.  The only restriction on redistributing the
+%%% > Hershey fonts is that you may not do so in precisely the same format as
+%%% > the US Govt. office that holds the copyright does.  Don't worry, MF ain't
+%%% > it.  So you are free to give them away.  I expect that you are required/
+%%% > requested to put a comment to the effect that they are derived from the
+%%% > Hershey fonts in your source.
+%%% 
+%%% With that settled, and there being sufficient requests to justify a posting to
+%%% the net, here it is (after the inevitable signature):
+%%% 
+%%% (By the way, I didn't write it.)
+%%% 
+%%% Dave Kruger
+%%% ______________________________________________________________________________
+%%% Hewlett-Packard Australian Telecom Operation | HP-UX:  dak@hpauto.hp.com
+%%% 31 Joseph St, Blackburn, Victoria, 3130.     | HPdesk: Dave Kruger / HP9601/RG
+%%% Phone: +613 2722798, Fax: +613 8989257       | ACSnet: dak@hpauto.oz
+%%% ===============================================================================
+%%% 
+%%% Old English font---derived from the Hershey font.  Save as HGE.mf
+font_size 10pt#;
+v#:= 10/32pt#;
+font_slant 0; font_normal_space 16v#;
+font_normal_stretch 5v#; font_normal_shrink 4v#;
+font_x_height 14v#; font_quad 32v#; font_extra_space 16v#;
+mode_setup; define_pixels(v);
+
+beginchar(9,9v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  5v, 21v)
+--(  4v, 20v)
+--(  4v, 14v);
+draw (  5v, 20v)
+--(  4v, 14v);
+draw (  5v, 21v)
+--(  6v, 20v)
+--(  4v, 14v);
+endchar;
+
+beginchar(23,14v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  6v, 21v)
+--(  4v, 20v)
+--(  3v, 18v)
+--(  3v, 16v)
+--(  4v, 14v)
+--(  6v, 13v)
+--(  8v, 13v)
+--( 10v, 14v)
+--( 11v, 16v)
+--( 11v, 18v)
+--( 10v, 20v)
+--(  8v, 21v)
+--(  6v, 21v);
+draw (  6v, 21v)
+--(  3v, 18v)
+--(  4v, 14v)
+--(  8v, 13v)
+--( 11v, 16v)
+--( 10v, 20v)
+--(  6v, 21v);
+draw (  8v, 21v)
+--(  4v, 20v)
+--(  3v, 16v)
+--(  6v, 13v)
+--( 10v, 14v)
+--( 11v, 18v)
+--(  8v, 21v);
+endchar;
+
+beginchar(33,12v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  6v, 21v)
+--(  5v, 20v)
+--(  3v, 19v)
+--(  5v, 18v)
+--(  6v,  7v);
+draw (  6v, 18v)
+--(  7v, 19v)
+--(  6v, 20v)
+--(  5v, 19v)
+--(  6v, 18v)
+--(  6v,  7v);
+draw (  6v, 21v)
+--(  7v, 20v)
+--(  9v, 19v)
+--(  7v, 18v)
+--(  6v,  7v);
+draw (  6v,  3v)
+--(  4v,  1v)
+--(  6v,  0v)
+--(  8v,  1v)
+--(  6v,  3v);
+draw (  6v,  2v)
+--(  5v,  1v)
+--(  7v,  1v)
+--(  6v,  2v);
+endchar;
+
+beginchar(34,18v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  5v, 21v)
+--(  4v, 20v)
+--(  4v, 14v);
+draw (  5v, 20v)
+--(  4v, 14v);
+draw (  5v, 21v)
+--(  6v, 20v)
+--(  4v, 14v);
+draw ( 14v, 21v)
+--( 13v, 20v)
+--( 13v, 14v);
+draw ( 14v, 20v)
+--( 13v, 14v);
+draw ( 14v, 21v)
+--( 15v, 20v)
+--( 13v, 14v);
+endchar;
+
+beginchar(35,21v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw ( 11v, 21v)
+--(  4v, -7v);
+draw ( 17v, 21v)
+--( 10v, -7v);
+draw (  4v, 10v)
+--( 18v, 10v);
+draw (  3v,  4v)
+--( 17v,  4v);
+endchar;
+
+beginchar(36,20v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  8v, 25v)
+--(  8v, -4v);
+draw ( 12v, 25v)
+--( 12v, -4v);
+draw ( 12v, 21v)
+--( 14v, 20v)
+--( 15v, 18v)
+--( 15v, 16v)
+--( 17v, 17v)
+--( 16v, 19v)
+--( 15v, 20v)
+--( 12v, 21v)
+--(  8v, 21v)
+--(  5v, 20v)
+--(  3v, 18v)
+--(  3v, 15v)
+--(  4v, 13v)
+--(  7v, 11v)
+--( 13v,  9v)
+--( 15v,  8v)
+--( 16v,  6v)
+--( 16v,  3v)
+--( 15v,  1v);
+draw ( 16v, 17v)
+--( 15v, 19v);
+draw (  4v, 15v)
+--(  5v, 13v)
+--(  7v, 12v)
+--( 13v, 10v)
+--( 15v,  9v)
+--( 16v,  7v);
+draw (  5v,  2v)
+--(  4v,  4v);
+draw (  5v, 20v)
+--(  4v, 18v)
+--(  4v, 16v)
+--(  5v, 14v)
+--(  7v, 13v)
+--( 13v, 11v)
+--( 16v,  9v)
+--( 17v,  7v)
+--( 17v,  4v)
+--( 16v,  2v)
+--( 15v,  1v)
+--( 12v,  0v)
+--(  8v,  0v)
+--(  5v,  1v)
+--(  4v,  2v)
+--(  3v,  4v)
+--(  5v,  5v)
+--(  5v,  3v)
+--(  6v,  1v)
+--(  8v,  0v);
+endchar;
+
+beginchar(37,24v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw ( 21v, 21v)
+--(  3v,  0v);
+draw (  8v, 21v)
+--( 10v, 19v)
+--( 10v, 17v)
+--(  9v, 15v)
+--(  7v, 14v)
+--(  5v, 14v)
+--(  3v, 16v)
+--(  3v, 18v)
+--(  4v, 20v)
+--(  6v, 21v)
+--(  8v, 21v)
+--( 10v, 20v)
+--( 13v, 19v)
+--( 16v, 19v)
+--( 19v, 20v)
+--( 21v, 21v);
+draw ( 17v,  7v)
+--( 15v,  6v)
+--( 14v,  4v)
+--( 14v,  2v)
+--( 16v,  0v)
+--( 18v,  0v)
+--( 20v,  1v)
+--( 21v,  3v)
+--( 21v,  5v)
+--( 19v,  7v)
+--( 17v,  7v);
+endchar;
+
+beginchar(38,26v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw ( 20v, 13v)
+--( 21v, 12v)
+--( 22v, 12v)
+--( 23v, 13v);
+draw ( 19v, 12v)
+--( 20v, 11v)
+--( 22v, 11v);
+draw ( 19v, 11v)
+--( 20v, 10v)
+--( 21v, 10v)
+--( 22v, 11v)
+--( 23v, 13v);
+draw ( 20v, 13v)
+--( 14v,  7v);
+draw ( 13v,  6v)
+--(  7v,  0v)
+--(  3v,  5v)
+--(  9v, 11v);
+draw ( 10v, 12v)
+--( 14v, 16v)
+--( 10v, 21v)
+--(  5v, 15v)
+--( 11v,  9v)
+--( 15v,  3v)
+--( 17v,  1v)
+--( 19v,  0v)
+--( 21v,  0v)
+--( 22v,  1v)
+--( 23v,  3v);
+draw (  7v,  1v)
+--(  4v,  5v);
+draw ( 13v, 16v)
+--( 10v, 20v);
+draw (  6v, 15v)
+--( 11v, 10v)
+--( 15v,  4v)
+--( 17v,  2v)
+--( 19v,  1v)
+--( 22v,  1v);
+draw (  8v,  1v)
+--(  4v,  6v);
+draw ( 13v, 15v)
+--(  9v, 20v);
+draw (  6v, 16v)
+--( 12v, 10v)
+--( 16v,  4v)
+--( 17v,  3v)
+--( 19v,  2v)
+--( 22v,  2v)
+--( 23v,  3v);
+endchar;
+
+beginchar(39,12v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  6v, 15v)
+--(  6v, 17v)
+--(  4v, 19v)
+--(  6v, 21v)
+--(  7v, 19v)
+--(  7v, 17v)
+--(  6v, 15v)
+--(  4v, 14v);
+draw (  6v, 20v)
+--(  5v, 19v)
+--(  6v, 18v)
+--(  6v, 20v);
+endchar;
+
+beginchar(40,14v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw ( 10v, 25v)
+--(  8v, 23v)
+--(  6v, 20v)
+--(  4v, 16v)
+--(  3v, 11v)
+--(  3v,  7v)
+--(  4v,  2v)
+--(  6v, -2v)
+--(  8v, -5v)
+--( 10v, -7v);
+draw (  6v, 19v)
+--(  5v, 16v)
+--(  4v, 12v)
+--(  4v,  6v)
+--(  5v,  2v)
+--(  6v, -1v);
+draw (  8v, 23v)
+--(  7v, 21v)
+--(  6v, 18v)
+--(  5v, 12v)
+--(  5v,  6v)
+--(  6v,  0v)
+--(  7v, -3v)
+--(  8v, -5v);
+endchar;
+
+beginchar(41,14v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 25v)
+--(  6v, 23v)
+--(  8v, 20v)
+--( 10v, 16v)
+--( 11v, 11v)
+--( 11v,  7v)
+--( 10v,  2v)
+--(  8v, -2v)
+--(  6v, -5v)
+--(  4v, -7v);
+draw (  8v, 19v)
+--(  9v, 16v)
+--( 10v, 12v)
+--( 10v,  6v)
+--(  9v,  2v)
+--(  8v, -1v);
+draw (  6v, 23v)
+--(  7v, 21v)
+--(  8v, 18v)
+--(  9v, 12v)
+--(  9v,  6v)
+--(  8v,  0v)
+--(  7v, -3v)
+--(  6v, -5v);
+endchar;
+
+beginchar(42,16v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  8v, 21v)
+--(  7v, 20v)
+--(  9v, 10v)
+--(  8v,  9v);
+draw (  8v, 21v)
+--(  8v,  9v);
+draw (  8v, 21v)
+--(  9v, 20v)
+--(  7v, 10v)
+--(  8v,  9v);
+draw (  3v, 18v)
+--(  4v, 18v)
+--( 12v, 12v)
+--( 13v, 12v);
+draw (  3v, 18v)
+--( 13v, 12v);
+draw (  3v, 18v)
+--(  3v, 17v)
+--( 13v, 13v)
+--( 13v, 12v);
+draw ( 13v, 18v)
+--( 12v, 18v)
+--(  4v, 12v)
+--(  3v, 12v);
+draw ( 13v, 18v)
+--(  3v, 12v);
+draw ( 13v, 18v)
+--( 13v, 17v)
+--(  3v, 13v)
+--(  3v, 12v);
+endchar;
+
+beginchar(43,25v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw ( 12v, 18v)
+--( 12v,  1v)
+--( 13v,  1v);
+draw ( 12v, 18v)
+--( 13v, 18v)
+--( 13v,  1v);
+draw (  4v, 10v)
+--( 21v, 10v)
+--( 21v,  9v);
+draw (  4v, 10v)
+--(  4v,  9v)
+--( 21v,  9v);
+endchar;
+
+beginchar(44,12v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  6v, -3v)
+--(  6v, -1v)
+--(  4v,  1v)
+--(  6v,  3v)
+--(  7v,  1v)
+--(  7v, -1v)
+--(  6v, -3v)
+--(  4v, -4v);
+draw (  6v,  2v)
+--(  5v,  1v)
+--(  6v,  0v)
+--(  6v,  2v);
+endchar;
+
+beginchar(45,25v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 10v)
+--( 21v, 10v)
+--( 21v,  9v);
+draw (  4v, 10v)
+--(  4v,  9v)
+--( 21v,  9v);
+endchar;
+
+beginchar(46,12v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  6v,  3v)
+--(  4v,  1v)
+--(  6v,  0v)
+--(  8v,  1v)
+--(  6v,  3v);
+draw (  6v,  2v)
+--(  5v,  1v)
+--(  7v,  1v)
+--(  6v,  2v);
+endchar;
+
+beginchar(47,23v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw ( 20v, 25v)
+--(  2v, -7v)
+--(  3v, -7v);
+draw ( 20v, 25v)
+--( 21v, 25v)
+--(  3v, -7v);
+endchar;
+
+beginchar(48,20v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 19v)
+--(  4v,  3v)
+--(  2v,  2v);
+draw (  5v, 18v)
+--(  5v,  3v)
+--(  8v,  1v);
+draw (  6v, 19v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  9v,  1v);
+draw (  4v, 19v)
+--(  6v, 19v)
+--( 11v, 20v)
+--( 13v, 21v);
+draw ( 11v, 20v)
+--( 12v, 19v)
+--( 14v, 18v)
+--( 14v,  2v);
+draw ( 12v, 20v)
+--( 15v, 18v)
+--( 15v,  3v);
+draw ( 13v, 21v)
+--( 14v, 20v)
+--( 16v, 19v)
+--( 18v, 19v)
+--( 16v, 18v)
+--( 16v,  2v);
+draw (  2v,  2v)
+--(  4v,  2v)
+--(  6v,  1v)
+--(  7v,  0v)
+--(  9v,  1v)
+--( 14v,  2v)
+--( 16v,  2v);
+endchar;
+
+beginchar(49,20v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  7v, 19v)
+--(  8v, 18v)
+--(  9v, 16v)
+--(  9v,  3v)
+--(  7v,  2v);
+draw (  9v, 18v)
+--(  8v, 19v)
+--(  9v, 20v)
+--( 10v, 18v)
+--( 10v,  2v)
+--( 12v,  1v);
+draw (  7v, 19v)
+--( 10v, 21v)
+--( 11v, 19v)
+--( 11v,  3v)
+--( 13v,  2v)
+--( 14v,  2v);
+draw (  7v,  2v)
+--(  8v,  2v)
+--( 10v,  1v)
+--( 11v,  0v)
+--( 12v,  1v)
+--( 14v,  2v);
+endchar;
+
+beginchar(50,20v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 19v)
+--(  6v, 19v)
+--(  8v, 20v)
+--(  9v, 21v)
+--( 11v, 20v)
+--( 14v, 19v)
+--( 16v, 19v);
+draw (  8v, 19v)
+--( 10v, 20v);
+draw (  4v, 19v)
+--(  6v, 18v)
+--(  8v, 18v)
+--( 10v, 19v)
+--( 11v, 20v);
+draw ( 14v, 19v)
+--( 14v, 11v);
+draw ( 15v, 18v)
+--( 15v, 12v);
+draw ( 16v, 19v)
+--( 16v, 11v)
+--(  9v, 11v)
+--(  6v, 10v)
+--(  4v,  8v)
+--(  3v,  5v)
+--(  3v,  0v);
+draw (  3v,  0v)
+--(  7v,  2v)
+--( 11v,  3v)
+--( 14v,  3v)
+--( 18v,  2v);
+draw (  6v,  1v)
+--(  9v,  2v)
+--( 14v,  2v)
+--( 17v,  1v);
+draw (  3v,  0v)
+--(  8v,  1v)
+--( 13v,  1v)
+--( 16v,  0v)
+--( 18v,  2v);
+endchar;
+
+beginchar(51,20v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 19v)
+--(  5v, 19v)
+--(  7v, 20v)
+--(  8v, 21v)
+--( 10v, 20v)
+--( 14v, 19v)
+--( 16v, 19v);
+draw (  7v, 19v)
+--(  9v, 20v);
+draw (  4v, 19v)
+--(  6v, 18v)
+--(  8v, 18v)
+--( 10v, 20v);
+draw ( 14v, 19v)
+--( 14v, 12v);
+draw ( 15v, 18v)
+--( 15v, 13v);
+draw ( 16v, 19v)
+--( 16v, 12v)
+--( 14v, 12v)
+--( 11v, 11v)
+--(  9v, 10v);
+draw (  9v, 11v)
+--( 11v, 10v)
+--( 14v,  9v)
+--( 16v,  9v)
+--( 16v,  2v);
+draw ( 15v,  8v)
+--( 15v,  3v);
+draw ( 14v,  9v)
+--( 14v,  2v);
+draw (  3v,  2v)
+--(  5v,  3v)
+--(  7v,  3v)
+--(  9v,  2v)
+--( 10v,  1v);
+draw (  7v,  2v)
+--(  9v,  1v);
+draw (  3v,  2v)
+--(  5v,  2v)
+--(  7v,  1v)
+--(  8v,  0v)
+--( 10v,  1v)
+--( 14v,  2v)
+--( 16v,  2v);
+endchar;
+
+beginchar(52,20v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw ( 13v, 21v)
+--(  3v, 11v)
+--(  3v,  6v)
+--( 12v,  6v);
+draw ( 14v,  6v)
+--( 18v,  6v)
+--( 19v,  5v)
+--( 19v,  7v)
+--( 18v,  6v);
+draw (  4v, 11v)
+--(  4v,  7v);
+draw (  5v, 13v)
+--(  5v,  6v);
+draw ( 12v, 20v)
+--( 12v,  3v)
+--( 10v,  2v);
+draw ( 13v, 17v)
+--( 14v, 19v)
+--( 13v, 20v)
+--( 13v,  2v)
+--( 15v,  1v);
+draw ( 13v, 21v)
+--( 15v, 19v)
+--( 14v, 17v)
+--( 14v,  3v)
+--( 16v,  2v)
+--( 17v,  2v);
+draw ( 10v,  2v)
+--( 11v,  2v)
+--( 13v,  1v)
+--( 14v,  0v)
+--( 15v,  1v)
+--( 17v,  2v);
+endchar;
+
+beginchar(53,20v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 21v)
+--(  4v, 12v);
+draw (  4v, 21v)
+--( 16v, 21v);
+draw (  5v, 20v)
+--( 14v, 20v);
+draw (  4v, 19v)
+--( 13v, 19v)
+--( 15v, 20v)
+--( 16v, 21v);
+draw ( 14v, 15v)
+--( 13v, 14v)
+--( 11v, 13v)
+--(  7v, 12v)
+--(  4v, 12v);
+draw ( 11v, 13v)
+--( 12v, 13v)
+--( 14v, 12v)
+--( 14v,  2v);
+draw ( 13v, 14v)
+--( 15v, 13v)
+--( 15v,  3v);
+draw ( 14v, 15v)
+--( 15v, 14v)
+--( 17v, 13v)
+--( 18v, 13v)
+--( 16v, 12v)
+--( 16v,  2v);
+draw (  3v,  2v)
+--(  5v,  3v)
+--(  7v,  3v)
+--(  9v,  2v)
+--( 10v,  1v);
+draw (  7v,  2v)
+--(  9v,  1v);
+draw (  3v,  2v)
+--(  5v,  2v)
+--(  7v,  1v)
+--(  8v,  0v)
+--( 10v,  1v)
+--( 14v,  2v)
+--( 16v,  2v);
+endchar;
+
+beginchar(54,20v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 19v)
+--(  4v,  3v)
+--(  2v,  2v);
+draw (  5v, 18v)
+--(  5v,  3v)
+--(  8v,  1v);
+draw (  6v, 19v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  9v,  1v);
+draw (  4v, 19v)
+--(  6v, 19v)
+--( 10v, 20v)
+--( 12v, 21v)
+--( 13v, 20v)
+--( 15v, 19v)
+--( 16v, 19v);
+draw ( 11v, 20v)
+--( 13v, 19v);
+draw ( 10v, 20v)
+--( 12v, 18v)
+--( 14v, 18v)
+--( 16v, 19v);
+draw (  6v, 11v)
+--(  7v, 11v)
+--( 11v, 12v)
+--( 13v, 13v)
+--( 14v, 14v);
+draw ( 11v, 12v)
+--( 12v, 12v)
+--( 14v, 11v)
+--( 14v,  2v);
+draw ( 13v, 13v)
+--( 15v, 11v)
+--( 15v,  3v);
+draw ( 14v, 14v)
+--( 15v, 13v)
+--( 17v, 12v)
+--( 18v, 12v)
+--( 16v, 11v)
+--( 16v,  2v);
+draw (  2v,  2v)
+--(  4v,  2v)
+--(  6v,  1v)
+--(  7v,  0v)
+--(  9v,  1v)
+--( 14v,  2v)
+--( 16v,  2v);
+endchar;
+
+beginchar(55,20v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v, 19v)
+--(  5v, 21v)
+--(  8v, 20v)
+--( 13v, 20v)
+--( 18v, 21v);
+draw (  4v, 20v)
+--(  7v, 19v)
+--( 12v, 19v)
+--( 15v, 20v);
+draw (  3v, 19v)
+--(  7v, 18v)
+--( 10v, 18v)
+--( 14v, 19v)
+--( 18v, 21v);
+draw ( 18v, 21v)
+--( 17v, 19v)
+--( 15v, 16v)
+--( 11v, 12v)
+--(  9v,  9v)
+--(  8v,  6v)
+--(  8v,  3v)
+--(  9v,  0v);
+draw ( 10v, 10v)
+--(  9v,  7v)
+--(  9v,  4v)
+--( 10v,  1v);
+draw ( 13v, 14v)
+--( 11v, 11v)
+--( 10v,  8v)
+--( 10v,  5v)
+--( 11v,  2v)
+--(  9v,  0v);
+endchar;
+
+beginchar(56,20v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 18v)
+--(  4v, 12v);
+draw (  5v, 17v)
+--(  5v, 13v);
+draw (  6v, 18v)
+--(  6v, 12v);
+draw (  4v, 18v)
+--(  6v, 18v)
+--( 11v, 19v)
+--( 13v, 20v)
+--( 14v, 21v);
+draw ( 11v, 19v)
+--( 12v, 19v)
+--( 14v, 18v)
+--( 14v, 12v);
+draw ( 13v, 20v)
+--( 15v, 19v)
+--( 15v, 13v);
+draw ( 14v, 21v)
+--( 15v, 20v)
+--( 17v, 19v)
+--( 18v, 19v)
+--( 16v, 18v)
+--( 16v, 12v);
+draw (  4v, 12v)
+--(  6v, 12v)
+--( 14v,  9v)
+--( 16v,  9v);
+draw ( 16v, 12v)
+--( 14v, 12v)
+--(  6v,  9v)
+--(  4v,  9v);
+draw (  4v,  9v)
+--(  4v,  3v)
+--(  2v,  2v);
+draw (  5v,  8v)
+--(  5v,  3v)
+--(  8v,  1v);
+draw (  6v,  9v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  9v,  1v);
+draw ( 14v,  9v)
+--( 14v,  2v);
+draw ( 15v,  8v)
+--( 15v,  3v);
+draw ( 16v,  9v)
+--( 16v,  2v);
+draw (  2v,  2v)
+--(  4v,  2v)
+--(  6v,  1v)
+--(  7v,  0v)
+--(  9v,  1v)
+--( 14v,  2v)
+--( 16v,  2v);
+endchar;
+
+beginchar(57,20v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 19v)
+--(  4v, 10v)
+--(  2v,  9v);
+draw (  5v, 18v)
+--(  5v,  9v)
+--(  7v,  8v);
+draw (  6v, 19v)
+--(  6v, 10v)
+--(  8v,  9v)
+--(  9v,  9v);
+draw (  4v, 19v)
+--(  6v, 19v)
+--( 11v, 20v)
+--( 13v, 21v);
+draw ( 11v, 20v)
+--( 12v, 19v)
+--( 14v, 18v)
+--( 14v,  2v);
+draw ( 12v, 20v)
+--( 15v, 18v)
+--( 15v,  3v);
+draw ( 13v, 21v)
+--( 14v, 20v)
+--( 16v, 19v)
+--( 18v, 19v)
+--( 16v, 18v)
+--( 16v,  2v);
+draw (  2v,  9v)
+--(  3v,  9v)
+--(  5v,  8v)
+--(  6v,  7v)
+--(  7v,  8v)
+--(  9v,  9v)
+--( 13v, 10v)
+--( 14v, 10v);
+draw (  3v,  2v)
+--(  5v,  3v)
+--(  7v,  3v)
+--(  9v,  2v)
+--( 10v,  1v);
+draw (  7v,  2v)
+--(  9v,  1v);
+draw (  3v,  2v)
+--(  5v,  2v)
+--(  7v,  1v)
+--(  8v,  0v)
+--( 10v,  1v)
+--( 14v,  2v)
+--( 16v,  2v);
+endchar;
+
+beginchar(58,12v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  6v, 14v)
+--(  4v, 12v)
+--(  6v, 11v)
+--(  8v, 12v)
+--(  6v, 14v);
+draw (  6v, 13v)
+--(  5v, 12v)
+--(  7v, 12v)
+--(  6v, 13v);
+draw (  6v,  3v)
+--(  4v,  1v)
+--(  6v,  0v)
+--(  8v,  1v)
+--(  6v,  3v);
+draw (  6v,  2v)
+--(  5v,  1v)
+--(  7v,  1v)
+--(  6v,  2v);
+endchar;
+
+beginchar(59,12v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  6v, 14v)
+--(  4v, 12v)
+--(  6v, 11v)
+--(  8v, 12v)
+--(  6v, 14v);
+draw (  6v, 13v)
+--(  5v, 12v)
+--(  7v, 12v)
+--(  6v, 13v);
+draw (  6v, -3v)
+--(  6v, -1v)
+--(  4v,  1v)
+--(  6v,  3v)
+--(  7v,  1v)
+--(  7v, -1v)
+--(  6v, -3v)
+--(  4v, -4v);
+draw (  6v,  2v)
+--(  5v,  1v)
+--(  6v,  0v)
+--(  6v,  2v);
+endchar;
+
+beginchar(60,24v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw ( 20v, 18v)
+--(  4v,  9v)
+--( 20v,  0v);
+endchar;
+
+beginchar(61,25v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 14v)
+--( 21v, 14v)
+--( 21v, 13v);
+draw (  4v, 14v)
+--(  4v, 13v)
+--( 21v, 13v);
+draw (  4v,  6v)
+--( 21v,  6v)
+--( 21v,  5v);
+draw (  4v,  6v)
+--(  4v,  5v)
+--( 21v,  5v);
+endchar;
+
+beginchar(62,24v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 18v)
+--( 20v,  9v)
+--(  4v,  0v);
+endchar;
+
+beginchar(63,18v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v, 17v)
+--(  4v, 19v)
+--(  5v, 20v)
+--(  8v, 21v)
+--( 10v, 21v)
+--( 13v, 20v)
+--( 14v, 19v)
+--( 15v, 17v)
+--( 15v, 15v)
+--( 14v, 13v)
+--( 12v, 11v)
+--( 10v, 10v);
+draw (  4v, 17v)
+--(  5v, 19v);
+draw ( 13v, 19v)
+--( 14v, 18v)
+--( 14v, 14v)
+--( 13v, 13v);
+draw (  3v, 17v)
+--(  5v, 16v)
+--(  5v, 18v)
+--(  6v, 20v)
+--(  8v, 21v);
+draw ( 10v, 21v)
+--( 12v, 20v)
+--( 13v, 18v)
+--( 13v, 14v)
+--( 12v, 12v)
+--( 10v, 10v);
+draw (  9v, 10v)
+--(  9v,  7v)
+--( 10v, 10v)
+--(  8v, 10v)
+--(  9v,  7v);
+draw (  9v,  3v)
+--(  7v,  1v)
+--(  9v,  0v)
+--( 11v,  1v)
+--(  9v,  3v);
+draw (  9v,  2v)
+--(  8v,  1v)
+--( 10v,  1v)
+--(  9v,  2v);
+endchar;
+
+beginchar(64,27v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw ( 18v, 13v)
+--( 17v, 15v)
+--( 15v, 16v)
+--( 12v, 16v)
+--( 10v, 15v)
+--(  9v, 14v)
+--(  8v, 11v)
+--(  8v,  8v)
+--(  9v,  6v)
+--( 11v,  5v)
+--( 14v,  5v)
+--( 16v,  6v)
+--( 17v,  8v);
+draw ( 12v, 16v)
+--( 10v, 14v)
+--(  9v, 11v)
+--(  9v,  8v)
+--( 10v,  6v)
+--( 11v,  5v);
+draw ( 18v, 16v)
+--( 17v,  8v)
+--( 17v,  6v)
+--( 19v,  5v)
+--( 21v,  5v)
+--( 23v,  7v)
+--( 24v, 10v)
+--( 24v, 12v)
+--( 23v, 15v)
+--( 22v, 17v)
+--( 20v, 19v)
+--( 18v, 20v)
+--( 15v, 21v)
+--( 12v, 21v)
+--(  9v, 20v)
+--(  7v, 19v)
+--(  5v, 17v)
+--(  4v, 15v)
+--(  3v, 12v)
+--(  3v,  9v)
+--(  4v,  6v)
+--(  5v,  4v)
+--(  7v,  2v)
+--(  9v,  1v)
+--( 12v,  0v)
+--( 15v,  0v)
+--( 18v,  1v)
+--( 20v,  2v)
+--( 21v,  3v);
+draw ( 19v, 16v)
+--( 18v,  8v)
+--( 18v,  6v)
+--( 19v,  5v);
+endchar;
+
+beginchar(65,22v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  5v, 18v)
+--(  7v, 20v)
+--(  9v, 21v)
+--( 11v, 21v)
+--( 12v, 20v)
+--( 19v,  4v)
+--( 20v,  3v)
+--( 22v,  3v);
+draw ( 10v, 20v)
+--( 11v, 19v)
+--( 18v,  3v)
+--( 19v,  1v)
+--( 20v,  2v)
+--( 18v,  3v);
+draw (  7v, 20v)
+--(  9v, 20v)
+--( 10v, 19v)
+--( 17v,  3v)
+--( 18v,  1v)
+--( 19v,  0v)
+--( 20v,  0v)
+--( 22v,  3v);
+draw (  5v, 14v)
+--(  6v, 15v)
+--(  8v, 16v)
+--(  9v, 16v)
+--( 10v, 15v);
+draw (  9v, 15v)
+--(  9v, 14v);
+draw (  6v, 15v)
+--(  8v, 15v)
+--(  9v, 13v);
+draw (  0v,  0v)
+--(  2v,  2v)
+--(  4v,  3v)
+--(  7v,  3v)
+--(  9v,  2v);
+draw (  3v,  2v)
+--(  7v,  2v)
+--(  8v,  1v);
+draw (  0v,  0v)
+--(  3v,  1v)
+--(  6v,  1v)
+--(  7v,  0v)
+--(  9v,  2v);
+draw ( 11v, 17v)
+--(  5v,  3v);
+draw (  7v,  8v)
+--( 15v,  8v);
+endchar;
+
+beginchar(66,24v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  2v, 19v)
+--(  4v, 21v)
+--(  7v, 21v)
+--(  9v, 20v)
+--( 11v, 21v);
+draw (  5v, 20v)
+--(  8v, 20v);
+draw (  2v, 19v)
+--(  4v, 20v)
+--(  6v, 19v)
+--(  9v, 19v)
+--( 11v, 21v);
+draw (  7v, 16v)
+--(  6v, 15v)
+--(  5v, 13v)
+--(  5v, 12v)
+--(  3v, 12v)
+--(  2v, 11v)
+--(  2v,  9v)
+--(  3v, 10v)
+--(  5v, 10v)
+--(  5v,  4v);
+draw (  6v, 14v)
+--(  6v,  6v);
+draw (  3v, 11v)
+--(  6v, 11v);
+draw (  7v, 16v)
+--(  7v,  7v)
+--(  6v,  5v)
+--(  5v,  4v);
+draw ( 12v, 18v)
+--( 11v, 17v)
+--( 10v, 15v)
+--( 10v,  6v);
+draw ( 11v, 16v)
+--( 11v,  8v);
+draw ( 12v, 18v)
+--( 12v,  9v)
+--( 11v,  7v)
+--( 10v,  6v);
+draw ( 12v, 18v)
+--( 18v, 21v)
+--( 20v, 20v)
+--( 21v, 18v)
+--( 21v, 16v)
+--( 19v, 14v)
+--( 15v, 12v);
+draw ( 18v, 20v)
+--( 20v, 18v)
+--( 20v, 16v);
+draw ( 16v, 20v)
+--( 18v, 19v)
+--( 19v, 18v)
+--( 19v, 15v)
+--( 17v, 13v);
+draw ( 17v, 13v)
+--( 20v, 11v)
+--( 21v,  9v)
+--( 21v,  3v);
+draw ( 19v, 11v)
+--( 20v,  9v)
+--( 20v,  4v);
+draw ( 17v, 13v)
+--( 18v, 12v)
+--( 19v, 10v)
+--( 19v,  3v);
+draw (  4v,  0v)
+--(  7v,  2v)
+--( 10v,  3v)
+--( 14v,  3v)
+--( 17v,  2v);
+draw (  6v,  1v)
+--(  9v,  2v)
+--( 14v,  2v)
+--( 16v,  1v);
+draw (  4v,  0v)
+--(  8v,  1v)
+--( 13v,  1v)
+--( 15v,  0v)
+--( 17v,  2v)
+--( 19v,  3v)
+--( 21v,  3v);
+draw ( 15v, 12v)
+--( 15v,  3v);
+draw ( 15v,  9v)
+--( 19v,  9v);
+draw ( 15v,  6v)
+--( 19v,  6v);
+endchar;
+
+beginchar(67,24v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  9v, 20v)
+--(  7v, 19v)
+--(  5v, 17v)
+--(  4v, 15v)
+--(  3v, 12v)
+--(  3v,  8v)
+--(  4v,  5v)
+--(  5v,  3v)
+--(  8v,  1v)
+--( 11v,  0v)
+--( 14v,  0v)
+--( 17v,  1v)
+--( 19v,  2v)
+--( 21v,  4v)
+--( 22v,  6v);
+draw (  5v, 16v)
+--(  4v, 13v)
+--(  4v,  8v)
+--(  6v,  4v)
+--(  9v,  2v)
+--( 12v,  1v)
+--( 15v,  1v)
+--( 18v,  2v);
+draw (  9v, 20v)
+--(  7v, 18v)
+--(  6v, 16v)
+--(  5v, 13v)
+--(  5v,  9v)
+--(  6v,  6v)
+--(  9v,  3v)
+--( 12v,  2v)
+--( 15v,  2v)
+--( 18v,  3v)
+--( 20v,  4v)
+--( 22v,  6v);
+draw ( 11v, 17v)
+--( 11v,  5v);
+draw ( 12v, 17v)
+--( 12v,  7v);
+draw ( 13v, 18v)
+--( 13v,  8v)
+--( 12v,  6v)
+--( 11v,  5v);
+draw ( 11v, 17v)
+--( 13v, 18v)
+--( 16v, 21v)
+--( 18v, 20v)
+--( 20v, 20v)
+--( 21v, 21v);
+draw ( 15v, 20v)
+--( 17v, 19v)
+--( 19v, 19v);
+draw ( 14v, 19v)
+--( 16v, 18v)
+--( 18v, 18v)
+--( 20v, 19v)
+--( 21v, 21v);
+draw ( 18v, 18v)
+--( 18v,  3v);
+endchar;
+
+beginchar(68,23v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  2v, 21v)
+--( 16v, 21v)
+--( 18v, 20v)
+--( 19v, 18v)
+--( 19v,  3v);
+draw (  4v, 20v)
+--( 16v, 20v)
+--( 18v, 18v)
+--( 18v,  4v);
+draw (  2v, 21v)
+--(  3v, 20v)
+--(  5v, 19v)
+--( 16v, 19v)
+--( 17v, 18v)
+--( 17v,  3v);
+draw (  8v, 16v)
+--(  7v, 15v)
+--(  6v, 13v)
+--(  6v, 12v)
+--(  4v, 12v)
+--(  3v, 11v)
+--(  3v,  9v)
+--(  4v, 10v)
+--(  6v, 10v)
+--(  6v,  5v);
+draw (  7v, 14v)
+--(  7v,  7v);
+draw (  4v, 11v)
+--(  7v, 11v);
+draw (  8v, 16v)
+--(  8v,  8v)
+--(  7v,  6v)
+--(  6v,  5v);
+draw (  2v,  0v)
+--(  5v,  2v)
+--(  8v,  3v)
+--( 12v,  3v)
+--( 15v,  2v);
+draw (  4v,  1v)
+--(  7v,  2v)
+--( 12v,  2v)
+--( 14v,  1v);
+draw (  2v,  0v)
+--(  6v,  1v)
+--( 11v,  1v)
+--( 13v,  0v)
+--( 15v,  2v)
+--( 17v,  3v)
+--( 19v,  3v);
+draw ( 11v, 19v)
+--( 11v,  3v);
+draw ( 11v, 14v)
+--( 13v, 13v)
+--( 15v, 13v)
+--( 17v, 14v);
+draw ( 11v,  8v)
+--( 13v,  9v)
+--( 15v,  9v)
+--( 17v,  8v);
+endchar;
+
+beginchar(69,22v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  2v, 19v)
+--(  4v, 21v)
+--(  6v, 21v)
+--(  8v, 20v)
+--( 10v, 21v);
+draw (  5v, 20v)
+--(  7v, 20v);
+draw (  2v, 19v)
+--(  4v, 20v)
+--(  6v, 19v)
+--(  8v, 19v)
+--( 10v, 21v);
+draw (  7v, 16v)
+--(  6v, 15v)
+--(  5v, 13v)
+--(  5v, 12v)
+--(  3v, 12v)
+--(  2v, 11v)
+--(  2v,  9v)
+--(  3v, 10v)
+--(  5v, 10v)
+--(  5v,  4v);
+draw (  6v, 14v)
+--(  6v,  6v);
+draw (  3v, 11v)
+--(  6v, 11v);
+draw (  7v, 16v)
+--(  7v,  7v)
+--(  6v,  5v)
+--(  5v,  4v);
+draw ( 10v, 14v)
+--( 11v, 17v)
+--( 12v, 19v)
+--( 13v, 20v)
+--( 15v, 21v)
+--( 17v, 21v)
+--( 20v, 20v);
+draw ( 13v, 19v)
+--( 15v, 20v)
+--( 17v, 20v)
+--( 19v, 19v);
+draw ( 11v, 17v)
+--( 12v, 18v)
+--( 14v, 19v)
+--( 16v, 19v)
+--( 18v, 18v)
+--( 20v, 20v);
+draw ( 10v,  6v)
+--( 11v,  9v)
+--( 12v, 11v)
+--( 13v, 12v)
+--( 15v, 12v)
+--( 17v, 11v);
+draw ( 13v, 11v)
+--( 15v, 11v)
+--( 16v, 10v);
+draw ( 11v,  9v)
+--( 12v, 10v)
+--( 14v, 10v)
+--( 15v,  9v)
+--( 17v, 11v);
+draw (  4v,  0v)
+--(  7v,  2v)
+--( 11v,  3v)
+--( 16v,  3v)
+--( 20v,  2v);
+draw (  6v,  1v)
+--(  9v,  2v)
+--( 16v,  2v)
+--( 19v,  1v);
+draw (  4v,  0v)
+--(  8v,  1v)
+--( 15v,  1v)
+--( 18v,  0v)
+--( 20v,  2v);
+draw ( 10v, 14v)
+--( 10v,  3v);
+endchar;
+
+beginchar(70,23v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 19v)
+--(  6v, 21v)
+--(  9v, 21v)
+--( 11v, 20v)
+--( 13v, 21v);
+draw (  7v, 20v)
+--( 10v, 20v);
+draw (  4v, 19v)
+--(  6v, 20v)
+--(  8v, 19v)
+--( 11v, 19v)
+--( 13v, 21v);
+draw ( 10v, 16v)
+--(  9v, 15v)
+--(  8v, 13v)
+--(  8v, 12v)
+--(  6v, 12v)
+--(  5v, 11v)
+--(  5v,  9v)
+--(  6v, 10v)
+--(  8v, 10v)
+--(  8v,  5v);
+draw (  9v, 14v)
+--(  9v,  7v);
+draw (  6v, 11v)
+--(  9v, 11v);
+draw ( 10v, 16v)
+--( 10v,  8v)
+--(  9v,  6v)
+--(  8v,  5v);
+draw ( 13v, 17v)
+--( 13v,  2v)
+--( 12v,  1v)
+--( 11v,  1v)
+--(  7v,  3v)
+--(  5v,  3v)
+--(  3v,  2v)
+--(  1v,  0v);
+draw ( 14v, 17v)
+--( 14v,  3v);
+draw ( 14v, 11v)
+--( 18v, 11v);
+draw ( 10v,  1v)
+--(  9v,  1v)
+--(  7v,  2v)
+--(  4v,  2v);
+draw ( 15v, 18v)
+--( 15v, 12v)
+--( 18v, 12v);
+draw ( 18v, 10v)
+--( 15v, 10v)
+--( 15v,  4v)
+--( 14v,  2v)
+--( 10v,  0v)
+--(  8v,  0v)
+--(  6v,  1v)
+--(  4v,  1v)
+--(  1v,  0v);
+draw ( 13v, 17v)
+--( 15v, 18v)
+--( 18v, 21v)
+--( 20v, 20v)
+--( 22v, 20v)
+--( 23v, 21v);
+draw ( 17v, 20v)
+--( 19v, 19v)
+--( 21v, 19v);
+draw ( 16v, 19v)
+--( 18v, 18v)
+--( 20v, 18v)
+--( 22v, 19v)
+--( 23v, 21v);
+draw ( 18v, 18v)
+--( 18v,  4v);
+endchar;
+
+beginchar(71,25v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  9v, 20v)
+--(  7v, 19v)
+--(  5v, 17v)
+--(  4v, 15v)
+--(  3v, 12v)
+--(  3v,  9v)
+--(  4v,  6v)
+--(  5v,  4v)
+--(  7v,  2v)
+--(  9v,  1v)
+--( 12v,  0v)
+--( 16v,  0v)
+--( 19v,  1v)
+--( 21v,  3v)
+--( 22v,  5v)
+--( 22v,  8v)
+--( 21v, 10v)
+--( 20v, 11v)
+--( 18v, 12v)
+--( 16v, 12v);
+draw (  5v, 16v)
+--(  4v, 13v)
+--(  4v,  8v)
+--(  5v,  5v);
+draw (  9v, 20v)
+--(  7v, 18v)
+--(  6v, 16v)
+--(  5v, 13v)
+--(  5v,  8v)
+--(  6v,  5v)
+--(  7v,  3v)
+--(  9v,  1v);
+draw ( 20v,  3v)
+--( 21v,  4v)
+--( 21v,  8v)
+--( 20v, 10v);
+draw ( 16v,  0v)
+--( 18v,  1v)
+--( 19v,  2v)
+--( 20v,  4v)
+--( 20v,  8v)
+--( 19v, 10v)
+--( 18v, 11v)
+--( 16v, 12v);
+draw ( 11v, 17v)
+--( 11v,  4v);
+draw ( 12v, 17v)
+--( 12v,  6v);
+draw ( 13v, 18v)
+--( 13v,  7v)
+--( 12v,  5v)
+--( 11v,  4v);
+draw ( 11v, 17v)
+--( 13v, 18v)
+--( 16v, 21v)
+--( 18v, 20v)
+--( 20v, 20v)
+--( 21v, 21v);
+draw ( 15v, 20v)
+--( 17v, 19v)
+--( 19v, 19v);
+draw ( 14v, 19v)
+--( 16v, 18v)
+--( 18v, 18v)
+--( 20v, 19v)
+--( 21v, 21v);
+draw ( 20v, 19v)
+--( 16v, 12v)
+--( 16v,  0v);
+draw ( 16v,  8v)
+--( 20v,  8v);
+draw ( 16v,  5v)
+--( 20v,  5v);
+endchar;
+
+beginchar(72,24v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  2v, 19v)
+--(  4v, 21v)
+--(  7v, 21v)
+--(  9v, 20v)
+--( 11v, 21v);
+draw (  5v, 20v)
+--(  8v, 20v);
+draw (  2v, 19v)
+--(  4v, 20v)
+--(  6v, 19v)
+--(  9v, 19v)
+--( 11v, 21v);
+draw (  7v, 16v)
+--(  6v, 15v)
+--(  5v, 13v)
+--(  5v, 12v)
+--(  3v, 12v)
+--(  2v, 11v)
+--(  2v,  9v)
+--(  3v, 10v)
+--(  5v, 10v)
+--(  5v,  4v);
+draw (  6v, 14v)
+--(  6v,  6v);
+draw (  3v, 11v)
+--(  6v, 11v);
+draw (  7v, 16v)
+--(  7v,  7v)
+--(  6v,  5v)
+--(  5v,  4v);
+draw (  4v,  0v)
+--(  7v,  2v)
+--( 10v,  3v)
+--( 13v,  3v)
+--( 15v,  2v);
+draw (  6v,  1v)
+--(  9v,  2v)
+--( 12v,  2v)
+--( 14v,  1v);
+draw (  4v,  0v)
+--(  8v,  1v)
+--( 11v,  1v)
+--( 13v,  0v)
+--( 15v,  2v);
+draw ( 12v, 18v)
+--( 11v, 17v)
+--( 10v, 15v)
+--( 10v,  6v);
+draw ( 11v, 16v)
+--( 11v,  8v);
+draw ( 12v, 18v)
+--( 12v,  9v)
+--( 11v,  7v)
+--( 10v,  6v);
+draw ( 12v, 18v)
+--( 14v, 20v)
+--( 16v, 21v)
+--( 18v, 21v)
+--( 20v, 20v);
+draw ( 17v, 20v)
+--( 18v, 20v)
+--( 19v, 19v);
+draw ( 14v, 20v)
+--( 16v, 20v)
+--( 18v, 18v)
+--( 20v, 20v);
+draw ( 15v, 12v)
+--( 17v, 13v)
+--( 19v, 15v)
+--( 20v, 14v)
+--( 21v, 11v)
+--( 21v,  7v)
+--( 20v,  3v)
+--( 18v,  0v);
+draw ( 18v, 14v)
+--( 19v, 13v)
+--( 20v, 11v)
+--( 20v,  6v)
+--( 19v,  3v);
+draw ( 17v, 13v)
+--( 18v, 13v)
+--( 19v, 11v)
+--( 19v,  6v)
+--( 18v,  0v);
+draw ( 15v, 12v)
+--( 15v,  2v);
+draw ( 15v,  9v)
+--( 19v,  9v);
+draw ( 15v,  6v)
+--( 19v,  6v);
+endchar;
+
+beginchar(73,19v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v, 19v)
+--(  5v, 21v)
+--(  8v, 21v)
+--( 11v, 20v)
+--( 13v, 21v);
+draw (  6v, 20v)
+--( 10v, 20v);
+draw (  3v, 19v)
+--(  5v, 20v)
+--(  8v, 19v)
+--( 11v, 19v)
+--( 13v, 21v);
+draw ( 10v, 16v)
+--(  9v, 15v)
+--(  8v, 13v)
+--(  8v, 12v)
+--(  6v, 12v)
+--(  5v, 11v)
+--(  5v,  9v)
+--(  6v, 10v)
+--(  8v, 10v)
+--(  8v,  5v);
+draw (  9v, 14v)
+--(  9v,  7v);
+draw (  6v, 11v)
+--(  9v, 11v);
+draw ( 10v, 16v)
+--( 10v,  8v)
+--(  9v,  6v)
+--(  8v,  5v);
+draw ( 16v, 19v)
+--( 14v, 17v)
+--( 13v, 14v)
+--( 13v,  3v)
+--( 12v,  1v)
+--( 10v,  1v)
+--(  6v,  3v)
+--(  4v,  3v)
+--(  2v,  2v)
+--(  0v,  0v);
+draw ( 14v, 16v)
+--( 14v,  4v);
+draw (  9v,  1v)
+--(  8v,  1v)
+--(  6v,  2v)
+--(  3v,  2v);
+draw ( 16v, 19v)
+--( 15v, 17v)
+--( 15v,  5v)
+--( 14v,  3v)
+--( 12v,  1v)
+--( 10v,  0v)
+--(  7v,  0v)
+--(  5v,  1v)
+--(  2v,  1v)
+--(  0v,  0v);
+endchar;
+
+beginchar(74,20v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 19v)
+--(  6v, 21v)
+--(  9v, 21v)
+--( 12v, 20v)
+--( 14v, 21v);
+draw (  7v, 20v)
+--( 11v, 20v);
+draw (  4v, 19v)
+--(  6v, 20v)
+--(  9v, 19v)
+--( 12v, 19v)
+--( 14v, 21v);
+draw ( 11v, 16v)
+--( 10v, 15v)
+--(  9v, 13v)
+--(  9v, 12v)
+--(  7v, 12v)
+--(  6v, 11v)
+--(  6v,  9v)
+--(  7v, 10v)
+--(  9v, 10v)
+--(  9v,  5v);
+draw ( 10v, 14v)
+--( 10v,  7v);
+draw (  7v, 11v)
+--( 10v, 11v);
+draw ( 11v, 16v)
+--( 11v,  8v)
+--( 10v,  6v)
+--(  9v,  5v);
+draw ( 17v, 19v)
+--( 15v, 17v)
+--( 14v, 14v)
+--( 14v,  3v)
+--( 13v,  1v);
+draw ( 15v, 16v)
+--( 15v,  4v);
+draw ( 17v, 19v)
+--( 16v, 17v)
+--( 16v,  5v)
+--( 15v,  3v)
+--( 13v,  1v)
+--( 10v,  0v)
+--(  7v,  0v)
+--(  4v,  1v)
+--(  2v,  3v)
+--(  2v,  5v)
+--(  3v,  6v)
+--(  4v,  6v)
+--(  5v,  5v)
+--(  4v,  4v)
+--(  3v,  4v);
+draw (  2v,  5v)
+--(  5v,  5v);
+endchar;
+
+beginchar(75,24v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  2v, 19v)
+--(  4v, 21v)
+--(  7v, 21v)
+--(  9v, 20v)
+--( 11v, 21v);
+draw (  5v, 20v)
+--(  8v, 20v);
+draw (  2v, 19v)
+--(  4v, 20v)
+--(  6v, 19v)
+--(  9v, 19v)
+--( 11v, 21v);
+draw (  7v, 16v)
+--(  6v, 15v)
+--(  5v, 13v)
+--(  5v, 12v)
+--(  3v, 12v)
+--(  2v, 11v)
+--(  2v,  9v)
+--(  3v, 10v)
+--(  5v, 10v)
+--(  5v,  4v);
+draw (  6v, 14v)
+--(  6v,  6v);
+draw (  3v, 11v)
+--(  6v, 11v);
+draw (  7v, 16v)
+--(  7v,  7v)
+--(  6v,  5v)
+--(  5v,  4v);
+draw (  4v,  0v)
+--(  7v,  2v)
+--( 10v,  3v)
+--( 13v,  3v)
+--( 15v,  2v);
+draw (  6v,  1v)
+--(  8v,  2v)
+--( 12v,  2v)
+--( 14v,  1v);
+draw (  4v,  0v)
+--(  8v,  1v)
+--( 11v,  1v)
+--( 13v,  0v)
+--( 15v,  2v);
+draw ( 12v, 18v)
+--( 11v, 17v)
+--( 10v, 15v)
+--( 10v,  6v);
+draw ( 11v, 16v)
+--( 11v,  8v);
+draw ( 12v, 18v)
+--( 12v,  9v)
+--( 11v,  7v)
+--( 10v,  6v);
+draw ( 12v, 18v)
+--( 14v, 20v)
+--( 16v, 21v)
+--( 18v, 21v)
+--( 20v, 20v);
+draw ( 17v, 20v)
+--( 18v, 20v)
+--( 19v, 19v);
+draw ( 14v, 20v)
+--( 16v, 20v)
+--( 18v, 18v)
+--( 20v, 20v);
+draw ( 15v, 12v)
+--( 18v, 15v)
+--( 19v, 14v)
+--( 21v, 13v);
+draw ( 17v, 14v)
+--( 19v, 13v)
+--( 21v, 13v);
+draw ( 21v, 13v)
+--( 19v, 10v)
+--( 17v,  8v)
+--( 15v,  6v);
+draw ( 17v,  8v)
+--( 19v,  7v)
+--( 20v,  3v)
+--( 21v,  1v)
+--( 22v,  1v);
+draw ( 19v,  5v)
+--( 20v,  1v);
+draw ( 17v,  8v)
+--( 18v,  7v)
+--( 19v,  1v)
+--( 20v,  0v)
+--( 21v,  0v)
+--( 22v,  1v);
+draw ( 15v, 12v)
+--( 15v,  2v);
+endchar;
+
+beginchar(76,22v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  2v, 19v)
+--(  4v, 21v)
+--(  7v, 21v)
+--(  9v, 20v)
+--( 11v, 21v);
+draw (  5v, 20v)
+--(  8v, 20v);
+draw (  2v, 19v)
+--(  4v, 20v)
+--(  6v, 19v)
+--(  9v, 19v)
+--( 11v, 21v);
+draw (  7v, 16v)
+--(  6v, 15v)
+--(  5v, 13v)
+--(  5v, 12v)
+--(  3v, 12v)
+--(  2v, 11v)
+--(  2v,  9v)
+--(  3v, 10v)
+--(  5v, 10v)
+--(  5v,  4v);
+draw (  6v, 14v)
+--(  6v,  6v);
+draw (  3v, 11v)
+--(  6v, 11v);
+draw (  7v, 16v)
+--(  7v,  7v)
+--(  6v,  5v)
+--(  5v,  4v);
+draw (  4v,  0v)
+--(  7v,  2v)
+--( 11v,  3v)
+--( 16v,  3v)
+--( 20v,  2v);
+draw (  6v,  1v)
+--(  9v,  2v)
+--( 16v,  2v)
+--( 19v,  1v);
+draw (  4v,  0v)
+--(  8v,  1v)
+--( 15v,  1v)
+--( 18v,  0v)
+--( 20v,  2v);
+draw ( 12v, 18v)
+--( 11v, 17v)
+--( 10v, 15v)
+--( 10v,  6v);
+draw ( 11v, 16v)
+--( 11v,  8v);
+draw ( 12v, 18v)
+--( 12v,  9v)
+--( 11v,  7v)
+--( 10v,  6v);
+draw ( 12v, 18v)
+--( 14v, 20v)
+--( 16v, 21v)
+--( 18v, 21v)
+--( 20v, 20v);
+draw ( 17v, 20v)
+--( 18v, 20v)
+--( 19v, 19v);
+draw ( 14v, 20v)
+--( 16v, 20v)
+--( 18v, 18v)
+--( 20v, 20v);
+draw ( 16v, 20v)
+--( 16v,  3v);
+endchar;
+
+beginchar(77,28v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  8v, 17v)
+--(  7v, 16v)
+--(  6v, 14v)
+--(  6v, 12v)
+--(  4v, 12v)
+--(  3v, 11v)
+--(  3v,  9v)
+--(  4v, 10v)
+--(  6v, 10v)
+--(  6v,  6v);
+draw (  7v, 15v)
+--(  7v,  8v);
+draw (  4v, 11v)
+--(  7v, 11v);
+draw (  8v, 17v)
+--(  8v,  9v)
+--(  7v,  7v)
+--(  6v,  6v);
+draw (  1v,  0v)
+--(  3v,  2v)
+--(  5v,  3v)
+--(  7v,  3v)
+--(  9v,  2v)
+--( 10v,  2v)
+--( 11v,  3v);
+draw (  4v,  2v)
+--(  7v,  2v)
+--(  9v,  1v);
+draw (  1v,  0v)
+--(  3v,  1v)
+--(  6v,  1v)
+--(  8v,  0v)
+--(  9v,  0v)
+--( 10v,  1v)
+--( 11v,  3v);
+draw (  8v, 17v)
+--( 12v, 21v)
+--( 16v, 17v)
+--( 16v,  4v)
+--( 17v,  2v)
+--( 18v,  2v);
+draw ( 12v, 20v)
+--( 15v, 17v)
+--( 15v,  3v)
+--( 14v,  2v)
+--( 15v,  1v)
+--( 16v,  2v)
+--( 15v,  3v);
+draw ( 12v, 11v)
+--( 15v, 11v);
+draw ( 10v, 19v)
+--( 11v, 19v)
+--( 14v, 16v)
+--( 14v, 12v)
+--( 11v, 12v);
+draw ( 11v, 10v)
+--( 14v, 10v)
+--( 14v,  3v)
+--( 13v,  2v)
+--( 15v,  0v)
+--( 18v,  2v)
+--( 19v,  3v);
+draw ( 16v, 17v)
+--( 20v, 21v)
+--( 24v, 17v)
+--( 24v,  4v)
+--( 25v,  2v)
+--( 26v,  2v);
+draw ( 20v, 20v)
+--( 23v, 17v)
+--( 23v,  3v)
+--( 25v,  1v);
+draw ( 20v, 11v)
+--( 23v, 11v);
+draw ( 18v, 19v)
+--( 19v, 19v)
+--( 22v, 16v)
+--( 22v, 12v)
+--( 19v, 12v);
+draw ( 19v, 10v)
+--( 22v, 10v)
+--( 22v,  2v)
+--( 24v,  0v)
+--( 26v,  2v);
+draw ( 11v, 19v)
+--( 11v,  3v);
+draw ( 19v, 19v)
+--( 19v,  3v);
+endchar;
+
+beginchar(78,25v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  2v, 18v)
+--(  4v, 20v)
+--(  6v, 21v)
+--(  8v, 21v)
+--( 10v, 20v)
+--( 12v, 17v)
+--( 17v,  6v)
+--( 19v,  3v)
+--( 20v,  2v);
+draw (  8v, 20v)
+--( 10v, 18v)
+--( 11v, 16v)
+--( 17v,  4v)
+--( 20v,  1v);
+draw (  4v, 20v)
+--(  6v, 20v)
+--(  8v, 19v)
+--( 10v, 16v)
+--( 15v,  5v)
+--( 17v,  2v)
+--( 18v,  1v)
+--( 20v,  0v);
+draw ( 17v, 19v)
+--( 19v, 18v)
+--( 21v, 18v)
+--( 23v, 19v)
+--( 24v, 21v);
+draw ( 18v, 20v)
+--( 20v, 19v)
+--( 22v, 19v);
+draw ( 17v, 19v)
+--( 19v, 21v)
+--( 21v, 20v)
+--( 23v, 20v)
+--( 24v, 21v);
+draw (  6v, 12v)
+--(  4v, 12v)
+--(  3v, 11v)
+--(  3v,  9v)
+--(  4v, 10v)
+--(  6v, 10v);
+draw (  4v, 11v)
+--(  6v, 11v);
+draw (  2v,  0v)
+--(  4v,  2v)
+--(  6v,  3v)
+--(  9v,  3v)
+--( 11v,  2v);
+draw (  5v,  2v)
+--(  8v,  2v)
+--( 10v,  1v);
+draw (  2v,  0v)
+--(  5v,  1v)
+--(  8v,  1v)
+--(  9v,  0v)
+--( 11v,  2v);
+draw (  6v, 20v)
+--(  6v,  3v);
+draw ( 20v, 18v)
+--( 20v,  0v);
+draw ( 13v, 15v)
+--( 14v, 14v)
+--( 16v, 13v)
+--( 18v, 13v)
+--( 20v, 14v);
+draw (  6v,  7v)
+--(  8v,  8v)
+--( 12v,  8v)
+--( 14v,  7v);
+endchar;
+
+beginchar(79,26v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  9v, 21v)
+--(  7v, 20v)
+--(  5v, 18v)
+--(  4v, 16v)
+--(  3v, 13v)
+--(  3v,  9v)
+--(  4v,  6v)
+--(  5v,  4v)
+--(  7v,  2v)
+--(  9v,  1v)
+--( 12v,  0v)
+--( 14v,  0v)
+--( 17v,  1v)
+--( 19v,  2v)
+--( 21v,  4v)
+--( 22v,  6v)
+--( 23v,  9v)
+--( 23v, 13v)
+--( 22v, 16v)
+--( 21v, 18v)
+--( 19v, 20v)
+--( 17v, 21v)
+--( 16v, 20v)
+--( 13v, 18v)
+--( 10v, 17v);
+draw (  5v, 17v)
+--(  4v, 14v)
+--(  4v,  8v)
+--(  5v,  5v);
+draw (  9v, 21v)
+--(  7v, 19v)
+--(  6v, 17v)
+--(  5v, 14v)
+--(  5v,  8v)
+--(  6v,  5v)
+--(  7v,  3v)
+--(  9v,  1v);
+draw ( 21v,  5v)
+--( 22v,  8v)
+--( 22v, 14v)
+--( 20v, 18v)
+--( 19v, 19v);
+draw ( 17v,  1v)
+--( 19v,  3v)
+--( 20v,  5v)
+--( 21v,  8v)
+--( 21v, 14v)
+--( 20v, 16v)
+--( 18v, 19v)
+--( 16v, 20v);
+draw ( 10v, 17v)
+--( 10v,  4v);
+draw ( 11v, 17v)
+--( 11v,  6v);
+draw ( 12v, 17v)
+--( 12v,  7v)
+--( 11v,  5v)
+--( 10v,  4v);
+draw ( 16v, 20v)
+--( 16v,  1v);
+draw ( 16v, 14v)
+--( 18v, 13v)
+--( 19v, 13v)
+--( 21v, 14v);
+draw ( 16v,  8v)
+--( 18v,  9v)
+--( 19v,  9v)
+--( 21v,  8v);
+endchar;
+
+beginchar(80,22v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v, 21v)
+--(  4v, 20v)
+--(  5v, 18v)
+--(  5v, 12v)
+--(  3v, 12v)
+--(  2v, 11v)
+--(  2v,  9v)
+--(  3v, 10v)
+--(  5v, 10v)
+--(  5v,  2v)
+--(  2v,  0v)
+--(  5v,  1v)
+--(  5v, -7v)
+--(  7v, -5v);
+draw (  5v, 19v)
+--(  6v, 17v)
+--(  6v, -5v);
+draw (  3v, 11v)
+--(  6v, 11v);
+draw (  3v, 21v)
+--(  5v, 20v)
+--(  6v, 19v)
+--(  7v, 17v)
+--(  7v, -5v);
+draw (  7v, 16v)
+--( 10v, 18v)
+--( 14v, 21v)
+--( 18v, 17v)
+--( 18v,  3v);
+draw ( 14v, 20v)
+--( 17v, 17v)
+--( 17v,  3v);
+draw ( 12v, 19v)
+--( 13v, 19v)
+--( 16v, 16v)
+--( 16v,  2v);
+draw ( 10v,  3v)
+--( 13v,  3v)
+--( 16v,  2v);
+draw ( 11v,  2v)
+--( 13v,  2v)
+--( 15v,  1v);
+draw ( 10v,  1v)
+--( 12v,  1v)
+--( 14v,  0v)
+--( 16v,  2v)
+--( 18v,  3v);
+draw ( 10v, 18v)
+--( 10v, -4v);
+draw ( 10v, 14v)
+--( 12v, 13v)
+--( 14v, 13v)
+--( 16v, 14v);
+draw ( 10v,  8v)
+--( 12v,  9v)
+--( 14v,  9v)
+--( 16v,  8v);
+endchar;
+
+beginchar(81,26v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  9v, 21v)
+--(  7v, 20v)
+--(  5v, 18v)
+--(  4v, 16v)
+--(  3v, 13v)
+--(  3v,  9v)
+--(  4v,  6v)
+--(  5v,  4v)
+--(  7v,  2v)
+--(  9v,  1v)
+--( 11v,  0v)
+--( 15v,  0v)
+--( 17v,  1v)
+--( 19v,  2v)
+--( 21v,  4v)
+--( 22v,  6v)
+--( 23v,  9v)
+--( 23v, 13v)
+--( 22v, 16v)
+--( 21v, 18v)
+--( 19v, 20v)
+--( 17v, 21v)
+--( 16v, 20v)
+--( 13v, 18v)
+--( 10v, 17v);
+draw (  5v, 17v)
+--(  4v, 14v)
+--(  4v,  8v)
+--(  5v,  5v);
+draw (  9v, 21v)
+--(  7v, 19v)
+--(  6v, 17v)
+--(  5v, 14v)
+--(  5v,  8v)
+--(  6v,  5v)
+--(  7v,  3v)
+--(  9v,  1v);
+draw ( 21v,  5v)
+--( 22v,  8v)
+--( 22v, 14v)
+--( 20v, 18v)
+--( 19v, 19v);
+draw ( 17v,  1v)
+--( 19v,  3v)
+--( 20v,  5v)
+--( 21v,  8v)
+--( 21v, 14v)
+--( 20v, 16v)
+--( 18v, 19v)
+--( 16v, 20v);
+draw ( 10v, 17v)
+--( 10v,  4v);
+draw ( 11v, 17v)
+--( 11v,  6v);
+draw ( 12v, 17v)
+--( 12v,  7v)
+--( 11v,  5v)
+--( 10v,  4v);
+draw ( 16v, 20v)
+--( 16v,  1v);
+draw ( 16v, 14v)
+--( 18v, 13v)
+--( 19v, 13v)
+--( 21v, 14v);
+draw ( 16v,  8v)
+--( 18v,  9v)
+--( 19v,  9v)
+--( 21v,  8v);
+draw ( 11v,  0v)
+--( 12v,  1v)
+--( 13v,  1v)
+--( 15v,  0v)
+--( 19v, -5v)
+--( 21v, -6v)
+--( 22v, -6v);
+draw ( 15v, -1v)
+--( 17v, -4v)
+--( 19v, -6v)
+--( 20v, -6v);
+draw ( 13v,  1v)
+--( 14v,  0v)
+--( 17v, -6v)
+--( 19v, -7v)
+--( 21v, -7v)
+--( 22v, -6v);
+endchar;
+
+beginchar(82,24v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  2v, 19v)
+--(  4v, 21v)
+--(  7v, 21v)
+--(  9v, 20v)
+--( 11v, 21v);
+draw (  5v, 20v)
+--(  8v, 20v);
+draw (  2v, 19v)
+--(  4v, 20v)
+--(  6v, 19v)
+--(  9v, 19v)
+--( 11v, 21v);
+draw (  7v, 16v)
+--(  6v, 15v)
+--(  5v, 13v)
+--(  5v, 12v)
+--(  3v, 12v)
+--(  2v, 11v)
+--(  2v,  9v)
+--(  3v, 10v)
+--(  5v, 10v)
+--(  5v,  4v);
+draw (  6v, 14v)
+--(  6v,  6v);
+draw (  3v, 11v)
+--(  6v, 11v);
+draw (  7v, 16v)
+--(  7v,  7v)
+--(  6v,  5v)
+--(  5v,  4v);
+draw (  4v,  0v)
+--(  7v,  2v)
+--( 10v,  3v)
+--( 12v,  3v)
+--( 15v,  2v);
+draw (  6v,  1v)
+--(  8v,  2v)
+--( 12v,  2v)
+--( 14v,  1v);
+draw (  4v,  0v)
+--(  8v,  1v)
+--( 11v,  1v)
+--( 13v,  0v)
+--( 15v,  2v);
+draw ( 12v, 18v)
+--( 11v, 17v)
+--( 10v, 15v)
+--( 10v,  6v);
+draw ( 11v, 16v)
+--( 11v,  8v);
+draw ( 12v, 18v)
+--( 12v,  9v)
+--( 11v,  7v)
+--( 10v,  6v);
+draw ( 12v, 18v)
+--( 15v, 20v)
+--( 17v, 21v)
+--( 19v, 20v)
+--( 20v, 18v)
+--( 20v, 15v)
+--( 19v, 13v)
+--( 18v, 12v)
+--( 14v, 10v)
+--( 12v,  9v);
+draw ( 17v, 20v)
+--( 18v, 20v)
+--( 19v, 18v)
+--( 19v, 14v)
+--( 18v, 13v);
+draw ( 15v, 20v)
+--( 17v, 19v)
+--( 18v, 17v)
+--( 18v, 14v)
+--( 17v, 12v)
+--( 14v, 10v);
+draw ( 14v, 10v)
+--( 16v,  9v)
+--( 17v,  8v)
+--( 20v,  3v)
+--( 21v,  2v)
+--( 22v,  2v);
+draw ( 17v,  7v)
+--( 19v,  3v)
+--( 21v,  1v);
+draw ( 14v, 10v)
+--( 16v,  8v)
+--( 18v,  2v)
+--( 20v,  0v)
+--( 22v,  2v);
+endchar;
+
+beginchar(83,23v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw ( 14v, 18v)
+--( 13v, 19v)
+--( 11v, 20v)
+--(  8v, 21v);
+draw ( 15v, 19v)
+--( 13v, 20v);
+draw ( 16v, 20v)
+--( 12v, 21v)
+--(  8v, 21v)
+--(  5v, 20v)
+--(  4v, 19v)
+--(  3v, 17v)
+--(  4v, 15v)
+--(  5v, 14v)
+--(  8v, 13v)
+--( 16v, 13v)
+--( 18v, 12v)
+--( 19v, 11v)
+--( 19v,  9v)
+--( 18v,  6v);
+draw (  4v, 16v)
+--(  5v, 15v)
+--(  8v, 14v)
+--( 17v, 14v)
+--( 19v, 13v)
+--( 20v, 12v)
+--( 20v, 10v)
+--( 19v,  8v);
+draw (  4v, 19v)
+--(  4v, 17v)
+--(  5v, 16v)
+--(  8v, 15v)
+--( 18v, 15v)
+--( 20v, 14v)
+--( 21v, 12v)
+--( 21v, 10v)
+--( 18v,  6v)
+--( 14v,  0v);
+draw (  2v, 12v)
+--(  3v, 11v)
+--(  5v, 10v)
+--( 14v, 10v)
+--( 15v,  9v)
+--( 15v,  8v)
+--( 14v,  6v);
+draw (  3v, 10v)
+--(  5v,  9v)
+--( 13v,  9v)
+--( 14v,  8v);
+draw (  2v, 12v)
+--(  2v, 11v)
+--(  3v,  9v)
+--(  5v,  8v)
+--( 12v,  8v)
+--( 14v,  7v)
+--( 14v,  6v);
+draw (  2v,  0v)
+--(  5v,  2v)
+--(  9v,  3v)
+--( 12v,  3v)
+--( 15v,  2v);
+draw (  4v,  1v)
+--(  7v,  2v)
+--( 11v,  2v)
+--( 14v,  1v);
+draw (  2v,  0v)
+--(  6v,  1v)
+--( 11v,  1v)
+--( 14v,  0v);
+draw ( 16v, 20v)
+--( 14v, 18v)
+--( 12v, 15v);
+draw ( 11v, 13v)
+--(  9v, 10v);
+draw (  8v,  8v)
+--(  6v,  6v)
+--(  4v,  5v)
+--(  3v,  5v)
+--(  3v,  6v)
+--(  4v,  5v);
+endchar;
+
+beginchar(84,24v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  5v, 17v)
+--(  4v, 15v)
+--(  3v, 12v)
+--(  3v,  8v)
+--(  4v,  5v)
+--(  6v,  2v)
+--(  8v,  1v)
+--( 11v,  0v)
+--( 14v,  0v)
+--( 17v,  1v)
+--( 19v,  2v)
+--( 21v,  4v)
+--( 22v,  6v);
+draw (  4v,  8v)
+--(  5v,  5v)
+--(  7v,  3v)
+--(  9v,  2v)
+--( 12v,  1v)
+--( 15v,  1v)
+--( 18v,  2v);
+draw (  5v, 17v)
+--(  4v, 14v)
+--(  4v, 10v)
+--(  5v,  7v)
+--(  7v,  4v)
+--(  9v,  3v)
+--( 12v,  2v)
+--( 15v,  2v)
+--( 18v,  3v)
+--( 20v,  4v)
+--( 22v,  6v);
+draw (  3v, 18v)
+--(  4v, 20v)
+--(  6v, 21v)
+--( 10v, 21v)
+--( 16v, 20v)
+--( 20v, 20v)
+--( 22v, 21v);
+draw ( 11v, 20v)
+--( 15v, 19v)
+--( 19v, 19v);
+draw (  3v, 18v)
+--(  4v, 19v)
+--(  6v, 20v)
+--(  9v, 20v)
+--( 15v, 18v)
+--( 18v, 18v)
+--( 20v, 19v)
+--( 22v, 21v);
+draw ( 14v, 18v)
+--( 13v, 17v)
+--( 11v, 16v)
+--( 11v,  5v);
+draw ( 12v, 16v)
+--( 12v,  7v);
+draw ( 13v, 17v)
+--( 13v,  8v)
+--( 12v,  6v)
+--( 11v,  5v);
+draw ( 18v, 18v)
+--( 18v,  3v);
+endchar;
+
+beginchar(85,24v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  2v, 19v)
+--(  4v, 21v)
+--(  6v, 21v)
+--(  9v, 20v)
+--( 11v, 21v);
+draw (  5v, 20v)
+--(  8v, 20v);
+draw (  2v, 19v)
+--(  4v, 20v)
+--(  7v, 19v)
+--(  9v, 19v)
+--( 11v, 21v);
+draw (  5v, 17v)
+--(  4v, 15v)
+--(  3v, 12v)
+--(  3v,  8v)
+--(  4v,  5v)
+--(  5v,  3v)
+--(  7v,  1v)
+--( 10v,  0v)
+--( 13v,  0v)
+--( 16v,  1v)
+--( 18v,  2v)
+--( 20v,  0v)
+--( 22v,  2v);
+draw (  4v,  8v)
+--(  5v,  5v)
+--(  8v,  2v)
+--( 11v,  1v)
+--( 14v,  1v);
+draw (  5v, 17v)
+--(  4v, 13v)
+--(  4v, 10v)
+--(  5v,  7v)
+--(  6v,  5v)
+--(  8v,  3v)
+--( 11v,  2v)
+--( 15v,  2v)
+--( 18v,  3v);
+draw ( 15v, 18v)
+--( 11v, 17v)
+--( 10v, 15v)
+--( 10v,  5v);
+draw ( 11v, 16v)
+--( 11v,  7v);
+draw ( 12v, 17v)
+--( 12v,  8v)
+--( 11v,  6v)
+--( 10v,  5v);
+draw ( 15v, 18v)
+--( 17v, 19v)
+--( 19v, 21v)
+--( 20v, 20v)
+--( 22v, 19v)
+--( 20v, 18v)
+--( 20v,  4v)
+--( 21v,  2v)
+--( 22v,  2v);
+draw ( 19v, 18v)
+--( 20v, 19v)
+--( 19v, 20v)
+--( 18v, 19v)
+--( 19v, 18v)
+--( 19v,  3v)
+--( 21v,  1v);
+draw ( 17v, 19v)
+--( 18v, 18v)
+--( 18v,  3v);
+draw ( 15v, 18v)
+--( 15v,  2v);
+draw ( 15v, 13v)
+--( 18v, 13v);
+draw ( 15v,  9v)
+--( 18v,  9v);
+endchar;
+
+beginchar(86,23v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v, 21v)
+--(  4v, 20v)
+--(  5v, 18v)
+--(  5v, 12v)
+--(  3v, 12v)
+--(  2v, 11v)
+--(  2v,  9v)
+--(  3v, 10v)
+--(  5v, 10v)
+--(  5v,  3v)
+--(  3v,  2v);
+draw (  5v, 19v)
+--(  6v, 17v)
+--(  6v,  3v);
+draw (  3v, 11v)
+--(  6v, 11v);
+draw (  7v,  2v)
+--( 10v,  2v)
+--( 12v,  1v);
+draw (  3v, 21v)
+--(  5v, 20v)
+--(  6v, 19v)
+--(  7v, 17v)
+--(  7v,  3v)
+--( 11v,  3v)
+--( 14v,  2v);
+draw (  3v,  2v)
+--(  6v,  2v)
+--(  9v,  1v)
+--( 11v,  0v)
+--( 14v,  2v)
+--( 17v,  3v)
+--( 19v,  3v);
+draw ( 11v, 17v)
+--( 14v, 18v)
+--( 16v, 19v)
+--( 18v, 21v)
+--( 19v, 20v)
+--( 21v, 19v)
+--( 19v, 18v)
+--( 19v,  3v);
+draw ( 18v, 18v)
+--( 19v, 19v)
+--( 18v, 20v)
+--( 17v, 19v)
+--( 18v, 18v)
+--( 18v,  4v);
+draw ( 16v, 19v)
+--( 17v, 18v)
+--( 17v,  3v);
+draw ( 11v, 17v)
+--( 11v,  3v);
+draw ( 11v, 14v)
+--( 13v, 13v)
+--( 15v, 13v)
+--( 17v, 14v);
+draw ( 11v,  8v)
+--( 13v,  9v)
+--( 15v,  9v)
+--( 17v,  8v);
+endchar;
+
+beginchar(87,27v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v, 21v)
+--(  4v, 20v)
+--(  5v, 18v)
+--(  5v, 12v)
+--(  3v, 12v)
+--(  2v, 11v)
+--(  2v,  9v)
+--(  3v, 10v)
+--(  5v, 10v)
+--(  5v,  3v)
+--(  3v,  2v);
+draw (  5v, 19v)
+--(  6v, 17v)
+--(  6v,  3v);
+draw (  3v, 11v)
+--(  6v, 11v);
+draw (  7v,  2v)
+--(  9v,  2v)
+--( 11v,  1v);
+draw (  3v, 21v)
+--(  5v, 20v)
+--(  6v, 19v)
+--(  7v, 17v)
+--(  7v,  3v)
+--( 10v,  3v)
+--( 12v,  2v);
+draw (  3v,  2v)
+--(  6v,  2v)
+--(  9v,  1v)
+--( 10v,  0v)
+--( 12v,  2v)
+--( 15v,  3v)
+--( 17v,  2v)
+--( 18v,  0v)
+--( 20v,  2v)
+--( 23v,  3v);
+draw ( 10v, 19v)
+--( 13v, 21v)
+--( 15v, 19v)
+--( 15v,  3v)
+--( 18v,  3v)
+--( 20v,  2v);
+draw ( 13v, 20v)
+--( 14v, 19v)
+--( 14v,  3v);
+draw ( 10v, 19v)
+--( 12v, 19v)
+--( 13v, 18v)
+--( 13v,  3v)
+--( 12v,  2v);
+draw ( 18v,  2v)
+--( 19v,  1v);
+draw ( 18v, 19v)
+--( 21v, 21v)
+--( 23v, 19v)
+--( 23v,  3v);
+draw ( 21v, 20v)
+--( 22v, 19v)
+--( 22v,  3v);
+draw ( 18v, 19v)
+--( 20v, 19v)
+--( 21v, 18v)
+--( 21v,  3v)
+--( 20v,  2v);
+draw ( 10v, 19v)
+--( 10v,  3v);
+draw ( 18v, 19v)
+--( 18v,  3v);
+draw ( 10v, 13v)
+--( 13v, 13v);
+draw ( 10v,  9v)
+--( 13v,  9v);
+draw ( 18v, 13v)
+--( 21v, 13v);
+draw ( 18v,  9v)
+--( 21v,  9v);
+endchar;
+
+beginchar(88,22v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  1v, 18v)
+--(  3v, 20v)
+--(  5v, 21v)
+--(  7v, 21v)
+--(  8v, 20v)
+--( 16v,  2v)
+--( 17v,  1v)
+--( 19v,  1v);
+draw (  6v, 20v)
+--(  7v, 19v)
+--( 15v,  2v)
+--( 16v,  1v);
+draw (  3v, 20v)
+--(  5v, 20v)
+--(  6v, 19v)
+--( 14v,  1v)
+--( 15v,  0v)
+--( 17v,  0v)
+--( 19v,  1v)
+--( 21v,  3v);
+draw ( 16v, 21v)
+--( 18v, 20v)
+--( 20v, 20v)
+--( 21v, 21v);
+draw ( 16v, 20v)
+--( 17v, 19v)
+--( 19v, 19v);
+draw ( 15v, 19v)
+--( 16v, 18v)
+--( 18v, 18v)
+--( 20v, 19v)
+--( 21v, 21v);
+draw (  1v,  0v)
+--(  2v,  2v)
+--(  4v,  3v)
+--(  6v,  3v)
+--(  7v,  2v);
+draw (  3v,  2v)
+--(  5v,  2v)
+--(  6v,  1v);
+draw (  1v,  0v)
+--(  2v,  1v)
+--(  4v,  1v)
+--(  6v,  0v);
+draw ( 16v, 21v)
+--( 12v, 12v);
+draw ( 10v,  9v)
+--(  6v,  0v);
+draw (  5v, 11v)
+--(  9v, 11v);
+draw ( 12v, 11v)
+--( 17v, 11v);
+endchar;
+
+beginchar(89,23v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v, 21v)
+--(  4v, 20v)
+--(  5v, 18v)
+--(  5v, 12v)
+--(  3v, 12v)
+--(  2v, 11v)
+--(  2v,  9v)
+--(  3v, 10v)
+--(  5v, 10v)
+--(  5v,  3v)
+--(  3v,  2v);
+draw (  5v, 19v)
+--(  6v, 17v)
+--(  6v,  3v);
+draw (  3v, 11v)
+--(  6v, 11v);
+draw (  7v,  2v)
+--( 10v,  2v)
+--( 12v,  1v);
+draw (  3v, 21v)
+--(  5v, 20v)
+--(  6v, 19v)
+--(  7v, 17v)
+--(  7v,  3v)
+--( 11v,  3v)
+--( 14v,  2v);
+draw (  3v,  2v)
+--(  6v,  2v)
+--(  9v,  1v)
+--( 11v,  0v)
+--( 14v,  2v)
+--( 17v,  3v);
+draw ( 11v, 17v)
+--( 14v, 18v)
+--( 16v, 19v)
+--( 18v, 21v)
+--( 19v, 20v)
+--( 21v, 19v)
+--( 19v, 18v)
+--( 19v, -3v)
+--( 18v, -5v)
+--( 16v, -7v)
+--( 14v, -6v)
+--( 10v, -5v)
+--(  5v, -5v);
+draw ( 18v, 18v)
+--( 19v, 19v)
+--( 18v, 20v)
+--( 17v, 19v)
+--( 18v, 18v)
+--( 18v,  2v);
+draw ( 16v, 19v)
+--( 17v, 18v)
+--( 17v,  3v)
+--( 19v,  0v);
+draw ( 17v, -6v)
+--( 15v, -5v)
+--( 12v, -5v);
+draw ( 18v, -5v)
+--( 15v, -4v)
+--(  9v, -4v)
+--(  5v, -5v);
+draw ( 11v, 17v)
+--( 11v,  3v);
+draw ( 11v, 14v)
+--( 13v, 13v)
+--( 15v, 13v)
+--( 17v, 14v);
+draw ( 11v,  8v)
+--( 13v,  9v)
+--( 15v,  9v)
+--( 17v,  8v);
+endchar;
+
+beginchar(90,20v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw ( 16v, 20v)
+--( 15v, 18v)
+--( 10v, 12v)
+--(  7v,  8v)
+--(  5v,  4v)
+--(  2v,  0v);
+draw ( 14v, 16v)
+--(  6v,  5v);
+draw ( 18v, 21v)
+--( 15v, 17v)
+--( 13v, 13v)
+--( 10v,  9v)
+--(  5v,  3v)
+--(  4v,  1v);
+draw (  2v, 19v)
+--(  4v, 21v)
+--(  7v, 20v)
+--( 13v, 20v)
+--( 18v, 21v);
+draw (  3v, 20v)
+--(  7v, 19v)
+--( 11v, 19v)
+--( 15v, 20v);
+draw (  2v, 19v)
+--(  6v, 18v)
+--( 10v, 18v)
+--( 14v, 19v)
+--( 16v, 20v);
+draw (  4v,  1v)
+--(  6v,  2v)
+--( 10v,  3v)
+--( 14v,  3v)
+--( 18v,  2v);
+draw (  5v,  1v)
+--(  9v,  2v)
+--( 13v,  2v)
+--( 17v,  1v);
+draw (  2v,  0v)
+--(  7v,  1v)
+--( 13v,  1v)
+--( 16v,  0v)
+--( 18v,  2v);
+draw (  5v, 11v)
+--(  9v, 11v);
+draw ( 12v, 11v)
+--( 16v, 11v);
+endchar;
+
+beginchar(91,14v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 25v)
+--(  4v, -7v);
+draw (  5v, 25v)
+--(  5v, -7v);
+draw (  4v, 25v)
+--( 11v, 25v);
+draw (  4v, -7v)
+--( 11v, -7v);
+endchar;
+
+beginchar(93,14v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  9v, 25v)
+--(  9v, -7v);
+draw ( 10v, 25v)
+--( 10v, -7v);
+draw (  3v, 25v)
+--( 10v, 25v);
+draw (  3v, -7v)
+--( 10v, -7v);
+endchar;
+
+beginchar(94,22v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v,  7v)
+--( 11v, 12v)
+--( 19v,  7v);
+draw (  3v,  7v)
+--( 11v, 11v)
+--( 19v,  7v);
+endchar;
+
+beginchar(96,12v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  8v, 21v)
+--(  6v, 20v)
+--(  5v, 18v)
+--(  5v, 16v)
+--(  6v, 14v)
+--(  8v, 16v)
+--(  6v, 18v)
+--(  6v, 20v);
+draw (  6v, 17v)
+--(  6v, 15v)
+--(  7v, 16v)
+--(  6v, 17v);
+endchar;
+
+beginchar(97,17v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  6v,  9v)
+--(  4v,  7v)
+--(  3v,  5v)
+--(  3v,  3v)
+--(  4v,  1v)
+--(  6v,  0v)
+--(  8v,  2v)
+--( 11v,  3v);
+draw (  3v,  5v)
+--(  4v,  3v)
+--(  5v,  2v)
+--(  7v,  1v);
+draw (  4v,  7v)
+--(  4v,  5v)
+--(  5v,  3v)
+--(  7v,  2v)
+--(  8v,  2v);
+draw (  4v, 11v)
+--(  6v, 11v)
+--(  9v, 12v)
+--( 11v, 13v)
+--( 12v, 14v)
+--( 14v, 12v)
+--( 13v, 11v)
+--( 13v,  3v)
+--( 14v,  2v)
+--( 15v,  2v);
+draw (  5v, 13v)
+--(  4v, 12v)
+--(  7v, 12v);
+draw ( 10v, 12v)
+--( 13v, 12v)
+--( 12v, 13v)
+--( 12v,  2v)
+--( 13v,  1v);
+draw (  3v, 12v)
+--(  5v, 14v)
+--(  6v, 13v)
+--(  8v, 12v)
+--( 11v, 11v)
+--( 11v,  2v)
+--( 13v,  0v)
+--( 15v,  2v);
+draw (  3v, 12v)
+--(  8v,  7v);
+endchar;
+
+beginchar(98,18v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v, 19v)
+--(  4v, 17v)
+--(  4v,  3v)
+--(  2v,  2v);
+draw (  5v, 17v)
+--(  4v, 19v)
+--(  5v, 20v)
+--(  5v,  3v)
+--(  8v,  1v);
+draw (  3v, 19v)
+--(  6v, 21v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  9v,  1v);
+draw (  2v,  2v)
+--(  4v,  2v)
+--(  6v,  1v)
+--(  7v,  0v)
+--(  9v,  1v)
+--( 12v,  2v)
+--( 14v,  2v);
+draw (  6v, 11v)
+--(  9v, 12v)
+--( 11v, 13v)
+--( 12v, 14v)
+--( 13v, 13v)
+--( 15v, 12v)
+--( 16v, 12v)
+--( 14v, 11v)
+--( 14v,  2v);
+draw ( 11v, 13v)
+--( 13v, 12v)
+--( 13v,  3v);
+draw (  9v, 12v)
+--( 10v, 12v)
+--( 12v, 11v)
+--( 12v,  2v);
+endchar;
+
+beginchar(99,14v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 12v)
+--(  4v,  3v)
+--(  2v,  2v)
+--(  3v,  2v)
+--(  5v,  1v)
+--(  6v,  0v);
+draw (  5v, 12v)
+--(  5v,  2v)
+--(  7v,  1v);
+draw (  6v, 12v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  9v,  2v)
+--(  7v,  1v)
+--(  6v,  0v);
+draw (  4v, 12v)
+--(  8v, 13v)
+--( 10v, 14v)
+--( 11v, 13v)
+--( 13v, 12v)
+--( 14v, 12v);
+draw (  9v, 13v)
+--( 10v, 12v)
+--( 12v, 12v);
+draw (  6v, 12v)
+--(  8v, 13v)
+--( 10v, 11v)
+--( 12v, 11v)
+--( 14v, 12v);
+endchar;
+
+beginchar(100,17v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  9v, 14v)
+--(  7v, 13v)
+--(  4v, 12v)
+--(  4v,  3v)
+--(  2v,  2v);
+draw (  5v, 12v)
+--(  5v,  3v)
+--(  8v,  1v);
+draw (  9v, 14v)
+--(  6v, 12v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  9v,  1v);
+draw (  2v,  2v)
+--(  4v,  2v)
+--(  6v,  1v)
+--(  7v,  0v)
+--(  9v,  1v)
+--( 12v,  2v)
+--( 14v,  2v);
+draw (  4v, 19v)
+--(  7v, 21v)
+--(  8v, 18v)
+--( 14v, 12v)
+--( 14v,  2v);
+draw (  7v, 18v)
+--(  5v, 19v)
+--(  6v, 20v)
+--(  7v, 18v)
+--( 13v, 12v)
+--( 13v,  3v);
+draw (  4v, 19v)
+--( 12v, 11v)
+--( 12v,  2v);
+endchar;
+
+beginchar(101,14v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 12v)
+--(  4v,  3v)
+--(  2v,  2v)
+--(  3v,  2v)
+--(  5v,  1v)
+--(  6v,  0v);
+draw (  5v, 12v)
+--(  5v,  2v)
+--(  7v,  1v);
+draw (  6v, 12v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  9v,  2v)
+--(  7v,  1v)
+--(  6v,  0v);
+draw (  4v, 12v)
+--(  8v, 13v)
+--( 10v, 14v)
+--( 13v, 10v)
+--( 11v,  9v)
+--(  6v,  6v);
+draw (  9v, 13v)
+--( 12v, 10v);
+draw (  6v, 12v)
+--(  8v, 13v)
+--( 11v,  9v);
+endchar;
+
+beginchar(102,13v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 19v)
+--(  4v,  3v)
+--(  2v,  2v)
+--(  3v,  2v)
+--(  5v,  1v)
+--(  6v,  0v);
+draw (  5v, 19v)
+--(  5v,  2v)
+--(  7v,  1v);
+draw (  6v, 19v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  9v,  2v)
+--(  7v,  1v)
+--(  6v,  0v);
+draw (  4v, 19v)
+--(  7v, 20v)
+--(  9v, 21v)
+--( 10v, 20v)
+--( 12v, 19v)
+--( 13v, 19v);
+draw (  8v, 20v)
+--(  9v, 19v)
+--( 11v, 19v);
+draw (  6v, 19v)
+--(  7v, 20v)
+--(  9v, 18v)
+--( 11v, 18v)
+--( 13v, 19v);
+draw (  1v, 14v)
+--(  4v, 14v);
+draw (  6v, 14v)
+--( 10v, 14v);
+endchar;
+
+beginchar(103,18v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 12v)
+--(  4v,  3v)
+--(  2v,  2v)
+--(  3v,  2v)
+--(  5v,  1v)
+--(  6v,  0v)
+--(  7v,  1v)
+--(  9v,  2v)
+--( 12v,  3v);
+draw (  5v, 11v)
+--(  5v,  2v)
+--(  7v,  1v);
+draw (  6v, 12v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  9v,  2v);
+draw (  4v, 12v)
+--(  6v, 12v)
+--(  9v, 13v)
+--( 11v, 14v)
+--( 12v, 13v)
+--( 14v, 12v)
+--( 16v, 12v)
+--( 14v, 11v)
+--( 14v, -1v)
+--( 13v, -4v)
+--( 11v, -6v)
+--(  9v, -7v)
+--(  8v, -6v)
+--(  6v, -5v)
+--(  4v, -5v);
+draw ( 10v, 13v)
+--( 13v, 11v)
+--( 13v, -1v);
+draw ( 10v, -6v)
+--(  8v, -5v)
+--(  7v, -5v);
+draw (  9v, 13v)
+--( 10v, 12v)
+--( 12v, 11v)
+--( 12v,  1v)
+--( 13v, -2v)
+--( 13v, -4v);
+draw ( 11v, -6v)
+--( 10v, -5v)
+--(  8v, -4v)
+--(  6v, -4v)
+--(  4v, -5v);
+endchar;
+
+beginchar(104,18v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v, 19v)
+--(  4v, 17v)
+--(  4v,  3v)
+--(  2v,  2v)
+--(  3v,  2v)
+--(  5v,  1v)
+--(  6v,  0v);
+draw (  5v, 17v)
+--(  4v, 19v)
+--(  5v, 20v)
+--(  5v,  2v)
+--(  7v,  1v);
+draw (  3v, 19v)
+--(  6v, 21v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  6v,  0v);
+draw (  6v, 11v)
+--(  9v, 12v)
+--( 11v, 13v)
+--( 12v, 14v)
+--( 13v, 13v)
+--( 15v, 12v)
+--( 16v, 12v)
+--( 14v, 11v)
+--( 14v,  2v)
+--( 12v,  0v)
+--( 11v, -2v);
+draw ( 11v, 13v)
+--( 13v, 12v)
+--( 13v,  2v)
+--( 12v,  0v);
+draw (  9v, 12v)
+--( 10v, 12v)
+--( 12v, 11v)
+--( 12v,  2v)
+--( 11v, -2v)
+--( 11v, -5v)
+--( 12v, -7v)
+--( 13v, -7v)
+--( 11v, -5v);
+endchar;
+
+beginchar(105,10v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  5v, 21v)
+--(  3v, 19v)
+--(  5v, 18v)
+--(  7v, 19v)
+--(  5v, 21v);
+draw (  5v, 20v)
+--(  4v, 19v)
+--(  6v, 19v)
+--(  5v, 20v);
+draw (  5v, 14v)
+--(  4v, 13v)
+--(  2v, 12v)
+--(  4v, 11v)
+--(  4v,  2v)
+--(  6v,  0v)
+--(  8v,  2v);
+draw (  5v, 11v)
+--(  6v, 12v)
+--(  5v, 13v)
+--(  4v, 12v)
+--(  5v, 11v)
+--(  5v,  2v)
+--(  6v,  1v);
+draw (  5v, 14v)
+--(  6v, 13v)
+--(  8v, 12v)
+--(  6v, 11v)
+--(  6v,  3v)
+--(  7v,  2v)
+--(  8v,  2v);
+endchar;
+
+beginchar(106,10v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  5v, 21v)
+--(  3v, 19v)
+--(  5v, 18v)
+--(  7v, 19v)
+--(  5v, 21v);
+draw (  5v, 20v)
+--(  4v, 19v)
+--(  6v, 19v)
+--(  5v, 20v);
+draw (  5v, 14v)
+--(  4v, 13v)
+--(  2v, 12v)
+--(  4v, 11v)
+--(  4v,  2v)
+--(  6v,  0v)
+--(  7v, -2v);
+draw (  5v, 11v)
+--(  6v, 12v)
+--(  5v, 13v)
+--(  4v, 12v)
+--(  5v, 11v)
+--(  5v,  2v)
+--(  6v,  0v);
+draw (  5v, 14v)
+--(  6v, 13v)
+--(  8v, 12v)
+--(  6v, 11v)
+--(  6v,  2v)
+--(  7v, -2v)
+--(  7v, -5v)
+--(  5v, -7v)
+--(  3v, -7v)
+--(  3v, -6v)
+--(  5v, -7v);
+endchar;
+
+beginchar(107,17v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v, 19v)
+--(  4v, 17v)
+--(  4v,  3v)
+--(  2v,  2v)
+--(  3v,  2v)
+--(  5v,  1v)
+--(  6v,  0v);
+draw (  5v, 17v)
+--(  4v, 19v)
+--(  5v, 20v)
+--(  5v,  2v)
+--(  7v,  1v);
+draw (  3v, 19v)
+--(  6v, 21v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  6v,  0v);
+draw (  6v, 11v)
+--(  9v, 13v)
+--( 11v, 14v)
+--( 13v, 11v)
+--( 10v,  9v)
+--(  6v,  6v);
+draw ( 10v, 13v)
+--( 12v, 11v);
+draw (  9v, 13v)
+--( 11v, 10v);
+draw ( 10v,  9v)
+--( 11v,  8v)
+--( 13v,  3v)
+--( 14v,  2v)
+--( 15v,  2v);
+draw ( 10v,  8v)
+--( 11v,  7v)
+--( 12v,  2v)
+--( 13v,  1v);
+draw (  9v,  8v)
+--( 10v,  7v)
+--( 11v,  2v)
+--( 13v,  0v)
+--( 15v,  2v);
+endchar;
+
+beginchar(108,10v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v, 19v)
+--(  4v, 17v)
+--(  4v,  3v)
+--(  2v,  2v)
+--(  3v,  2v)
+--(  5v,  1v)
+--(  6v,  0v);
+draw (  5v, 17v)
+--(  4v, 19v)
+--(  5v, 20v)
+--(  5v,  2v)
+--(  7v,  1v);
+draw (  3v, 19v)
+--(  6v, 21v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  9v,  2v)
+--(  7v,  1v)
+--(  6v,  0v);
+endchar;
+
+beginchar(109,26v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  2v, 12v)
+--(  3v, 12v)
+--(  4v, 11v)
+--(  4v,  3v)
+--(  2v,  2v)
+--(  3v,  2v)
+--(  5v,  1v)
+--(  6v,  0v);
+draw (  4v, 13v)
+--(  5v, 12v)
+--(  5v,  2v)
+--(  7v,  1v);
+draw (  2v, 12v)
+--(  4v, 14v)
+--(  6v, 12v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  6v,  0v);
+draw (  6v, 11v)
+--(  9v, 12v)
+--( 11v, 13v)
+--( 12v, 14v)
+--( 14v, 12v)
+--( 14v,  3v)
+--( 16v,  2v)
+--( 14v,  0v);
+draw ( 11v, 13v)
+--( 13v, 12v)
+--( 13v,  2v)
+--( 15v,  1v);
+draw (  9v, 12v)
+--( 10v, 12v)
+--( 12v, 11v)
+--( 12v,  3v)
+--( 11v,  2v)
+--( 13v,  1v)
+--( 14v,  0v);
+draw ( 14v, 11v)
+--( 17v, 12v)
+--( 19v, 13v)
+--( 20v, 14v)
+--( 21v, 13v)
+--( 23v, 12v)
+--( 24v, 12v)
+--( 22v, 11v)
+--( 22v,  3v)
+--( 23v,  2v)
+--( 24v,  2v);
+draw ( 19v, 13v)
+--( 21v, 12v)
+--( 21v,  2v)
+--( 22v,  1v);
+draw ( 17v, 12v)
+--( 18v, 12v)
+--( 20v, 11v)
+--( 20v,  2v)
+--( 22v,  0v)
+--( 24v,  2v);
+endchar;
+
+beginchar(110,18v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  2v, 12v)
+--(  3v, 12v)
+--(  4v, 11v)
+--(  4v,  3v)
+--(  2v,  2v)
+--(  3v,  2v)
+--(  5v,  1v)
+--(  6v,  0v);
+draw (  4v, 13v)
+--(  5v, 12v)
+--(  5v,  2v)
+--(  7v,  1v);
+draw (  2v, 12v)
+--(  4v, 14v)
+--(  6v, 12v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  6v,  0v);
+draw (  6v, 11v)
+--(  9v, 12v)
+--( 11v, 13v)
+--( 12v, 14v)
+--( 13v, 13v)
+--( 15v, 12v)
+--( 16v, 12v)
+--( 14v, 11v)
+--( 14v,  3v)
+--( 15v,  2v)
+--( 16v,  2v);
+draw ( 11v, 13v)
+--( 13v, 12v)
+--( 13v,  2v)
+--( 14v,  1v);
+draw (  9v, 12v)
+--( 10v, 12v)
+--( 12v, 11v)
+--( 12v,  2v)
+--( 14v,  0v)
+--( 16v,  2v);
+endchar;
+
+beginchar(111,18v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 12v)
+--(  4v,  3v)
+--(  2v,  2v);
+draw (  5v, 11v)
+--(  5v,  3v)
+--(  8v,  1v);
+draw (  6v, 12v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  9v,  1v);
+draw (  2v,  2v)
+--(  4v,  2v)
+--(  6v,  1v)
+--(  7v,  0v)
+--(  9v,  1v)
+--( 12v,  2v)
+--( 14v,  2v);
+draw (  4v, 12v)
+--(  6v, 12v)
+--(  9v, 13v)
+--( 11v, 14v)
+--( 12v, 13v)
+--( 14v, 12v)
+--( 16v, 12v)
+--( 14v, 11v)
+--( 14v,  2v);
+draw ( 10v, 13v)
+--( 13v, 11v)
+--( 13v,  3v);
+draw (  9v, 13v)
+--( 10v, 12v)
+--( 12v, 11v)
+--( 12v,  2v);
+endchar;
+
+beginchar(112,18v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v, 14v)
+--(  4v, 12v)
+--(  4v,  3v)
+--(  2v,  2v)
+--(  4v,  2v)
+--(  4v, -7v);
+draw (  4v, 13v)
+--(  5v, 12v)
+--(  5v, -6v)
+--(  6v, -5v)
+--(  5v, -3v);
+draw (  5v,  2v)
+--(  6v,  2v)
+--(  8v,  1v);
+draw (  3v, 14v)
+--(  5v, 13v)
+--(  6v, 12v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  9v,  1v);
+draw (  6v,  1v)
+--(  7v,  0v)
+--(  9v,  1v)
+--( 12v,  2v)
+--( 14v,  2v);
+draw (  6v,  1v)
+--(  6v, -3v)
+--(  7v, -5v)
+--(  4v, -7v);
+draw (  6v, 11v)
+--(  9v, 12v)
+--( 11v, 13v)
+--( 12v, 14v)
+--( 13v, 13v)
+--( 15v, 12v)
+--( 16v, 12v)
+--( 14v, 11v)
+--( 14v,  2v);
+draw ( 11v, 13v)
+--( 13v, 12v)
+--( 13v,  3v);
+draw (  9v, 12v)
+--( 10v, 12v)
+--( 12v, 11v)
+--( 12v,  2v);
+endchar;
+
+beginchar(113,18v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 12v)
+--(  4v,  3v)
+--(  2v,  2v);
+draw (  5v, 11v)
+--(  5v,  2v)
+--(  7v,  1v);
+draw (  6v, 12v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  9v,  2v);
+draw (  2v,  2v)
+--(  3v,  2v)
+--(  5v,  1v)
+--(  6v,  0v)
+--(  7v,  1v)
+--(  9v,  2v)
+--( 12v,  3v);
+draw (  4v, 12v)
+--(  6v, 12v)
+--(  9v, 13v)
+--( 11v, 14v)
+--( 12v, 13v)
+--( 14v, 12v)
+--( 16v, 12v)
+--( 14v, 11v)
+--( 14v, -7v);
+draw ( 10v, 13v)
+--( 13v, 11v)
+--( 13v, -6v)
+--( 12v, -5v)
+--( 13v, -3v);
+draw (  9v, 13v)
+--( 10v, 12v)
+--( 12v, 11v)
+--( 12v, -3v)
+--( 11v, -5v)
+--( 14v, -7v);
+endchar;
+
+beginchar(114,14v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  2v, 12v)
+--(  3v, 12v)
+--(  4v, 11v)
+--(  4v,  3v)
+--(  2v,  2v)
+--(  3v,  2v)
+--(  5v,  1v)
+--(  6v,  0v);
+draw (  3v, 13v)
+--(  5v, 12v)
+--(  5v,  2v)
+--(  7v,  1v);
+draw (  2v, 12v)
+--(  4v, 14v)
+--(  6v, 12v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  9v,  2v)
+--(  7v,  1v)
+--(  6v,  0v);
+draw (  6v, 12v)
+--( 10v, 14v)
+--( 11v, 13v)
+--( 13v, 12v)
+--( 14v, 12v);
+draw (  9v, 13v)
+--( 10v, 12v)
+--( 12v, 12v);
+draw (  8v, 13v)
+--( 10v, 11v)
+--( 12v, 11v)
+--( 14v, 12v);
+endchar;
+
+beginchar(115,16v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v, 12v)
+--(  3v,  8v)
+--(  5v,  7v)
+--( 11v,  7v)
+--( 13v,  6v)
+--( 13v,  2v);
+draw (  4v, 12v)
+--(  4v,  8v);
+draw ( 12v,  6v)
+--( 12v,  2v);
+draw (  6v, 13v)
+--(  5v, 12v)
+--(  5v,  8v)
+--(  7v,  7v);
+draw (  9v,  7v)
+--( 11v,  6v)
+--( 11v,  2v)
+--( 10v,  1v);
+draw (  3v, 12v)
+--(  6v, 13v)
+--(  8v, 14v)
+--( 10v, 13v)
+--( 12v, 13v)
+--( 13v, 14v);
+draw (  7v, 13v)
+--(  9v, 13v);
+draw (  6v, 13v)
+--(  8v, 12v)
+--( 10v, 12v)
+--( 12v, 13v);
+draw ( 13v,  2v)
+--( 10v,  1v)
+--(  8v,  0v)
+--(  6v,  1v)
+--(  4v,  1v)
+--(  2v,  0v);
+draw (  9v,  1v)
+--(  7v,  1v);
+draw ( 10v,  1v)
+--(  8v,  2v)
+--(  5v,  2v)
+--(  2v,  0v);
+draw ( 13v, 14v)
+--( 12v, 12v)
+--( 10v,  9v)
+--(  5v,  4v)
+--(  2v,  0v);
+endchar;
+
+beginchar(116,10v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v, 19v)
+--(  4v, 17v)
+--(  4v,  3v)
+--(  2v,  2v)
+--(  3v,  2v)
+--(  5v,  1v)
+--(  6v,  0v);
+draw (  5v, 17v)
+--(  4v, 19v)
+--(  5v, 20v)
+--(  5v,  2v)
+--(  7v,  1v);
+draw (  3v, 19v)
+--(  6v, 21v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  9v,  2v)
+--(  7v,  1v)
+--(  6v,  0v);
+draw (  1v, 14v)
+--(  4v, 14v);
+draw (  6v, 14v)
+--(  9v, 14v);
+endchar;
+
+beginchar(117,18v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  2v, 12v)
+--(  3v, 12v)
+--(  4v, 11v)
+--(  4v,  3v)
+--(  2v,  2v);
+draw (  3v, 13v)
+--(  5v, 12v)
+--(  5v,  2v)
+--(  7v,  1v);
+draw (  2v, 12v)
+--(  4v, 14v)
+--(  6v, 12v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  9v,  2v);
+draw (  2v,  2v)
+--(  3v,  2v)
+--(  5v,  1v)
+--(  6v,  0v)
+--(  7v,  1v)
+--(  9v,  2v)
+--( 12v,  3v);
+draw ( 12v, 14v)
+--( 13v, 13v)
+--( 15v, 12v)
+--( 16v, 12v)
+--( 14v, 11v)
+--( 14v,  3v)
+--( 15v,  2v)
+--( 16v,  2v);
+draw ( 11v, 13v)
+--( 13v, 12v)
+--( 13v,  2v)
+--( 14v,  1v);
+draw ( 12v, 14v)
+--( 10v, 12v)
+--( 12v, 11v)
+--( 12v,  2v)
+--( 14v,  0v)
+--( 16v,  2v);
+endchar;
+
+beginchar(118,18v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v, 14v)
+--(  4v, 12v)
+--(  4v,  3v)
+--(  7v,  0v)
+--(  9v,  2v)
+--( 12v,  3v)
+--( 14v,  3v);
+draw (  4v, 13v)
+--(  5v, 12v)
+--(  5v,  3v)
+--(  8v,  1v);
+draw (  3v, 14v)
+--(  5v, 13v)
+--(  6v, 12v)
+--(  6v,  4v)
+--(  7v,  3v)
+--(  9v,  2v);
+draw ( 12v, 14v)
+--( 13v, 13v)
+--( 15v, 12v)
+--( 16v, 12v)
+--( 14v, 11v)
+--( 14v,  3v);
+draw ( 11v, 13v)
+--( 13v, 12v)
+--( 13v,  4v);
+draw ( 12v, 14v)
+--( 10v, 12v)
+--( 12v, 11v)
+--( 12v,  3v);
+endchar;
+
+beginchar(119,26v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v, 14v)
+--(  4v, 12v)
+--(  4v,  3v)
+--(  7v,  0v)
+--(  9v,  2v)
+--( 12v,  3v);
+draw (  4v, 13v)
+--(  5v, 12v)
+--(  5v,  3v)
+--(  8v,  1v);
+draw (  3v, 14v)
+--(  5v, 13v)
+--(  6v, 12v)
+--(  6v,  4v)
+--(  7v,  3v)
+--(  9v,  2v);
+draw ( 12v, 14v)
+--( 10v, 12v)
+--( 12v, 11v)
+--( 12v,  3v)
+--( 15v,  0v)
+--( 17v,  2v)
+--( 20v,  3v)
+--( 22v,  3v);
+draw ( 11v, 13v)
+--( 13v, 12v)
+--( 13v,  3v)
+--( 16v,  1v);
+draw ( 12v, 14v)
+--( 13v, 13v)
+--( 15v, 12v)
+--( 14v, 11v)
+--( 14v,  4v)
+--( 15v,  3v)
+--( 17v,  2v);
+draw ( 20v, 14v)
+--( 21v, 13v)
+--( 23v, 12v)
+--( 24v, 12v)
+--( 22v, 11v)
+--( 22v,  3v);
+draw ( 19v, 13v)
+--( 21v, 12v)
+--( 21v,  4v);
+draw ( 20v, 14v)
+--( 18v, 12v)
+--( 20v, 11v)
+--( 20v,  3v);
+endchar;
+
+beginchar(120,19v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v, 12v)
+--(  4v, 12v)
+--(  6v, 11v)
+--(  7v, 10v)
+--( 11v,  2v)
+--( 12v,  1v)
+--( 14v,  0v)
+--( 16v,  2v);
+draw (  5v, 13v)
+--(  7v, 12v)
+--( 12v,  2v)
+--( 14v,  1v);
+draw (  3v, 12v)
+--(  5v, 14v)
+--(  7v, 13v)
+--(  8v, 12v)
+--( 12v,  4v)
+--( 13v,  3v)
+--( 15v,  2v)
+--( 16v,  2v);
+draw ( 10v,  8v)
+--( 13v, 14v)
+--( 14v, 13v)
+--( 16v, 13v)
+--( 17v, 14v);
+draw ( 13v, 13v)
+--( 14v, 12v)
+--( 15v, 12v);
+draw ( 12v, 12v)
+--( 14v, 11v)
+--( 16v, 12v)
+--( 17v, 14v);
+draw (  9v,  6v)
+--(  6v,  0v)
+--(  5v,  1v)
+--(  3v,  1v)
+--(  2v,  0v);
+draw (  6v,  1v)
+--(  5v,  2v)
+--(  4v,  2v);
+draw (  7v,  2v)
+--(  5v,  3v)
+--(  3v,  2v)
+--(  2v,  0v);
+draw (  5v,  7v)
+--(  8v,  7v);
+draw ( 11v,  7v)
+--( 14v,  7v);
+endchar;
+
+beginchar(121,18v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  2v, 12v)
+--(  3v, 12v)
+--(  4v, 11v)
+--(  4v,  3v)
+--(  2v,  2v);
+draw (  3v, 13v)
+--(  5v, 12v)
+--(  5v,  2v)
+--(  7v,  1v);
+draw (  2v, 12v)
+--(  4v, 14v)
+--(  6v, 12v)
+--(  6v,  3v)
+--(  8v,  2v)
+--(  9v,  2v);
+draw (  2v,  2v)
+--(  3v,  2v)
+--(  5v,  1v)
+--(  6v,  0v)
+--(  7v,  1v)
+--(  9v,  2v)
+--( 12v,  3v);
+draw ( 12v, 14v)
+--( 13v, 13v)
+--( 15v, 12v)
+--( 16v, 12v)
+--( 14v, 11v)
+--( 14v, -1v)
+--( 13v, -4v)
+--( 11v, -6v)
+--(  9v, -7v)
+--(  8v, -6v)
+--(  6v, -5v)
+--(  4v, -5v);
+draw ( 11v, 13v)
+--( 13v, 12v)
+--( 13v, -1v);
+draw ( 10v, -6v)
+--(  8v, -5v)
+--(  7v, -5v);
+draw ( 12v, 14v)
+--( 10v, 12v)
+--( 12v, 11v)
+--( 12v,  1v)
+--( 13v, -2v)
+--( 13v, -4v);
+draw ( 11v, -6v)
+--( 10v, -5v)
+--(  8v, -4v)
+--(  6v, -4v)
+--(  4v, -5v);
+endchar;
+
+beginchar(122,18v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw ( 15v, 14v)
+--(  3v,  0v);
+draw (  3v, 12v)
+--(  5v, 11v)
+--(  8v, 11v)
+--( 11v, 12v)
+--( 15v, 14v);
+draw (  4v, 13v)
+--(  6v, 12v)
+--( 10v, 12v);
+draw (  3v, 12v)
+--(  5v, 14v)
+--(  7v, 13v)
+--( 11v, 13v)
+--( 15v, 14v);
+draw (  3v,  0v)
+--(  7v,  2v)
+--( 10v,  3v)
+--( 13v,  3v)
+--( 15v,  2v);
+draw (  8v,  2v)
+--( 12v,  2v)
+--( 14v,  1v);
+draw (  3v,  0v)
+--(  7v,  1v)
+--( 11v,  1v)
+--( 13v,  0v)
+--( 15v,  2v);
+draw (  5v,  7v)
+--( 13v,  7v);
+endchar;
+
+beginchar(123,14v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  9v, 25v)
+--(  7v, 24v)
+--(  6v, 23v)
+--(  5v, 21v)
+--(  5v, 19v)
+--(  6v, 17v)
+--(  7v, 16v)
+--(  8v, 14v)
+--(  8v, 12v)
+--(  6v, 10v);
+draw (  7v, 24v)
+--(  6v, 22v)
+--(  6v, 20v)
+--(  7v, 18v)
+--(  8v, 17v)
+--(  9v, 15v)
+--(  9v, 13v)
+--(  8v, 11v)
+--(  4v,  9v)
+--(  8v,  7v)
+--(  9v,  5v)
+--(  9v,  3v)
+--(  8v,  1v)
+--(  7v,  0v)
+--(  6v, -2v)
+--(  6v, -4v)
+--(  7v, -6v);
+draw (  6v,  8v)
+--(  8v,  6v)
+--(  8v,  4v)
+--(  7v,  2v)
+--(  6v,  1v)
+--(  5v, -1v)
+--(  5v, -3v)
+--(  6v, -5v)
+--(  7v, -6v)
+--(  9v, -7v);
+endchar;
+
+beginchar(124,8v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  4v, 25v)
+--(  4v, -7v);
+endchar;
+
+beginchar(125,14v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  5v, 25v)
+--(  7v, 24v)
+--(  8v, 23v)
+--(  9v, 21v)
+--(  9v, 19v)
+--(  8v, 17v)
+--(  7v, 16v)
+--(  6v, 14v)
+--(  6v, 12v)
+--(  8v, 10v);
+draw (  7v, 24v)
+--(  8v, 22v)
+--(  8v, 20v)
+--(  7v, 18v)
+--(  6v, 17v)
+--(  5v, 15v)
+--(  5v, 13v)
+--(  6v, 11v)
+--( 10v,  9v)
+--(  6v,  7v)
+--(  5v,  5v)
+--(  5v,  3v)
+--(  6v,  1v)
+--(  7v,  0v)
+--(  8v, -2v)
+--(  8v, -4v)
+--(  7v, -6v);
+draw (  8v,  8v)
+--(  6v,  6v)
+--(  6v,  4v)
+--(  7v,  2v)
+--(  8v,  1v)
+--(  9v, -1v)
+--(  9v, -3v)
+--(  8v, -5v)
+--(  7v, -6v)
+--(  5v, -7v);
+endchar;
+
+beginchar(126,24v#,8pt#,1pt#);
+pickup pencircle scaled 1.5v;
+draw (  3v,  6v)
+--(  3v,  8v)
+--(  4v, 11v)
+--(  6v, 12v)
+--(  8v, 12v)
+--( 10v, 11v)
+--( 14v,  8v)
+--( 16v,  7v)
+--( 18v,  7v)
+--( 20v,  8v)
+--( 21v, 10v);
+draw (  3v,  8v)
+--(  4v, 10v)
+--(  6v, 11v)
+--(  8v, 11v)
+--( 10v, 10v)
+--( 14v,  7v)
+--( 16v,  6v)
+--( 18v,  6v)
+--( 20v,  7v)
+--( 21v, 10v)
+--( 21v, 12v);
+endchar;
+
+bye.

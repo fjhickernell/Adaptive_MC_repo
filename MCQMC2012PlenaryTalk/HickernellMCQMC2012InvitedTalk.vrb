@@ -1,0 +1,34 @@
+\frametitle{MATLAB's Quadrature Routine {\tt quad} Works Well, \emph{but It Can Be Fooled}}
+\begin{tabular}{>{\centering}m{3.7cm}>{\centering}m{3.7cm}>{\centering}m{3.7cm}}
+\includegraphics[width=3.7cm]{erfplot.eps}
+&
+\includegraphics[width=3.7cm]{FoolQuadFunction.eps}
+&
+\includegraphics[width=3.7cm]{FoolQuadOscillFunctionPiece.eps}
+\tabularnewline[-3ex]
+\centering
+\begin{multline*}
+\frac{2}{\sqrt{\pi}}\int_0^1 \me^{-x^2} \, \dif x \\
+=0.8427007929497149
+\end{multline*}
+&
+\begin{equation*}
+\int_0^1 f(x) \, \dif x =1.5436
+\end{equation*}
+&
+\begin{equation*}
+\int_0^1 [1+\cos(200\pi x)] \, \dif x =1
+\end{equation*}
+\tabularnewline[-3ex]
+\alert{\tt quad} $\to$ \newline
+{\tt 0.8427007929497149}
+in {\tt 0.160521} seconds.
+&
+\alert{but {\tt quad}} $\to$\newline
+{\tt 2} \newline
+in {\tt 0.007092} seconds.
+&
+\alert{but {\tt quad}} $\to$\newline
+{\tt 0.7636784919876782}
+\newline in {\tt 0.205272} seconds.
+\end{tabular}

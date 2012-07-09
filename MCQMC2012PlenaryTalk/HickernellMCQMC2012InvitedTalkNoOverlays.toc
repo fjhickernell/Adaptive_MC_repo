@@ -1,0 +1,5 @@
+\beamer@endinputifotherversion {3.12pt}
+\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
+\beamer@sectionintoc {2}{My {\tt cubMC} function}{8}{0}{2}
+\beamer@sectionintoc {3}{Examples and Extensions}{15}{0}{3}
+\beamer@sectionintoc {5}{Extra Material}{25}{1}{4}

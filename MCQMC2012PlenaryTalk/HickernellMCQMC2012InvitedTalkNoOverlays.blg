@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2011)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: HickernellMCQMC2012InvitedTalkNoOverlays.aux
+The style file: spbasic.bst
+Database file #1: FJH22.bib
+Database file #2: FJHown22.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 8 entries,
+            3270 wiz_defined-function locations,
+            783 strings with 6728 characters,
+and the built_in function-call counts, 8675 in all, are:
+= -- 1014
+> -- 119
+< -- 7
++ -- 78
+- -- 36
+* -- 517
+:= -- 976
+add.period$ -- 8
+call.type$ -- 8
+change.case$ -- 49
+chr.to.int$ -- 8
+cite$ -- 8
+duplicate$ -- 923
+empty$ -- 653
+format.name$ -- 54
+if$ -- 1799
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 73
+newline$ -- 35
+num.names$ -- 32
+pop$ -- 243
+preamble$ -- 2
+purify$ -- 44
+quote$ -- 0
+skip$ -- 448
+stack$ -- 0
+substring$ -- 782
+swap$ -- 544
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 63
+warning$ -- 0
+while$ -- 55
+width$ -- 0
+write$ -- 95

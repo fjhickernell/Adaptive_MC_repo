@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2011)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: AdaptiveMCProbErrAnalg.aux
+The style file: spbasic.bst
+Database file #1: FJH22.bib
+Database file #2: FJHown22.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 17 entries,
+            3270 wiz_defined-function locations,
+            843 strings with 7653 characters,
+and the built_in function-call counts, 17761 in all, are:
+= -- 2029
+> -- 265
+< -- 17
++ -- 162
+- -- 80
+* -- 1083
+:= -- 2036
+add.period$ -- 16
+call.type$ -- 17
+change.case$ -- 106
+chr.to.int$ -- 16
+cite$ -- 17
+duplicate$ -- 1875
+empty$ -- 1358
+format.name$ -- 122
+if$ -- 3698
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 155
+newline$ -- 62
+num.names$ -- 70
+pop$ -- 556
+preamble$ -- 2
+purify$ -- 94
+quote$ -- 0
+skip$ -- 829
+stack$ -- 0
+substring$ -- 1571
+swap$ -- 1075
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 138
+warning$ -- 0
+while$ -- 115
+width$ -- 0
+write$ -- 192

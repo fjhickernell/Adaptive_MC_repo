@@ -1,0 +1,46 @@
+\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}
+\begin{thebibliography}{8}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{DOI~\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{DOI~\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{Bahadur and Savage(1956)}]{BahSav56}
+Bahadur RR, Savage LJ (1956) The nonexistence of certain statistical procedures
+  in nonparametric problems. Ann\ Math\ Stat 27:1115--1122
+
+\bibitem[{Halton(2005)}]{Hal05a}
+Halton JH (2005) Quasi-probability: {W}hy quasi-{M}onte-{C}arlo methods are
+  statistically valid and how their errors can be estimated statistically.
+  Monte Carlo Methods and Appl 11:203--350
+
+\bibitem[{Lin and Bai(2010)}]{LinBai10a}
+Lin Z, Bai Z (2010) Probability Inequalities. Science Press and
+  Springer-Verlag, Beijing and Berlin
+
+\bibitem[{Owen(1997)}]{Owe97}
+Owen AB (1997) Scrambled net variance for integrals of smooth functions. Ann\
+  Stat 25:1541--1562
+
+\bibitem[{Owen(2006)}]{Owe06a}
+Owen AB (2006) On the {W}arnock-{H}alton quasi-standard error. Monte Carlo
+  Methods and Appl 12:47--54
+
+\bibitem[{Petrov(1995)}]{Pet95a}
+Petrov VV (1995) Limit Theorems of Probability Theory:Sequences of Independent
+  Random Variables. Clarendon Press, Oxford
+
+\bibitem[{Snyder(2000)}]{Sny00a}
+Snyder WC (2000) Accuracy estimation for quasi-{M}onte {C}arlo simulations.
+  Math\ Comput\ Simulation 54:131--143
+
+\bibitem[{Traub et~al(1988)Traub, Wasilkowski, and
+  Wo\'zniakowski}]{TraWasWoz88}
+Traub JF, Wasilkowski GW, Wo\'zniakowski H (1988) Information-Based Complexity.
+  Academic Press, Boston
+
+\end{thebibliography}
