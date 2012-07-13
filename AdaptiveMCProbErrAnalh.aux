@@ -1,0 +1,118 @@
+\relax 
+\immediate\closeout\minitoc
+\let \MiniTOC =N
+\@writefile{toc}{\contentsline {title}{Automatic Monte Carlo Algorithms Where the Integrand Size Is Unknown \unskip {}}{1}}
+\@writefile{toc}{\contentsline {author}{Fred J. Hickernell\unskip {} \and Lan Jiang\unskip {} \and Yuewei Liu\unskip {} \and Art Owen \unskip {}}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}}
+\newlabel{samplemean}{{1}{1}}
+\citation{BahSav56}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}The Statistician's Perspective}{2}}
+\newlabel{statperspsec}{{1.1}{2}}
+\newlabel{abserr}{{2}{2}}
+\newlabel{CLT}{{3}{2}}
+\newlabel{samplevar}{{4}{2}}
+\newlabel{simpleMCest}{{5}{2}}
+\newlabel{boundedkurt}{{6}{2}}
+\citation{TraWasWoz88}
+\citation{MAT7.12}
+\citation{GanGau00a}
+\citation{MAT7.12}
+\citation{Sha08a}
+\citation{TrefEtal12}
+\citation{MAT7.12}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}The Information-Based Complexity Theorist's or Numerical Analyst's Perspective}{3}}
+\newlabel{Lpnormdef}{{7}{3}}
+\newlabel{ballintegdef}{{8}{3}}
+\newlabel{coneintegdef}{{9}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Illustrative Univariate Examples of Automatic Algorithms}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Plots of fooling functions, $f$, with $\mu =\DOTSI \intop \ilimits@ _0^1 f(x) \tmspace  +\thinmuskip {.1667em} {\rm  d}x=1$, but for which the corresponding algorithms return values of $\mathaccentV {hat}05E{\mu }=0$. }}{4}}
+\newlabel{foolfunfig}{{1}{4}}
+\newlabel{GaussianTestFun}{{10}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Execution times and errors for test function \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces 10\hbox {}\unskip \@@italiccorr )}} for $d=1$ and $\varepsilon =10^{-3}$, and a variety of parameters giving a range of $\sigma (f)$ and $\kappa (f)$. The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times. For the {\tt  cubMC} i.i.d.\ and i.i.d.\ heavy duty the points labeled * are those for which the Theorem 1\hbox {} guarantees the error tolerance. }}{5}}
+\newlabel{GaussianTestFunFig}{{2}{5}}
+\citation{LinBai10a}
+\citation{LinBai10a}
+\citation{LinBai10a}
+\citation{LinBai10a}
+\citation{LinBai10a}
+\citation{LinBai10a}
+\citation{LinBai10a}
+\citation{LinBai10a}
+\citation{LinBai10a}
+\citation{LinBai10a}
+\citation{LinBai10a}
+\citation{LinBai10a}
+\citation{LinBai10a}
+\citation{LinBai10a}
+\citation{LinBai10a}
+\citation{LinBai10a}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Adaptive Monte Carlo with Guaranteed Error Estimation}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Reliably Bounding the Variance}{6}}
+\newlabel{ChebCantlem}{{1}{6}}
+\newlabel{LP}{{1}{6}}
+\newlabel{varbdlem}{{2}{6}}
+\newlabel{sampvarbd}{{11}{6}}
+\citation{Mil86}
+\newlabel{sampvarup}{{11a}{7}}
+\newlabel{sampvarlo}{{11b}{7}}
+\newlabel{kappamaxdef}{{12}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Determining the Sample Size}{7}}
+\newlabel{ChebErr}{{13}{7}}
+\newlabel{ChebProbEst}{{13a}{7}}
+\citation{Pet95a}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces (a) The maximum kurtosis, $\kappa _{\qopname  \relax m{max}}(\alpha ,n_{\sigma },1.5)$, as defined in \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces 12\hbox {}\unskip \@@italiccorr )}}; (b) comparison of sample sizes $ N_G(0.01,\alpha )$, $N_C(0.01,\alpha )$, and $N_B(0.01,\alpha ,\kappa _{\qopname  \relax m{max}}^{3/4}(\alpha ,1000,1.5))$.}}{8}}
+\newlabel{kurtmaxcompareNfig}{{3}{8}}
+\newlabel{NCdef}{{13b}{8}}
+\newlabel{BE}{{3}{8}}
+\newlabel{BEresult}{{14}{9}}
+\newlabel{proberrcritsampleBE}{{15}{9}}
+\newlabel{NB}{{15b}{9}}
+\newlabel{mainadaptthm}{{1}{9}}
+\newlabel{NCBdef}{{16}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Cost of the Algorithm}{10}}
+\citation{Owe95,Owe96,Owe97,Mat98,HonHic00a,DicPil10a}
+\citation{Owe95,Owe96,Owe97,DicPil10a}
+\citation{Hal05a,Owe06a}
+\newlabel{costtheorem}{{2}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Numerical Examples with ${\tt  cubMC}\xspace  $}{11}}
+\newlabel{numerexsec}{{3}{11}}
+\newlabel{qsedef}{{19}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Execution times and errors for test function \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces 10\hbox {}\unskip \@@italiccorr )}} for $d=2, \ldots  , 8$ and $\varepsilon =10^{-3}$, with the rest of the parameters as in Figure 2\hbox {}.}}{12}}
+\newlabel{GaussianTestFunHDFig}{{4}{12}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}A General Error Criterion}{12}}
+\newlabel{relerrsec}{{4}{12}}
+\newlabel{relerrcrit}{{4}{13}}
+\newlabel{genrelerrcrit}{{20}{13}}
+\newlabel{relerrcritd}{{21}{13}}
+\newlabel{NCinv}{{4}{14}}
+\newlabel{NBinv*}{{4}{14}}
+\newlabel{NCBinv*}{{4}{14}}
+\newlabel{alphaseq}{{22}{14}}
+\newlabel{alphaseqex}{{23}{14}}
+\newlabel{relerradaptthm}{{3}{14}}
+\newlabel{boundcstep}{{2}{14}}
+\newlabel{newhvarepsstep}{{2c}{14}}
+\bibstyle{spbasic}
+\bibdata{FJH22,FJHown22}
+\bibcite{BahSav56}{{1}{1956}{{Bahadur and Savage}}{{}}}
+\bibcite{DicPil10a}{{2}{2010}{{Dick and Pillichshammer}}{{}}}
+\bibcite{GanGau00a}{{3}{2000}{{Gander and Gautschi}}{{}}}
+\bibcite{TrefEtal12}{{4}{2012}{{Hale et~al}}{{Hale, Trefethen, and Driscoll}}}
+\newlabel{hmufinalstep}{{3}{15}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{15}}
+\@writefile{toc}{\contentsline {section}{References}{15}}
+\@mtwritefile{\contentsline {mtchap}{References}{15}}
+\bibcite{Hal05a}{{5}{2005}{{Halton}}{{}}}
+\bibcite{HonHic00a}{{6}{2003}{{Hong and Hickernell}}{{}}}
+\bibcite{LinBai10a}{{7}{2010}{{Lin and Bai}}{{}}}
+\bibcite{Mat98}{{8}{1998}{{Matou\v {s}ek}}{{}}}
+\bibcite{Mil86}{{9}{1986}{{Miller}}{{}}}
+\bibcite{Owe95}{{10}{1995}{{Owen}}{{}}}
+\bibcite{Owe96}{{11}{1997{a}}{{Owen}}{{}}}
+\bibcite{Owe97}{{12}{1997{b}}{{Owen}}{{}}}
+\bibcite{Owe06a}{{13}{2006}{{Owen}}{{}}}
+\bibcite{Pet95a}{{14}{1995}{{Petrov}}{{}}}
+\bibcite{Sha08a}{{15}{2008}{{Shampine}}{{}}}
+\bibcite{MAT7.12}{{16}{2012}{{The MathWorks, Inc.}}{{}}}
+\bibcite{TraWasWoz88}{{17}{1988}{{Traub et~al}}{{Traub, Wasilkowski, and Wo\'zniakowski}}}
+\immediate\closeout\minitoc
