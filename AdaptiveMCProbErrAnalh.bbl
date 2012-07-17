@@ -1,5 +1,5 @@
 \def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}
-\begin{thebibliography}{17}
+\begin{thebibliography}{21}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -32,6 +32,10 @@ Halton JH (2005) Quasi-probability: {W}hy quasi-{M}onte-{C}arlo methods are
 Hong HS, Hickernell FJ (2003) Implementing scrambled digital nets. ACM Trans\
   Math\ Software 29:95--109
 
+\bibitem[{Lemieux(2009)}]{Lem09a}
+Lemieux C (2009) {M}onte {C}arlo and quasi-{M}onte {C}arlo Sampling. Springer
+  Science+Business Media, Inc., New York
+
 \bibitem[{Lin and Bai(2010)}]{LinBai10a}
 Lin Z, Bai Z (2010) Probability Inequalities. Science Press and
   Springer-Verlag, Beijing and Berlin
@@ -43,6 +47,11 @@ Matou\v{s}ek J (1998) On the {$L_2$}-discrepancy for anchored boxes. J
 \bibitem[{Miller(1986)}]{Mil86}
 Miller R (1986) Beyond {ANOVA}, Basics of Applied Statistics. John Wiley \&
   Sons, Inc., New York
+
+\bibitem[{Niederreiter(1992)}]{Nie92}
+Niederreiter H (1992) Random Number Generation and Quasi-{M}onte {C}arlo
+  Methods. CBMS-NSF Regional Conference Series in Applied Mathematics, SIAM,
+  Philadelphia
 
 \bibitem[{Owen(1995)}]{Owe95}
 Owen AB (1995) Randomly permuted $(t,m,s)$-nets and $(t,s)$-sequences. In:
@@ -69,6 +78,14 @@ Petrov VV (1995) Limit Theorems of Probability Theory:Sequences of Independent
 \bibitem[{Shampine(2008)}]{Sha08a}
 Shampine LF (2008) Vectorized adaptive quadrature in matlab. J Comput\ Appl\
   Math 211:131--140
+
+\bibitem[{Siegmund(1985)}]{Sie85a}
+Siegmund D (1985) Sequential Analysis: Tests and Confidence Intervals.
+  Springer, New York
+
+\bibitem[{Sloan and Joe(1994)}]{SloJoe94}
+Sloan IH, Joe S (1994) Lattice Methods for Multiple Integration. Oxford
+  University Press, Oxford
 
 \bibitem[{{The MathWorks, Inc.}(2012)}]{MAT7.12}
 {The MathWorks, Inc} (2012) {MATLAB} 7.12. {The MathWorks, Inc.}, Natick, MA

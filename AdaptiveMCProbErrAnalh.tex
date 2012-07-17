@@ -24,7 +24,7 @@
                        % please use the style svind.ist with
                        % your makeindex program
                        
-\input FJHDef.tex
+%\input FJHDef.tex
 %\renewcommand{\bvec}[1]{\textbf{\itshape #1}}
 %\renewcommand{\bvec}[1]{\boldsymbol{#1}}
 \newcommand{\cube}{[0,1)^d}
@@ -42,12 +42,52 @@
 \DeclareMathOperator{\third}{third}
 \DeclareMathOperator{\qse}{qse}
 \DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\cost}{cost}
 %\DeclareMathOperator{\fourth}{fourth}
 %\newtheorem{theorem}{Theorem}
 \newtheorem{prop}[theorem]{Proposition}
 %\newtheorem{rem}{Remark}
 \DeclareMathOperator{\sMC}{sMC}
 \newcommand{\aMC}{{\tt cubMC}\xspace}
+
+
+\newcommand\reals{\mathbb{R}}
+\newcommand\real{\mathbb{R}}
+\newcommand\natu{\mathbb{N}}
+\newcommand\e{\mathbb{E}}
+\newcommand{\bsx}{\boldsymbol{x}}
+\newcommand{\vx}{\boldsymbol{x}}
+\newcommand{\bsX}{\boldsymbol{X}}
+\newcommand{\vX}{\boldsymbol{X}}
+\newcommand{\rd}{\,\mathrm{d}}
+\newcommand{\dnorm}{\mathcal{N}}
+\newcommand{\Prob}{\Pr}
+
+\newcommand{\abs}[1]{\left|#1\right|}
+\DeclareMathOperator{\var}{Var}
+\newcommand{\hmu}{\hat{\mu}}
+\newcommand{\kurt}{\mathrm{kurt}}
+\newcommand{\sign}{\mathrm{sign}}
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\dif}{\rd}
+
+\newcommand{\halpha}{\hat{\alpha}}
+\newcommand{\hdelta}{\hat{\delta}}
+\newcommand{\hvareps}{\hat{\varepsilon}}
+\newcommand{\hsigma}{\hat{\sigma}}
+\newcommand{\talpha}{\tilde{\alpha}}
+\newcommand{\tdelta}{\tilde{\delta}}
+\newcommand{\tkappa}{\tilde{\kappa}}
+\newcommand{\tmu}{\tilde{mu}}
+\newcommand{\cb}{\mathcal{B}}
+\newcommand{\fc}{\mathfrak{C}}
+\newcommand{\cc}{\mathcal{C}}
+\newcommand{\cf}{\mathcal{F}}
+\newcommand{\cl}{\mathcal{L}}
+\def\abs#1{\ensuremath{\left \lvert #1 \right \rvert}}
+\newcommand{\norm}[2][{}]{\ensuremath{\left \lVert #2 \right \rVert}_{#1}}
+
+
 \begin{document}
 
 
@@ -55,7 +95,7 @@
 \title*{Approximate Fixed Width Confidence Intervals Via Monte Carlo Sampling
 \thanks{The first and second authors were partially supported by the National
 Science Foundation under DMS-0923111 and DMS-1115392}}
-\titlerunning{Adaptive Monte Carlo}
+\titlerunning{Fixed Width Confidence Intervals}
 \author{Fred J. Hickernell\inst{1} \and
 Lan Jiang\inst{1} \and Yuewei Liu\inst{2} \and Art Owen \inst{3}}
 \institute{Department of Applied Mathematics,
@@ -78,11 +118,104 @@ Art's address here \texttt{with email here}
 
 \section{Introduction}
 
-Monte Carlo algorithms for multidimensional integrals have been in use for half a century.  The integral or mean, $\mu$, of a $d$-variate function $f: \reals^d \to \reals$, i.e.,
+Monte Carlo algorithms provide a flexible way to approximate $\mu = \e(Y)$ when one can generate samples of the random variable $Y$. For example, $Y$ might be the discounted payoff of some financial derivative, which depends on the future performance of assets that are described by a stochastic model.  Then $\mu$ is the fair option price.  The goal is to obtain a \emph{confidence interval} 
+\begin{equation} \label{confint}
+\Prob[\abs{\mu - \hmu_n} \le \varepsilon] \ge 1-\alpha,
+\end{equation}
+where 
+\begin{itemize}
+\item $\alpha$ is the level of \emph{uncertainty}, e.g., $1\%$ or $0.1\%$, which is fixed in advance, 
+
+\item $\hmu_n$ is an estimate of $\mu$ based on $n$ samples of $Y$, e.g., the sample average, $\hmu_n = \frac 1n \sum_{i=1}^n Y_i$, and
+
+\item $\varepsilon$ is the half-width of the confidence interval, which also serves as an \emph{error tolerance}.
+\end{itemize}
+Often the sample size, $n$, is fixed in advance, and the central limit theorem (CLT) provides an approximate value for $\varepsilon$ in terms of $n$ and $\sigma^2=\var(Y)=\e[(Y-\mu)^2]$, which itself may be approximated by the sample variance.
+
+The goal here is somewhat different.  We want to fix $\varepsilon$ in advance and then determine how large the sample size must be to obtain a fixed
+width confidence intervals of the form \eqref{confint}. In this paper we present Algorithm \ref{??} for obtaining such a fixed width
+confidence interval for the mean of a real random
+variable, which is suitable for Monte Carlo sampling.
+Before presenting the method, we outline the reasons
+that existing fixed width intervals are not suitable.
+
+The width (equivalently length) of a confidence interval
+tends to become smaller as the number $n$ of sampled
+function values increases.
+In special circumstance, we can choose $n$ to get
+a confidence interval of at most the desired length and at
+least the desired coverage level, $1-\alpha$. For instance, if the variance, $\sigma^2=\var(Y)$, is known then an approach based on Chebyshev's
+inequality is available, though the actual coverage
+will usually be much higher than the nominal level,
+meaning that much narrower intervals would have sufficed.
+Known variance in addition to a Gaussian distribution for the function values
+supports a fixed width interval construction that
+is not too conservative. The CLT provides confidence interval that is asymptotically correct, but our aim is for something that is definitely correct for finite sample sizes.
+Finally, conservative fixed width intervals
+for means can be constructed for bounded random variables, by appealing
+to exponential inequalities Hoeffding's or Chernoff's inequality.
+
+If the relevant variance or bound is unknown, then approaches
+based on sequential statistics \citep{Sie85a}
+may be available. In sequential methods one keeps increasing
+$n$ until the interval is narrow enough. Sequential
+confidence intervals require us to take account of the
+stopping rule when computing the confidence level. They
+are available in special circumstances, such as Gaussian
+or binary data.
+Similarly, Bayesian methods can support a fixed width
+interval containing $\mu$ with $1-\alpha$ posterior probability, and
+Bayesian methods famously do not require one to account
+for stopping rules. They do however require strong distributional assumptions.
+
+The solutions described above require strong assumptions that generally do not hold in Monte Carlo applications.  The form of the distribution for $Y$ is generally not known, $\var(Y)$ is generally not known, and $Y$ is not necessarily bounded.  There is no assumption-free way to obtain exact confidence intervals for a mean,
+as has been known since \cite{BahSav56}. Some kind of assumption is needed to rule out settings where the desired quantity is the
+mean of a heavy tailed random variable in which
+rarely seen large values dominate the mean and spoil the estimates of the variance.
+The assumption we use is an upper bound on
+the kurtosis (normalized fourth moment) of the
+random variable $Y$:
+\begin{equation} \label{kurtassump}
+\tkappa = \frac{\e[(Y-\mu)^4]}{\sigma^4} \le \tkappa_{\max}.
+\end{equation}
+Under such an assumption we present
+a two stage algorithm: the first stage generates
+a conservative variance estimate, and the second stage
+uses this variance estimate and a Berry-Esseen Theorem, which can be thought of as a non-asymptotic CLT, to determine how large $n$ must be for the sample mean to satisfy the confidence interval \eqref{confint}.  Theorem ??? then demonstrates the validity of the the fixed-width confidence interval, and Theorem ??? demonstrates that the cost of this algorithm is reasonable.
+
+One might question whether assumption \eqref{kurtassump}, which involves fourth-order moments of $Y$, is more reasonable than an assumption involving only the second moment of $Y$.  For example, using Chebyshev's inequality with the assumption 
+\begin{equation} \label{boundedvar}
+\sigma^2 \le \sigma^2_{\max}
+\end{equation}
+also yields a fixed-width confidence interval of the form \eqref{confint}.  We would argue that \eqref{kurtassump} is indeed more reasonable.  Firstly, if $Y$ satisfies \eqref{kurtassump}, then so does $cY$ for any real constant $c$, however, the analog does not hold for \eqref{boundedvar}.  In fact, if $\sigma$ is nonzero \eqref{boundedvar} is violated by $cY$ for $c$ sufficiently large.  Second of all, making $\tkappa_{\max}$ a factor of $10$ or $100$ larger than $\tkappa$ does not significantly affect the total cost (number of samples required) of our Monte Carlo Algorithm ??? for a large range of values of $\sigma/\varepsilon$.  However, the cost of our Monte Carlo algorithm, and indeed any Monte Carlo algorithm is proportional to $\sigma^2$, so overestimating $\sigma^2$ by a factor of $10$ or $100$ to be safe, increases the cost of the algorithm by that factor. 
+
+An important special case of computing $\mu=\e(Y)$ arises in the situation where $Y=f(\vX)$ for some  $d$-variate function $f: \reals^d \to \reals$, and some $d$-vector random variable, $\vX$ with probability density $\rho: \reals^d \to [0,\infty)$.  One may then interpret the mean of $Y$ as the multidimensional integral 
 \begin{equation*} 
-\mu= \mu(f) = \int_{\reals^d} f(\vx) \rho(\vx) \, \dif \vx,
+\mu=\e(Y)= \mu(f) = \int_{\reals^d} f(\vx) \rho(\vx) \, \dif \vx.
 \end{equation*}
-is approximated by the sample mean of integrand values,
+Given the problem of evaluating $\mu=\int_{\reals^d} g(\vx) \, \dif \vx$, one must choose a probability density $\rho$ for which one can easily generate random variates $\vX$, and then set $f = g/\rho$.  The quantities $\sigma^2$ and $\tkappa$ defined above can be written in terms of weighted $\cl_p$-norms of $f$:
+\begin{equation} \label{Lpnormdef}
+\norm[p]{f} :=\left\{\int_{\reals^d} \abs{f(\vx)}^p \rho(\vx) \, \dif \vx\right\}^{1/p}, \qquad
+\sigma^2 = \norm[2]{f-\mu}^2, \qquad \tkappa = \frac{\norm[4]{f-\mu}^4}{\norm[2]{f-\mu}^4}.
+\end{equation}
+For a given $g$, the choice of $\rho$ is not unique, and making an optimal choice belongs to the realm of \emph{importance sampling}. The assumption of bounded kurtosis, \eqref{kurtassump}, required by Algorithm ??? corresponds to an assumption about the integrand $f$ lying in the \emph{cone} of functions
+\begin{equation} \label{conedef}
+\cc_{\tkappa_{\max}} = \{ f \in \cl_4 : \norm[4]{f-\mu} \le \tkappa_{\max}^{1/4} \norm[2]{f-\mu} \}.
+\end{equation}
+
+From the perspective of numerical analysis, if $\rho$ has independent marginals, one may apply a product form of a univariate quadrature rule to evaluate $\mu$.  However, this consumes a geometrically increasing number of samples as $d$ increases, and moreover, such methods often require rather strict smoothness assumptions on $f$.  If $f$ satisfies moderate smoothness conditions, then (randomized) quasi-Monte Carlo methods, or low discrepancy sampling \citep{Nie92,SloJoe94,Lem09a,DicPil10a} methods for evaluating $\mu$ that are more efficient than simple Monte Carlo, however, practical error estimation for these methods remains a challenge.
+
+Computational mathematicians have also addressed the problem of constructing automatic algorithms, i.e., given an error tolerance of $\varepsilon$, one computes an approximation, $\hmu_n$, based on $n$ evaluations of the integrand $f$, such that $\abs{\mu-\hmu_n} \le \varepsilon$. For example, MATLAB \citep{MAT7.12}, a popular numerical package, contains {\tt quad}, an adaptive Simpson's rule for univariate quadrature routine developed by \cite{GanGau00a}. Although this and other automatic rules that we are aware work well in practice, they do not have any rigorous guarantees that the error tolerance is met, and it is relatively simple to construct functions that fool them.  This is discussed in Section ???.  Since a random algorithm, like Monte Carlo, gives a random answer, any statements about satisfying an error criterion must be probabilistic.  This leads us back to the problem of finding a fixed-width confidence interval, \eqref{confint}.
+
+
+
+
+
+
+
+
+
+
 \begin{equation} \label{samplemean}
 \hmu_n = \frac 1n \sum_{i=1}^n Y_i, \qquad Y_i = f(\vX_i).
 \end{equation}
