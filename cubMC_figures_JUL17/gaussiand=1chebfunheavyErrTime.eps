@@ -1,0 +1,2220 @@
+%!PS-Adobe-2.0 EPSF-1.2
+%%Creator: MATLAB, The MathWorks, Inc. Version 7.12.0.635 (R2011a). Operating System: Darwin 11.4.0 Darwin Kernel Version 11.4.0: Mon Apr  9 19:32:15 PDT 2012; root:xnu-1699.26.8~1/RELEASE_X86_64 x86_64.
+%%Title: ./Results/gaussiand=1chebfunheavyErrTime.eps
+%%CreationDate: 07/16/2012  23:03:11
+%%DocumentNeededFonts: Helvetica
+%%+ Helvetica-Bold
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%Extensions: CMYK
+%%Pages: 1
+%%BoundingBox:    22   179   574   605
+%%EndComments
+
+%%BeginProlog
+% MathWorks dictionary
+/MathWorks 160 dict begin
+% definition operators
+/bdef {bind def} bind def
+/ldef {load def} bind def
+/xdef {exch def} bdef
+/xstore {exch store} bdef
+% operator abbreviations
+/c  /clip ldef
+/cc /concat ldef
+/cp /closepath ldef
+/gr /grestore ldef
+/gs /gsave ldef
+/mt /moveto ldef
+/np /newpath ldef
+/cm /currentmatrix ldef
+/sm /setmatrix ldef
+/rm /rmoveto ldef
+/rl /rlineto ldef
+/s {show newpath} bdef
+/sc {setcmykcolor} bdef
+/sr /setrgbcolor ldef
+/sg /setgray ldef
+/w /setlinewidth ldef
+/j /setlinejoin ldef
+/cap /setlinecap ldef
+/rc {rectclip} bdef
+/rf {rectfill} bdef
+% page state control
+/pgsv () def
+/bpage {/pgsv save def} bdef
+/epage {pgsv restore} bdef
+/bplot /gsave ldef
+/eplot {stroke grestore} bdef
+% orientation switch
+/portraitMode 0 def /landscapeMode 1 def /rotateMode 2 def
+% coordinate system mappings
+/dpi2point 0 def
+% font control
+/FontSize 0 def
+/FMS {/FontSize xstore findfont [FontSize 0 0 FontSize neg 0 0]
+  makefont setfont} bdef
+/reencode {exch dup where {pop load} {pop StandardEncoding} ifelse
+  exch dup 3 1 roll findfont dup length dict begin
+  { 1 index /FID ne {def}{pop pop} ifelse } forall
+  /Encoding exch def currentdict end definefont pop} bdef
+/isroman {findfont /CharStrings get /Agrave known} bdef
+/FMSR {3 1 roll 1 index dup isroman {reencode} {pop pop} ifelse
+  exch FMS} bdef
+/csm {1 dpi2point div -1 dpi2point div scale neg translate
+ dup landscapeMode eq {pop -90 rotate}
+  {rotateMode eq {90 rotate} if} ifelse} bdef
+% line types: solid, dotted, dashed, dotdash
+/SO { [] 0 setdash } bdef
+/DO { [.5 dpi2point mul 4 dpi2point mul] 0 setdash } bdef
+/DA { [6 dpi2point mul] 0 setdash } bdef
+/DD { [.5 dpi2point mul 4 dpi2point mul 6 dpi2point mul 4
+  dpi2point mul] 0 setdash } bdef
+% macros for lines and objects
+/L {lineto stroke} bdef
+/MP {3 1 roll moveto 1 sub {rlineto} repeat} bdef
+/AP {{rlineto} repeat} bdef
+/PDlw -1 def
+/W {/PDlw currentlinewidth def setlinewidth} def
+/PP {closepath eofill} bdef
+/DP {closepath stroke} bdef
+/MR {4 -2 roll moveto dup  0 exch rlineto exch 0 rlineto
+  neg 0 exch rlineto closepath} bdef
+/FR {MR stroke} bdef
+/PR {MR fill} bdef
+/L1i {{currentfile picstr readhexstring pop} image} bdef
+/tMatrix matrix def
+/MakeOval {newpath tMatrix currentmatrix pop translate scale
+0 0 1 0 360 arc tMatrix setmatrix} bdef
+/FO {MakeOval stroke} bdef
+/PO {MakeOval fill} bdef
+/PD {currentlinewidth 2 div 0 360 arc fill
+   PDlw -1 eq not {PDlw w /PDlw -1 def} if} def
+/FA {newpath tMatrix currentmatrix pop translate scale
+  0 0 1 5 -2 roll arc tMatrix setmatrix stroke} bdef
+/PA {newpath tMatrix currentmatrix pop	translate 0 0 moveto scale
+  0 0 1 5 -2 roll arc closepath tMatrix setmatrix fill} bdef
+/FAn {newpath tMatrix currentmatrix pop translate scale
+  0 0 1 5 -2 roll arcn tMatrix setmatrix stroke} bdef
+/PAn {newpath tMatrix currentmatrix pop translate 0 0 moveto scale
+  0 0 1 5 -2 roll arcn closepath tMatrix setmatrix fill} bdef
+/vradius 0 def /hradius 0 def /lry 0 def
+/lrx 0 def /uly 0 def /ulx 0 def /rad 0 def
+/MRR {/vradius xdef /hradius xdef /lry xdef /lrx xdef /uly xdef
+  /ulx xdef newpath tMatrix currentmatrix pop ulx hradius add uly
+  vradius add translate hradius vradius scale 0 0 1 180 270 arc 
+  tMatrix setmatrix lrx hradius sub uly vradius add translate
+  hradius vradius scale 0 0 1 270 360 arc tMatrix setmatrix
+  lrx hradius sub lry vradius sub translate hradius vradius scale
+  0 0 1 0 90 arc tMatrix setmatrix ulx hradius add lry vradius sub
+  translate hradius vradius scale 0 0 1 90 180 arc tMatrix setmatrix
+  closepath} bdef
+/FRR {MRR stroke } bdef
+/PRR {MRR fill } bdef
+/MlrRR {/lry xdef /lrx xdef /uly xdef /ulx xdef /rad lry uly sub 2 div def
+  newpath tMatrix currentmatrix pop ulx rad add uly rad add translate
+  rad rad scale 0 0 1 90 270 arc tMatrix setmatrix lrx rad sub lry rad
+  sub translate rad rad scale 0 0 1 270 90 arc tMatrix setmatrix
+  closepath} bdef
+/FlrRR {MlrRR stroke } bdef
+/PlrRR {MlrRR fill } bdef
+/MtbRR {/lry xdef /lrx xdef /uly xdef /ulx xdef /rad lrx ulx sub 2 div def
+  newpath tMatrix currentmatrix pop ulx rad add uly rad add translate
+  rad rad scale 0 0 1 180 360 arc tMatrix setmatrix lrx rad sub lry rad
+  sub translate rad rad scale 0 0 1 0 180 arc tMatrix setmatrix
+  closepath} bdef
+/FtbRR {MtbRR stroke } bdef
+/PtbRR {MtbRR fill } bdef
+/stri 6 array def /dtri 6 array def
+/smat 6 array def /dmat 6 array def
+/tmat1 6 array def /tmat2 6 array def /dif 3 array def
+/asub {/ind2 exch def /ind1 exch def dup dup
+  ind1 get exch ind2 get sub exch } bdef
+/tri_to_matrix {
+  2 0 asub 3 1 asub 4 0 asub 5 1 asub
+  dup 0 get exch 1 get 7 -1 roll astore } bdef
+/compute_transform {
+  dmat dtri tri_to_matrix tmat1 invertmatrix 
+  smat stri tri_to_matrix tmat2 concatmatrix } bdef
+/ds {stri astore pop} bdef
+/dt {dtri astore pop} bdef
+/db {2 copy /cols xdef /rows xdef mul dup 3 mul string
+  currentfile exch readhexstring pop
+  dup 0 3 index getinterval /rbmap xdef
+  dup 2 index dup getinterval /gbmap xdef
+  1 index dup 2 mul exch getinterval /bbmap xdef pop pop}bdef
+/it {gs np dtri aload pop moveto lineto lineto cp c
+  cols rows 8 compute_transform 
+  rbmap gbmap bbmap true 3 colorimage gr}bdef
+/il {newpath moveto lineto stroke}bdef
+currentdict end def
+%%EndProlog
+
+%%BeginSetup
+MathWorks begin
+
+0 cap
+
+end
+%%EndSetup
+
+%%Page: 1 1
+%%BeginPageSetup
+%%PageBoundingBox:    22   179   574   605
+MathWorks begin
+bpage
+%%EndPageSetup
+
+%%BeginObject: obj1
+bplot
+
+/dpi2point 12 def
+portraitMode 0216 7344 csm
+
+   59    80  6615  5107 MR c np
+85 dict begin %Colortable dictionary
+/c0 { 0.000000 0.000000 0.000000 sr} bdef
+/c1 { 1.000000 1.000000 1.000000 sr} bdef
+/c2 { 0.900000 0.000000 0.000000 sr} bdef
+/c3 { 0.000000 0.820000 0.000000 sr} bdef
+/c4 { 0.000000 0.000000 0.800000 sr} bdef
+/c5 { 0.910000 0.820000 0.320000 sr} bdef
+/c6 { 1.000000 0.260000 0.820000 sr} bdef
+/c7 { 0.000000 0.820000 0.820000 sr} bdef
+c0
+1 j
+1 sg
+   0    0 6913 5188 PR
+36 w
+0 4181 5356 0 0 -4181 899 4570 4 MP
+PP
+-5356 0 0 4181 5356 0 0 -4181 899 4570 5 MP stroke
+24 w
+DO
+SO
+36 w
+0 sg
+ 899 4570 mt 6255 4570 L
+ 899 4570 mt  899  389 L
+ 899 4570 mt  899 4543 L
+ 899 4570 mt  899 4516 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 240 FMSR
+
+ 675 4900 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 160 FMSR
+
+ 941 4752 mt 
+(-5) s
+1221 4570 mt 1221 4543 L
+1410 4570 mt 1410 4543 L
+1543 4570 mt 1543 4543 L
+1647 4570 mt 1647 4543 L
+1732 4570 mt 1732 4543 L
+1804 4570 mt 1804 4543 L
+1866 4570 mt 1866 4543 L
+1921 4570 mt 1921 4543 L
+1970 4570 mt 1970 4543 L
+1970 4570 mt 1970 4516 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 240 FMSR
+
+1746 4900 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 160 FMSR
+
+2012 4752 mt 
+(-4) s
+2292 4570 mt 2292 4543 L
+2481 4570 mt 2481 4543 L
+2615 4570 mt 2615 4543 L
+2718 4570 mt 2718 4543 L
+2803 4570 mt 2803 4543 L
+2875 4570 mt 2875 4543 L
+2937 4570 mt 2937 4543 L
+2992 4570 mt 2992 4543 L
+3041 4570 mt 3041 4543 L
+3041 4570 mt 3041 4516 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 240 FMSR
+
+2817 4900 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 160 FMSR
+
+3083 4752 mt 
+(-3) s
+3363 4570 mt 3363 4543 L
+3552 4570 mt 3552 4543 L
+3686 4570 mt 3686 4543 L
+3790 4570 mt 3790 4543 L
+3874 4570 mt 3874 4543 L
+3946 4570 mt 3946 4543 L
+4008 4570 mt 4008 4543 L
+4063 4570 mt 4063 4543 L
+4112 4570 mt 4112 4543 L
+4112 4570 mt 4112 4516 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 240 FMSR
+
+3888 4900 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 160 FMSR
+
+4154 4752 mt 
+(-2) s
+4435 4570 mt 4435 4543 L
+4623 4570 mt 4623 4543 L
+4757 4570 mt 4757 4543 L
+4861 4570 mt 4861 4543 L
+4946 4570 mt 4946 4543 L
+5017 4570 mt 5017 4543 L
+5079 4570 mt 5079 4543 L
+5134 4570 mt 5134 4543 L
+5183 4570 mt 5183 4543 L
+5183 4570 mt 5183 4516 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 240 FMSR
+
+4959 4900 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 160 FMSR
+
+5225 4752 mt 
+(-1) s
+5506 4570 mt 5506 4543 L
+5694 4570 mt 5694 4543 L
+5828 4570 mt 5828 4543 L
+5932 4570 mt 5932 4543 L
+6017 4570 mt 6017 4543 L
+6089 4570 mt 6089 4543 L
+6151 4570 mt 6151 4543 L
+6205 4570 mt 6205 4543 L
+6255 4570 mt 6255 4543 L
+6255 4570 mt 6255 4516 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 240 FMSR
+
+6078 4900 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 160 FMSR
+
+6344 4752 mt 
+(0) s
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 3873 mt  952 3873 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 240 FMSR
+
+ 416 3962 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 160 FMSR
+
+ 682 3814 mt 
+(-2) s
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 2479 mt  952 2479 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 240 FMSR
+
+ 416 2568 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 160 FMSR
+
+ 682 2420 mt 
+(0) s
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 1085 mt  952 1085 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 240 FMSR
+
+ 416 1174 mt 
+(10) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 160 FMSR
+
+ 682 1026 mt 
+(2) s
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+ 899 4570 mt  899 4570 L
+gs 899 389 5357 4182 MR c np
+0 j
+6 w
+gr
+
+6 w
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4368 3865 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3145 3924 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3769 3943 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4585 3859 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3822 3331 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3643 3932 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4232 3916 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4347 3945 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3554 3824 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3977 3902 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3623 3931 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4112 3847 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2829 3845 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3683 3911 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2972 3931 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4135 3109 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3160 3929 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3557 3918 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4551 3885 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4560 3893 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4833 3881 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4090 3852 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4552 3854 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4696 3931 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4304 3934 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2852 3934 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2767 3920 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2978 3878 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3972 3940 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2592 3835 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3541 3897 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3735 3933 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2700 3925 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3371 3893 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3871 3852 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3590 3936 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3954 3939 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4589 3850 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4867 3167 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3479 3906 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3500 3840 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4376 3865 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3230 3906 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4007 3841 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3673 3872 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3115 3864 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3780 3934 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+5203 3869 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2617 3891 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2834 3858 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4443 3922 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3802 3873 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4821 3933 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3889 3870 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3900 3920 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4065 3925 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4341 3871 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2655 3917 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+5094 3937 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4607 3881 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3031 3935 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2834 3132 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3439 3895 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3664 3163 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4046 3931 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3712 3855 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3067 3930 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3604 3863 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3668 3853 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4594 3326 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3993 3939 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3042 3926 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3874 3932 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2877 3941 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4573 3337 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2436 3884 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4355 3874 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2553 3833 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4479 3933 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2360 3926 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2553 3887 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4324 3896 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4694 3931 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3249 3924 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3077 3869 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+5011 3825 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3711 3866 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4756 3880 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3949 3835 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3766 3821 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4679 3935 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4033 3902 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2410 3860 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3064 3874 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3352 3881 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2596 3881 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3204 3342 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3740 3885 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4040 3942 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4799 3935 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3846 3872 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4045 3360 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4504 3942 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4543 3863 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4203 3937 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3852 3933 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3452 3838 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3117 3875 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3982 3890 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3675 3923 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3352 3852 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4394 3926 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4536 3301 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3396 3907 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3662 3826 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3856 3828 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+5256 3870 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3976 3826 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3840 3286 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2907 3912 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4584 3933 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4417 3894 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3988 3830 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3061 3942 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4500 3930 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2562 3904 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3789 3341 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4159 3930 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2995 3934 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2891 3840 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4630 3936 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2881 3873 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4362 3935 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3773 3890 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3500 3929 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3994 3928 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2799 3808 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3490 3937 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3418 3925 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3473 3879 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+2923 3825 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4644 3424 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4412 3934 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+4015 3868 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+48 W
+3389 3907 PD
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+gr
+
+gs 899 389 5357 4182 MR c np
+DA
+36 w
+0 -4181 3041 4570 2 MP stroke
+gr
+
+36 w
+DA
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 240 FMSR
+
+3309 5131 mt 
+(Error) s
+ 307 3307 mt  -90 rotate
+(Time \(seconds\)) s
+90 rotate
+SO
+24 w
+DO
+SO
+36 w
+ 899 4446 mt 6255 4446 L
+6255 4446 mt 6255  389 L
+6255 4446 mt 6201 4446 L
+6289 4535 mt 
+(0) s
+6255 3634 mt 6201 3634 L
+6289 3723 mt 
+(0.2) s
+6255 2823 mt 6201 2823 L
+6289 2912 mt 
+(0.4) s
+6255 2011 mt 6201 2011 L
+6289 2100 mt 
+(0.6) s
+6255 1200 mt 6201 1200 L
+6289 1289 mt 
+(0.8) s
+6255  389 mt 6201  389 L
+6289  478 mt 
+(1) s
+gs 899 389 5357 4058 MR c np
+899 4446 PD
+999 -4 53 -8 109 -8 83 -8 144 -8 34 -8 12 -8 22 -8 
+43 -8 60 -9 2 -8 15 -8 35 -8 14 -8 23 -8 13 -8 
+5 -8 4 -8 1 -9 11 -8 13 -8 8 -8 1 -8 8 -8 
+7 -8 32 -8 4 -9 21 -8 36 -8 26 -8 5 -8 18 -8 
+18 -8 8 -8 6 -8 7 -9 8 -8 6 -8 17 -8 20 -8 
+72 -8 29 -8 44 -8 24 -8 23 -9 22 -8 25 -8 19 -8 
+1 -8 5 -8 7 -8 18 -8 8 -8 13 -9 1 -8 5 -8 
+6 -8 5 -8 1 -8 4 -8 18 -8 5 -9 49 -8 11 -8 
+15 -8 3 -8 15 -8 4 -8 6 -8 6 -8 18 -9 20 -8 
+13 -8 9 -8 7 -8 4 -8 3 -8 26 -8 5 -8 23 -9 
+1 -8 28 -8 8 -8 2 -8 5 -8 4 -8 2 -8 19 -8 
+20 -9 19 -8 14 -8 33 -8 3 -8 13 -8 41 -8 0 -8 
+10 -9 11 -8 6 -8 3473 1188 100 MP stroke
+21 -8 13 -8 21 -8 22 -8 7 -8 18 -8 19 -9 0 -8 
+103 -8 19 -8 26 -8 44 -8 15 -8 28 -8 2 -8 38 -9 
+10 -8 3 -8 3 -8 19 -8 11 -8 36 -8 17 -8 6 -8 
+49 -9 16 -8 16 -8 10 -8 4 -8 25 -8 18 -8 0 -8 
+5 -8 30 -9 32 -8 67 -8 45 -8 38 -8 21 -8 4 -8 
+30 -8 9 -9 0 -8 117 -8 26 -8 50 -8 1461 -1 899 1562 48 MP stroke
+gr
+
+24 w
+DO
+SO
+36 w
+ 899  389 mt 6255  389 L
+ 899 4446 mt  899  389 L
+ 899  389 mt  899  442 L
+ 833  354 mt 
+(0) s
+1970  389 mt 1970  442 L
+1804  354 mt 
+(0.2) s
+3041  389 mt 3041  442 L
+2875  354 mt 
+(0.4) s
+4112  389 mt 4112  442 L
+3946  354 mt 
+(0.6) s
+5183  389 mt 5183  442 L
+5017  354 mt 
+(0.8) s
+6255  389 mt 6255  442 L
+6189  354 mt 
+(1) s
+gs 899 389 5357 4058 MR c np
+DD
+6 -1943 11 -67 10 -82 11 -40 11 -15 10 -4 11 -18 11 -4 
+11 -2 10 -4 11 -2 11 -11 10 -7 11 -4 11 -3 11 -2 
+10 -5 11 -2 11 -4 10 0 11 -1 11 -1 11 -4 10 -3 
+11 -1 11 -2 10 -1 11 -2 11 -9 11 -8 10 0 11 0 
+11 -2 10 -1 11 -1 11 0 10 -3 11 0 11 0 11 -1 
+10 -2 11 0 11 -1 10 -2 11 -1 11 -2 11 -1 10 -2 
+11 -1 11 -1 10 -2 11 -4 11 0 11 -3 10 -1 11 0 
+11 -1 10 -1 11 -2 11 -1 11 0 10 -1 11 -1 11 0 
+10 -1 11 -2 11 -2 11 -3 10 0 11 -1 11 -2 10 -1 
+11 -2 11 -2 11 -1 10 -2 11 -2 11 -1 10 0 11 -1 
+11 -1 11 -2 10 -1 11 -3 11 -2 10 -1 11 -1 11 -1 
+11 -2 10 -1 11 -2 11 0 10 -1 11 -5 11 0 10 -1 
+11 -5 11 -1 11 -1 5199 2732 100 MP stroke
+10 -1 11 -3 11 -1 10 -1 11 -1 11 -1 11 -1 10 -1 
+11 -2 11 -1 10 -2 11 -1 11 -5 11 -1 10 0 11 -2 
+11 -1 10 -1 11 -2 11 0 11 -3 10 -1 11 -1 11 -2 
+10 -6 11 -3 11 -3 11 -7 10 -1 11 -2 11 -1 10 0 
+11 -2 11 -1 11 0 10 -5 11 0 11 -1 10 -2 11 -4 
+11 -1 11 -4 10 -1 11 -1 11 -1 10 -3 11 0 11 -2 
+11 -1 10 -1 11 0 11 0 10 -1 11 -4 11 -1 11 -2 
+10 -1 11 -2 11 -1 10 -5 11 -5 11 -3 10 0 11 -4 
+11 -1 11 -9 10 -2 11 -3 11 -5 10 -5 11 -1 11 -1 
+11 -5 10 -2 11 -1 11 -2 10 -1 11 0 11 -2 11 -3 
+10 -4 11 -7 11 -4 10 -1 11 -2 11 -9 11 -8 10 0 
+11 -1 11 -3 10 -2 11 -4 11 -1 11 -1 10 -1 11 -2 
+11 -4 10 -1 11 -4 4139 2951 100 MP stroke
+11 -3 11 -1 10 -2 11 -5 11 -2 10 -6 11 -9 11 -5 
+11 -1 10 -2 11 -1 11 -32 10 -8 11 -12 11 -4 11 -2 
+10 -2 11 -3 11 -8 10 -7 11 -2 11 -4 10 -5 11 0 
+11 -1 11 -2 10 -4 11 -5 11 -1 10 -2 11 -1 11 -7 
+11 0 10 -3 11 -3 11 -8 10 -8 11 -2 11 0 11 -14 
+10 -48 11 -11 11 -3 10 -1 11 -7 11 -3 11 -3 10 -1 
+11 0 11 -13 10 -4 11 -7 11 0 11 -1 10 -4 11 -2 
+11 -3 10 0 11 -1 11 -2 11 -2 10 -1 11 -2 11 -8 
+10 -7 11 -32 11 0 11 -30 10 -36 11 -336 11 -10 10 0 
+11 -4 11 0 11 0 10 -2 11 -1 11 0 10 0 11 -1 
+11 0 11 0 10 -1 11 0 11 -1 10 -2 11 -1 11 0 
+10 -2 11 -2 11 0 11 -2 10 -1 11 0 11 -1 10 -1 
+11 0 11 -1 11 -1 3078 3740 100 MP stroke
+10 -1 11 -1 11 0 10 -2 11 0 11 -1 11 -1 10 -1 
+11 -2 11 0 10 -1 11 0 11 0 11 0 10 -1 11 0 
+11 -1 10 -2 11 -1 11 0 11 0 10 0 11 0 11 -1 
+10 -1 11 0 11 0 11 0 10 0 11 -1 11 -1 10 -1 
+11 0 11 0 11 0 10 -1 11 0 11 -1 10 0 11 0 
+11 -1 11 -2 10 -1 11 0 11 0 10 0 11 0 11 0 
+10 0 11 -1 11 0 11 0 10 0 11 -1 11 0 10 -1 
+11 -1 11 0 11 0 10 -1 11 0 11 0 10 0 11 -1 
+11 -1 11 -1 10 -1 11 -1 11 0 10 -1 11 0 11 0 
+11 0 10 0 11 -1 11 0 10 -1 11 -1 11 -1 11 -1 
+10 0 11 -1 11 -1 10 -1 11 -1 11 0 11 -1 10 0 
+11 -2 11 0 10 0 11 0 11 0 11 -1 10 0 11 -1 
+11 0 10 -1 11 -1 2018 3793 100 MP stroke
+11 -1 11 -1 10 -2 11 0 11 -1 10 0 11 -1 11 0 
+11 0 10 -1 11 0 11 0 10 -1 11 -1 11 0 10 0 
+11 -1 11 0 11 -1 10 -2 11 0 11 -1 10 0 11 -1 
+11 -1 11 0 10 -1 11 0 11 0 10 -1 11 -1 11 -1 
+11 0 10 0 11 0 11 0 10 -1 11 -1 11 0 11 0 
+10 0 11 0 11 0 10 -1 11 -1 11 -1 11 0 10 0 
+11 0 11 0 10 0 11 0 11 -1 11 -1 10 0 11 0 
+11 0 10 0 11 -1 11 0 11 0 10 0 11 -1 11 -1 
+10 -1 11 0 11 -1 11 0 10 0 11 -1 11 0 10 0 
+11 0 11 0 10 -1 11 0 11 0 11 -1 10 0 11 0 
+11 0 10 0 11 -1 11 0 11 0 10 0 11 0 11 -1 
+10 0 11 0 11 0 11 -1 10 -1 11 0 11 0 10 -2 
+11 0 11 0 11 -2 957 3836 100 MP stroke
+10 0 11 0 11 -1 10 -1 11 -1 5 -607 899 4446 7 MP stroke
+SO
+gr
+
+6 w
+24 w
+-821 0 1935 4149 2 MP stroke
+78 0 -120 -45 1156 4194 3 MP
+PP
+42 45 78 0 -120 -45 1156 4194 4 MP stroke
+-42 45 120 -45 1036 4149 3 MP
+PP
+-78 0 -42 45 120 -45 1036 4149 4 MP stroke
+%%IncludeResource: font Helvetica-Bold
+/Helvetica-Bold /ISOLatin1Encoding 240 FMSR
+
+1935 4237 mt 
+(Success) s
+1996 0 4008 778 2 MP stroke
+-78 0 120 45 5962 733 3 MP
+PP
+-42 -45 -78 0 120 45 5962 733 4 MP stroke
+42 -45 -120 45 6082 778 3 MP
+PP
+78 0 42 -45 -120 45 6082 778 4 MP stroke
+3225  866 mt 
+(Failure) s
+6 w
+
+end %%Color Dict
+
+eplot
+%%EndObject
+
+epage
+end
+
+showpage
+
+%%Trailer
+%%EOF
