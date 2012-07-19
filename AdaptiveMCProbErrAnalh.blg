@@ -4,45 +4,48 @@ The top-level auxiliary file: AdaptiveMCProbErrAnalh.aux
 The style file: spbasic.bst
 Database file #1: FJH22.bib
 Database file #2: FJHown22.bib
+Warning--I didn't find a database entry for "lin:bai:2011"
+Warning--I didn't find a database entry for "mill:1986"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 21 entries,
+You've used 23 entries,
             3270 wiz_defined-function locations,
-            869 strings with 8118 characters,
-and the built_in function-call counts, 19903 in all, are:
-= -- 2200
-> -- 315
-< -- 21
-+ -- 181
-- -- 95
-* -- 1227
-:= -- 2365
-add.period$ -- 20
-call.type$ -- 21
-change.case$ -- 127
-chr.to.int$ -- 20
-cite$ -- 21
-duplicate$ -- 2069
-empty$ -- 1578
-format.name$ -- 145
-if$ -- 4149
+            884 strings with 8309 characters,
+and the built_in function-call counts, 21821 in all, are:
+= -- 2428
+> -- 335
+< -- 23
++ -- 197
+- -- 101
+* -- 1331
+:= -- 2580
+add.period$ -- 22
+call.type$ -- 23
+change.case$ -- 138
+chr.to.int$ -- 22
+cite$ -- 23
+duplicate$ -- 2278
+empty$ -- 1724
+format.name$ -- 153
+if$ -- 4548
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 188
-newline$ -- 74
-num.names$ -- 86
-pop$ -- 630
+missing$ -- 205
+newline$ -- 80
+num.names$ -- 94
+pop$ -- 685
 preamble$ -- 2
-purify$ -- 115
+purify$ -- 125
 quote$ -- 0
-skip$ -- 888
+skip$ -- 996
 stack$ -- 0
-substring$ -- 1707
-swap$ -- 1127
+substring$ -- 1872
+swap$ -- 1256
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 162
+type$ -- 177
 warning$ -- 0
-while$ -- 132
+while$ -- 144
 width$ -- 0
-write$ -- 233
+write$ -- 254
+(There were 2 warnings)

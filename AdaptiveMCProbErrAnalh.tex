@@ -45,7 +45,8 @@
 \DeclareMathOperator{\cost}{cost}
 %\DeclareMathOperator{\fourth}{fourth}
 %\newtheorem{theorem}{Theorem}
-\newtheorem{prop}[theorem]{Proposition}
+\spdefaulttheorem{algo}{Algorithm}{\upshape \bfseries}{\upshape}
+%\newtheorem{algo}[theorem]{Algorithm}
 %\newtheorem{rem}{Remark}
 \DeclareMathOperator{\sMC}{sMC}
 \newcommand{\aMC}{{\tt cubMC}\xspace}
@@ -124,16 +125,26 @@ Monte Carlo algorithms provide a flexible way to approximate $\mu = \e(Y)$ when 
 \end{equation}
 where 
 \begin{itemize}
-\item $\alpha$ is the level of \emph{uncertainty}, e.g., $1\%$ or $0.1\%$, which is fixed in advance, 
 
-\item $\hmu_n$ is an estimate of $\mu$ based on $n$ samples of $Y$, e.g., the sample average, $\hmu_n = \frac 1n \sum_{i=1}^n Y_i$, and
+\item $\mu$ is approximated by
+\begin{equation} \label{eq:samplemean}
+\hmu=\hmu_n = \frac 1n \sum_{i=1}^n Y_i,
+\end{equation}
+the sample average of $n$ independent and identically distributed (IID) samples of $Y$,
 
-\item $\varepsilon$ is the half-width of the confidence interval, which also serves as an \emph{error tolerance}.
+\item $\varepsilon$ is the half-width of the confidence interval, which also serves as an \emph{error tolerance}, and
+
+\item $\alpha$ is the level of \emph{uncertainty}, e.g., $1\%$ or $0.1\%$, which is fixed in advance.
+
 \end{itemize}
-Often the sample size, $n$, is fixed in advance, and the central limit theorem (CLT) provides an approximate value for $\varepsilon$ in terms of $n$ and $\sigma^2=\var(Y)=\e[(Y-\mu)^2]$, which itself may be approximated by the sample variance.
+Often the sample size, $n$, is fixed in advance, and the central limit theorem (CLT) provides an approximate value for $\varepsilon$ in terms of $n$ and 
+\begin{equation} \label{sigmadef}
+\sigma^2=\var(Y)=\e[(Y-\mu)^2],
+\end{equation}
+which itself may be approximated by the sample variance.
 
 The goal here is somewhat different.  We want to fix $\varepsilon$ in advance and then determine how large the sample size must be to obtain a fixed
-width confidence intervals of the form \eqref{confint}. In this paper we present Algorithm \ref{??} for obtaining such a fixed width
+width confidence intervals of the form \eqref{confint}. In this paper we present Algorithm \ref{twostagealgo} for obtaining such a fixed width
 confidence interval for the mean of a real random
 variable, which is suitable for Monte Carlo sampling.
 Before presenting the method, we outline the reasons
@@ -144,7 +155,7 @@ tends to become smaller as the number $n$ of sampled
 function values increases.
 In special circumstance, we can choose $n$ to get
 a confidence interval of at most the desired length and at
-least the desired coverage level, $1-\alpha$. For instance, if the variance, $\sigma^2=\var(Y)$, is known then an approach based on Chebyshev's
+least the desired coverage level, $1-\alpha$. For instance, if the variance, $\sigma^2=\var(Y)$, is known then an approach based on Chebychev's
 inequality is available, though the actual coverage
 will usually be much higher than the nominal level,
 meaning that much narrower intervals would have sufficed.
@@ -169,7 +180,7 @@ Bayesian methods famously do not require one to account
 for stopping rules. They do however require strong distributional assumptions.
 
 The solutions described above require strong assumptions that generally do not hold in Monte Carlo applications.  The form of the distribution for $Y$ is generally not known, $\var(Y)$ is generally not known, and $Y$ is not necessarily bounded.  There is no assumption-free way to obtain exact confidence intervals for a mean,
-as has been known since \cite{BahSav56}. Some kind of assumption is needed to rule out settings where the desired quantity is the
+as has been known since \cite[Corollary 2]{BahSav56}. Some kind of assumption is needed to rule out settings where the desired quantity is the
 mean of a heavy tailed random variable in which
 rarely seen large values dominate the mean and spoil the estimates of the variance.
 The assumption we use is an upper bound on
@@ -183,11 +194,11 @@ a two stage algorithm: the first stage generates
 a conservative variance estimate, and the second stage
 uses this variance estimate and a Berry-Esseen Theorem, which can be thought of as a non-asymptotic CLT, to determine how large $n$ must be for the sample mean to satisfy the confidence interval \eqref{confint}.  Theorem ??? then demonstrates the validity of the the fixed-width confidence interval, and Theorem ??? demonstrates that the cost of this algorithm is reasonable.
 
-One might question whether assumption \eqref{kurtassump}, which involves fourth-order moments of $Y$, is more reasonable than an assumption involving only the second moment of $Y$.  For example, using Chebyshev's inequality with the assumption 
+One might question whether assumption \eqref{kurtassump}, which involves fourth-order moments of $Y$, is more reasonable than an assumption involving only the second moment of $Y$.  For example, using Chebychev's inequality with the assumption 
 \begin{equation} \label{boundedvar}
 \sigma^2 \le \sigma^2_{\max}
 \end{equation}
-also yields a fixed-width confidence interval of the form \eqref{confint}.  We would argue that \eqref{kurtassump} is indeed more reasonable.  Firstly, if $Y$ satisfies \eqref{kurtassump}, then so does $cY$ for any real constant $c$, however, the analog does not hold for \eqref{boundedvar}.  In fact, if $\sigma$ is nonzero \eqref{boundedvar} is violated by $cY$ for $c$ sufficiently large.  Second of all, making $\tkappa_{\max}$ a factor of $10$ or $100$ larger than $\tkappa$ does not significantly affect the total cost (number of samples required) of our Monte Carlo Algorithm ??? for a large range of values of $\sigma/\varepsilon$.  However, the cost of our Monte Carlo algorithm, and indeed any Monte Carlo algorithm is proportional to $\sigma^2$, so overestimating $\sigma^2$ by a factor of $10$ or $100$ to be safe, increases the cost of the algorithm by that factor. 
+also yields a fixed-width confidence interval of the form \eqref{confint}.  We would argue that \eqref{kurtassump} is indeed more reasonable.  Firstly, if $Y$ satisfies \eqref{kurtassump}, then so does $cY$ for any real constant $c$, however, the analog does not hold for \eqref{boundedvar}.  In fact, if $\sigma$ is nonzero \eqref{boundedvar} is violated by $cY$ for $c$ sufficiently large.  Second of all, making $\tkappa_{\max}$ a factor of $10$ or $100$ larger than $\tkappa$ does not significantly affect the total cost (number of samples required) of our Monte Carlo Algorithm \ref{twostagealgo} for a large range of values of $\sigma/\varepsilon$.  However, the cost of our Monte Carlo algorithm, and indeed any Monte Carlo algorithm is proportional to $\sigma^2$, so overestimating $\sigma^2$ by a factor of $10$ or $100$ to be safe, increases the cost of the algorithm by that factor. 
 
 An important special case of computing $\mu=\e(Y)$ arises in the situation where $Y=f(\vX)$ for some  $d$-variate function $f: \reals^d \to \reals$, and some $d$-vector random variable, $\vX$ with probability density $\rho: \reals^d \to [0,\infty)$.  One may then interpret the mean of $Y$ as the multidimensional integral 
 \begin{equation*} 
@@ -198,7 +209,7 @@ Given the problem of evaluating $\mu=\int_{\reals^d} g(\vx) \, \dif \vx$, one mu
 \norm[p]{f} :=\left\{\int_{\reals^d} \abs{f(\vx)}^p \rho(\vx) \, \dif \vx\right\}^{1/p}, \qquad
 \sigma^2 = \norm[2]{f-\mu}^2, \qquad \tkappa = \frac{\norm[4]{f-\mu}^4}{\norm[2]{f-\mu}^4}.
 \end{equation}
-For a given $g$, the choice of $\rho$ is not unique, and making an optimal choice belongs to the realm of \emph{importance sampling}. The assumption of bounded kurtosis, \eqref{kurtassump}, required by Algorithm ??? corresponds to an assumption about the integrand $f$ lying in the \emph{cone} of functions
+For a given $g$, the choice of $\rho$ is not unique, and making an optimal choice belongs to the realm of \emph{importance sampling}. The assumption of bounded kurtosis, \eqref{kurtassump}, required by Algorithm \ref{twostagealgo} corresponds to an assumption about the integrand $f$ lying in the \emph{cone} of functions
 \begin{equation} \label{conedef}
 \cc_{\tkappa_{\max}} = \{ f \in \cl_4 : \norm[4]{f-\mu} \le \tkappa_{\max}^{1/4} \norm[2]{f-\mu} \}.
 \end{equation}
@@ -207,128 +218,419 @@ From the perspective of numerical analysis, if $\rho$ has independent marginals,
 
 Computational mathematicians have also addressed the problem of constructing automatic algorithms, i.e., given an error tolerance of $\varepsilon$, one computes an approximation, $\hmu_n$, based on $n$ evaluations of the integrand $f$, such that $\abs{\mu-\hmu_n} \le \varepsilon$. For example, MATLAB \citep{MAT7.12}, a popular numerical package, contains {\tt quad}, an adaptive Simpson's rule for univariate quadrature routine developed by \cite{GanGau00a}. Although this and other automatic rules that we are aware work well in practice, they do not have any rigorous guarantees that the error tolerance is met, and it is relatively simple to construct functions that fool them.  This is discussed in Section ???.  Since a random algorithm, like Monte Carlo, gives a random answer, any statements about satisfying an error criterion must be probabilistic.  This leads us back to the problem of finding a fixed-width confidence interval, \eqref{confint}.
 
-An outline of this paper follows
+An outline of this paper follows.
 
 
 
 
+\section{Background probability and statistics}\label{sec:background}
+
+In our Monte Carlo applications, a quantity of interest
+is written as an expectation: $\mu = \e(Y)$, where $Y$
+is a real valued random variable.  As mentioned above, very often
+$Y = f(\bsX)$ where $\bsX\in\real^d$ is a random vector
+with probability density function $\rho$. In other settings the random quantity $\bsX$ might
+have a discrete distribution or be infinite dimensional (e.g,. a Gaussian
+process) or both. For Monte Carlo estimation, we can
+work with the distribution of $Y$ alone. The Monte Carlo estimate of $\mu$ is the sample mean, as given in \eqref{eq:samplemean}, where the $Y_i$ are IID random variables with the same distribution as $Y$.
+
+\subsection{Moments}
+
+Our methods require conditions on the first four moments of
+$Y$ as described here. The variance of $Y$, as defined in \eqref{sigmadef}, is denoted by $\sigma^2$, and its non-negative square root, $\sigma$, is the standard deviation of $Y$.   Some of our expressions assume without stating it that $\sigma>0$, and all will require $\sigma<\infty$.  The skewness of $Y$ is
+$ \gamma = \e( (Y-\mu)^3 )/\sigma^3,$
+and the kurtosis of $Y$ is
+$ \kappa = \tkappa-3 = \e( (Y-\mu)^4)/\sigma^4-3$ (see \eqref{kurtassump}).  If $\sigma=0$, then $\gamma=0$, and $\kappa=-2$ by convention.
+The mysterious $3$ in $\kappa$ is there to
+make it zero for Gaussian random variables.
+Also, $\mu,\sigma^2,\gamma,\kappa$ are related to the
+first four cumulants \cite[p.??]{McC87a} of the distribution of $Y$, meaning that
+\[
+\log(\e[\exp(tY)]) = \mu t + \frac{\sigma^2 t^2}{2} + \frac{\sigma^3 \gamma t^3}{3!} + \frac{\sigma^4 \kappa t^4}{4!} + o(t^4).
+\]
+Our main results require that $\kappa<\infty$, which then implies that $sigma$ and $\gamma$ are finite.
+
+In addition to the moments above we will also
+use some centered absolute moments
+of the form $M_k=M_k(Y) = \e( |Y-\mu|^k)$.
+Normalized versions of these are
+$\widetilde M_k=M_k(Y)/\sigma^k$.
+In particular, $\widetilde M_4 = \tilde\kappa$
+and $\widetilde M_3$ governs the convergence rate
+of the CLT.
+
+It is a standard result that $1\le q\le p<\infty$
+implies $M_q(Y) \le M_p(Y)^{q/p}$
+and similarly
+ $\widetilde M_q(Y) \le \widetilde M_p(Y)^{q/p}$.
+The special case 
+\begin{align}\label{eq:boundm3}
+\widetilde M_3(Y) \le \widetilde M_4(Y)^{3/4}
+\end{align}
+will be important for us.
+
+\subsection{CLT intervals}
+
+A random variable $Z$ has the standard normal distribution,
+denoted by $\dnorm(0,1)$, if 
+$$\Pr( Z\le z ) = \frac1{\sqrt{2\pi}}\int_{-\infty}^z =: \Phi(z)
+\exp(-t^2/2)\rd t.$$
+Under the central limit theorem,
+the distribution of $\sqrt{n}(\hat\mu_n-\mu)/\sigma$
+approaches $\dnorm(0,1)$ 
+as $n\to\infty$.
+As a result
+\begin{align}\label{eq:99ci}
+\Pr\bigl(
+\hat\mu_n-2.58\sigma\sqrt{n}
+\le \mu\le
+\hat\mu_n+2.58\sigma/\sqrt{n}\bigr)
+\to 0.99
+\end{align}
+as $n\to\infty$.
+We write the interval in~\eqref{eq:99ci}
+as $\hat\mu_n\pm 2.58\sigma/\sqrt{n}$.
+Equation~\eqref{eq:99ci} is not usable when
+$\sigma^2$ is unknown, but the usual estimate
+\begin{align}\label{eq:samplevar}
+s^2_n = \frac1{n-1}\sum_{i=1}^n(Y_i-\hat\mu_n)^2
+\end{align}
+may be substituted, yielding the interval
+$\hat\mu_n\pm2.58s_n/\sqrt{n}$ which also
+satisfies the limit in~\eqref{eq:99ci}
+by Slutsky's theorem. \marginpar{Reference for Slutsky's Thm?} For an arbitrary
+confidence level $1-\alpha\in(0,1)$, we replace
+the constant $2.58$ by $z_{\alpha/2}=\Phi^{-1}(1-\alpha/2)$. \marginpar{I switched to $z_{\alpha}$ as a tail probability because we are using capital letters for random variables}
+The width of this interval is
+$2z_{\alpha/2}s_n/\sqrt{n}$, and when $\mu$ is in
+the interval then the absolute error
+$|\mu-\hat\mu_n|\le 
+\varepsilon := z_{\alpha/2}s_n/\sqrt{n}$.
 
 
+The coverage level of the CLT interval is only asymptotic. In
+more detail, \cite{Hal86} \marginpar{Which equation in Hall's paper? I couldn't find it.}shows that
+\begin{align}\label{eq:halls}
+\Pr\bigl(
+\abs{\mu - 
+\hat\mu_n} \le 2.58 s/\sqrt{n}
+\bigr)
+= 0.99 + \frac1n(A + B\gamma^2+C\kappa) + O\Bigl(\frac1{n^2}\Bigr)
+\end{align}
+for constants $A$, $B$, and $C$ that depend
+on the desired coverage level (here $99$\%).  Hall's theorem
+requires only that the random variable $Y$ has sufficiently
+many finite moments
+and is not supported solely on a lattice (such as
+the integers).
+It is interesting to note that the $O(1/n)$ coverage error in
+\eqref{eq:halls} is better than the $O(1/\sqrt{n})$
+root mean squared error for the estimate $\hat\mu_n$ itself.
 
 
-\begin{equation} \label{samplemean}
-\hmu_n = \frac 1n \sum_{i=1}^n Y_i, \qquad Y_i = f(\vX_i).
+\subsection{Standard Probability Inequalities}
+
+Here we present some well known inequalities
+that we will make use of.
+First, Chebychev's inequality ensures that
+a random variable (such as $\hat\mu_n$) is
+seldom too far from its mean.
+
+\begin{theorem}[Chebychev's Inequality] \citep[6.1c, p.\ 52]{LinBai10a}\label{Chebineqthm} Let $Z$ be a random variable with mean $\mu$ and variance $\sigma^2 \ge 0$.  
+% I think that in this form \sigma=0 is okay.
+Then for all $\varepsilon >0$,
+\[
+\Prob[\abs{Z-\mu} \ge \varepsilon ] \le \frac{\sigma^2}{\varepsilon^2}.
+\]
+\end{theorem}
+
+
+In some settings we need a one sided inequality
+like Chebychev's. We will use this one due to Cantelli.
+
+\begin{theorem}[Cantelli's Inequality] \citep[6.1e, p.\ 53]{LinBai10a} \label{Can}
+Let $Z$ be any random variable with mean $\mu$ and finite variance $\sigma^2$.  For any $a\geq 0$, it
+follows that:
+\[
+\Prob[Z-\mu \geq a]\leq \frac{\sigma^2}{a^2+\sigma^2}.
+\]
+\end{theorem}
+
+Berry-Esseen type theorems govern the rate at which
+a CLT takes hold. We will use the following one.
+
+\begin{theorem}[Non-uniform Berry-Esseen Inequality] \cite[Theorem 5.16, p. 168]{Pet95a} \label{BE} Let $Y_1,\dots,Y_n$ be IID random variables with mean
+$\mu$, variance $\sigma^2>0$, and third centered moment $M_3=E\abs{Y_i - \mu}^3/\sigma^3 < \infty$.
+Then
+\[
+\abs{\Prob\left[\frac{1}{\sigma\sqrt{n}}\sum_{i=1}^{n}(Y_i-\mu)<x
+\right]-\Phi(x)}\leq \frac{A M_3}{\sqrt{n}(1+\abs{x})^{3}} \qquad \forall x \in \reals,
+\] 
+where $A$ is some number satisfying $0.4097\leq A\leq 0.5600$.
+\end{theorem}
+
+Our method requires probabilistic bounds on the sample variance, $s_n^2$. For that,
+we will use some moments of the variance estimate.
+
+\begin{theorem} \cite[??? and Eq.\ (7.16)]{Mil86} \label{Varvarthm} Let $Y_1, \ldots, Y_n$ be IID random variables with variance $\sigma^2$ and modified
+kurtosis $\tilde \kappa$ defined in \eqref{kurtassump}.
+Let  $s^2_n$ be the sample variance as defined in \eqref{eq:samplevar}.  Then the sample variance is unbiased, $\e(s^2_n)=\sigma^2$, and its variance is
+\[
+\var(s^2_n) = \frac{\sigma^4}{n} \left ( \tilde\kappa  - \frac{n-3}{n-1} \right).
+\]
+\end{theorem}
+
+\section{Two stage confidence interval}\label{sec:twostage}
+
+Our two stage procedure works as follows.
+In the first stage, we take a sample of 
+independent values $Y_1,\dots,Y_{n_\sigma}$
+from the distribution of $Y$.
+From this sample we compute the sample variance, 
+$s^2_{n_\sigma}$, according to 
+\eqref{eq:samplevar} and estimate
+the variance of $Y_i$ by
+$\hat\sigma^2 = \fudge^2\hat v_{n_\sigma}$, where
+$\fudge^2>1$ is a ``variance inflation factor''
+that will reduce the probability that we have
+underestimated $\sigma^2=\var(Y)$.
+For the second stage, we use the estimate
+$\hat \sigma^2$ as if it were the true
+variance of $Y_i$ and use
+Berry-Esseen theorem to obtain a suitable
+sample size, $n$, for computing the sample average, $\hmu_n$, that satisfies the fixed with confidence interval \eqref{confint}.
+
+The next two subsections give details of
+these two steps that will let us bound
+their error probabilities. Then we give
+a theorem on the method as a whole.
+
+
+\subsection{Conservative variance estimates}
+
+We need to ensure that our first stage estimate of the
+variance $\sigma^2$ is not too small. The following
+result bounds the probability of such an underestimate.
+
+\begin{proposition}\label{propCant} 
+Let $Y_1,\dots,Y_n$ be IID random variables with variance
+$\sigma^2>0$ and kurtosis $\kappa$.
+Let $s^2_n$ be the sample variance 
+defined at \eqref{eq:samplevar}, and let $\tilde\kappa=\kappa+3$.  Then
+\begin{subequations} \label{sampvarbd}
+\begin{gather}\label{sampvarup}
+\Prob\left[s^2_n < \sigma^2 \left\{1 + \sqrt{\left ( \tilde\kappa  - \frac{n-3}{n-1}\right)\left(\frac{1-\alpha}{\alpha n}\right)}\right\} \right] \ge 1 - \alpha, \\
+\label{sampvarlo}
+\Prob\left[s^2_n > \sigma^2 \left\{1 - \sqrt{\left ( \tilde\kappa  - \frac{n-3}{n-1}\right)\left(\frac{1-\alpha}{\alpha n}\right)}\right\} \right] \ge 1 - \alpha.
+\end{gather}
+\end{subequations}
+\end{proposition}
+\begin{proof} Applying Theorem \ref{Varvarthm} and choosing
+$$a=\sqrt{\var(s^2_n) \frac{1-\alpha}{\alpha} } = \sigma^2\sqrt{\left(\kappa-\frac{n-3}{n-1}\right)\left(\frac{1-\alpha}{\alpha n}\right)} >0,
+$$
+it follows from Cantelli's inequality (Theorem  \ref{Can})  that
+\begin{multline*}
+\Prob\left[s^2_n-\sigma^2 \geq
+\sigma^2\sqrt{\left(\kappa-\frac{n-3}{n-1}\right)\left(\frac{1-\alpha}{\alpha n}\right)} \right]  = \Prob\left[s^2_n-\sigma^2 \geq
+a \right]\\
+ \leq \frac{\var(s^2_n)}{a^2+\var(s^2_n)} 
+=\frac{\var(s^2_n)}{\var(s^2_n) \frac{1-\alpha}{\alpha}+\var(s^2_n)}  
+=\frac{1}{\left(\frac{1-\alpha}{\alpha}\right)+1}=\alpha.
+\end{multline*}
+Then \eqref{sampvarup} follows directly.  By a similar argument, applying Cantelli's inequality to the expression $\Prob\left[-s^2_n+\sigma^2 \ge a \right]$ implies  \eqref{sampvarlo}. \qed
+\end{proof}
+
+Using Proposition~\ref{propCant} we can bound the probability
+that $\hat\sigma^2 = \fudge^2 s^2_{n_\sigma}<\sigma^2$.
+Equation~\eqref{sampvarup} implies that
+\begin{equation}\label{eq:itsbounded}
+\Prob \left[\frac{s^2_{n_{\sigma}}}{1 - \sqrt{\left ( \tilde\kappa  - \frac{n_{\sigma}-3}{n_{\sigma}-1}\right)\left(\frac{1-\alpha}{\alpha n_{\sigma}}\right)}} > \sigma^2 \right] \ge 1 - \alpha.
 \end{equation}
-Here $\rho: \reals^d \to [0,\infty)$ is a specified probability density function, e.g., the uniform density on a cube or the normal density.  For simple Monte Carlo the points $\vX_1, \vX_2, \ldots$ independent and identically distributed (i.i.d.) random variables with the marginal probability density function $\rho$.  Other choices, such as quasi-random points, may provide greater accuracy, but this paper deals with only simple Monte Carlo.
-
-It is natural to that practitioners would want an automatic Monte Carlo algorithm that takes as its input the integrand, $f$, the probability density, $\rho$, and an error tolerance $\varepsilon$, and produces a value $\hmu_n$ that is within $\varepsilon$ of $\mu$ while requiring only a reasonable sample size, $n$.  While there is an extensive theory on Monte Carlo algorithms, there are some key gaps that must be filled to make it an automatic algorithm.  The aim of this article is to provide such an algorithm.  Next this problem of approximating $\mu$ is summarized from the perspective of a statistician and then from the perspective of an information-based complexity theorist or numerical analyst.
-
-{\bf Art will add and edit this material in this section, especially the next subsection.}
-
-\subsection{The Statistician's Perspective} \label{statperspsec}  
-The statistician's sees this a problem of constructing non-parametric, fixed-width confidence intervals for $\mu$.  Setting $Y=f(\vX)$, the goal is to approximate its mean, $\mu=E(Y)$, from an i.i.d.\ sample, $Y_i=f(\vX_i)$, $i=1, \ldots, n$, to obtain an expression
-\begin{equation} \label{abserr}
-\Prob\left[\abs{\hmu_n-\mu} \le \varepsilon \right] \geq 1-\alpha.
+Thus, it makes sense for us to require the modified kurtosis, $\tkappa$, to be small enough, relative to $n_{\sigma}$, $\alpha$, and $\fudge$, in order to ensure 
+that~\eqref{eq:itsbounded} holds. Specifically, we require
+$$
+\frac{1}{1 - \sqrt{\left ( \tilde\kappa  - \frac{n_{\sigma}-3}{n_{\sigma}-1}\right)\left(\frac{1-\alpha}{\alpha n_{\sigma}}\right)}} \le \fudge^2,
+$$
+or equivalently,
+\begin{equation}
+\label{kappamaxdef}
+\tilde\kappa \le \frac{n_{\sigma}-3}{n_{\sigma}-1} + \left(\frac{ \alpha n_{\sigma}}{1-\alpha}\right) \left(1 - \frac{1}{\fudge^2}\right)^2 =: \tilde\kappa_{\max} (\alpha,n_{\sigma},\fudge). 
 \end{equation}
-Here taking $\alpha=5\%$ corresponds to a $95\%$ confidence interval for $\mu$ with half-width $\varepsilon$.  Although the probability distribution for $Y$ is not readily obtainable, the Central Limit Theorem states that the sample mean, $\hmu_n$, is approximately normally distributed for large $n$.  This fact may be used to determine the sample size $n$ to give an approximate confidence interval, 
-\begin{equation} \label{CLT}
-\Prob\left[\abs{\hmu_n-\mu} \le \frac{z_{\alpha/2} \sigma} {\sqrt{n}} \right] \approx 1-\alpha,
+This condition is the explicit version of \eqref{kurtassump} mentioned in the introduction.
+
+\subsection{Conservative interval widths}
+
+Here we consider how to choose the sample size
+$n$ to get the desired coverage level
+from an interval with half-length at most $\varepsilon$.
+We suppose here that $\sigma$ is known.  
+In practice we will use a conservative (biased high) estimate
+for $\sigma$.
+
+First, if the CLT held exactly and not just asymptotically,
+then we could use a CLT sample size, of
+$$
+N_{\mathrm{CLT}}(\varepsilon,\sigma,\alpha)
+= 
+\Bigl\lceil
+\Bigl(
+\frac{z_{\alpha/2}\sigma}{\varepsilon}
+\Bigr)^2
+\Bigr\rceil
+$$
+independent values of $Y_i$ in an interval
+like the one in~\eqref{eq:99ci}.
+
+Given knowledge of $\sigma$, but no assurance
+of a Gaussian distribution for $\hat\mu_n$, we
+could instead select a sample size based on
+Chebychev's inequality (Theorem \ref{Chebineqthm}).  Taking
+\begin{align}\label{NCdef}
+N_{\text{Cheb}}(\varepsilon,\sigma,\alpha)
+= 
+\Bigl\lceil\frac{\sigma^2}{\alpha\varepsilon^2}\Bigr\rceil
+\end{align}
+IID observations of $Y$ gives the confidence interval \eqref{confint}.
+Naturally $N_{\text{Cheb}}\ge N_{\text{CLT}}$.
+
+Finally, we could use the non-uniform Berry-Esseen
+inequality from Theorem~\ref{BE}.
+This inequality requires a finite scaled third moment
+$M_3=E\abs{Y_i - \mu}^3/\sigma^3$.
+The non-uniform Berry-Esseen inequality implies that
+\begin{align} 
+%%FJH - so I tried to fix the inequalities again
+\nonumber
+\Prob\left[\abs{\hmu_n - \mu}  \le \frac{\sigma}{\sqrt{n}}x\right]&=\Prob\left[\hmu_n - \mu \le \frac{\sigma}{\sqrt{n}}x\right]-\Prob\left[\hmu_n - \mu < -\frac{\sigma}{\sqrt{n}}x\right]\\ 
+\nonumber
+&\ge \left[\Phi(x)-\frac{0.56 M_3}{\sqrt{n}(1+\abs{x})^{3}}\right] -\left[\Phi(-x) + \frac{0.56 M_3}{\sqrt{n}(1+\abs{x})^{3}}\right]\\
+&=1-2\left(\frac{0.56 M_3}{\sqrt{n}(1+\abs{x})^{3}}+\Phi(-x)\right), \label{BEresult}
+\end{align}
+Letting $x=\varepsilon\sqrt{n}/\sigma$, the probability of
+making an error no greater than $\varepsilon$ is bounded below by $1-\alpha$, i.e., the fixed width confidence interval \eqref{confint} holds, provided $n \ge N_B(\varepsilon/\sigma,\alpha,M_3)$, where the Berry-Esseen sample size is
+\begin{equation}\label{NB}
+N_{\text{BE}}(\varepsilon,\sigma,\alpha,M) := \min \left \{ n \in \natu : \Phi\left(-\sqrt{n}\varepsilon/\sigma  \right)+\frac{0.56M}{\sqrt{n}\left(1+ \sqrt{n}\epsilon/\sigma \right)^{3}}
+\le \frac{\alpha}{2} \right \}.
 \end{equation}
-where $\sigma^2 = \var(Y)=E[(Y-\mu)^2]$, and $z_\alpha$ denotes the $(1-\alpha)100\%$ percentile of the standard Gaussian distribution.  This suggests taking a sample size of $n=\lceil (z_{\alpha/2}\sigma/\varepsilon)^2\rceil$ to attain \eqref{abserr}.  Since $\sigma$ is not known a priori, it must be approximated by the sample variance of the $Y_i$:
-\begin{equation} \label{samplevar}
-\hsigma^2 = \fudge^2 \hv_{n_{\sigma}}, \quad \text{where} \quad \hv_{n_{\sigma}} = \frac 1{n_{\sigma}-1} \sum_{i=1}^{n_{\sigma}} (Y_i- \hmu_{n_{\sigma}})^2, \quad \hmu_{n_{\sigma}} = \frac 1{n_{\sigma}} \sum_{i=1}^{n_{\sigma}} Y_i.
-\end{equation}
-The variance inflation factor, $\fudge>1$, accounts for the fact the unbiased variance estimator, $\hv_{n_{\sigma}}$, may be larger or smaller than the true variance, $\sigma^2$.  Then the sample size for the sample mean may be chosen as $n=\lceil (z_{\alpha/2}\hsigma/\varepsilon)^2\rceil$.  To avoid dependence between $\hsigma^2$ and $\hmu_n$, an independent sample of $Y_i$, should be used to compute $\hmu_n$, i.e., 
-\begin{equation} \label{simpleMCest}
-\hmu_n = \frac 1n \sum_{i=n_{\sigma}+1}^{n_{\sigma}+n} Y_i,
-\end{equation}
-for a total cost of $n_{\sigma}+n$ samples.
+To compute this value, we need to know
+$M_3$. In practice, substituting an upper
+bound on $M_3$ yields an upper
+bound on the necessary sample size.
 
-While this fixed-width confidence interval may be often correct, it is not guaranteed. There are two approximations, whose errors must be understood and controlled: approximating the distribution $\hmu_n$ as a Gaussian distribution, and approximating $\sigma^2$ by the sample variance.  The key to controlling these two errors, as seen in Theorem \ref{mainadaptthm}, is in assuming a bound on the kurtosis, i.e., 
-\begin{equation} \label{boundedkurt}
-\kappa=\kurt(Y) = \frac{E[(Y-\mu)^4]}{\sigma^4} \le \kappa_{\max}.
-\end{equation}
-(Note, sometimes in the literature, the kurtosis is defined as the expression above minus three.)  A bounded kurtosis means that $Y$ has or does not have ????? {\bf help Art}. A bounded kurtosis allows one to reliably bound $\var(Y)$ in terms of the sample variance, and also allows one to obtain a rigorous bound on the deviation of the sample mean from the true mean.  It was shown by \cite[Corollary 2]{BahSav56} that nonparametric confidence intervals are impossible for convex sets of distributions. Assuming bounded kurtosis produces a non-convex set of possible distributions for $Y$.
+It is possible that in some situations
+$N_{\text{BE}}>N_{\text{Cheb}}$ might
+hold. In such cases we could use $N_{\text{Cheb}}$
+instead.
 
-Another approach to obtaining a fixed-width confidence interval for $\mu$ would be to assume an upper bound on $\sigma^2$ and apply Chebyshev's inequality.  The disadvantage of this approach is that while it might work for $Y=f(\vX)$, it would not work for $cY=cf(\vX)$ if $c$ were large enough, since $\var(cY)=c^2 \var(Y)$.  However, since $\kurt(cY)=\kurt(Y)$ if the procedure for obtaining a fixed-width confidence interval that is described in this article works for $Y$, it also works for $cY$.
+\subsection{Algorithm and Proof of Its Success}
 
-\subsection{The Information-Based Complexity Theorist's or Numerical Analyst's Perspective} 
-The information-based complexity theorist or numerical analyst sees this as a multivariate integration problem.  There are a myriad of cubature methods, each making certain assumptions on the domain of integration and the smoothness of the integrand, $f$, and deriving error bounds in terms of some semi-norm of $f$. Simple Monte Carlo methods work for functions with low degrees of smoothness and the natural space of integrands is $\cl_2$, where the $\cl_{p}$ norm is defined as
-\begin{equation} \label{Lpnormdef}
-\norm[p]{f} :=\left\{\int_{\reals^d} \abs{f(\vx)}^p \rho(\vx) \, \dif \vx\right\}^{1/p}.
-\end{equation}
-The root mean square error of the simple Monte Carlo method is $\norm[2]{f-\mu(f)}/\sqrt{n}$.
+In detail, the two stage algorithm works
+as described below.
 
-Again, the practical problem again in applying this error analysis to determine the sample size, $n$, to guarantee the desired error, one must know the size of the integrand, $\norm[2]{f-\mu(f)}=\sqrt{\var(Y)}=\sigma$.  Analogous to the statistical argument given above, the solution to this problem is not to look at balls of integrands, i.e., 
-\begin{equation} \label{ballintegdef}
-\cb_{\sigma_{\max}} = \{ f \in \cl_2 : \norm[2]{f-\mu(f)} \le \sigma_{\max}\}, 
-\end{equation}
-but to look at \emph{cones} of integrands 
-\begin{equation}\label{coneintegdef}
-\cc_{\kappa_{\max}} = \{f \in \cl_4 : \norm[4]{f-\mu(f)} \le \kappa_{\max}^{1/4} \norm[2]{f-\mu(f)} \}.
-\end{equation}
-This condition is the same as \eqref{boundedkurt}.  Whereas $f$ lying in the ball  $\cb_{\sigma_{\max}}$ does not guarantee $cf$ lies in that same ball, $f$ lying in the cone $\cc_{\kappa_{\max}}$, does guarantee that $cf$ lies in that same cone.
 
-Looking for algorithms that work well for cones of integrands, $\cc_{\kappa_{\max}}$, leads one to \emph{adaptive} algorithms.  The sample size used to estimate the integral is determined adaptively by first computing an upper bound on $\norm[2]{f-\mu(f)}$.  In information-based complexity theory it is known that adaptive information does not help for convex sets of integrands in the worst case and probabilistic settings \citep[Chapter 4, Theorem 5.2.1; Chapter 8, Corollary 5.3.1]{TraWasWoz88}.  Here, the cone, $\cc_{\kappa_{\max}}$ is not a convex set, so adaption can help.
-
-Again, it should be stressed that the algorithm to be presented here is automatic.  It does not require information about $\norm[2]{f-\mu(f)}=\sigma$, but this quantity needs to be reliably estimated by the algorithm. Thus, the sample size needed, and consequently the time required, to estimate $\mu$ to within the prescribed error tolerance depends on how large $\norm[2]{f-\mu(f)}=\sigma$ is estimated to be.  The algorithm is adaptive, and its cost depends on the integrand.
-
-\subsection{Illustrative Univariate Examples of Automatic Algorithms}
-
-Several commonly used software packages have automatic algorithms for integrating functions of a single variable.  These include 
-\begin{itemize} 
-
-\item {\tt quad} in MATLAB \citep{MAT7.12}, adaptive Simpson's rule based on {\tt adaptsim} by \cite{GanGau00a},
-
-\item {\tt quadgk} in MATLAB \citep{MAT7.12}, adaptive Gauss-Kronrod quadrature based on {\tt quadva} by \cite{Sha08a}, and
-
-\item the {\tt chebfun} \citep{TrefEtal12} toolbox for MATLAB \citep{MAT7.12}, which approximates integrals by integrating interpolatory Chebyshev polynomial series for the integrands.
-
-%\item {\tt NIntegrate} in Mathematica \citep{Mat8a}, which uses a number of adaptive rules for one dimensional integrals, 
-
+\begin{algo} \label{twostagealgo} The user specifies
+four quantities:
+\begin{itemize}
+\item 
+an initial sample size for variance estimation, $n_\sigma \in \{2,3, \ldots\}$,
+\item
+a variance inflation factor $\fudge^2\in(1,\infty)$,
+\item
+an uncertainty tolerance $\alpha\in(0,1)$, and,
+\item
+an error tolerance or confidence interval width, $\varepsilon>0$.
 \end{itemize}
 
-For the first three of these automatic algorithms one can easily probe where they sample the integrand, feed the algorithms zero values, and then construct fooling functions that the automatic algorithms will return a zero value for the integral.  Figure \ref{foolfunfig} displays these fooling functions for the problem $\mu=\int_0^1 f(x) \, \dif x$ for the first three algorithms. Each of these algorithms is asked to provide an answer with an absolute error no greater than $10^{14}$, but in fact the the absolute error is $1$ for these fooling functions.  The algorithms {\tt quad} and {\tt chebfun} sample only about a dozen points before concluding that the function is zero, whereas the algorithm {\tt quadgk} samples a much larger number of points (only those between $0$ and $0.01$ are shown in the plot). Algorithm {\tt NIntegrate} is hard snoop, but it is examined for the next example.
+At the first stage of the algorithm,
+$Y_1,\dots,Y_{n_\sigma}$ are sampled independently
+from the same distribution as $Y$.
+Then the conservative variance estimate, $\hat\sigma^2 = \fudge^2 s^2_{n_\sigma}$
+is computed in terms of the sample variance, $s^2_{n_\sigma}$, defined by \eqref{eq:samplevar}.
+
+To prepare for the second stage of the algorithm
+we compute $\tilde\alpha = 1-\sqrt{1-\alpha}$
+and then $\tilde\kappa_{\max} = \tilde\kappa_{\max}(\tilde\alpha,n_\sigma,\fudge)$
+using equation~\eqref{kappamaxdef}.
+The sample size for the second stage is
+\[
+n = N_{\mu}(\varepsilon,\hsigma,\tilde\alpha,\tilde\kappa_{\max}^{3/4}),
+\]
+where
+\begin{equation} \label{NCBdef}
+N_{\mu}(\varepsilon,\sigma,\alpha,M) 
+:= \min\bigl(n_{\sigma}, N_{\text{Cheb}}(\varepsilon,\sigma,\alpha), 
+N_{\text{BE}}(\varepsilon,\sigma,\alpha,M) \bigr).
+\end{equation} 
+Recall that
+$N_{\text{Cheb}}$ is defined in \eqref{NCdef} and  $N_{\text{BE}}$ 
+is defined in \eqref{NB}.  
+
+After this preparation, the second stage is to sample
+$Y_{n_\sigma+1},\dots,Y_{n_\sigma+n}$ independently
+from the distribution of $Y$ and compute the sample mean,
+\begin{align}\label{eq:theestimate}
+\hmu=\hat\mu_n = \frac1{n}\sum_{i=n_\sigma+1}^{n_\sigma+n}Y_i.
+\end{align}
+
+\end{algo}
+
+The success of this algorithm is guaranteed in the following theorem.  The main assumption needed is bounded kurtosis.
+
+\begin{theorem} \label{mainadaptthm} 
+Let $Y$ be a random variable with mean $\mu$ and modified kurtosis $\tkappa \le \tilde\kappa_{\max}(\tilde\alpha,n_\sigma,\fudge)$.  It follows that Algorithm \ref{twostagealgo} above yields an estimate
+$\hat\mu$ given by~\eqref{eq:theestimate} which satisfies the fixed width confidence interval
+$$\Pr( |\hat\mu-\mu|\le\varepsilon)\ge 1-\alpha.$$
+\end{theorem}
+\begin{proof}
+\smartqed  
+The first stage yields a variance estimate satisfying
+$
+\Pr( \hsigma^2 >\sigma^2)\ge 1-\tilde\alpha
+$
+by \eqref{kappamaxdef} applied with uncertainty tolerance $\tilde\alpha$.
+The second stage yields
+$\Pr( |\hat\mu_n-\mu|\le\varepsilon)\ge 1-\tilde\alpha$
+by the Berry-Esseen result~\eqref{BEresult},
+so long as $\hat\sigma\ge\sigma$
+and $M_3\le \tilde\kappa_{\max}(\tilde\alpha,n_\sigma,\fudge)^{3/4}$.
+The second condition holds because $M_3 \le \tkappa^{3/4}$ by Jensen's Inequality \citep[8.4.b]{LinBai10a}.
+Thus, in the two stage algorithm we have
+\begin{align*}
+\Prob\left(\abs{\hmu_n-\mu} \le \varepsilon \right) &
+= \e\bigl(\Prob\left(\abs{\hmu_n-\mu} \le \varepsilon \mid \hsigma \right) \bigr) \\
+& \ge \e\left((1-\tilde\alpha) 1_{\sigma\le\hsigma}\right)\\
+& \ge (1-\tilde\alpha) (1-\tilde\alpha) = 1-\alpha.\qquad \qquad \qed
+\end{align*}
+\end{proof}
+
+Though $n_\sigma$ can be as small as $2$ it should
+ordinarily be larger.  
+
+
+
+Figure \ref{kurtmaxcompareNfig}a shows how large a kurtosis can be accommodated for a given $n_{\sigma}$, $\alpha$, and $\fudge=1.5$.  Note that for $n=30$, a common rule of thumb for applying the central limit theorem, even the modest value $\alpha=0.1$ yields
+$\tilde\kappa_{\max}$ of only about $2$,
+corresponding to a kurtosis of about $5$. 
+While that kurtosis is reasonably large for many
+observational data settings,
+Monte Carlo applications
+often involve a larger kurtosis than this.
 
 \begin{figure}
 \centering
-\begin{minipage}{3.7cm} \centering \includegraphics[width=3.7cm]{Foolquadbw.eps} \\ {\tt quad} \end{minipage}
-\begin{minipage}{3.7cm} \centering \includegraphics[width=3.7cm]{Foolquadgkbw.eps} \\ {\tt quadgk} \end{minipage}
-\begin{minipage}{3.7cm} \centering \includegraphics[width=3.7cm]{Foolchebintbw.eps} \\ {\tt chebfun} \end{minipage}
-\caption{Plots of fooling functions, $f$, with $\mu=\int_0^1 f(x) \, \dif x=1$, but for which the corresponding algorithms return values of $\hmu=0$. \label{foolfunfig}}
+\begin{minipage}{2.1in}
+\centering \includegraphics[width=2.1in]{kurtmaxfig} \\
+% switch to kurtmaxfig.eps if not using pdflatex
+(a)
+\end{minipage}
+\quad 
+\begin{minipage}{2.1in}\centering
+\includegraphics[width=2.1in]{alphacompare}\\
+(b)
+\end{minipage}
+\caption{(a) The maximum kurtosis, $\kappa_{\max}(\alpha,n_{\sigma},1.5)$, as defined in \eqref{kappamaxdef}; (b) comparison of sample sizes $ N_G(0.01,\alpha)$, $N_C(0.01,\alpha)$, and $N_B(0.01,\alpha,\kappa_{\max}^{3/4}(\alpha,1000,1.5))$.\label{kurtmaxcompareNfig}}
 \end{figure}
 
-
-Accuracy and timing results have been recorded for the test function
-\begin{equation} \label{GaussianTestFun}
-f(\vx)=a_0 + b_0\prod_{j=1}^d\left[ 1 +b_j \exp \left(-\frac{(x_j-h_j)^2}{c_j^2}\right) \right].
-\end{equation}
-Here $\vx$ is a $d$ dimensional vector, and the $b_j$, $c_j$, and $h_j$ are parameters.  For Figure \ref{GaussianTestFunFig} shows the results of different algorithms being used to integrate $500$ different instances of $f$.  For each instance of $f$, the parameters are chosen as follows:
-\begin{itemize} 
-\item $b_j \in [0.1,10]$ with $\log(b_j)$ being i.i.d.\ uniform, $j=1, \ldots, d$,
-\item $c_j \in [10^{-6},1]$ with $\log(c_j)$ being i.i.d.\ uniform, $j=1, \ldots, d$,
-\item $h_j \in [0,1]$ with $h_j$ being i.i.d.\ uniform, $j=1, \ldots, d$,
-\item $b_0$ chosen in terms of the $b_j$, $c_j$, and $h_j$ in order to make $\sigma^2(f) \in [10^{-2}, 10^2]$, with $\log(\sigma(f))$ being i.i.d.\ uniform for each instance, and
-\item $a_0$ in terms of chosen in terms of the $b_j$, $c_j$, and $h_j$ to make $\mu(f)=1$.
-\end{itemize}
-
-\begin{figure}
-\centering
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1quadErrTime.eps} \\ {\tt quad} \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1quadgkErrTime.eps} \\ {\tt quadgk} \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1chebfunErrTime.eps} \\ {\tt chebfun} \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1chebfunheavyErrTime.eps} \\ {\tt chebfun}  heavy duty\end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1iidErrTime.eps} \\ {\tt cubMC} i.i.d. \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1iidheavyErrTime.eps} \\ {\tt cubMC} i.i.d. heavy duty\end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1SobolErrTime.eps} \\ {\tt cubMC}  Sobol'\end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1SobolheavyErrTime.eps} \\ {\tt cubMC} Sobol' heavy duty \end{minipage}
-\caption{Execution times and errors for test function \eqref{GaussianTestFun} for $d=1$ and $\varepsilon=10^{-3}$, and a variety of parameters giving a range of $\sigma(f)$ and $\kappa(f)$. The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times.  For the {\tt cubMC} i.i.d.\ and i.i.d.\ heavy duty the points labeled * are those for which the Theorem \ref{mainadaptthm} guarantees the error tolerance.\label{GaussianTestFunFig} }
-\end{figure}
-
-These $500$ random constructions of $f$ with $d=1$ are integrated over $[0,1]$ with $\rho=1$ (the uniform density function), using {\tt quad},  {\tt quadgk}, and {\tt chebfun}.  For the first two of these algorithms, the specified absolute error tolerance is $\epsilon=0.001$.  The algorithm {\tt chebfun} attempts to do all calculations to near machine precision.  The observed error and execution times are plotted in Figure \ref{GaussianTestFunFig}.  Whereas {\tt chebfun} uses a minimum of $2^3+1=9$ function values, the figure labeled ``{\tt chebfun} heavy duty'' displays the results of requiring chebfun to use at least $2^{10}+1=1025$ function values.  
-
-Figure \ref{GaussianTestFunFig} shows that {\tt quad} and {\tt quadgk} are quite fast, nearly always providing an answer in less that $0.01$ seconds.  Unfortunately, they successfully meet the error tolerance only about $30\%$ of the time for {\tt quad} and $50$--$60\%$ of the time for {\tt quadgk}.  The difficult cases are those where $c_1$ is quite small, and these algorithms miss the sharp peak.  The performance of {\tt chebfun} is similar to that of {\tt quad} and {\tt quadgk}.  The heavy duty version of  {\tt chebfun} fares somewhat better.  
-%The {\tt cubMC} algorithm is described in the next section and the results displayed in Figure \ref{GaussianTestFunFig} are described in Section \ref{numerexsec}.
 
 \section{Adaptive Monte Carlo with Guaranteed Error Estimation}
 
@@ -349,7 +651,7 @@ As mentioned in \eqref{samplevar}, a practical upper bound on $\sigma^2$ may be 
 
 \begin{lemma} \label{ChebCantlem}  Suppose that $Z$ is any random variable with finite second moment.  For any $a >0 $,
 \begin{gather*}
-\Prob\left[\abs{Z-E(Z)} \ge a \right] \le \frac{\var(Z)}{a^2} \qquad \text{Chebyshev's inequality \citep[6.1c]{LinBai10a}} , \\
+\Prob\left[\abs{Z-E(Z)} \ge a \right] \le \frac{\var(Z)}{a^2} \qquad \text{Chebychev's inequality \citep[6.1c]{LinBai10a}} , \\
 \Prob[Z-E[Z] \geq a]\leq \frac{\var(Z)}{a^2+\var(Z)} \qquad
 \text{Cantelli's Inequality \citep[6.1e]{LinBai10a}}.
 \end{gather*}
@@ -407,7 +709,7 @@ Figure \ref{kurtmaxcompareNfig}a shows how large a kurtosis can be accommodated 
 \caption{(a) The maximum kurtosis, $\kappa_{\max}(\alpha,n_{\sigma},1.5)$, as defined in \eqref{kappamaxdef}; (b) comparison of sample sizes $ N_G(0.01,\alpha)$, $N_C(0.01,\alpha)$, and $N_B(0.01,\alpha,\kappa_{\max}^{3/4}(\alpha,1000,1.5))$.\label{kurtmaxcompareNfig}}
 \end{figure}
 
-\subsection{Determining the Sample Size} The other issue that needs to be addressed is a tight probabilistic error bound to replace the asymptotic or approximate error bound given by the Central Limit Theorem, \eqref{CLT}.   Chebyshev's inequality implies that the number of function evaluations needed to ensure that $\hmu_n$ satisfies the error tolerance with high probability is
+\subsection{Determining the Sample Size} The other issue that needs to be addressed is a tight probabilistic error bound to replace the asymptotic or approximate error bound given by the Central Limit Theorem, \eqref{CLT}.   Chebychev's inequality implies that the number of function evaluations needed to ensure that $\hmu_n$ satisfies the error tolerance with high probability is
 \begin{subequations} \label{ChebErr}
 \begin{gather} \label{ChebProbEst}
 \Prob\left[\abs{\hmu_n-\mu} \le \varepsilon \right] \ge 1-\alpha \quad \text{for } n \ge N_{C}(\varepsilon/\sigma,\alpha),\ f \in \cl_2,
@@ -454,7 +756,7 @@ N_B(b,\alpha,M) := \min \left \{ n \in \naturals : \Phi\left(-b \sqrt{n}  \right
 
 As shown in Figure \ref{kurtmaxcompareNfig}b, for a range of $\alpha$, the sample size guaranteeing coverage of the confidence interval, $N_B$, is quite close to the sample size for the approximate Central Limit Theorem confidence interval, $N_G$, however, $N_B$ may be somewhat larger for very small or rather large $\alpha$.  In general $N_B$ is significantly smaller than $N_C$, but not always.  A disadvantage of \eqref{proberrcritsampleBE} is that class of integrands, $\cl_3$, is smaller than that in \eqref{ChebErr}, but this typically a small price to pay given the much smaller cost of computation.
 
-The theorem below combines the results on estimating the variance with the sample sizes arising from Chebyshev's inequality and the Berry-Esseen inequality.  These lead to an adaptive Monte Carlo algorithm with a probabilistic error guarantee.
+The theorem below combines the results on estimating the variance with the sample sizes arising from Chebychev's inequality and the Berry-Esseen inequality.  These lead to an adaptive Monte Carlo algorithm with a probabilistic error guarantee.
 
 \begin{theorem} \label{mainadaptthm} Specify the following parameters defining the algorithm:
 \begin{itemize}
@@ -486,7 +788,7 @@ since $\hsigma \ge \sigma$ with probability $1-\talpha$ by \eqref{kappamaxdef}. 
 \[
 n = \max(n_{\sigma},N_{CB}(\varepsilon/\hsigma,\talpha,\kappa_{\max}^{3/4})).
 \]
-By the error bound following from Chebyshev's inequality, \eqref{ChebErr}, this means that the probabilistic absolute error bound in Theorem \ref{mainadaptthm} also holds for integrands, $f$, lying in the ball $\cb_{\sigma_{\max}}$, defined in \eqref{ballintegdef}, where $\sigma_{\max} = \varepsilon \sqrt{\alpha n_{\sigma}}$.
+By the error bound following from Chebychev's inequality, \eqref{ChebErr}, this means that the probabilistic absolute error bound in Theorem \ref{mainadaptthm} also holds for integrands, $f$, lying in the ball $\cb_{\sigma_{\max}}$, defined in \eqref{ballintegdef}, where $\sigma_{\max} = \varepsilon \sqrt{\alpha n_{\sigma}}$.
 \end{remark}
 
 
@@ -524,6 +826,63 @@ Noting that $N_{CB}(\cdot,\alpha,M)$ is a non-increasing function allows one to 
 The cost of the adaptive Monte Carlo algorithm $\aMC$ is roughly proportional to $\sigma^2_{\max}\varepsilon^{-2}$.  The set $\cc_{\kappa_{\max}}$ contains integrands with arbitrarily large variance, $\sigma^2=\var(f)$, and thus with potentially arbitrarily large algorithmic cost.  On the other hand, since the algorithm is adaptive, the cost may be small if $\sigma^2$ is small.  The upper bound in Theorem \ref{costtheorem} certainly scales with the $\sigma^2_{\max}$ as one might hope if $\sigma^2_{\max}$ were known.  The variable cost of the algorithm for integrands in $\cc_{\kappa_{\max}}$ is actually an advantage, rather than a drawback, of this analysis.  One need not make any a priori assumptions about the size of the integrand, $\sigma$, only about its kurtosis, $\kappa$, which is unchanged when the integrand is multiplied by an arbitrary nonzero constant.
 
 \section{Numerical Examples with $\aMC$} \label{numerexsec}
+
+\subsection{Illustrative Univariate Examples of Automatic Algorithms}
+
+Several commonly used software packages have automatic algorithms for integrating functions of a single variable.  These include 
+\begin{itemize} 
+
+\item {\tt quad} in MATLAB \citep{MAT7.12}, adaptive Simpson's rule based on {\tt adaptsim} by \cite{GanGau00a},
+
+\item {\tt quadgk} in MATLAB \citep{MAT7.12}, adaptive Gauss-Kronrod quadrature based on {\tt quadva} by \cite{Sha08a}, and
+
+\item the {\tt chebfun} \citep{TrefEtal12} toolbox for MATLAB \citep{MAT7.12}, which approximates integrals by integrating interpolatory Chebychev polynomial series for the integrands.
+
+%\item {\tt NIntegrate} in Mathematica \citep{Mat8a}, which uses a number of adaptive rules for one dimensional integrals, 
+
+\end{itemize}
+
+For the first three of these automatic algorithms one can easily probe where they sample the integrand, feed the algorithms zero values, and then construct fooling functions that the automatic algorithms will return a zero value for the integral.  Figure \ref{foolfunfig} displays these fooling functions for the problem $\mu=\int_0^1 f(x) \, \dif x$ for the first three algorithms. Each of these algorithms is asked to provide an answer with an absolute error no greater than $10^{14}$, but in fact the the absolute error is $1$ for these fooling functions.  The algorithms {\tt quad} and {\tt chebfun} sample only about a dozen points before concluding that the function is zero, whereas the algorithm {\tt quadgk} samples a much larger number of points (only those between $0$ and $0.01$ are shown in the plot). Algorithm {\tt NIntegrate} is hard snoop, but it is examined for the next example.
+
+\begin{figure}
+\centering
+\begin{minipage}{3.7cm} \centering \includegraphics[width=3.7cm]{Foolquadbw.eps} \\ {\tt quad} \end{minipage}
+\begin{minipage}{3.7cm} \centering \includegraphics[width=3.7cm]{Foolquadgkbw.eps} \\ {\tt quadgk} \end{minipage}
+\begin{minipage}{3.7cm} \centering \includegraphics[width=3.7cm]{Foolchebintbw.eps} \\ {\tt chebfun} \end{minipage}
+\caption{Plots of fooling functions, $f$, with $\mu=\int_0^1 f(x) \, \dif x=1$, but for which the corresponding algorithms return values of $\hmu=0$. \label{foolfunfig}}
+\end{figure}
+
+
+Accuracy and timing results have been recorded for the test function
+\begin{equation} \label{GaussianTestFun}
+f(\vx)=a_0 + b_0\prod_{j=1}^d\left[ 1 +b_j \exp \left(-\frac{(x_j-h_j)^2}{c_j^2}\right) \right].
+\end{equation}
+Here $\vx$ is a $d$ dimensional vector, and the $b_j$, $c_j$, and $h_j$ are parameters.  For Figure \ref{GaussianTestFunFig} shows the results of different algorithms being used to integrate $500$ different instances of $f$.  For each instance of $f$, the parameters are chosen as follows:
+\begin{itemize} 
+\item $b_j \in [0.1,10]$ with $\log(b_j)$ being i.i.d.\ uniform, $j=1, \ldots, d$,
+\item $c_j \in [10^{-6},1]$ with $\log(c_j)$ being i.i.d.\ uniform, $j=1, \ldots, d$,
+\item $h_j \in [0,1]$ with $h_j$ being i.i.d.\ uniform, $j=1, \ldots, d$,
+\item $b_0$ chosen in terms of the $b_j$, $c_j$, and $h_j$ in order to make $\sigma^2(f) \in [10^{-2}, 10^2]$, with $\log(\sigma(f))$ being i.i.d.\ uniform for each instance, and
+\item $a_0$ in terms of chosen in terms of the $b_j$, $c_j$, and $h_j$ to make $\mu(f)=1$.
+\end{itemize}
+
+\begin{figure}
+\centering
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1quadErrTime.eps} \\ {\tt quad} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1quadgkErrTime.eps} \\ {\tt quadgk} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1chebfunErrTime.eps} \\ {\tt chebfun} \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1chebfunheavyErrTime.eps} \\ {\tt chebfun}  heavy duty\end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1iidErrTime.eps} \\ {\tt cubMC} i.i.d. \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1iidheavyErrTime.eps} \\ {\tt cubMC} i.i.d. heavy duty\end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1SobolErrTime.eps} \\ {\tt cubMC}  Sobol'\end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1SobolheavyErrTime.eps} \\ {\tt cubMC} Sobol' heavy duty \end{minipage}
+\caption{Execution times and errors for test function \eqref{GaussianTestFun} for $d=1$ and $\varepsilon=10^{-3}$, and a variety of parameters giving a range of $\sigma(f)$ and $\kappa(f)$. The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times.  For the {\tt cubMC} i.i.d.\ and i.i.d.\ heavy duty the points labeled * are those for which the Theorem \ref{mainadaptthm} guarantees the error tolerance.\label{GaussianTestFunFig} }
+\end{figure}
+
+These $500$ random constructions of $f$ with $d=1$ are integrated over $[0,1]$ with $\rho=1$ (the uniform density function), using {\tt quad},  {\tt quadgk}, and {\tt chebfun}.  For the first two of these algorithms, the specified absolute error tolerance is $\epsilon=0.001$.  The algorithm {\tt chebfun} attempts to do all calculations to near machine precision.  The observed error and execution times are plotted in Figure \ref{GaussianTestFunFig}.  Whereas {\tt chebfun} uses a minimum of $2^3+1=9$ function values, the figure labeled ``{\tt chebfun} heavy duty'' displays the results of requiring chebfun to use at least $2^{10}+1=1025$ function values.  
+
+Figure \ref{GaussianTestFunFig} shows that {\tt quad} and {\tt quadgk} are quite fast, nearly always providing an answer in less that $0.01$ seconds.  Unfortunately, they successfully meet the error tolerance only about $30\%$ of the time for {\tt quad} and $50$--$60\%$ of the time for {\tt quadgk}.  The difficult cases are those where $c_1$ is quite small, and these algorithms miss the sharp peak.  The performance of {\tt chebfun} is similar to that of {\tt quad} and {\tt quadgk}.  The heavy duty version of  {\tt chebfun} fares somewhat better.  
+%The {\tt cubMC} algorithm is described in the next section and the results displayed in Figure \ref{GaussianTestFunFig} are described in Section \ref{numerexsec}.
 
 Figure \ref{GaussianTestFunFig} shows timing and observed errors for the adaptive algorithm, $\aMC$, with i.i.d.\ sampling, as described in the previous section.  The parameters chosen are $\epsilon=0.001$, $\alpha=5\%$, and  $\fudge=1.5$.  For the plot on the left, $n_\sigma=2^{10}=1024$, which corresponds to  $\kappa_{\max}=9.2$.  For the heavy duty plot on the right, $n_\sigma=2^{17}=131\ 072$, which corresponds to  $\kappa_{\max}=1052$. In both of these plots the points labeled with a * are those for which $\kappa(f) \le \kappa_{\max}$ and so Theorem \ref{mainadaptthm} guarantees that the answer is correct $1-\alpha= 95\%$ of the time.  For these plots all of the points labeled * fall within the prescribed error tolerance.  For $\aMC$ i.i.d.\ heavy duty plot $\kappa_{\max}$ is larger, so there are more points for which the guarantee holds.  Those points labeled with a dot, are those for which $\kappa(f) > \kappa_{\max}$, and so no guarantee holds. The points labeled with a diamond are those for which \aMC attempts to exceed the cost budget, i.e., it wants to choose $n$ such that $(n_{\sigma}+n)d > N_{\max}=10^9$. 
 
@@ -608,7 +967,7 @@ N_B^{-1}(n,\alpha,M) := \min \left \{ b>0 : \Phi\left(-b \sqrt{n}  \right)+\frac
 \label{NCBinv*}
 N_{CB}^{-1}(n,\alpha,M) := \min(N_C^{-1}(n,\alpha),N_B^{-1}(n,\alpha,M)).
 \end{gather*}
-It then follows then by Chebyshev's inequality and the Berry-Esseen Inequality (see \eqref{BEresult}) that 
+It then follows then by Chebychev's inequality and the Berry-Esseen Inequality (see \eqref{BEresult}) that 
 \begin{equation*}
 \Prob[\abs{\hmu_n -\mu}<\hvareps] \geq 1-\alpha, \quad \text{provided } \ f \in \cc_{\kappa_{\max}}, \text{ where }\hvareps=\sigma(f) N_{CB}^{-1}(n,\alpha,\kappa_{\max}^{3/4}), 
 \end{equation*} 
@@ -687,6 +1046,11 @@ If this algorithm terminates, then the general error criterion, \eqref{genrelerr
 \section{Discussion}
 
 Put something here.
+
+Looking for algorithms that work well for cones of integrands, $\cc_{\kappa_{\max}}$, leads one to \emph{adaptive} algorithms.  The sample size used to estimate the integral is determined adaptively by first computing an upper bound on $\norm[2]{f-\mu(f)}$.  In information-based complexity theory it is known that adaptive information does not help for convex sets of integrands in the worst case and probabilistic settings \citep[Chapter 4, Theorem 5.2.1; Chapter 8, Corollary 5.3.1]{TraWasWoz88}.  Here, the cone, $\cc_{\kappa_{\max}}$ is not a convex set, so adaption can help.
+
+Again, it should be stressed that the algorithm to be presented here is automatic.  It does not require information about $\norm[2]{f-\mu(f)}=\sigma$, but this quantity needs to be reliably estimated by the algorithm. Thus, the sample size needed, and consequently the time required, to estimate $\mu$ to within the prescribed error tolerance depends on how large $\norm[2]{f-\mu(f)}=\sigma$ is estimated to be.  The algorithm is adaptive, and its cost depends on the integrand.
+
 
 
 \section*{Acknowledgements} The authors gratefully acknowledge discussions with Erich Novak and Henryk Wo\'zniakowski.  The plots of the univariate fooling functions were prepared with the help of Nicholas Clancy and Caleb Hamilton.

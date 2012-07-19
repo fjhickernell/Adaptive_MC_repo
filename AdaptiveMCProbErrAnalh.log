@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  17 JUL 2012 10:32
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  19 JUL 2012 08:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -371,111 +371,218 @@ LaTeX Info: Redefining \cite on input line 694.
 
 
 Writing index file AdaptiveMCProbErrAnalh.idx
+\c@algo=\count136
 
 LaTeX Warning: Unused global option(s):
     [graybox].
 
 (./AdaptiveMCProbErrAnalh.aux
 
-LaTeX Warning: Label `Lpnormdef' multiply defined.
+LaTeX Warning: Label `sampvarbd' multiply defined.
+
+
+LaTeX Warning: Label `sampvarup' multiply defined.
+
+
+LaTeX Warning: Label `sampvarlo' multiply defined.
+
+
+LaTeX Warning: Label `kappamaxdef' multiply defined.
+
+
+LaTeX Warning: Label `kurtmaxcompareNfig' multiply defined.
+
+
+LaTeX Warning: Label `NCdef' multiply defined.
+
+
+LaTeX Warning: Label `BE' multiply defined.
+
+
+LaTeX Warning: Label `BEresult' multiply defined.
+
+
+LaTeX Warning: Label `NB' multiply defined.
+
+
+LaTeX Warning: Label `mainadaptthm' multiply defined.
+
+
+LaTeX Warning: Label `NCBdef' multiply defined.
 
 )
 \openout1 = `AdaptiveMCProbErrAnalh.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 91.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 92.
  (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 114.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 115.
 
 
-Package mathptmx Warning: There are no bold math fonts on input line 114.
+Package mathptmx Warning: There are no bold math fonts on input line 115.
 
 LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 11
-4.
+5.
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
 LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 11
-4.
+5.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
 LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 11
-4.
+5.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
 LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 11
-4.
+5.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 114.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 115.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 114.
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 114.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 115.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 115.
 
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 114.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 115.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 114.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 115.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 114.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 115.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 114.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 114.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 115.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 115.
 
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 114.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 115.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 114.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 115.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 114.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 115.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 119.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 120.
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 127.
-
-
-LaTeX Warning: Reference `??' on page 1 undefined on input line 136.
-
-[1
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 129.
+ [1
 
 
 
-] [2] [3] [4] [5]
+] [2]
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 301--301
+[]\OT1/ptm/m/n/10 Reference for Slut-
+ []
+
+
+Underfull \hbox (badness 1668) in paragraph at lines 303--303
+[]\OT1/ptm/m/n/10 I switched to $\OML/ztmcm/m/it/10 z[]$ \OT1/ptm/m/n/10 as
+ []
+
+
+Underfull \hbox (badness 3514) in paragraph at lines 303--303
+\OT1/ptm/m/n/10 cause we are us-ing
+ []
+
+
+LaTeX Warning: Marginpar on page 4 moved.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 312--312
+[]\OT1/ptm/m/n/10 Which equa-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 312--312
+\OT1/ptm/m/n/10 in Hall's pa-per? I
+ []
+
+
+LaTeX Warning: Marginpar on page 4 moved.
+
+[4] [5] [6] [7]
+Overfull \hbox (4.87083pt too wide) in paragraph at lines 580--582
+[]\OT1/ptm/m/it/9 Let $\OML/ztmcm/m/it/9 Y$ \OT1/ptm/m/it/9 be a ran-dom vari-a
+ble with mean $\OML/ztmcm/m/it/9 ^^V$ \OT1/ptm/m/it/9 and mod-i-fied kur-to-sis
+ $[] \OMS/ztmcm/m/n/9 ^^T []\OT1/ztmcm/m/n/9 ([]\OML/ztmcm/m/it/9 ; n[]; \U/euf
+/m/n/9 C\OT1/ztmcm/m/n/9 )$\OT1/ptm/m/it/9 .
+ []
+
+File: kurtmaxfig.eps Graphic file (type eps)
+<kurtmaxfig.eps>
+File: alphacompare.eps Graphic file (type eps)
+ <alphacompare.eps> [8]
+
+LaTeX Warning: Reference `statperspsec' on page 9 undefined on input line 639.
+
+
+LaTeX Warning: Reference `samplevar' on page 9 undefined on input line 650.
+
+[9]
+
+LaTeX Warning: Reference `samplevar' on page 10 undefined on input line 660.
+
+File: kurtmaxfig.eps Graphic file (type eps)
+<kurtmaxfig.eps>
+File: alphacompare.eps Graphic file (type eps)
+ <alphacompare.eps>
+
+LaTeX Warning: Reference `CLT' on page 10 undefined on input line 712.
+
+[10] [11]
+LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <9> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 763.
+
+
+LaTeX Warning: Reference `coneintegdef' on page 12 undefined on input line 768.
+
+
+
+LaTeX Warning: Reference `samplevar' on page 12 undefined on input line 768.
+
+
+LaTeX Warning: Reference `simpleMCest' on page 12 undefined on input line 772.
+
+[12]
+
+LaTeX Warning: Reference `ballintegdef' on page 13 undefined on input line 791.
+
+
+[13]
 File: Foolquadbw.eps Graphic file (type eps)
  <Foolquadbw.eps>
 File: Foolquadgkbw.eps Graphic file (type eps)
  <Foolquadgkbw.eps>
 File: Foolchebintbw.eps Graphic file (type eps)
- <Foolchebintbw.eps>
+ <Foolchebintbw.eps> [14]
 File: gaussiand=1quadErrTime.eps Graphic file (type eps)
 
 <gaussiand=1quadErrTime.eps>
@@ -497,27 +604,23 @@ File: gaussiand=1SobolErrTime.eps Graphic file (type eps)
 File: gaussiand=1SobolheavyErrTime.eps Graphic file (type eps)
  <gaussiand=1SobolheavyErrTime.eps>
 
-LaTeX Warning: Float too large for page by 76.85374pt on input line 326.
+LaTeX Warning: Float too large for page by 76.85374pt on input line 880.
 
-[6] [7] [8]
-File: kurtmaxfig.eps Graphic file (type eps)
- <kurtmaxfig.eps>
-File: alphacompare.eps Graphic file (type eps)
- <alphacompare.eps> [9] [10]
-LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 461.
- [11] [12] [13]
+[15] [16]
 File: gaussiand=7iidErrTime.eps Graphic file (type eps)
-
-<gaussiand=7iidErrTime.eps>
+ <gaussiand=7iidErrTime.eps>
 File: gaussiand=7iidheavyErrTime.eps Graphic file (type eps)
  <gaussiand=7iidheavyErrTime.eps>
 File: gaussiand=7SobolErrTime.eps Graphic file (type eps)
 
 <gaussiand=7SobolErrTime.eps>
 File: gaussiand=7SobolheavyErrTime.eps Graphic file (type eps)
- <gaussiand=7SobolheavyErrTime.eps> [14] [15]
-[16] (./AdaptiveMCProbErrAnalh.bbl [17]) [18] (./AdaptiveMCProbErrAnalh.aux)
+ <gaussiand=7SobolheavyErrTime.eps> [17] [18]
+
+LaTeX Warning: Reference `samplevar' on page 19 undefined on input line 997.
+
+[19] [20] (./AdaptiveMCProbErrAnalh.bbl [21]) [22]
+(./AdaptiveMCProbErrAnalh.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -526,12 +629,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3254 strings out of 493630
- 41176 string characters out of 3143346
- 107553 words of memory out of 3000000
- 6476 multiletter control sequences out of 15000+200000
+ 3275 strings out of 493630
+ 41431 string characters out of 3143346
+ 107552 words of memory out of 3000000
+ 6497 multiletter control sequences out of 15000+200000
  42833 words of font info for 132 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  29i,17n,26p,1297b,366s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on AdaptiveMCProbErrAnalh.dvi (18 pages, 92560 bytes).
+Output written on AdaptiveMCProbErrAnalh.dvi (22 pages, 111652 bytes).

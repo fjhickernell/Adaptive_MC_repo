@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  9 JUL 2012 15:38
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  18 JUL 2012 18:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -210,110 +210,14 @@ Type  H <return>  for immediate help.
                                                   
 l.483 ...\includegraphics[width=2.1in]{kurtmaxfig}
                                                    \\
-? r
-OK, entering \nonstopmode...
-
-./fixwidth.tex:483: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.483 ...cludegraphics[width=2.1in]{kurtmaxfig} \\
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-./fixwidth.tex:489: LaTeX Error: File `alphacompare' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.489 \includegraphics[width=2.1in]{alphacompare}
-                                                 \\
-I could not locate the file with any of these extensions:
-.eps,.ps,.eps.gz,.ps.gz,.eps.Z
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./fixwidth.tex:489: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.489 ...ludegraphics[width=2.1in]{alphacompare}\\
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-Underfull \hbox (badness 5345) in paragraph at lines 492--492
-[]\OT1/cmr/m/n/10 Figure 1: (a) The max-i-mum kur-to-sis, $\OML/cmm/m/it/10 ^^T
-[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ; n[]; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :
-\OT1/cmr/m/n/10 5)$, as de-fined
- []
-
-
-Underfull \hbox (badness 2173) in paragraph at lines 492--492
-\OT1/cmr/m/n/10 in []; (b) com-par-i-son of sam-ple sizes $\OML/cmm/m/it/10 N[]
-\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 01\OML/cmm/m/it/10 ; \OT1/
-cmr/m/n/10 )$, $\OML/cmm/m/it/10 N[]\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 :\OT1/cm
-r/m/n/10 01\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 )$, and
- []
-
-[6]
-Overfull \hbox (34.28674pt too wide) in paragraph at lines 556--556
-[] 
- []
-
-[7]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 587.
-
- (/usr/local/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 587.
-
-Overfull \hbox (7.08621pt too wide) in paragraph at lines 634--638
-\OT1/cmr/bx/n/10 Theorem 5. \OT1/cmr/m/it/10 Let $\OML/cmm/m/it/10 Y$ \OT1/cmr/
-m/it/10 be a ran-dom vari-able with mean $\OML/cmm/m/it/10 ^^V$\OT1/cmr/m/it/10
- . If $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 
-^^T []\OT1/cmr/m/n/10 ([]\OML/cmm/m/it/10 ; n[]; \U/euf/m/n/10 C\OT1/cmr/m/n/10
- )$
- []
-
-[8]
-Overfull \hbox (3.217pt too wide) detected at line 692
-[]
- []
-
-[9]
-Overfull \hbox (10.02852pt too wide) detected at line 714
-\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = 1 + []
- [] \OML/cmm/m/it/10 ;  [][] f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/1
-0 )  d\OML/cmm/m/it/10 x \OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 5
-4316\OML/cmm/m/it/10 :
- []
-
-[10] (./fixwidth.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+? x
+ 
 Here is how much of TeX's memory you used:
- 1629 strings out of 493630
- 18876 string characters out of 3143346
+ 1603 strings out of 493630
+ 18602 string characters out of 3143346
  75352 words of memory out of 3000000
- 4917 multiletter control sequences out of 15000+200000
- 15950 words of font info for 61 fonts, out of 3000000 for 9000
+ 4899 multiletter control sequences out of 15000+200000
+ 15781 words of font info for 60 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 27i,13n,22p,740b,226s stack positions out of 5000i,500n,10000p,200000b,50000s
-
-Output written on fixwidth.dvi (10 pages, 39764 bytes).
+ 27i,13n,22p,465b,219s stack positions out of 5000i,500n,10000p,200000b,50000s
+Output written on fixwidth.dvi (5 pages, 21184 bytes).

@@ -1,5 +1,5 @@
 \def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}
-\begin{thebibliography}{21}
+\begin{thebibliography}{23}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -23,6 +23,10 @@ Gander W, Gautschi W (2000) Adaptive quadrature --- revisited. BIT 40:84--101
 \bibitem[{Hale et~al(2012)Hale, Trefethen, and Driscoll}]{TrefEtal12}
 Hale N, Trefethen LN, Driscoll TA (2012) Chebfun Version 4
 
+\bibitem[{Hall(1986)}]{Hal86}
+Hall P (1986) On the bootstrap and confidence intervals. The Annals of
+  Statistics 14:1431--1452
+
 \bibitem[{Halton(2005)}]{Hal05a}
 Halton JH (2005) Quasi-probability: {W}hy quasi-{M}onte-{C}arlo methods are
   statistically valid and how their errors can be estimated statistically.
@@ -43,6 +47,9 @@ Lin Z, Bai Z (2010) Probability Inequalities. Science Press and
 \bibitem[{Matou\v{s}ek(1998)}]{Mat98}
 Matou\v{s}ek J (1998) On the {$L_2$}-discrepancy for anchored boxes. J
   Complexity 14:527--556
+
+\bibitem[{McCullagh(1987)}]{McC87a}
+McCullagh P (1987) Tensor methods in statistics. Chapman and Hall, London
 
 \bibitem[{Miller(1986)}]{Mil86}
 Miller R (1986) Beyond {ANOVA}, Basics of Applied Statistics. John Wiley \&
