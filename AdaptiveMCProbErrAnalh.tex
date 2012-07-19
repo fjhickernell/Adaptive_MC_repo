@@ -201,9 +201,9 @@ One might question whether assumption \eqref{kurtassump}, which involves fourth-
 also yields a fixed-width confidence interval of the form \eqref{confint}.  We would argue that \eqref{kurtassump} is indeed more reasonable.  Firstly, if $Y$ satisfies \eqref{kurtassump}, then so does $cY$ for any real constant $c$, however, the analog does not hold for \eqref{boundedvar}.  In fact, if $\sigma$ is nonzero \eqref{boundedvar} is violated by $cY$ for $c$ sufficiently large.  Second of all, making $\tkappa_{\max}$ a factor of $10$ or $100$ larger than $\tkappa$ does not significantly affect the total cost (number of samples required) of our Monte Carlo Algorithm \ref{twostagealgo} for a large range of values of $\sigma/\varepsilon$.  However, the cost of our Monte Carlo algorithm, and indeed any Monte Carlo algorithm is proportional to $\sigma^2$, so overestimating $\sigma^2$ by a factor of $10$ or $100$ to be safe, increases the cost of the algorithm by that factor. 
 
 An important special case of computing $\mu=\e(Y)$ arises in the situation where $Y=f(\vX)$ for some  $d$-variate function $f: \reals^d \to \reals$, and some $d$-vector random variable, $\vX$ with probability density $\rho: \reals^d \to [0,\infty)$.  One may then interpret the mean of $Y$ as the multidimensional integral 
-\begin{equation*} 
+\begin{equation} \label{muintegral}
 \mu=\e(Y)= \mu(f) = \int_{\reals^d} f(\vx) \rho(\vx) \, \dif \vx.
-\end{equation*}
+\end{equation}
 Given the problem of evaluating $\mu=\int_{\reals^d} g(\vx) \, \dif \vx$, one must choose a probability density $\rho$ for which one can easily generate random variates $\vX$, and then set $f = g/\rho$.  The quantities $\sigma^2$ and $\tkappa$ defined above can be written in terms of weighted $\cl_p$-norms of $f$:
 \begin{equation} \label{Lpnormdef}
 \norm[p]{f} :=\left\{\int_{\reals^d} \abs{f(\vx)}^p \rho(\vx) \, \dif \vx\right\}^{1/p}, \qquad
@@ -603,198 +603,20 @@ Thus, in the two stage algorithm we have
 \end{align*}
 \end{proof}
 
-Though $n_\sigma$ can be as small as $2$ it should
-ordinarily be larger.  
+As mentioned in the introduction, one popular case is occurs when  $Y$ is a $d$-variate function of a random vector $\vX$. In this case $\mu$ corresponds to the multivariate integral in \eqref{muintegral} and Theorem \ref{mainadaptthm} may be interpreted as below:
+
+\begin{corollary} Suppose that $\rho:\reals^d \to \reals$ is a probability density, $f: \reals^d \to \reals$ has finite $\cl_4$ norm as defined in \eqref{Lpnormdef}, and furthermore $f$ lies in the cone $\cc_{\tkappa_{\max}}$ defined in \eqref{conedef}, where $\tkappa_{\max}=\tilde\kappa_{\max}(\tilde\alpha,n_\sigma,\fudge)$.  It follows that Algorithm  \ref{twostagealgo}  yields an estimate,
+$\hat\mu$, of the multidimensional integral $\mu$ defined in \eqref{muintegral}, which satisfies the fixed width confidence interval
+$$\Pr( |\hat\mu-\mu|\le\varepsilon)\ge 1-\alpha.$$
+\end{corollary}
 
 
 
-Figure \ref{kurtmaxcompareNfig}a shows how large a kurtosis can be accommodated for a given $n_{\sigma}$, $\alpha$, and $\fudge=1.5$.  Note that for $n=30$, a common rule of thumb for applying the central limit theorem, even the modest value $\alpha=0.1$ yields
-$\tilde\kappa_{\max}$ of only about $2$,
-corresponding to a kurtosis of about $5$. 
-While that kurtosis is reasonably large for many
-observational data settings,
-Monte Carlo applications
-often involve a larger kurtosis than this.
-
-\begin{figure}
-\centering
-\begin{minipage}{2.1in}
-\centering \includegraphics[width=2.1in]{kurtmaxfig} \\
-% switch to kurtmaxfig.eps if not using pdflatex
-(a)
-\end{minipage}
-\quad 
-\begin{minipage}{2.1in}\centering
-\includegraphics[width=2.1in]{alphacompare}\\
-(b)
-\end{minipage}
-\caption{(a) The maximum kurtosis, $\kappa_{\max}(\alpha,n_{\sigma},1.5)$, as defined in \eqref{kappamaxdef}; (b) comparison of sample sizes $ N_G(0.01,\alpha)$, $N_C(0.01,\alpha)$, and $N_B(0.01,\alpha,\kappa_{\max}^{3/4}(\alpha,1000,1.5))$.\label{kurtmaxcompareNfig}}
-\end{figure}
 
 
-\section{Adaptive Monte Carlo with Guaranteed Error Estimation}
+\subsection{Cost of the Algorithm}  The number of function values required by the two-stage Algorithm \ref{twostagealgo} is $n_{\sigma}+n$, the sum of the initial sample size used to estimate the variance of $Y$ and the sample size used to estimate the mean of $Y$.  Since $n$ is a random variable, the cost of this algorithm might best be defined defined probabilistically.  Moreover, the cost depends strongly on $\sigma^2$, the unknown variance of $Y$, as well as the error tolerance (interval width) $\varepsilon$.  We define algorithmic cost for this problem to reflect these features. 
 
-This section describes an adaptive Monte Carlo algorithm based on i.i.d.\ sampling that has probabilistic guarantees on satisfying an absolute error tolerance.  A software implementation of this algorithm, {\tt cubMC}, is being developed by the authors and their collaborators.  Numerical experiments using {\tt cubMC} are shown in Figure \ref{GaussianTestFunFig} above and in Section \ref{numerexsec} below.
-
-\subsection{Reliably Bounding the Variance} To estimate or bound the variance of $Y=f(\vX)$ one must have a finite fourth moment.  The definitions of the variance and kurtosis of $Y$ in Section \ref{statperspsec} may be extended naturally to $f \in \cl_4$ in terms of $\cl_p$ norms defined in \eqref{Lpnormdef} as follows:
-\begin{equation*}
-\sigma^2=\var(Y) = \var(f) = \norm[2]{f - \mu(f)}^2, \qquad \kappa=\kurt(Y) = \kurt(f) = \frac{\norm[4]{f - \mu(f)}^4}{\norm[2]{f - \mu(f)}^4}.
-\end{equation*}
-Thus, one may speak about $Y$ or $f$ interchangeably. If $1 \le q \le p$, then by H\"older's inequality,
-\begin{align*}\label{LP}
-\norm[q]{f} &=\left\{\int_{\reals^d} \abs{f(\vx)}^q \rho(\vx) \, \dif \vx\right\}^{1/q}\\
-\nonumber & \le \left\{\int_{\reals^d} \abs{f(\vx)}^p \, \rho(\vx) \, \dif \vx \right\}^{1/p} \left\{\int_{\reals^d} 1^{p/(p-q)} \, \rho(\vx) \, \dif \vx\right\}^{(p-q)/(pq)} = \norm[p]{f}.
-\end{align*}
-Thus, $\kappa=\kurt(f) \ge 1$, provided $\sigma^2=\var(f)>0$.  For $\sigma^2=\var(f)=0$, one defines $\kappa=\kurt(f)=1$.
-
-As mentioned in \eqref{samplevar}, a practical upper bound on $\sigma^2$ may be obtained in terms of the sample variance.  The justification for this statement is contained in the lemma below. Two well-known probability inequalities that are needed here and later are quoted in the following lemma.
-
-\begin{lemma} \label{ChebCantlem}  Suppose that $Z$ is any random variable with finite second moment.  For any $a >0 $,
-\begin{gather*}
-\Prob\left[\abs{Z-E(Z)} \ge a \right] \le \frac{\var(Z)}{a^2} \qquad \text{Chebychev's inequality \citep[6.1c]{LinBai10a}} , \\
-\Prob[Z-E[Z] \geq a]\leq \frac{\var(Z)}{a^2+\var(Z)} \qquad
-\text{Cantelli's Inequality \citep[6.1e]{LinBai10a}}.
-\end{gather*}
-\end{lemma}
-
-\begin{lemma} \label{varbdlem}  Suppose that $Y$ is a random variable with finite fourth moment, and with mean $\mu$, variance $\sigma^2$, and kurtosis $\kappa$.  Let $\hv_{n}$ denote the unbiased sample variance based on $n$ i.i.d.\ samples, $Y_1, \ldots, Y_n$ as defined in \eqref{samplevar}.  Then for any $\alpha \in (0,1]$ it follows that
-\begin{subequations} \label{sampvarbd}
-\begin{gather} \label{sampvarup}
-\Prob \left[\frac{\hv_{n}}{1 - \sqrt{\left ( \kappa  - \frac{n-3}{n-1}\right)\left(\frac{1-\alpha}{\alpha n}\right)}} > \sigma^2 \right] \ge 1 - \alpha, \\
-\label{sampvarlo}
-\Prob \left[\frac{\hv_{n}}{1 + \sqrt{\left ( \kappa  - \frac{n-3}{n-1}\right)\left(\frac{1-\alpha}{\alpha n}\right)}} < \sigma^2 \right] \ge 1 - \alpha.
-\end{gather}
-\end{subequations}
-\end{lemma}
-
-\begin{proof} It is known that the sample variance is an unbiased estimator of the variance, i.e., $E(\hv_n)=\sigma^2$.  It is also known from \cite[(7.16)]{Mil86} that the variance of the sample variance can be expressed in terms of $\sigma^2$ and $\kappa$ as
-\[
-\var(\hv_n) = \frac{\sigma^4}{n} \left ( \kappa  - \frac{n-3}{n-1} \right).
-\]
-Choosing
-$$a=\sqrt{\var(\hv_n) \frac{1-\alpha}{\alpha} } = \sigma^2\sqrt{\left(\kappa-\frac{n-3}{n-1}\right)\left(\frac{1-\alpha}{\alpha n}\right)} >0,
-$$
-it follows from Cantelli's inequality (Lemma \ref{ChebCantlem})  that
-\begin{multline*}
-\Prob\left[\hv_n-\sigma^2 \geq
-\sigma^2\sqrt{\left(\kappa-\frac{n-3}{n-1}\right)\left(\frac{1-\alpha}{\alpha n}\right)} \right]  = \Prob\left[\hv_n-\sigma^2 \geq
-a \right]\\
- \leq \frac{\var(\hv_n)}{a^2+\var(\hv_n)} 
-=\frac{\var(\hv_n)}{\var(\hv_n) \frac{1-\alpha}{\alpha}+\var(\hv_n)}  
-=\frac{1}{\left(\frac{1-\alpha}{\alpha}\right)+1}=\alpha.
-\end{multline*}
-Then \eqref{sampvarup} follows directly.  By a similar argument, applying Cantelli's inequality to the expression $\Prob\left[-\hv_n+\sigma^2 \ge a \right]$ implies  \eqref{sampvarlo}. \qed
-\end{proof}
-
-Lemma \ref{varbdlem} provides probabilistic justification to use $\hsigma^2 = \fudge^2 \hv_{n_{\sigma}}$ as a reliable upper bound for $\sigma^2=\var(Y)=\var(f)$.  One can claim that $\Prob(\hsigma^2 \ge \sigma^2) \ge 1-\alpha$ assuming that
-\begin{multline}
-\frac{1}{1 - \sqrt{\left ( \kappa  - \frac{n_{\sigma}-3}{n_{\sigma}-1}\right)\left(\frac{1-\alpha}{\alpha n_{\sigma}}\right)}} \le \fudge^2
-\\
-\iff \kappa \le \frac{n_{\sigma}-3}{n_{\sigma}-1} + \left(\frac{ \alpha n_{\sigma}}{1-\alpha}\right) \left(1 - \frac{1}{\fudge^2}\right)^2 =: \kappa_{\max} (\alpha,n_{\sigma},\fudge). \label{kappamaxdef}
-\end{multline}
-
-Figure \ref{kurtmaxcompareNfig}a shows how large a kurtosis can be accommodated for a given $n_{\sigma}$, $\alpha$, and variance inflation factor $\fudge=1.5$.  Note that for $n=30$, a common rule of thumb for applying the central limit theorem, even $\alpha=0.1$ gives $\kappa_{\max}$ of only about $2$, which is rather restrictive.
-
-\begin{figure}
-\centering
-\begin{minipage}{2.1in}
-\centering \includegraphics[width=2.1in]{kurtmaxfig.eps} \\
-(a)
-\end{minipage}
-\quad 
-\begin{minipage}{2.1in}\centering
-\includegraphics[width=2.1in]{alphacompare.eps}\\
-(b)
-\end{minipage}
-\caption{(a) The maximum kurtosis, $\kappa_{\max}(\alpha,n_{\sigma},1.5)$, as defined in \eqref{kappamaxdef}; (b) comparison of sample sizes $ N_G(0.01,\alpha)$, $N_C(0.01,\alpha)$, and $N_B(0.01,\alpha,\kappa_{\max}^{3/4}(\alpha,1000,1.5))$.\label{kurtmaxcompareNfig}}
-\end{figure}
-
-\subsection{Determining the Sample Size} The other issue that needs to be addressed is a tight probabilistic error bound to replace the asymptotic or approximate error bound given by the Central Limit Theorem, \eqref{CLT}.   Chebychev's inequality implies that the number of function evaluations needed to ensure that $\hmu_n$ satisfies the error tolerance with high probability is
-\begin{subequations} \label{ChebErr}
-\begin{gather} \label{ChebProbEst}
-\Prob\left[\abs{\hmu_n-\mu} \le \varepsilon \right] \ge 1-\alpha \quad \text{for } n \ge N_{C}(\varepsilon/\sigma,\alpha),\ f \in \cl_2,
-\intertext{where }
-\label{NCdef}
-N_{C}(\varepsilon,\alpha) :=\left \lceil \frac{1}{\alpha\varepsilon^2} \right \rceil.
-\end{gather}
-\end{subequations}
-However, this sample size is much larger than that given by the Central Limit Theorem, as shown in Figure \ref{kurtmaxcompareNfig}b.
-
-Since higher order moments of the integrand are required to guarantee an upper bound on the true variance in terms of the sample variance, it is sensible to use these higher order moments to obtain smaller sample sizes.  A smaller sample size than \eqref{NCdef} with a rigorous probabilistic bound can be found by invoking the following inequality. 
-\begin{lemma}[Non-uniform Berry-Esseen Inequality] \cite[Theorem 5.16, p. 168]{Pet95a} \label{BE} Let $Y_1,\dots,Y_n$ be i.i.d.\ random variables.  Suppose that
-$\mu=E(Y_i)$, $\var(Y_i)=\sigma^2>0$,  and $M=E\abs{Y_i - \mu}^3/\sigma^3 < \infty$.
-Then
-\[
-\abs{\Prob\left[\frac{1}{\sigma\sqrt{n}}\sum_{i=1}^{n}(Y_i-\mu)<x
-\right]-\Phi(x)}\leq \frac{A M}{\sqrt{n}(1+\abs{x})^{3}}.
-\] for all x,
-where $\Phi$ is the cumulative distribution function of a standard Gaussian (normal) random variable, and $A$ is some number satisfying $0.4097\leq A\leq 0.5600$.
-\end{lemma}
-
-The right hand side of this inequality bounds how far the probability distribution of sample mean deviates from the Central Limit Theorem approximation.  This right hand side vanishes as either the sample size or $\abs{x}$ tends to infinity. This inequality requires that $Y=f(\vX)$, have a finite third moment, i.e., $f \in \cl_3$, which is a weaker assumption than is needed to bound the variance in terms of the sample variance in Lemma \ref{varbdlem}. Recalling that $Y_i = f(\vX_i)$, $\mu=E(Y_i)$, and $\hmu_n =
-(Y_1 + \cdots + Y_n)/n$, this
-Berry-Esseen inequality then implies that for positive $x$,
-\begin{align} 
-\nonumber
-\Prob\left[\abs{\hmu_n - \mu} <\frac{\sigma x}{\sqrt{n}}\right]&=\Prob\left[\hmu_n - \mu<\frac{\sigma x}{\sqrt{n}}\right]-\Prob\left[\hmu_n - \mu <-\frac{\sigma x}{\sqrt{n}}\right]\\
-\nonumber
-&\ge \left[\Phi(x)-\frac{0.56 M}{\sqrt{n}(1+\abs{x})^{3}}\right] -\left[\Phi(-x) + \frac{0.56 M}{\sqrt{n}(1+\abs{x})^{3}}\right]\\
-&=1-2\left(\Phi(-x) - \frac{0.56 M}{\sqrt{n}(1+\abs{x})^{3}}\right). \label{BEresult}
-\end{align}
-Letting $x=\varepsilon\sqrt{n}/\sigma$, the probability of
-making an error less than $\varepsilon$ is bounded below by $1-\alpha$, i.e., 
-\begin{subequations} \label{proberrcritsampleBE}
-\begin{equation}
-\Prob[\abs{\hmu_n -\mu}<\varepsilon] \geq 1-\alpha,  \quad \text{provided } n \ge N_B(\varepsilon/\sigma,\alpha,M), \ f \in \cl_3,
-\end{equation}
-where 
-\begin{equation}\label{NB}
-N_B(b,\alpha,M) := \min \left \{ n \in \naturals : \Phi\left(-b \sqrt{n}  \right)+\frac{0.56M}{\sqrt{n}\left(1+ b\sqrt{n} \right)^{3}}
-\le \frac{\alpha}{2} \right \}.
-\end{equation}
-\end{subequations}
-
-As shown in Figure \ref{kurtmaxcompareNfig}b, for a range of $\alpha$, the sample size guaranteeing coverage of the confidence interval, $N_B$, is quite close to the sample size for the approximate Central Limit Theorem confidence interval, $N_G$, however, $N_B$ may be somewhat larger for very small or rather large $\alpha$.  In general $N_B$ is significantly smaller than $N_C$, but not always.  A disadvantage of \eqref{proberrcritsampleBE} is that class of integrands, $\cl_3$, is smaller than that in \eqref{ChebErr}, but this typically a small price to pay given the much smaller cost of computation.
-
-The theorem below combines the results on estimating the variance with the sample sizes arising from Chebychev's inequality and the Berry-Esseen inequality.  These lead to an adaptive Monte Carlo algorithm with a probabilistic error guarantee.
-
-\begin{theorem} \label{mainadaptthm} Specify the following parameters defining the algorithm:
-\begin{itemize}
-\item sample size for variance estimation, $n_{\sigma} \in \naturals$,
-\item inflation factor for variance estimation, $\fudge \in (1,\infty)$,
-\item uncertainty tolerance, $\alpha\in (0,1)$, and $\talpha = 1 - \sqrt{1 - \alpha}$, and
-\item absolute error tolerance, $\varepsilon \in (0,\infty)$. 
-\end{itemize} 
-For $\kappa_{\max}=\kappa_{\max}(n_{\sigma},\talpha,\fudge)$, as defined in \eqref{kappamaxdef}, define the cone of integrands functions with bounded kurtosis, $\cc_{\kappa_{\max}}$, according to \eqref{coneintegdef}.  For any $f \in \cc_{\kappa_{\max}}$, compute the sample variance, $\hv_{n_{\sigma}}$ using a simple random sample of size $n_{\sigma}$. Use this to approximate the variance of $f$ by $\hsigma^2 = \fudge^2 \hv_{n_{\sigma}}$ as in \eqref{samplevar}.  Next define a sample size $n = N_{CB}(\varepsilon/\hsigma,\talpha,\kappa_{\max}^{3/4})$, where
-\begin{equation} \label{NCBdef}
-N_{CB}(b,\alpha,M) := \min\left( N_C(b,\alpha), N_B(b,\alpha,M) \right),
-\end{equation} 
-$N_C$ is defined in \eqref{NCdef} and  $N_B$ is defined in \eqref{NB}.  Compute $\hmu_n$, the simple Monte Carlo estimator of $\mu$ based on $n$ samples, as in \eqref{simpleMCest}.  A probabilistic absolute error bound is given by
-\[
-\Prob\left[\abs{\hmu_n-\mu} \le \varepsilon \right] \geq 1-\alpha.
-\]
-\end{theorem}
-\begin{proof} Note that \eqref{LP} implies that the third moment can be bounded in terms of the fourth moment, namely $M$ in Lemma \ref{BE} is no greater than $\kappa^{3/4}$. There are three primary random variables in this algorithm:  the estimated upper bound on the standard deviation, $\hsigma$, the sample size to estimate the mean, $n$, which is an explicit function of $\hsigma$, and the estimated mean, $\hmu_n$. By  \eqref{ChebErr} and \eqref{proberrcritsampleBE} it then follows that  $\Prob\left[\abs{\hmu_n-\mu} \le \varepsilon \right] \geq 1-\talpha$, provided that $\hsigma  \ge \sigma$. Thus, 
-\begin{align*}
-\Prob\left[\abs{\hmu_n-\mu} \le \varepsilon \right] &
-= E_{\hsigma} \left\{\Prob\left[\abs{\hmu_n-\mu} \le \varepsilon \ | \ \hsigma \right] \right\} \\
-& \ge E_{\hsigma} \left\{(1-\talpha) 1_{[\sigma,\infty)}(\hsigma) \right\}\\
-& \ge (1-\talpha) (1-\talpha) = 1-\alpha,
-\end{align*}
-since $\hsigma \ge \sigma$ with probability $1-\talpha$ by \eqref{kappamaxdef}.  \qed
-\end{proof}
-
-\begin{remark} If one is willing to invest $n_\sigma$ samples to estimate $\sigma$, it makes practical sense to to choose the sample size for the sample mean at least that large, i.e, 
-\[
-n = \max(n_{\sigma},N_{CB}(\varepsilon/\hsigma,\talpha,\kappa_{\max}^{3/4})).
-\]
-By the error bound following from Chebychev's inequality, \eqref{ChebErr}, this means that the probabilistic absolute error bound in Theorem \ref{mainadaptthm} also holds for integrands, $f$, lying in the ball $\cb_{\sigma_{\max}}$, defined in \eqref{ballintegdef}, where $\sigma_{\max} = \varepsilon \sqrt{\alpha n_{\sigma}}$.
-\end{remark}
-
-
-\subsection{Cost of the Algorithm}  The sample size of the adaptive algorithm defined in Theorem \ref{mainadaptthm} is a random variable, and so the cost of this algorithm might best be defined defined probabilistically.  Moreover, the cost depends strongly on $\sigma$ as well as the $\varepsilon$, and its definition should reflect this dependence. 
-
-Let $A$ be any random algorithm defined for a set of integrands $\cf$ that takes as its input an error tolerance, $\varepsilon$, an uncertainty level, $\alpha$, and a  procedure for computing values of $f \in \cf$.  The algorithm then computes an approximation to the integral, $A(f,\varepsilon,\alpha)$.  This approximation is based solely on  $f(\vx_1), \ldots, f(\vx_n)$, where the choice of each $\vx_i$ may depend iteratively on $(\vx_1,f(\vx_1)), \ldots, (\vx_{i-1},f(\vx_{i-1}))$, and the decision to stop with $n$ data depends on all function data collected, up to and including the $n^{\text{th}}$.  The cost of this algorithm for this set of inputs is denoted $\cost(A,\varepsilon,\alpha,f)$, is the number of function values, $n$, which as noted is a random variable.  The probabilistic cost of the algorithm, with uncertainty $\beta$, for integrands of variance no greater than $\sigma^2_{\max}$ is defined as 
+Let $A$ be any random algorithm that takes as defined for a set of integrands $\cf$ that takes as its input an error tolerance, $\varepsilon$, an uncertainty level, $\alpha$, and a  procedure for computing values of $f \in \cf$.  The algorithm then computes an approximation to the integral, $A(f,\varepsilon,\alpha)$.  This approximation is based solely on  $f(\vx_1), \ldots, f(\vx_n)$, where the choice of each $\vx_i$ may depend iteratively on $(\vx_1,f(\vx_1)), \ldots, (\vx_{i-1},f(\vx_{i-1}))$, and the decision to stop with $n$ data depends on all function data collected, up to and including the $n^{\text{th}}$.  The cost of this algorithm for this set of inputs is denoted $\cost(A,\varepsilon,\alpha,f)$, is the number of function values, $n$, which as noted is a random variable.  The probabilistic cost of the algorithm, with uncertainty $\beta$, for integrands of variance no greater than $\sigma^2_{\max}$ is defined as 
 \begin{equation}
 \cost(A,\varepsilon,\alpha,\beta,\cf,\sigma_{\max}) := \sup_{\substack{f \in \cf\\ \var(f)\le \sigma^2} } \min\left\{N : \Prob[\cost(A,\varepsilon,\alpha,f) \le N] \ge 1-\beta  \right \}.
 \end{equation}
@@ -824,6 +646,45 @@ Noting that $N_{CB}(\cdot,\alpha,M)$ is a non-increasing function allows one to 
 \end{theorem}
 
 The cost of the adaptive Monte Carlo algorithm $\aMC$ is roughly proportional to $\sigma^2_{\max}\varepsilon^{-2}$.  The set $\cc_{\kappa_{\max}}$ contains integrands with arbitrarily large variance, $\sigma^2=\var(f)$, and thus with potentially arbitrarily large algorithmic cost.  On the other hand, since the algorithm is adaptive, the cost may be small if $\sigma^2$ is small.  The upper bound in Theorem \ref{costtheorem} certainly scales with the $\sigma^2_{\max}$ as one might hope if $\sigma^2_{\max}$ were known.  The variable cost of the algorithm for integrands in $\cc_{\kappa_{\max}}$ is actually an advantage, rather than a drawback, of this analysis.  One need not make any a priori assumptions about the size of the integrand, $\sigma$, only about its kurtosis, $\kappa$, which is unchanged when the integrand is multiplied by an arbitrary nonzero constant.
+
+
+Though $n_\sigma$ can be as small as $2$ it should
+ordinarily be larger.  
+
+
+As shown in Figure \ref{kurtmaxcompareNfig}b, for a range of $\alpha$, the sample size guaranteeing coverage of the confidence interval, $N_B$, is quite close to the sample size for the approximate Central Limit Theorem confidence interval, $N_G$, however, $N_B$ may be somewhat larger for very small or rather large $\alpha$.  In general $N_B$ is significantly smaller than $N_C$, but not always.  A disadvantage of \eqref{proberrcritsampleBE} is that class of integrands, $\cl_3$, is smaller than that in \eqref{ChebErr}, but this typically a small price to pay given the much smaller cost of computation.
+
+Figure \ref{kurtmaxcompareNfig}a shows how large a kurtosis can be accommodated for a given $n_{\sigma}$, $\alpha$, and $\fudge=1.5$.  Note that for $n=30$, a common rule of thumb for applying the central limit theorem, even the modest value $\alpha=0.1$ yields
+$\tilde\kappa_{\max}$ of only about $2$,
+corresponding to a kurtosis of about $5$. 
+While that kurtosis is reasonably large for many
+observational data settings,
+Monte Carlo applications
+often involve a larger kurtosis than this.
+
+\begin{figure}
+\centering
+\begin{minipage}{2.1in}
+\centering \includegraphics[width=2.1in]{kurtmaxfig} \\
+% switch to kurtmaxfig.eps if not using pdflatex
+(a)
+\end{minipage}
+\quad 
+\begin{minipage}{2.1in}\centering
+\includegraphics[width=2.1in]{alphacompare}\\
+(b)
+\end{minipage}
+\caption{(a) The maximum kurtosis, $\kappa_{\max}(\alpha,n_{\sigma},1.5)$, as defined in \eqref{kappamaxdef}; (b) comparison of sample sizes $ N_G(0.01,\alpha)$, $N_C(0.01,\alpha)$, and $N_B(0.01,\alpha,\kappa_{\max}^{3/4}(\alpha,1000,1.5))$.\label{kurtmaxcompareNfig}}
+\end{figure}
+
+\begin{remark} If one is willing to invest $n_\sigma$ samples to estimate $\sigma$, it makes practical sense to to choose the sample size for the sample mean at least that large, i.e, 
+\[
+n = \max(n_{\sigma},N_{CB}(\varepsilon/\hsigma,\talpha,\kappa_{\max}^{3/4})).
+\]
+By the error bound following from Chebychev's inequality, \eqref{ChebErr}, this means that the probabilistic absolute error bound in Theorem \ref{mainadaptthm} also holds for integrands, $f$, lying in the ball $\cb_{\sigma_{\max}}$, defined in \eqref{ballintegdef}, where $\sigma_{\max} = \varepsilon \sqrt{\alpha n_{\sigma}}$.
+\end{remark}
+
+
 
 \section{Numerical Examples with $\aMC$} \label{numerexsec}
 
