@@ -634,14 +634,14 @@ v^2(\talpha,\beta,\fudge) := \fudge^2 \left\{1 + \sqrt{\left(\frac{ \talpha }{1-
 \]
 Noting that $N_{\mu}(\varepsilon,\cdot,\tilde\alpha,\tilde\kappa_{\max}^{3/4})$ is a non-decreasing function allows one to derive the following upper bound on the cost of the adaptive Monte Carlo algorithm.
 
-\begin{theorem} \label{costtheorem} The two stage Monte Carlo algorithm for fixed width confidence intervals based on i.i.d.\ sampling described in Algorithm \ref{twostagealgo}, denoted $\aMC$, has a probabilistic cost bounded above by 
+\begin{theorem} \label{costtheorem} The two stage Monte Carlo algorithm for fixed width confidence intervals based on IID sampling described in Algorithm \ref{twostagealgo}, denoted $\aMC$, has a probabilistic cost bounded above by 
 \begin{equation*}
 \cost(\aMC,\varepsilon,\alpha, \beta, \cc_{\kappa_{\max}}, \sigma_{\max})
-\le n_{\sigma} + N_{\mu}(\varepsilon,\sigma_{\max}v(\talpha,\beta,\fudge)),\talpha,\kappa_{\max}^{3/4}).
+\le n_{\sigma} + N_{\mu}(\varepsilon,\sigma_{\max}v(\talpha,\beta,\fudge)),\talpha,\tkappa_{\max}^{3/4}).
 \end{equation*} 
 \end{theorem}
 
-Note that the Chebychev sample size, $N_{\text{Cheb}}$, defined in \eqref{NCdef}, the Berry-Esseen sample size, $N_{\text{BE}}$, and thus $N_\mu$ depend on $\sigma$ and $\varepsilon$ through their ratio, $\sigma/\varepsilon$
+Note that the Chebychev sample size, $N_{\text{Cheb}}$, defined in \eqref{NCdef}, the Berry-Esseen sample size, $N_{\text{BE}}$, defined in \eqref{NB}, and thus $N_\mu$ all depend on $\sigma$ and $\varepsilon$ through their ratio, $\sigma/\varepsilon$.  Apart from 
 
 
 
