@@ -49,7 +49,7 @@
 %\newtheorem{algo}[theorem]{Algorithm}
 %\newtheorem{rem}{Remark}
 \DeclareMathOperator{\sMC}{sMC}
-\newcommand{\aMC}{{\tt cubMC}\xspace}
+\newcommand{\aMC}{{\rm TwoStage}}
 
 
 \newcommand\reals{\mathbb{R}}
@@ -79,7 +79,7 @@
 \newcommand{\talpha}{\tilde{\alpha}}
 \newcommand{\tdelta}{\tilde{\delta}}
 \newcommand{\tkappa}{\tilde{\kappa}}
-\newcommand{\tmu}{\tilde{mu}}
+\newcommand{\tmu}{\tilde{\mu}}
 \newcommand{\cb}{\mathcal{B}}
 \newcommand{\fc}{\mathfrak{C}}
 \newcommand{\cc}{\mathcal{C}}
@@ -412,7 +412,7 @@ We need to ensure that our first stage estimate of the
 variance $\sigma^2$ is not too small. The following
 result bounds the probability of such an underestimate.
 
-\begin{proposition}\label{propCant} 
+\begin{lemma}\label{propCant} 
 Let $Y_1,\dots,Y_n$ be IID random variables with variance
 $\sigma^2>0$ and kurtosis $\kappa$.
 Let $s^2_n$ be the sample variance 
@@ -424,7 +424,7 @@ defined at \eqref{eq:samplevar}, and let $\tilde\kappa=\kappa+3$.  Then
 \Prob\left[s^2_n > \sigma^2 \left\{1 - \sqrt{\left ( \tilde\kappa  - \frac{n-3}{n-1}\right)\left(\frac{1-\alpha}{\alpha n}\right)}\right\} \right] \ge 1 - \alpha.
 \end{gather}
 \end{subequations}
-\end{proposition}
+\end{lemma}
 \begin{proof} Applying Theorem \ref{Varvarthm} and choosing
 $$a=\sqrt{\var(s^2_n) \frac{1-\alpha}{\alpha} } = \sigma^2\sqrt{\left(\kappa-\frac{n-3}{n-1}\right)\left(\frac{1-\alpha}{\alpha n}\right)} >0,
 $$
@@ -440,7 +440,7 @@ a \right]\\
 Then \eqref{sampvarup} follows directly.  By a similar argument, applying Cantelli's inequality to the expression $\Prob\left[-s^2_n+\sigma^2 \ge a \right]$ implies  \eqref{sampvarlo}. \qed
 \end{proof}
 
-Using Proposition~\ref{propCant} we can bound the probability
+Using Lemma~\ref{propCant} we can bound the probability
 that $\hat\sigma^2 = \fudge^2 s^2_{n_\sigma}<\sigma^2$.
 Equation~\eqref{sampvarup} implies that
 \begin{equation}\label{eq:itsbounded}
@@ -485,11 +485,11 @@ Given knowledge of $\sigma$, but no assurance
 of a Gaussian distribution for $\hat\mu_n$, we
 could instead select a sample size based on
 Chebychev's inequality (Theorem \ref{Chebineqthm}).  Taking
-\begin{align}\label{NCdef}
+\begin{equation}\label{NCdef}
 N_{\text{Cheb}}(\varepsilon,\sigma,\alpha)
 = 
 \Bigl\lceil\frac{\sigma^2}{\alpha\varepsilon^2}\Bigr\rceil
-\end{align}
+\end{equation}
 IID observations of $Y$ gives the confidence interval \eqref{confint}.
 Naturally $N_{\text{Cheb}}\ge N_{\text{CLT}}$.
 
@@ -610,40 +610,40 @@ $\hat\mu$, of the multidimensional integral $\mu$ defined in \eqref{muintegral},
 $$\Pr( |\hat\mu-\mu|\le\varepsilon)\ge 1-\alpha.$$
 \end{corollary}
 
+\subsection{Cost of the Algorithm}  The number of function values required by the two-stage Algorithm \ref{twostagealgo} is $n_{\sigma}+n$, the sum of the initial sample size used to estimate the variance of $Y$ and the sample size used to estimate the mean of $Y$.  Since $n$ is a random variable, the cost of this algorithm might best be defined defined probabilistically.  Moreover, the cost depends strongly on $\sigma^2$, the unknown variance of $Y$, as well as the error tolerance (interval width) $\varepsilon$.  We define the algorithmic cost for this problem to reflect these features. 
 
-
-
-
-\subsection{Cost of the Algorithm}  The number of function values required by the two-stage Algorithm \ref{twostagealgo} is $n_{\sigma}+n$, the sum of the initial sample size used to estimate the variance of $Y$ and the sample size used to estimate the mean of $Y$.  Since $n$ is a random variable, the cost of this algorithm might best be defined defined probabilistically.  Moreover, the cost depends strongly on $\sigma^2$, the unknown variance of $Y$, as well as the error tolerance (interval width) $\varepsilon$.  We define algorithmic cost for this problem to reflect these features. 
-
-Let $A$ be any random algorithm that takes as defined for a set of integrands $\cf$ that takes as its input an error tolerance, $\varepsilon$, an uncertainty level, $\alpha$, and a  procedure for computing values of $f \in \cf$.  The algorithm then computes an approximation to the integral, $A(f,\varepsilon,\alpha)$.  This approximation is based solely on  $f(\vx_1), \ldots, f(\vx_n)$, where the choice of each $\vx_i$ may depend iteratively on $(\vx_1,f(\vx_1)), \ldots, (\vx_{i-1},f(\vx_{i-1}))$, and the decision to stop with $n$ data depends on all function data collected, up to and including the $n^{\text{th}}$.  The cost of this algorithm for this set of inputs is denoted $\cost(A,\varepsilon,\alpha,f)$, is the number of function values, $n$, which as noted is a random variable.  The probabilistic cost of the algorithm, with uncertainty $\beta$, for integrands of variance no greater than $\sigma^2_{\max}$ is defined as 
+Let $A$ be any random algorithm that takes as its input, a method for generating random samples, $Y_1, Y_2, \ldots $ with common distribution function $F$ having variance $\sigma^2$ and modified kurtosis $\tkappa$, an error tolerance, $\varepsilon$, and an uncertainty tolerance, $\alpha$.  The algorithm then computes $\hmu=A(F,\varepsilon,\alpha)$, an approximation to $\mu=\e(Y)$, based on a total of $\cost(A,\varepsilon,\alpha,F)$ samples. The probabilistic cost of the algorithm, with uncertainty $\beta$, for integrands of variance no greater than $\sigma^2_{\max}$ and modified kurtosis no greater than $\tkappa_{\max}$ is defined as 
 \begin{equation}
-\cost(A,\varepsilon,\alpha,\beta,\cf,\sigma_{\max}) := \sup_{\substack{f \in \cf\\ \var(f)\le \sigma^2} } \min\left\{N : \Prob[\cost(A,\varepsilon,\alpha,f) \le N] \ge 1-\beta  \right \}.
+\cost(A,\varepsilon,\alpha,\beta,\tkappa_{\max},\sigma_{\max}) := \sup_{\substack{\tkappa \le \tkappa_{\max} \\ \sigma \le \sigma_{\max}} } \min\left\{N : \Prob[\cost(A,\varepsilon,\alpha,F) \le N] \ge 1-\beta  \right \}.
 \end{equation}
 
-The cost of the particular adaptive Monte Carlo algorithm defined in Theorem \ref{mainadaptthm}, denoted $\aMC$, for the cone of integrands $\cc_{\kappa_{\max}}$ is
+The cost of the particular two-stage Monte Carlo algorithm defined in Algorithm \ref{twostagealgo}, denoted $\aMC$, is
 \begin{equation}
-\cost(\aMC,\varepsilon,\alpha, \beta, \cc_{\kappa_{\max}}, \sigma_{\max}) := \sup_{\substack{f \in \cc_{\kappa_{\max}}\\ \var(f)\le \sigma^2_{\max}} } \min\left\{N : \Prob(n_{\sigma} + n \le N) \ge 1-\beta  \right \}.
+\sup_{\substack{\tkappa \le \tkappa_{\max} \\ \sigma \le \sigma_{\max}}} \min\left\{N : \Prob(n_{\sigma} + N_{\mu}(\varepsilon,\hsigma,\tilde\alpha,\tilde\kappa_{\max}^{3/4}) \le N) \ge 1-\beta  \right \}.
 \end{equation}
-Since $n_{\sigma}$ is fixed, bounding this cost depends on bounding $n$, which depends on $\hsigma$ as given by Theorem \ref{mainadaptthm}.  Moreover, $\hsigma$ can be bounded above using \eqref{sampvarlo} in Lemma \ref{varbdlem}.  For $f \in \cc_{\kappa_{\max}}$, 
+Since $n_{\sigma}$ is fixed, bounding this cost depends on bounding $N_{\mu}(\varepsilon,\hsigma,\tilde\alpha,\tilde\kappa_{\max}^{3/4})$, which depends on $\hsigma$ as given by Algorithm \ref{twostagealgo}.  Moreover, $\hsigma$ can be bounded above using \eqref{sampvarlo} in Lemma~\ref{propCant}.  For $\tkappa \le \tkappa_{\max}$, 
 \begin{align*}
-1-\beta & \le \Prob\left[\hv_{n_{\sigma}} < \sigma^2 \left\{1 + \sqrt{\left ( \kappa  - \frac{n_{\sigma}-3}{n_{\sigma}-1}\right)\left(\frac{1-\beta}{\beta n_{\sigma}}\right)}\right\} \right] \\
-& \le \Prob\left[\hsigma^2 = \fudge^2 \hv_{n_{\sigma}} < \fudge^2\sigma^2 \left\{1 + \sqrt{\left ( \kappa_{\max}(n_{\sigma},\talpha,\fudge)  - \frac{n_{\sigma}-3}{n_{\sigma}-1}\right)\left(\frac{1-\beta}{\beta n_{\sigma}}\right)}\right\} \right] \\
+1-\beta & \le \Prob\left[s^2_{n_{\sigma}} < \sigma^2 \left\{1 + \sqrt{\left ( \kappa  - \frac{n_{\sigma}-3}{n_{\sigma}-1}\right)\left(\frac{1-\beta}{\beta n_{\sigma}}\right)}\right\} \right] \\
+& \le \Prob\left[\hsigma^2 = \fudge^2 s^2_{n_{\sigma}} < \fudge^2\sigma^2 \left\{1 + \sqrt{\left ( \kappa_{\max}(n_{\sigma},\talpha,\fudge)  - \frac{n_{\sigma}-3}{n_{\sigma}-1}\right)\left(\frac{1-\beta}{\beta n_{\sigma}}\right)}\right\} \right] \\
 %& = \Prob\left[\hsigma^2 < \fudge^2\sigma^2 \left\{1 + \sqrt{\left(\frac{ \talpha }{1-\talpha}\right) \left(\frac{1-\beta}{\beta}\right) \left(1 - \frac{1}{\fudge^2}\right)^2}\right\} \right] \\
-& = \Prob\left[\hsigma^2 < \sigma^2 \gamma^2(\talpha,\beta,\fudge) \right],
+& = \Prob\left[\hsigma^2 < \sigma^2 v^2(\talpha,\beta,\fudge) \right],
 \end{align*}
 where
 \[
-\gamma^2(\talpha,\beta,\fudge) := \fudge^2 \left\{1 + \sqrt{\left(\frac{ \talpha }{1-\talpha}\right) \left(\frac{1-\beta}{\beta}\right) \left(1 - \frac{1}{\fudge^2}\right)^2}\right\} > 1.
+v^2(\talpha,\beta,\fudge) := \fudge^2 \left\{1 + \sqrt{\left(\frac{ \talpha }{1-\talpha}\right) \left(\frac{1-\beta}{\beta}\right) \left(1 - \frac{1}{\fudge^2}\right)^2}\right\} > 1.
 \]
-Noting that $N_{CB}(\cdot,\alpha,M)$ is a non-increasing function allows one to derive the following upper bound on the cost of the adaptive Monte Carlo algorithm.
+Noting that $N_{\mu}(\varepsilon,\cdot,\tilde\alpha,\tilde\kappa_{\max}^{3/4})$ is a non-decreasing function allows one to derive the following upper bound on the cost of the adaptive Monte Carlo algorithm.
 
-\begin{theorem} \label{costtheorem} The adaptive Monte Carlo algorithm based on i.i.d.\ sampling described in Theorem \ref{mainadaptthm}, denoted $\aMC$, has a probabilistic cost bounded above by 
+\begin{theorem} \label{costtheorem} The two stage Monte Carlo algorithm for fixed width confidence intervals based on i.i.d.\ sampling described in Algorithm \ref{twostagealgo}, denoted $\aMC$, has a probabilistic cost bounded above by 
 \begin{equation*}
 \cost(\aMC,\varepsilon,\alpha, \beta, \cc_{\kappa_{\max}}, \sigma_{\max})
-\le n_{\sigma} + N_{CB}(\varepsilon/(\sigma_{\max}\gamma(\talpha,\beta,\fudge)),\talpha,\kappa_{\max}^{3/4}).
+\le n_{\sigma} + N_{\mu}(\varepsilon,\sigma_{\max}v(\talpha,\beta,\fudge)),\talpha,\kappa_{\max}^{3/4}).
 \end{equation*} 
 \end{theorem}
+
+Note that the Chebychev sample size, $N_{\text{Cheb}}$, defined in \eqref{NCdef}, the Berry-Esseen sample size, $N_{\text{BE}}$, and thus $N_\mu$ depend on $\sigma$ and $\varepsilon$ through their ratio, $\sigma/\varepsilon$
+
+
 
 The cost of the adaptive Monte Carlo algorithm $\aMC$ is roughly proportional to $\sigma^2_{\max}\varepsilon^{-2}$.  The set $\cc_{\kappa_{\max}}$ contains integrands with arbitrarily large variance, $\sigma^2=\var(f)$, and thus with potentially arbitrarily large algorithmic cost.  On the other hand, since the algorithm is adaptive, the cost may be small if $\sigma^2$ is small.  The upper bound in Theorem \ref{costtheorem} certainly scales with the $\sigma^2_{\max}$ as one might hope if $\sigma^2_{\max}$ were known.  The variable cost of the algorithm for integrands in $\cc_{\kappa_{\max}}$ is actually an advantage, rather than a drawback, of this analysis.  One need not make any a priori assumptions about the size of the integrand, $\sigma$, only about its kurtosis, $\kappa$, which is unchanged when the integrand is multiplied by an arbitrary nonzero constant.
 
@@ -761,10 +761,10 @@ Figure \ref{GaussianTestFunHDFig} repeats the simulation shown in Figure \ref{Ga
 
 \begin{figure}
 \centering
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=7iidErrTime.eps} \\ {\tt cubMC} i.i.d. \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=7iidheavyErrTime.eps} \\ {\tt cubMC} i.i.d heavy duty \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=7SobolErrTime.eps} \\ {\tt cubMC} Sobol' \end{minipage}
-\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=7SobolheavyErrTime.eps} \\ {\tt cubMC} Sobol' heavy duty \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=6iidErrTime.eps} \\ {\tt cubMC} i.i.d. \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=6iidheavyErrTime.eps} \\ {\tt cubMC} i.i.d heavy duty \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=6SobolErrTime.eps} \\ {\tt cubMC} Sobol' \end{minipage}
+\begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=6SobolheavyErrTime.eps} \\ {\tt cubMC} Sobol' heavy duty \end{minipage}
 \caption{Execution times and errors for test function \eqref{GaussianTestFun} for $d=2, \ldots, 8$ and $\varepsilon=10^{-3}$, with the rest of the parameters as in Figure \ref{GaussianTestFunFig}.\label{GaussianTestFunHDFig}}
 \end{figure}
 

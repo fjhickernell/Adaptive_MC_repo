@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  19 JUL 2012 14:57
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  19 JUL 2012 22:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -503,27 +503,23 @@ ble with mean $\OML/ztmcm/m/it/9 ^^V$ \OT1/ptm/m/it/9 and mod-i-fied kur-to-sis
 /m/n/9 C\OT1/ztmcm/m/n/9 )$\OT1/ptm/m/it/9 .
  []
 
-[8]
-
-LaTeX Warning: Reference `varbdlem' on page 9 undefined on input line 628.
-
-[9]
+[8] [9]
 
 LaTeX Warning: Reference `proberrcritsampleBE' on page 10 undefined on input li
-ne 655.
+ne 651.
 
 
-LaTeX Warning: Reference `ChebErr' on page 10 undefined on input line 655.
+LaTeX Warning: Reference `ChebErr' on page 10 undefined on input line 651.
 
 File: kurtmaxfig.eps Graphic file (type eps)
 <kurtmaxfig.eps>
 File: alphacompare.eps Graphic file (type eps)
  <alphacompare.eps>
 
-LaTeX Warning: Reference `ChebErr' on page 10 undefined on input line 684.
+LaTeX Warning: Reference `ChebErr' on page 10 undefined on input line 680.
 
 
-LaTeX Warning: Reference `ballintegdef' on page 10 undefined on input line 684.
+LaTeX Warning: Reference `ballintegdef' on page 10 undefined on input line 680.
 
 
 [10]
@@ -554,23 +550,23 @@ File: gaussiand=1SobolErrTime.eps Graphic file (type eps)
 File: gaussiand=1SobolheavyErrTime.eps Graphic file (type eps)
  <gaussiand=1SobolheavyErrTime.eps>
 
-LaTeX Warning: Float too large for page by 76.85374pt on input line 741.
+LaTeX Warning: Float too large for page by 76.85374pt on input line 737.
 
 [12] [13]
-File: gaussiand=7iidErrTime.eps Graphic file (type eps)
- <gaussiand=7iidErrTime.eps>
-File: gaussiand=7iidheavyErrTime.eps Graphic file (type eps)
- <gaussiand=7iidheavyErrTime.eps>
-File: gaussiand=7SobolErrTime.eps Graphic file (type eps)
+File: gaussiand=6iidErrTime.eps Graphic file (type eps)
+ <gaussiand=6iidErrTime.eps>
+File: gaussiand=6iidheavyErrTime.eps Graphic file (type eps)
+ <gaussiand=6iidheavyErrTime.eps>
+File: gaussiand=6SobolErrTime.eps Graphic file (type eps)
 
-<gaussiand=7SobolErrTime.eps>
-File: gaussiand=7SobolheavyErrTime.eps Graphic file (type eps)
- <gaussiand=7SobolheavyErrTime.eps> [14] [15]
+<gaussiand=6SobolErrTime.eps>
+File: gaussiand=6SobolheavyErrTime.eps Graphic file (type eps)
+ <gaussiand=6SobolheavyErrTime.eps> [14] [15]
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 847.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 843.
 
 
-LaTeX Warning: Reference `samplevar' on page 16 undefined on input line 858.
+LaTeX Warning: Reference `samplevar' on page 16 undefined on input line 854.
 
 [16] (./AdaptiveMCProbErrAnalh.bbl [17] [18]) [19]
 (./AdaptiveMCProbErrAnalh.aux)
@@ -579,12 +575,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3268 strings out of 493630
- 41359 string characters out of 3143346
+ 3260 strings out of 493630
+ 41276 string characters out of 3143346
  107553 words of memory out of 3000000
- 6490 multiletter control sequences out of 15000+200000
- 42833 words of font info for 132 fonts, out of 3000000 for 9000
+ 6485 multiletter control sequences out of 15000+200000
+ 42161 words of font info for 128 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 29i,17n,24p,1297b,366s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,17n,24p,1184b,366s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on AdaptiveMCProbErrAnalh.dvi (19 pages, 92732 bytes).
+Output written on AdaptiveMCProbErrAnalh.dvi (19 pages, 92768 bytes).
