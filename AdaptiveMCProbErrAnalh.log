@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  20 JUL 2012 07:45
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2012.1.17)  20 JUL 2012 17:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -496,7 +496,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 312--312
 LaTeX Warning: Marginpar on page 4 moved.
 
 [4] [5] [6] [7]
-Overfull \hbox (4.87083pt too wide) in paragraph at lines 580--582
+Overfull \hbox (4.87083pt too wide) in paragraph at lines 582--584
 []\OT1/ptm/m/it/9 Let $\OML/ztmcm/m/it/9 Y$ \OT1/ptm/m/it/9 be a ran-dom vari-a
 ble with mean $\OML/ztmcm/m/it/9 ^^V$ \OT1/ptm/m/it/9 and mod-i-fied kur-to-sis
  $[] \OMS/ztmcm/m/n/9 ^^T []\OT1/ztmcm/m/n/9 ([]\OML/ztmcm/m/it/9 ; n[]; \U/euf
@@ -504,27 +504,40 @@ ble with mean $\OML/ztmcm/m/it/9 ^^V$ \OT1/ptm/m/it/9 and mod-i-fied kur-to-sis
  []
 
 [8] [9]
+File: MCSampleSizes.eps Graphic file (type eps)
+ <MCSampleSizes.eps>
+File: MCnsigmafudge.eps Graphic file (type eps)
+ <MCnsigmafudge.eps>
+Underfull \hbox (badness 2293) in paragraph at lines 670--670
+[]\OT1/ptm/b/n/9 Fig. 1. |\OT1/ptm/m/n/9 (a) The ra-tio of $[]\OT1/ztmcm/m/n/9 
+([]\OML/ztmcm/m/it/9 ; "; \OT1/ztmcm/m/n/9 0\OML/ztmcm/m/it/9 :\OT1/ztmcm/m/n/9
+ 01\OML/ztmcm/m/it/9 ; \OT1/ztmcm/m/n/9 0\OML/ztmcm/m/it/9 :\OT1/ztmcm/m/n/9 01
+\OML/ztmcm/m/it/9 ; []; ^^[\OT1/ztmcm/m/n/9 )$ \OT1/ptm/m/n/9 to $\OML/ztmcm/m/
+it/9 N[]\OT1/ztmcm/m/n/9 (\OML/ztmcm/m/it/9 "; ^^[; \OT1/ztmcm/m/n/9 0\OML/ztmc
+m/m/it/9 :\OT1/ztmcm/m/n/9 01)$\OT1/ptm/m/n/9 , as
+ []
 
-LaTeX Warning: Reference `proberrcritsampleBE' on page 10 undefined on input li
-ne 655.
 
-
-LaTeX Warning: Reference `ChebErr' on page 10 undefined on input line 655.
-
-File: kurtmaxfig.eps Graphic file (type eps)
-<kurtmaxfig.eps>
-File: alphacompare.eps Graphic file (type eps)
- <alphacompare.eps>
-
-LaTeX Warning: Reference `ChebErr' on page 10 undefined on input line 684.
-
-
-LaTeX Warning: Reference `ballintegdef' on page 10 undefined on input line 684.
-
+Underfull \hbox (badness 6445) in paragraph at lines 670--670
+\OT1/ptm/m/n/9 de-fined in []; (b) com-par-i-son of sam-ple sizes $\OML/ztmcm/m
+/it/9 N[]\OT1/ztmcm/m/n/9 (0\OML/ztmcm/m/it/9 :\OT1/ztmcm/m/n/9 01\OML/ztmcm/m/
+it/9 ; \OT1/ztmcm/m/n/9 )$\OT1/ptm/m/n/9 , $\OML/ztmcm/m/it/9 N[]\OT1/ztmcm/m/
+n/9 (0\OML/ztmcm/m/it/9 :\OT1/ztmcm/m/n/9 01\OML/ztmcm/m/it/9 ; \OT1/ztmcm/m/n
+/9 )$\OT1/ptm/m/n/9 , and
+ []
 
 [10]
+Overfull \hbox (18.6035pt too wide) in paragraph at lines 675--676
+[]\OT1/ptm/m/n/9 The dashed curves in Fig-ure 1[]a show the ra-tio of $\OML/ztm
+cm/m/it/9 N[]\OT1/ztmcm/m/n/9 (\OML/ztmcm/m/it/9 "; \OT1/ztmcm/m/n/9 0\OML/ztmc
+m/m/it/9 :\OT1/ztmcm/m/n/9 01\OML/ztmcm/m/it/9 ; \OT1/ztmcm/m/n/9 0\OML/ztmcm/m
+/it/9 :\OT1/ztmcm/m/n/9 01\OML/ztmcm/m/it/9 ; []; ^^[\OT1/ztmcm/m/n/9 )$ \OT1/p
+tm/m/n/9 to $\OML/ztmcm/m/it/9 N[]\OT1/ztmcm/m/n/9 (\OML/ztmcm/m/it/9 "; ^^[; \
+OT1/ztmcm/m/n/9 0\OML/ztmcm/m/it/9 :\OT1/ztmcm/m/n/9 01)$\OT1/ptm/m/n/9 ,
+ []
+
 File: Foolquadbw.eps Graphic file (type eps)
- <Foolquadbw.eps>
+<Foolquadbw.eps>
 File: Foolquadgkbw.eps Graphic file (type eps)
  <Foolquadgkbw.eps>
 File: Foolchebintbw.eps Graphic file (type eps)
@@ -550,7 +563,7 @@ File: gaussiand=1SobolErrTime.eps Graphic file (type eps)
 File: gaussiand=1SobolheavyErrTime.eps Graphic file (type eps)
  <gaussiand=1SobolheavyErrTime.eps>
 
-LaTeX Warning: Float too large for page by 76.85374pt on input line 741.
+LaTeX Warning: Float too large for page by 75.00874pt on input line 733.
 
 [12] [13]
 File: gaussiand=6iidErrTime.eps Graphic file (type eps)
@@ -563,24 +576,27 @@ File: gaussiand=6SobolErrTime.eps Graphic file (type eps)
 File: gaussiand=6SobolheavyErrTime.eps Graphic file (type eps)
  <gaussiand=6SobolheavyErrTime.eps> [14] [15]
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 847.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 832.
 
 
-LaTeX Warning: Reference `samplevar' on page 16 undefined on input line 858.
+LaTeX Warning: Reference `samplevar' on page 16 undefined on input line 843.
 
-[16] [17] (./AdaptiveMCProbErrAnalh.bbl [18]) [19]
+[16] (./AdaptiveMCProbErrAnalh.bbl [17] [18]) [19]
 (./AdaptiveMCProbErrAnalh.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 3260 strings out of 493630
- 41276 string characters out of 3143346
- 107552 words of memory out of 3000000
- 6485 multiletter control sequences out of 15000+200000
- 42161 words of font info for 128 fonts, out of 3000000 for 9000
+ 3247 strings out of 493630
+ 41087 string characters out of 3143346
+ 107553 words of memory out of 3000000
+ 6472 multiletter control sequences out of 15000+200000
+ 39114 words of font info for 118 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 29i,17n,24p,1184b,366s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,17n,24p,1307b,366s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on AdaptiveMCProbErrAnalh.dvi (19 pages, 93060 bytes).
+Output written on AdaptiveMCProbErrAnalh.dvi (19 pages, 92140 bytes).
