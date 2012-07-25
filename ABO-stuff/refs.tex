@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage{amsmath,amsfonts,amssymb}
+
+\newcommand{\e}{\mathbb{E}}
+
+\begin{document}
+
+\cite{serf:wack:1976}
+consider sequential confidence intervals
+for the mean (alternatively for the median)
+in parametric distributions, symmetric
+about their center point.  The symmetry
+condition is not suitable for general
+purpose Monte Carlo applications.
+
+\cite{chow:robb:1965} develop a sequential
+confidence interval for the mean.
+They begin with a sample $X_1,\dots,X_m$ for $m\ge 2$
+and then continue sampling until
+$$N = \min\{ n\ge m \mid n\ge 
+\Phi^{-1}(1-\alpha/2)^2(s_n^2+1/n)/\varepsilon^2\},$$
+where $s_n^2 = (n-1)^{-1}\sum_{i=1}^n(X_i-\bar X)^2$.
+The confidence interval that they return is of
+the form $\bar X \pm \varepsilon$
+where $\bar X = (1/n)\sum_{i=1}^nX_i$.
+They show that the coverage level approaches
+$1-\alpha$ in the limit as $\varepsilon\to 0$.
+The coverage error is $O(\epsilon^p)$ for
+some $0<p<1/2$. A fixed sample size of
+$N^* = \lceil \Phi^{-1}(1-\alpha/2)^2\sigma^2/\varepsilon^2\rceil$
+would ordinarily be required to get the desired 
+coverage if we knew $\sigma$.
+The Chow and Robbins estimate satisfies $N/N^*\to 1$
+in expectation and almost surely as $\varepsilon\to 0$.
+
+\cite{mukh:datt:1996} give a procedure similar
+to Chow and Robbins' one that
+reduces the coverage is at least $1-\alpha+O(\varepsilon^2)$,
+at the expense of requiring $\e(|X|^6)<\infty$
+and for which $N/N^*\to k>1$.
+
+Our approach by contrast is non-asymptotic. We
+consider a fixed level $\varepsilon>0$ and
+find an interval of that width with the
+desired coverage, so long as the kurtosis is
+below a bound.
+
+Our procedure is a two-stage procedure
+rather than a fully sequential one.  In
+this it is similar to the method of
+\cite{stei:1945,stei:1949}, except that
+the latter requires normally distributed
+data.
+
+
+\bibliographystyle{plain}
+\bibliography{fixwidth}
+\end{document}
