@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=latex 2012.7.27)  2 AUG 2012 10:10
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=latex 2012.7.27)  2 AUG 2012 15:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -466,24 +466,24 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
 ] [2]
 
 Package natbib Warning: Citation `stei:1945' on page 3 undefined on input line 
-206.
+204.
 
 
 Package natbib Warning: Citation `stei:1949' on page 3 undefined on input line 
-206.
+204.
 
 [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 316--316
+Underfull \hbox (badness 10000) in paragraph at lines 314--314
 []\OT1/ptm/m/n/10 Reference for Slut-
  []
 
 
-Underfull \hbox (badness 1668) in paragraph at lines 318--318
+Underfull \hbox (badness 1668) in paragraph at lines 316--316
 []\OT1/ptm/m/n/10 I switched to $\OML/ztmcm/m/it/10 z[]$ \OT1/ptm/m/n/10 as
  []
 
 
-Underfull \hbox (badness 3514) in paragraph at lines 318--318
+Underfull \hbox (badness 3514) in paragraph at lines 316--316
 \OT1/ptm/m/n/10 cause we are us-ing
  []
 
@@ -491,12 +491,12 @@ Underfull \hbox (badness 3514) in paragraph at lines 318--318
 LaTeX Warning: Marginpar on page 5 moved.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--327
+Underfull \hbox (badness 10000) in paragraph at lines 325--325
 []\OT1/ptm/m/n/10 Which equa-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--327
+Underfull \hbox (badness 10000) in paragraph at lines 325--325
 \OT1/ptm/m/n/10 in Hall's pa-per? I
  []
 
@@ -504,7 +504,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 327--327
 LaTeX Warning: Marginpar on page 5 moved.
 
 [5] [6] [7] [8]
-Overfull \hbox (4.87083pt too wide) in paragraph at lines 597--599
+Overfull \hbox (4.87083pt too wide) in paragraph at lines 595--597
 []\OT1/ptm/m/it/9 Let $\OML/ztmcm/m/it/9 Y$ \OT1/ptm/m/it/9 be a ran-dom vari-a
 ble with mean $\OML/ztmcm/m/it/9 ^^V$ \OT1/ptm/m/it/9 and mod-i-fied kur-to-sis
  $[] \OMS/ztmcm/m/n/9 ^^T []\OT1/ztmcm/m/n/9 ([]\OML/ztmcm/m/it/9 ; n[]; \U/euf
@@ -516,7 +516,7 @@ File: MCSampleSizes.eps Graphic file (type eps)
  <MCSampleSizes.eps>
 File: MCnsigmafudge.eps Graphic file (type eps)
  <MCnsigmafudge.eps>
-Underfull \hbox (badness 2293) in paragraph at lines 685--685
+Underfull \hbox (badness 2293) in paragraph at lines 683--683
 []\OT1/ptm/b/n/9 Fig. 1. |\OT1/ptm/m/n/9 (a) The ra-tio of $[]\OT1/ztmcm/m/n/9 
 ([]\OML/ztmcm/m/it/9 ; "; \OT1/ztmcm/m/n/9 0\OML/ztmcm/m/it/9 :\OT1/ztmcm/m/n/9
  01\OML/ztmcm/m/it/9 ; \OT1/ztmcm/m/n/9 0\OML/ztmcm/m/it/9 :\OT1/ztmcm/m/n/9 01
@@ -526,7 +526,7 @@ m/m/it/9 :\OT1/ztmcm/m/n/9 01)$\OT1/ptm/m/n/9 , as
  []
 
 
-Underfull \hbox (badness 6445) in paragraph at lines 685--685
+Underfull \hbox (badness 6445) in paragraph at lines 683--683
 \OT1/ptm/m/n/9 de-fined in []; (b) com-par-i-son of sam-ple sizes $\OML/ztmcm/m
 /it/9 N[]\OT1/ztmcm/m/n/9 (0\OML/ztmcm/m/it/9 :\OT1/ztmcm/m/n/9 01\OML/ztmcm/m/
 it/9 ; \OT1/ztmcm/m/n/9 )$\OT1/ptm/m/n/9 , $\OML/ztmcm/m/it/9 N[]\OT1/ztmcm/m/
@@ -535,7 +535,7 @@ n/9 (0\OML/ztmcm/m/it/9 :\OT1/ztmcm/m/n/9 01\OML/ztmcm/m/it/9 ; \OT1/ztmcm/m/n
  []
 
 [10]
-Overfull \hbox (18.6035pt too wide) in paragraph at lines 690--691
+Overfull \hbox (18.6035pt too wide) in paragraph at lines 688--689
 []\OT1/ptm/m/n/9 The dashed curves in Fig-ure 1[]a show the ra-tio of $\OML/ztm
 cm/m/it/9 N[]\OT1/ztmcm/m/n/9 (\OML/ztmcm/m/it/9 "; \OT1/ztmcm/m/n/9 0\OML/ztmc
 m/m/it/9 :\OT1/ztmcm/m/n/9 01\OML/ztmcm/m/it/9 ; \OT1/ztmcm/m/n/9 0\OML/ztmcm/m
@@ -572,7 +572,7 @@ File: gaussiand=1SobolErrTime.eps Graphic file (type eps)
 File: gaussiand=1SobolheavyErrTime.eps Graphic file (type eps)
  <gaussiand=1SobolheavyErrTime.eps>
 
-LaTeX Warning: Float too large for page by 75.00874pt on input line 748.
+LaTeX Warning: Float too large for page by 75.00874pt on input line 746.
 
 [12] [13]
 File: gaussiand=6iidErrTime.eps Graphic file (type eps)
@@ -588,11 +588,7 @@ File: gaussiand=6SobolheavyErrTime.eps Graphic file (type eps)
 
 Package natbib Warning: There were undefined citations.
 
-[16] (./AdaptiveMCProbErrAnali.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+[16] (./AdaptiveMCProbErrAnali.aux) ) 
 Here is how much of TeX's memory you used:
  3242 strings out of 493489
  41092 string characters out of 3141349
@@ -602,4 +598,4 @@ Here is how much of TeX's memory you used:
  957 hyphenation exceptions out of 8191
  29i,14n,24p,1307b,316s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on AdaptiveMCProbErrAnali.dvi (16 pages, 75748 bytes).
+Output written on AdaptiveMCProbErrAnali.dvi (16 pages, 75192 bytes).
