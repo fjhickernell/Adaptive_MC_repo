@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2012)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: AdaptiveMCProbErrAnali.aux
+The style file: spbasic.bst
+Database file #1: FJH22.bib
+Database file #2: FJHown22.bib
+Warning--I didn't find a database entry for "stei:1945"
+Warning--I didn't find a database entry for "stei:1949"
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 26 entries,
+            3270 wiz_defined-function locations,
+            907 strings with 8808 characters,
+and the built_in function-call counts, 26307 in all, are:
+= -- 2985
+> -- 395
+< -- 26
++ -- 236
+- -- 119
+* -- 1608
+:= -- 3041
+add.period$ -- 25
+call.type$ -- 26
+change.case$ -- 159
+chr.to.int$ -- 25
+cite$ -- 26
+duplicate$ -- 2767
+empty$ -- 2039
+format.name$ -- 186
+if$ -- 5480
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 235
+newline$ -- 89
+num.names$ -- 106
+pop$ -- 855
+preamble$ -- 2
+purify$ -- 143
+quote$ -- 0
+skip$ -- 1186
+stack$ -- 0
+substring$ -- 2314
+swap$ -- 1567
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 204
+warning$ -- 0
+while$ -- 171
+width$ -- 0
+write$ -- 287
+(There were 2 warnings)

@@ -1,0 +1,237 @@
+\documentclass{article}
+\usepackage{amsmath,amsfonts,amssymb}
+
+\newcommand{\fudge}{\mathfrak{C}}
+\newcommand{\real}{\mathbb{R}}
+
+\begin{document}
+
+I like how the sandwiching worked out.
+Here are some thoughts:
+
+\begin{enumerate}
+\item 
+Section 5 looks cramped.  I think it should be cut
+out and then later become a paper on its own. As it
+stands it might get overlooked. Or somebody might
+want to implement it but then the paper won't have enough
+support. Also, a longer paper with enough supporting
+detail won't be novel enough for a good journal.
+\begin{enumerate}
+\item The followup paper should have a
+title to convey the ``fixed relative
+error'' idea so it won't get lost.
+\item
+There is a lot of careful detail involved
+in setting up the hybrid of absolute and relative error.
+I think that is too much to squeeze into a page or so.
+Most people will skim it. It should be a section in 
+a larger paper.
+\item
+Then there should be extensive
+numerical evaluation and some thought on how best
+to pick the infinite sequence of error tolerances. 
+\item
+The infinite sequence
+calls to mind sequential analysis and processes that
+exit either upper or lower boundaries. Also, it starts
+to look reminiscent of Chow and Robins (infinite number
+of `looks').
+\item
+The algorithm should be moved out of the theorem
+statement.
+\end{enumerate}
+\item
+The paper is getting long. So my earlier remark on Chow
+and Robbins and related papers can be abbreviated.
+How about
+\begin{quotation}
+Chow and Robbins (1965) develop a sequential sampling
+fixed width confidence interval procedure for the mean.
+Their procedure attains the desired coverage level
+in the limit as $\varepsilon\to 0$.  But it does not provide
+coverage gaurantees for fixed $\varepsilon>0$.
+\end{quotation}
+We don't necessarily have to mention all the later papers.
+\item
+p2 CLT provides confidence interval\\
+CLT provides a confidence interval
+\item
+p2
+inequalities Hoeffding's\\
+inequalities such as Hoeffding's
+\item
+at (4) we should say something for the $-3$ crowd
+\item
+p2 below (4) has: the the 
+\item
+p2
+``Firstly'' and  ``Second of all,''\\
+Firstly and Second,\\
+(or) First and Second,
+\item
+p3 (maybe)\\
+some $d$-variate function $f$\\
+some function $f$\\
+{}[the domain of $f$ is already
+given as $\real^d$]
+(I'm less than sure which way this should
+go; sometimes redundancy helps.)
+\item
+p3
+practical error estimation for these methods remains a challenge\\
+these methods do not provide fixed-width confidence intervals.\\
+(Perhaps separate QMC from RQMC.  QMC has no practical error
+estimates. RQMC does, but they're not fixed-width.)
+\item
+p4
+I've not previously seen a convention for taking $\gamma=0$
+and $\kappa = -2$ when $\sigma = 0$. Do we need $\sigma=0$?
+\item
+p4 after first display: $sigma$\\
+$\sigma$
+\item
+p4 Slutsky's theorem is in Lehmann and Romano (2005)
+page 433.
+\begin{verbatim}                  
+@book{lehm:roma:2005,
+ author = {E. L. Lehmann and J. P. Romano},
+ year   = 2005,
+ title  = {Testing Statistical Hypotheses},
+ publisher = {Springer},
+ edition = {3rd},
+ address = {New York}
+}
+\end{verbatim}
+\item
+p5 Good catch. I had the wrong Hall paper.  The right one is
+\begin{verbatim}
+@article{hall:1988,
+author  = {P. Hall},
+year    = 1988,
+title   = {Theoretical comparisons of bootstrap confidence intervals},
+journal = {The Annals of Statistics},
+volume  = 16,
+number  = 3,
+pages   = {927--953}
+}
+\end{verbatim}
+The coverage errors are on page 948. The usual
+intervals correspond to $\pi_{\rm{STUD}}$.
+\item
+Depending on your appetite for more notation fiddling,
+it occurs to me that we might want to
+write $n_\sigma$ and $n_\mu$ 
+instead of $n_\sigma$ and $n$. 
+\item
+(17) needs a period (not comma).
+\item
+(19) has a new wrinkle: making $n\ge n_\sigma$.
+Was that condition enforced in the simulations?
+I cannot tell but suspect it is not used in 
+Section 3.4 on the cost of the algorithm.
+I think it is reasonable advice but we should
+be sure to spell out when it is used and when it is not.
+\item
+Theorem 5 statement:\\
+fixed width confidence interval\\
+fixed width confidence interval condition
+\item
+Remark 1:\\
+should that be $\sigma \le \varepsilon\sqrt{\alpha n_\sigma}$?
+(instead of $\sigma^2$)
+\item
+p9 top:\\
+one popular case is occurs when $Y$ is a $d$-variate function\\
+one frequently encountered case has $Y$ a $d$-variate function\\
+In this case $\mu$\\
+Then $\mu$
+\item
+Equation (22): as mentioned above it is
+not clear that this enforces $n\ge n_\sigma$.
+The $n_\sigma$ clause is in the definition of $N_\mu$
+but I don't see how that clause gets honored
+in the displayed math at the bottom of page 9.
+That might be the same derivation as before the
+clause was added. Then it was ok to just
+use $N_{\text{BE}}$ because it was inside a $\min()$.
+Now it is also inside a $\max()$. Please double check. 
+\item
+Figure 1's caption does not describe the many curves
+that appear. It should therefore say something about
+how those curves are defined in the surrounding text
+for the benefit of those who read figures first and
+the article second. 
+Their full description is too bulky to go into the
+caption.
+\item
+p11 end of Section 3.  Add some examples. A sentence
+like
+``For example with 
+$\fudge = 1.5$ and 
+$\tilde \kappa = 10, 100, 1000$
+we get $n_\sigma = $ xxx, xxx, and xxx respectively.''
+\item
+Somewhere we should have a comment like the following:
+\begin{quote}
+In certain cases our procedure multiplies the
+computational cost by a large factor such as $4$ or
+$10$ or even $100$ compared to what one might
+spend with a known value of $\sigma$. 
+While this seems inefficient, it is
+well to remember that the total elapsed time may still be
+well below one second.
+\end{quote}
+I leave it to you to put in more appropriate numbers
+perhaps after seeing how the finance example comes out.
+The comment might belong in the introduction or the
+conclusions. It came to mind when I was reading Section 3
+though that is probably not where it belongs.
+\item
+Section 4 title contains ``Algorighm''
+\item
+p11 has: the the absolute error
+\item
+The second full sentence on p12 has a grammatical problem.
+\item
+$131\,072$\\
+$131{,}072$
+\item
+Figure 3: the vertical dashed line and the
+horizontal Failure line are prominent and important.
+But it is not clear from the caption how they are
+defined. Something should be said.
+\item
+As mentioned above, please double check whether $n\ge n_\sigma$
+was enforced for the numerical examples.
+\item
+As described above I think this section should
+expand into its own paper.  I think there are a few 
+things to tweak
+\begin{enumerate}
+\item p14
+form of this criterion would be\\
+form of this criterion is
+\item p15 one must
+have $(1-\theta)+\theta|\mu|\ne 0$.
+Sometimes it is ok to write ratio criteria
+$A/B\le\epsilon$ as $A\le B\epsilon$. But
+then you have to watch like a hawk/lawyer to see
+whether $\le $ or $<$ is correct, both inside
+and outside the probability function.
+\item
+p15 The sentence containing ``happy'' is not grammatical.
+\item
+p16 It then follows then by\\
+It then follows by
+\end{enumerate}
+\item
+In the discussion where we point out that
+non-convexity absolves us
+from those theorems on adaptive methods
+we might also mention that it also lets
+us escape a Bahadur and Savage condition.
+\end{enumerate}
+
+
+\end{document}
