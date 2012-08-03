@@ -541,7 +541,7 @@ In detail, the two stage algorithm works
 as described below.
 
 
-\begin{algo} \label{twostagealgo} The user specifies
+\begin{algo}[Two Stage] \label{twostagealgo} The user specifies
 four quantities:
 \begin{itemize}
 \item 
@@ -775,7 +775,7 @@ Figure \ref{GaussianTestFunHDFig} repeats the simulation shown in Figure \ref{Ga
 \begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{geomeaniidheavyErrTime.eps} \\ {\tt cubMC} i.i.d heavy duty \end{minipage}
 \begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{geomeanSobolErrTime.eps} \\ {\tt cubMC} Sobol' \end{minipage}
 \begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{geomeanSobolheavyErrTime.eps} \\ {\tt cubMC} Sobol' heavy duty \end{minipage}
-\caption{Execution times and errors for test function \eqref{GaussianTestFun} for $d=2, \ldots, 8$ and $\varepsilon=0.02$, with the rest of the parameters as in Figure \ref{GaussianTestFunFig}.\label{GaussianTestFunHDFig}}
+\caption{Execution times and errors for the geometric mean Asian call option for $d=2, 4, \ldots, 64$ and $\varepsilon=0.02$, with the rest of the parameters as in Figure \ref{GaussianTestFunFig}.\label{GaussianTestFunHDFig}}
 \end{figure}
 
 \section{Discussion}
