@@ -1,5 +1,5 @@
 \def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}
-\begin{thebibliography}{26}
+\begin{thebibliography}{28}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -106,6 +106,13 @@ Siegmund D (1985) Sequential Analysis: Tests and Confidence Intervals.
 \bibitem[{Sloan and Joe(1994)}]{SloJoe94}
 Sloan IH, Joe S (1994) Lattice Methods for Multiple Integration. Oxford
   University Press, Oxford
+
+\bibitem[{Stein(1945)}]{Stei1945a}
+Stein C (1945) A two sample test for a linear hypothesis whose power is
+  independent of the variance. Ann\ Math\ Stat 16:243--258
+
+\bibitem[{Stein(1949)}]{Stei1949a}
+Stein C (1949) Some problems in sequential estimation. Econometrica 17:77--78
 
 \bibitem[{{The MathWorks, Inc.}(2012)}]{MAT7.12}
 {The MathWorks, Inc} (2012) {MATLAB} 7.12. {The MathWorks, Inc.}, Natick, MA
