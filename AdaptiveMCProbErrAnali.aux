@@ -1,7 +1,7 @@
 \relax 
 \immediate\closeout\minitoc
 \let \MiniTOC =N
-\@writefile{toc}{\contentsline {title}{Guaranteed Approximate Fixed Width Confidence Intervals Via Monte Carlo Sampling \unskip {}}{1}}
+\@writefile{toc}{\contentsline {title}{Guaranteed Conservative Fixed Width Confidence Intervals Via Monte Carlo Sampling \unskip {}}{1}}
 \@writefile{toc}{\contentsline {author}{Fred J. Hickernell\unskip {} \and Lan Jiang\unskip {} \and Yuewei Liu\unskip {} \and Art Owen \unskip {}}{1}}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}}
 \newlabel{confint}{{1}{1}}
@@ -13,12 +13,12 @@
 \citation{BahSav56}
 \newlabel{sigmadef}{{3}{2}}
 \citation{Stei1945a,Stei1949a}
-\citation{Nie92,SloJoe94,Lem09a,DicPil10a}
 \newlabel{kurtassump}{{4}{3}}
 \newlabel{boundedvar}{{5}{3}}
 \newlabel{muintegral}{{6}{3}}
 \newlabel{Lpnormdef}{{7}{3}}
 \newlabel{conedef}{{8}{3}}
+\citation{Nie92,SloJoe94,Lem09a,DicPil10a}
 \citation{MAT7.12}
 \citation{GanGau00a}
 \citation{McC87a}
@@ -26,18 +26,18 @@
 \newlabel{sec:background}{{2}{4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Moments}{4}}
 \citation{LehRom01a}
-\citation{Hall88a}
+\citation{Hal88a}
 \citation{LinBai10a}
 \citation{LinBai10a}
-\citation{Pet95a}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}CLT intervals}{5}}
 \newlabel{eq:99ci}{{9}{5}}
 \newlabel{eq:samplevar}{{10}{5}}
 \newlabel{eq:halls}{{11}{5}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Standard Probability Inequalities}{5}}
 \newlabel{Chebineqthm}{{1}{5}}
-\newlabel{Can}{{2}{5}}
+\citation{Pet95a}
 \citation{Mil86}
+\newlabel{Can}{{2}{6}}
 \newlabel{BE}{{3}{6}}
 \newlabel{Varvarthm}{{4}{6}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Two stage confidence interval}{6}}
@@ -45,23 +45,22 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Conservative variance estimates}{6}}
 \newlabel{propCant}{{1}{6}}
 \newlabel{sampvarbd}{{12}{6}}
-\newlabel{sampvarup}{{12a}{6}}
-\newlabel{sampvarlo}{{12b}{6}}
-\newlabel{eq:itsbounded}{{13}{7}}
-\newlabel{kappamaxdef}{{14}{7}}
+\newlabel{sampvarup}{{12a}{7}}
+\newlabel{sampvarlo}{{12b}{7}}
+\newlabel{kappamaxdef}{{13}{7}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Conservative interval widths}{7}}
-\newlabel{NCdef}{{15}{7}}
-\newlabel{BEresult}{{16}{8}}
-\newlabel{NB}{{17}{8}}
+\newlabel{NCdef}{{14}{8}}
+\newlabel{BEresult}{{15}{8}}
+\newlabel{NB}{{16}{8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Algorithm and Proof of Its Success}{8}}
 \newlabel{twostagealgo}{{1}{8}}
-\newlabel{nmudef}{{18}{8}}
-\newlabel{NCBdef}{{19}{8}}
-\newlabel{eq:theestimate}{{20}{8}}
 \citation{LinBai10a}
+\newlabel{nmudef}{{17}{9}}
+\newlabel{NCBdef}{{18}{9}}
+\newlabel{eq:theestimate}{{19}{9}}
 \newlabel{mainadaptthm}{{5}{9}}
-\newlabel{NCBpracticaldef}{{21}{9}}
-\newlabel{NCBdef}{{22}{9}}
+\newlabel{NCBpracticaldef}{{20}{9}}
+\newlabel{integcor}{{1}{9}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Cost of the Algorithm}{10}}
 \newlabel{costtheorem}{{6}{10}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces (a) The cost ratios of $N_{\rm  {up}}(\varepsilon ,0.01,0.01, \mathaccentV {tilde}07E{\kappa }_{\qopname  \relax m{max}}, \sigma )/N_{\mathrm  {CLT}}(\varepsilon ,\sigma ,0.01)$ for $\mathaccentV {tilde}07E{\kappa }_{\qopname  \relax m{max}}=10,100$, and $1000$ with $n_\sigma =1000\mathaccentV {tilde}07E{\kappa }_{\qopname  \relax m{max}}$ (dashed) and $n_\sigma $ optimized (solid); (b) the optimal values of $n_\sigma $ (solid) and $\mathfrak  {C}$ (dashed).}}{11}}
@@ -74,50 +73,54 @@
 \citation{MAT7.12}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Numerical Examples}{12}}
 \newlabel{numerexsec}{{4}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Illustrative Univariate Examples of Automatic Algorithms}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Univariate Integration Examples}{12}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Plots of fooling functions, $f$, with $\mu =\DOTSI \intop \ilimits@ _0^1 f(x) \tmspace  +\thinmuskip {.1667em} \tmspace  +\thinmuskip {.1667em}\mathrm  {d}x=1$, but for which the corresponding algorithms return values of $\mathaccentV {hat}05E{\mu }=0$. }}{12}}
 \newlabel{foolfunfig}{{2}{12}}
-\newlabel{GaussianTestFun}{{25}{12}}
+\newlabel{GaussianTestFun}{{23}{12}}
 \citation{Owe95,Owe96,Owe97,Mat98,HonHic00a,DicPil10a}
 \citation{Hal05a,Owe06a}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Execution times and errors for test function \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces 25\hbox {}\unskip \@@italiccorr )}} for $d=1$ and $\varepsilon =10^{-3}$, and a variety of parameters giving a range of $\sigma (f)$ and $\kappa (f)$. The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times. For the Algorithm 1\hbox {} the points labeled * are those for which the Theorem 5\hbox {} guarantees the error tolerance. }}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Integrating a Multivariate Hump}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Execution times and errors for test function \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces 23\hbox {}\unskip \@@italiccorr )}} for $d=1$ and error tolerance $\varepsilon =10^{-3}$, and a variety of parameters giving a range of $\sigma $ and $\kappa $. Those points to the left/right of the dashed horizontal line represent successes/failures of the automatic algorithms. The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times. For the Algorithm 1\hbox {} the points labeled * are those for which the Corollary 1\hbox {} guarantees the error tolerance. }}{14}}
 \newlabel{GaussianTestFunFig}{{3}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Execution times and errors for test function \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces 23\hbox {}\unskip \@@italiccorr )}} for $d=2, \ldots  , 8$ and $\varepsilon =10^{-3}$, with the rest of the parameters as in Figure 3\hbox {}.}}{15}}
+\newlabel{GaussianTestFunHDFig}{{4}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Asian Geometric Mean Call Option Pricing}{15}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{15}}
+\citation{BahSav56}
 \citation{TraWasWoz88}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Execution times and errors for the geometric mean Asian call option for $d=2, 4, \ldots  , 64$ and $\varepsilon =0.02$, with the rest of the parameters as in Figure 3\hbox {}.}}{16}}
+\newlabel{GaussianTestFunHDFig}{{5}{16}}
 \bibstyle{spbasic}
 \bibdata{FJH22,FJHown22}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Execution times and errors for test function \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces 25\hbox {}\unskip \@@italiccorr )}} for $d=2, \ldots  , 8$ and $\varepsilon =10^{-3}$, with the rest of the parameters as in Figure 3\hbox {}.}}{15}}
-\newlabel{GaussianTestFunHDFig}{{4}{15}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{15}}
 \bibcite{BahSav56}{{1}{1956}{{Bahadur and Savage}}{{}}}
 \bibcite{ChoRob65a}{{2}{1965}{{Chow and Robbins}}{{}}}
 \bibcite{DicPil10a}{{3}{2010}{{Dick and Pillichshammer}}{{}}}
 \bibcite{GanGau00a}{{4}{2000}{{Gander and Gautschi}}{{}}}
 \bibcite{TrefEtal12}{{5}{2012}{{Hale et~al}}{{Hale, Trefethen, and Driscoll}}}
-\bibcite{Hal86}{{6}{1986}{{Hall}}{{}}}
+\bibcite{Hal88a}{{6}{1988}{{Hall}}{{}}}
 \bibcite{Hal05a}{{7}{2005}{{Halton}}{{}}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Execution times and errors for the geometric mean Asian call option for $d=2, 4, \ldots  , 64$ and $\varepsilon =0.02$, with the rest of the parameters as in Figure 3\hbox {}.}}{16}}
-\newlabel{GaussianTestFunHDFig}{{5}{16}}
-\@writefile{toc}{\contentsline {section}{References}{16}}
-\@mtwritefile{\contentsline {mtchap}{References}{16}}
 \bibcite{HonHic00a}{{8}{2003}{{Hong and Hickernell}}{{}}}
-\bibcite{Lem09a}{{9}{2009}{{Lemieux}}{{}}}
-\bibcite{LinBai10a}{{10}{2010}{{Lin and Bai}}{{}}}
-\bibcite{Mat98}{{11}{1998}{{Matou\v {s}ek}}{{}}}
-\bibcite{McC87a}{{12}{1987}{{McCullagh}}{{}}}
-\bibcite{Mil86}{{13}{1986}{{Miller}}{{}}}
-\bibcite{MukhDatt1996}{{14}{1996}{{Mukhopadhyay and Datta}}{{}}}
-\bibcite{Nie92}{{15}{1992}{{Niederreiter}}{{}}}
-\bibcite{Owe95}{{16}{1995}{{Owen}}{{}}}
-\bibcite{Owe96}{{17}{1997{a}}{{Owen}}{{}}}
-\bibcite{Owe97}{{18}{1997{b}}{{Owen}}{{}}}
-\bibcite{Owe06a}{{19}{2006}{{Owen}}{{}}}
-\bibcite{Pet95a}{{20}{1995}{{Petrov}}{{}}}
-\bibcite{SerfWack1976}{{21}{1976}{{Serfling and Wackerly}}{{}}}
-\bibcite{Sha08a}{{22}{2008}{{Shampine}}{{}}}
-\bibcite{Sie85a}{{23}{1985}{{Siegmund}}{{}}}
-\bibcite{SloJoe94}{{24}{1994}{{Sloan and Joe}}{{}}}
-\bibcite{Stei1945a}{{25}{1945}{{Stein}}{{}}}
-\bibcite{Stei1949a}{{26}{1949}{{Stein}}{{}}}
-\bibcite{MAT7.12}{{27}{2012}{{The MathWorks, Inc.}}{{}}}
-\bibcite{TraWasWoz88}{{28}{1988}{{Traub et~al}}{{Traub, Wasilkowski, and Wo\'zniakowski}}}
+\bibcite{LehRom01a}{{9}{2005}{{Lehmann and Romano}}{{}}}
+\bibcite{Lem09a}{{10}{2009}{{Lemieux}}{{}}}
+\bibcite{LinBai10a}{{11}{2010}{{Lin and Bai}}{{}}}
+\bibcite{Mat98}{{12}{1998}{{Matou\v {s}ek}}{{}}}
+\bibcite{McC87a}{{13}{1987}{{McCullagh}}{{}}}
+\bibcite{Mil86}{{14}{1986}{{Miller}}{{}}}
+\bibcite{MukhDatt1996}{{15}{1996}{{Mukhopadhyay and Datta}}{{}}}
+\bibcite{Nie92}{{16}{1992}{{Niederreiter}}{{}}}
+\@writefile{toc}{\contentsline {section}{References}{17}}
+\@mtwritefile{\contentsline {mtchap}{References}{17}}
+\bibcite{Owe95}{{17}{1995}{{Owen}}{{}}}
+\bibcite{Owe96}{{18}{1997{a}}{{Owen}}{{}}}
+\bibcite{Owe97}{{19}{1997{b}}{{Owen}}{{}}}
+\bibcite{Owe06a}{{20}{2006}{{Owen}}{{}}}
+\bibcite{Pet95a}{{21}{1995}{{Petrov}}{{}}}
+\bibcite{SerfWack1976}{{22}{1976}{{Serfling and Wackerly}}{{}}}
+\bibcite{Sha08a}{{23}{2008}{{Shampine}}{{}}}
+\bibcite{Sie85a}{{24}{1985}{{Siegmund}}{{}}}
+\bibcite{SloJoe94}{{25}{1994}{{Sloan and Joe}}{{}}}
+\bibcite{Stei1945a}{{26}{1945}{{Stein}}{{}}}
+\bibcite{Stei1949a}{{27}{1949}{{Stein}}{{}}}
+\bibcite{MAT7.12}{{28}{2012}{{The MathWorks, Inc.}}{{}}}
+\bibcite{TraWasWoz88}{{29}{1988}{{Traub et~al}}{{Traub, Wasilkowski, and Wo\'zniakowski}}}
 \immediate\closeout\minitoc

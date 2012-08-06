@@ -1,5 +1,5 @@
 \def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}
-\begin{thebibliography}{28}
+\begin{thebibliography}{29}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -27,9 +27,9 @@ Gander W, Gautschi W (2000) Adaptive quadrature --- revisited. BIT 40:84--101
 \bibitem[{Hale et~al(2012)Hale, Trefethen, and Driscoll}]{TrefEtal12}
 Hale N, Trefethen LN, Driscoll TA (2012) Chebfun Version 4
 
-\bibitem[{Hall(1986)}]{Hal86}
-Hall P (1986) On the bootstrap and confidence intervals. The Annals of
-  Statistics 14:1431--1452
+\bibitem[{Hall(1988)}]{Hal88a}
+Hall P (1988) Theoretical comparisons of bootstrap confidence intervals. Ann\
+  Statist 16(3):927--953
 
 \bibitem[{Halton(2005)}]{Hal05a}
 Halton JH (2005) Quasi-probability: {W}hy quasi-{M}onte-{C}arlo methods are
@@ -39,6 +39,10 @@ Halton JH (2005) Quasi-probability: {W}hy quasi-{M}onte-{C}arlo methods are
 \bibitem[{Hong and Hickernell(2003)}]{HonHic00a}
 Hong HS, Hickernell FJ (2003) Implementing scrambled digital nets. ACM Trans\
   Math\ Software 29:95--109
+
+\bibitem[{Lehmann and Romano(2005)}]{LehRom01a}
+Lehmann EL, Romano JP (2005) Testing Statistical Hypotheses, 3rd edn. Springer,
+  New York
 
 \bibitem[{Lemieux(2009)}]{Lem09a}
 Lemieux C (2009) {M}onte {C}arlo and quasi-{M}onte {C}arlo Sampling. Springer

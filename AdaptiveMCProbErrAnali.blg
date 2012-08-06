@@ -5,44 +5,44 @@ The style file: spbasic.bst
 Database file #1: FJH22.bib
 Database file #2: FJHown22.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 28 entries,
+You've used 29 entries,
             3270 wiz_defined-function locations,
-            919 strings with 8994 characters,
-and the built_in function-call counts, 28575 in all, are:
-= -- 3273
-> -- 415
-< -- 28
-+ -- 256
-- -- 125
-* -- 1721
-:= -- 3279
-add.period$ -- 27
-call.type$ -- 28
-change.case$ -- 171
-chr.to.int$ -- 27
-cite$ -- 28
-duplicate$ -- 3021
-empty$ -- 2195
-format.name$ -- 194
-if$ -- 5948
+            924 strings with 9083 characters,
+and the built_in function-call counts, 29093 in all, are:
+= -- 3303
+> -- 436
+< -- 30
++ -- 261
+- -- 131
+* -- 1763
+:= -- 3367
+add.period$ -- 28
+call.type$ -- 29
+change.case$ -- 179
+chr.to.int$ -- 31
+cite$ -- 29
+duplicate$ -- 3059
+empty$ -- 2251
+format.name$ -- 205
+if$ -- 6060
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 253
-newline$ -- 95
-num.names$ -- 114
-pop$ -- 943
+missing$ -- 263
+newline$ -- 98
+num.names$ -- 118
+pop$ -- 982
 preamble$ -- 2
-purify$ -- 153
+purify$ -- 159
 quote$ -- 0
-skip$ -- 1303
+skip$ -- 1288
 stack$ -- 0
-substring$ -- 2512
-swap$ -- 1741
+substring$ -- 2531
+swap$ -- 1744
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 222
+type$ -- 228
 warning$ -- 0
-while$ -- 187
+while$ -- 193
 width$ -- 0
-write$ -- 309
+write$ -- 320
