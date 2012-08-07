@@ -759,11 +759,11 @@ The fair price of this option is $\mu=\e(Y)$. One of our chief reasons for choos
 
 Numerically, one must not only compute the mean of the discounted payoff, but one must approximate the integral over time.  We did so using a trapezoidal rule for $d$ trapezoids.  Moreover, we discretized the Brownian motion exactly using a Brownian bridge construction.  This means that the for one instance of the Brownian motion we first compute $B(T)$, then $B(T/2)$, etc., using independent Gaussian random variables $X_1, \ldots, X_d$, suitably scaled. The Brownian bridge accounts for more of the motion of the stock price into the $X_j$ with smaller $j$, which allows the Sobol' sampling algorithm to do a better job.  
 
-Letting $Y^{(d)}$ denote the discretization of \eqref{payoff} using $d$ trapezoids, we approximated $\mu^{(d)}=\e(Y^{(d)})$ by Algorithm \ref{twostagealgo} and the Sobol' sampling algorithm using an error tolerance of $\varepsilon=0.02$, and compared it to the analytic value of $\mu^{(d)}$.  The result of $500$ replications is given in Figure \ref{AsianGeoMeanCallFig}.  Some of the parameters were set to be fixed values, namely,
+Letting $Y^{(d)}$ denote the discretization of \eqref{payoff} using $d$ trapezoids, we approximated $\mu^{(d)}=\e(Y^{(d)})$ by Algorithm \ref{twostagealgo} and the Sobol' sampling algorithm using an error tolerance of $\varepsilon=0.05$, and compared it to the analytic value of $\mu^{(d)}$.  The result of $500$ replications is given in Figure \ref{AsianGeoMeanCallFig}.  Some of the parameters were set to be fixed values, namely,
 \[
 S(0)=K=100, \qquad T=1, \qquad r=0.03.
 \]
-The volatility, $v$, was drawn uniformly between $0.1$ and $0.8$.  The number of trapezoids, $d$, was chosen to be uniform over $\{2, 4, 8, 16, 32\}$.  The true value of $\mu^{(d)}$ for these parameters is between about $4$ and $20$.
+The volatility, $v$, was drawn uniformly between $0.1$ and $0.7$.  The number of trapezoids, $d$, was chosen to be uniform over $\{1, 2, 4, 8, 16, 32\}$.  The true value of $\mu^{(d)}$ for these parameters is between about $2.8$ and $14$.
 
 \begin{figure}
 \centering
@@ -771,10 +771,10 @@ The volatility, $v$, was drawn uniformly between $0.1$ and $0.8$.  The number of
 \begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{geomeaniidheavyErrTime.eps} \\ Algorithm \ref{twostagealgo} (heavy duty)\end{minipage}
 \begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{geomeanSobolErrTime.eps} \\ Sobol' \end{minipage}
 \begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{geomeanSobolheavyErrTime.eps} \\ Sobol' (heavy duty) \end{minipage}
-\caption{Execution times and errors for the Asian geometric mean call option for $d=2, 4, 8, 16, 32$ and $\varepsilon=0.02$.\label{AsianGeoMeanCallFig}}
+\caption{Execution times and errors for the Asian geometric mean call option for $d=1, 2, 4, 8, 16, 32$ and $\varepsilon=0.05$.\label{AsianGeoMeanCallFig}}
 \end{figure}
 
-For this example the true kurtosis of $Y^{(d)}$ is unknown.  Both  Algorithm \ref{twostagealgo} and the  Sobol' sampling algorithm compute the option price with high reliability.  ?????  
+For this example the true kurtosis of $Y^{(d)}$ is unknown.  Both  Algorithm \ref{twostagealgo} and the  Sobol' sampling algorithm compute the option price to the desired error tolerance with high reliability.  For the IID sampling Algorithm \ref{twostagealgo} and the ordinary Sobol' sampling algorithm it can be seen that some of errors are barely under the error tolerance, meaning that the sample size was not chosen to conservatively.  For the heavy duty Sobol' algorithm, the high initial sample size seems to lead to smaller than expected errors and larger than necessary times.
 
 \section{Discussion}
 
