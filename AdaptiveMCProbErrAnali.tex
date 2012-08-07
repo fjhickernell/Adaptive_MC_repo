@@ -38,18 +38,12 @@
 \DeclareMathOperator{\rel}{rel}
 \DeclareMathOperator{\nor}{nor}
 \DeclareMathOperator{\err}{err}
-%\DeclareMathOperator{\prob}{prob}
 \DeclareMathOperator{\third}{third}
 \DeclareMathOperator{\qse}{qse}
 \DeclareMathOperator{\card}{card}
 \DeclareMathOperator{\cost}{cost}
-%\DeclareMathOperator{\fourth}{fourth}
-%\newtheorem{theorem}{Theorem}
 \spdefaulttheorem{algo}{Algorithm}{\upshape \bfseries}{\upshape}
-%\newtheorem{algo}[theorem]{Algorithm}
-%\newtheorem{rem}{Remark}
-\DeclareMathOperator{\sMC}{sMC}
-\newcommand{\aMC}{{\rm TwoStage}}
+\newcommand{\me}{\ensuremath{\mathrm{e}}} % for math number 'e', 2.718 281 8..., tha base of natural logarithms
 
 
 \newcommand\reals{\mathbb{R}}
@@ -205,8 +199,6 @@ this it is similar to the method of
 the latter requires normally distributed
 data.
 
-
-
 One might question whether assumption \eqref{kurtassump}, which involves fourth-order moments of $Y$, is more reasonable than an assumption involving only the second moment of $Y$.  For example, using Chebychev's inequality with the assumption 
 \begin{equation} \label{boundedvar}
 \sigma^2 \le \sigma^2_{\max}
@@ -255,7 +247,7 @@ $ \kappa = \tkappa-3 = \e[(Y-\mu)^4]/\sigma^4-3$ (see \eqref{kurtassump}).
 The mysterious $3$ in $\kappa$ is there to
 make it zero for Gaussian random variables.
 Also, $\mu,\sigma^2,\gamma,\kappa$ are related to the
-first four cumulants \cite[p.??]{McC87a} of the distribution of $Y$, meaning that
+first four cumulants \cite[Chap.\ 2]{McC87a} of the distribution of $Y$, meaning that
 \[
 \log(\e[\exp(tY)]) = \mu t + \frac{\sigma^2 t^2}{2} + \frac{ \gamma \sigma^3t^3}{3!} + \frac{\kappa \sigma^4 t^4}{4!} + o(t^4).
 \]
@@ -755,14 +747,34 @@ Figure \ref{GaussianTestFunHDFig} repeats the simulation shown in Figure \ref{Ga
 
 \subsection{Asian Geometric Mean Call Option Pricing}
 
+The next example involves pricing an Asian geometric mean call option.  Suppose that the price of a stock $S$ at time $t$ follows a geometric Brownian motion with constant interest rate, $r$, and constant volatility, $v$.  One may express the stock price in terms of the initial condition, $S(0)$, as 
+\[
+S(t)=S(0) \exp[(r-v^2/2)t + v B(t)], \qquad t \ge 0,
+\]
+where $B$ is a standard Brownian motion.  The discounted payoff of the Asian geometric mean call option with an expiry of $T$ years and a strike price of $K$ is 
+\begin{equation} \label{payoff}
+Y=\max\biggl(\exp\Bigl(\int_0^T \log(S(t)) \, \dif t \Bigr) - K,0 \biggr)\me^{-rT}.
+\end{equation}
+The fair price of this option is $\mu=\e(Y)$. One of our chief reasons for choosing this option for numerical experiments is that its price can be computed analytically.
+
+Numerically, one must not only compute the mean of the discounted payoff, but one must approximate the integral over time.  We did so using a trapezoidal rule for $d$ trapezoids.  Moreover, we discretized the Brownian motion exactly using a Brownian bridge construction.  This means that the for one instance of the Brownian motion we first compute $B(T)$, then $B(T/2)$, etc., using independent Gaussian random variables $X_1, \ldots, X_d$, suitably scaled. The Brownian bridge accounts for more of the motion of the stock price into the $X_j$ with smaller $j$, which allows the Sobol' sampling algorithm to do a better job.  
+
+Letting $Y^{(d)}$ denote the discretization of \eqref{payoff} using $d$ trapezoids, we approximated $\mu^{(d)}=\e(Y^{(d)})$ by Algorithm \ref{twostagealgo} and the Sobol' sampling algorithm using an error tolerance of $\varepsilon=0.02$, and compared it to the analytic value of $\mu^{(d)}$.  The result of $500$ replications is given in Figure \ref{AsianGeoMeanCallFig}.  Some of the parameters were set to be fixed values, namely,
+\[
+S(0)=K=100, \qquad T=1, \qquad r=0.03.
+\]
+The volatility, $v$, was drawn uniformly between $0.1$ and $0.8$.  The number of trapezoids, $d$, was chosen to be uniform over $\{2, 4, 8, 16, 32\}$.  The true value of $\mu^{(d)}$ for these parameters is between about $4$ and $20$.
+
 \begin{figure}
 \centering
 \begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{geomeaniidErrTime.eps} \\ Algorithm \ref{twostagealgo} \end{minipage}
 \begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{geomeaniidheavyErrTime.eps} \\ Algorithm \ref{twostagealgo} (heavy duty)\end{minipage}
 \begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{geomeanSobolErrTime.eps} \\ Sobol' \end{minipage}
 \begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{geomeanSobolheavyErrTime.eps} \\ Sobol' (heavy duty) \end{minipage}
-\caption{Execution times and errors for the geometric mean Asian call option for $d=2, 4, \ldots, 64$ and $\varepsilon=0.02$, with the rest of the parameters as in Figure \ref{GaussianTestFunFig}.\label{GaussianTestFunHDFig}}
+\caption{Execution times and errors for the Asian geometric mean call option for $d=2, 4, 8, 16, 32$ and $\varepsilon=0.02$.\label{AsianGeoMeanCallFig}}
 \end{figure}
+
+For this example the true kurtosis of $Y^{(d)}$ is unknown.  Both  Algorithm \ref{twostagealgo} and the  Sobol' sampling algorithm compute the option price with high reliability.  ?????  
 
 \section{Discussion}
 
