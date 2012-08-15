@@ -8,10 +8,12 @@ format compact
 alpha=0.01;
 talpha=1-sqrt(1-alpha);
 beta=0.01;
-A=0.56;
+A1=0.33554;
+A2=0.415;
+A3=25.7984;
 
 %% Set eps/sigma and kappa range
-tolovsigvec=-norminv(talpha/2)./sqrt(10.^(4:0.05:9)');
+tolovsigvec=-norminv(talpha/2)./sqrt(10.^(4:0.02:9)');
 ntol=length(tolovsigvec);
 kappavec=[10 100 1000];
 nkappa=length(kappavec);
@@ -19,12 +21,19 @@ nkappa=length(kappavec);
 %% Define functions
 NCLT = @(tolovsig) ceil((norminv(alpha/2)./tolovsig).^2); %CLT sample
 NCheb = @(tolovsig) ceil(1./((tolovsig.^2).*talpha)); %Chebychev sample size
-NBEnonfunzero=@(logsqrtn,tolovsig,rho) normcdf(-exp(logsqrtn).*tolovsig) + ...
-    A*rho.*exp(-logsqrtn)./(1+exp(logsqrtn).*tolovsig).^3 - talpha/2;
+NBEuniffunzero=@(logsqrtn,tolovsig,rho) ...
+    normcdf(-exp(logsqrtn).*tolovsig) + ...
+    exp(-logsqrtn)*A1*(rho+A2) - talpha/2;
+NBEnonuniffunzero=@(logsqrtn,tolovsig,rho) ...
+    normcdf(-exp(logsqrtn).*tolovsig) + ...
+    exp(-logsqrtn)*A3*rho./(1+(exp(logsqrtn).*tolovsig).^3) ...
+    - talpha/2;
     %solve for non-uniform Berry-Esseen sample size
-NBE = @(tolovsig,rho) ...
-    ceil(exp(2*fzero(@(x) NBEnonfunzero(x,tolovsig,rho),log(sqrt(NCLT(tolovsig))))));
-NChebBE = @(tolovsig,rho) min(NCheb(tolovsig),NBE(tolovsig,rho));
+NBEunif = @(tolovsig,rho) ...
+    ceil(exp(2*fzero(@(x) NBEuniffunzero(x,tolovsig,rho),log(sqrt(NCLT(tolovsig))))));
+NBEnonunif = @(tolovsig,rho) ...
+    ceil(exp(2*fzero(@(x) NBEnonuniffunzero(x,tolovsig,rho),log(sqrt(NCLT(tolovsig))))));
+NChebBE = @(tolovsig,rho) min([NCheb(tolovsig) NBEunif(tolovsig,rho) NBEnonunif(tolovsig,rho)]);
 v2weight = @(alpha,beta,fudge2) ...
     (fudge2)+(fudge2-1).*sqrt(talpha.*(1-beta)/(beta*(1-alpha)));
 fudge2fun = @(kappa,nsigma) 1./(1 - sqrt((kappa-(nsigma-3)./(nsigma-1)).* ...
@@ -36,6 +45,7 @@ Ntot = @(tolovsig,kappa,nsigma) nsigma+Nmubound(tolovsig,kappa,nsigma);
 %% Initialize sample sizes
 NCLTvec=NCLT(tolovsigvec); %CLT sample size
 NChebBEvec=zeros(ntol,nkappa); %Berry-Esseen sample size
+NChebBEwhich=zeros(ntol,nkappa); %Berry-Esseen sample size
 Ntotvec0=NChebBEvec; %Upper bound on total sample ssize
 nsigoptvec=NChebBEvec; %Optimal nsigma
 Ntotoptvec=NChebBEvec;
@@ -63,13 +73,13 @@ for k=1:nkappa
 %     loglog(nsigmavec,Ntotvec,'b-','linewidth',2)
 
     %% Compute sample sizes
-    nsigma0=kappa*1e3;
+    nsigma0=kappa*1e4;
     nsigma0vec(k)=nsigma0;
     fudge0=sqrt(fudge2fun(kappa,nsigma0));
-    fudge0vec=fudge0;
+    fudge0vec(k)=fudge0;
     for i=1:ntol
         tolovsig=tolovsigvec(i);
-        NChebBEvec(i,k)=NChebBE(tolovsig,rho);
+        [NChebBEvec(i,k) NChebBEwhich(i,k)]=NChebBE(tolovsig,rho);
         Ntotvec0(i,k)=Ntot(tolovsig,kappa,nsigma0);
         minlog10n=max(3,log10(kappa*(1-talpha)/talpha));
         nsigopt=10.^(fminbnd(@(x) Ntot(tolovsig,kappa,10.^x),minlog10n,10));
