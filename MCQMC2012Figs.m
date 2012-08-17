@@ -8,48 +8,58 @@ format compact
 alpha=0.01;
 talpha=1-sqrt(1-alpha);
 beta=0.01;
-A1=0.33554;
-A2=0.415;
-A3=25.7984;
+A1=0.3328;
+A2=0.429;
+%A3=25.7984;
+A3=30.54;
 
 %% Set eps/sigma and kappa range
 tolovsigvec=-norminv(talpha/2)./sqrt(10.^(4:0.02:9)');
 ntol=length(tolovsigvec);
-kappavec=[10 100 1000];
+kappavec=[2 10 100];
 nkappa=length(kappavec);
 
 %% Define functions
-NCLT = @(tolovsig) ceil((norminv(alpha/2)./tolovsig).^2); %CLT sample
-NCheb = @(tolovsig) ceil(1./((tolovsig.^2).*talpha)); %Chebychev sample size
-NBEuniffunzero=@(logsqrtn,tolovsig,rho) ...
+NCLT = @(tolovsig,alpha) ceil((norminv(alpha/2)./tolovsig).^2); %CLT sample
+NCheb = @(tolovsig,alpha) ceil(1./((tolovsig.^2).*alpha)); %Chebychev sample size
+%Solve for non-uniform Berry-Esseen sample size
+NBEuniffunzero=@(logsqrtn,tolovsig,rho,alpha) ... %function that whose root is n
+    normcdf(-exp(logsqrtn).*tolovsig) + exp(-logsqrtn)*A1*(rho+A2) ...
+    - alpha/2;
+NBEunif = @(tolovsig,rho,alpha) ... %function to compute n
+    ceil(exp(2*fzero(@(x) NBEuniffunzero(x,tolovsig,rho,alpha),...
+    log(sqrt(NCLT(tolovsig,alpha))))));
+NBEnonuniffunzero=@(logsqrtn,tolovsig,rho,alpha) ...
     normcdf(-exp(logsqrtn).*tolovsig) + ...
-    exp(-logsqrtn)*A1*(rho+A2) - talpha/2;
-NBEnonuniffunzero=@(logsqrtn,tolovsig,rho) ...
-    normcdf(-exp(logsqrtn).*tolovsig) + ...
-    exp(-logsqrtn)*A3*rho./(1+(exp(logsqrtn).*tolovsig).^3) ...
-    - talpha/2;
+    exp(-logsqrtn)*A3*rho./(1+(exp(logsqrtn).*tolovsig).^3) - alpha/2;
     %solve for non-uniform Berry-Esseen sample size
-NBEunif = @(tolovsig,rho) ...
-    ceil(exp(2*fzero(@(x) NBEuniffunzero(x,tolovsig,rho),log(sqrt(NCLT(tolovsig))))));
-NBEnonunif = @(tolovsig,rho) ...
-    ceil(exp(2*fzero(@(x) NBEnonuniffunzero(x,tolovsig,rho),log(sqrt(NCLT(tolovsig))))));
-NChebBE = @(tolovsig,rho) min([NCheb(tolovsig) NBEunif(tolovsig,rho) NBEnonunif(tolovsig,rho)]);
-v2weight = @(alpha,beta,fudge2) ...
-    (fudge2)+(fudge2-1).*sqrt(talpha.*(1-beta)/(beta*(1-alpha)));
-fudge2fun = @(kappa,nsigma) 1./(1 - sqrt((kappa-(nsigma-3)./(nsigma-1)).* ...
+NBEnonunif = @(tolovsig,rho,alpha) ...
+    ceil(exp(2*fzero(@(x) NBEnonuniffunzero(x,tolovsig,rho,alpha),...
+    log(sqrt(NCLT(tolovsig,alpha))))));
+NChebBE = @(tolovsig,rho,alpha)...
+    min([NCheb(tolovsig,alpha) NBEunif(tolovsig,rho,alpha) ...
+    NBEnonunif(tolovsig,rho,alpha)]);
+vweight = @(alpha,beta,fudge2) ...
+    sqrt(fudge2+(fudge2-1).*sqrt(alpha.*(1-beta)/(beta*(1-alpha))));
+fudge2fun = @(kappa,nsigma,alpha) 1./(1 - sqrt((kappa-(nsigma-3)./(nsigma-1)).* ...
     ((1-alpha)./(alpha*nsigma))));
-Nmubound = @(tolovsig,kappa,nsigma) ...
-    max(nsigma,NChebBE(tolovsig/v2weight(talpha,beta,fudge2fun(kappa,nsigma)),kappa.^(3/4)));
-Ntot = @(tolovsig,kappa,nsigma) nsigma+Nmubound(tolovsig,kappa,nsigma);
+Nmubound = @(tolovsig,kappa,nsigma,alpha) ...
+    max(nsigma,...
+    NChebBE(tolovsig/vweight(alpha,beta,fudge2fun(kappa,nsigma,alpha)),...
+    kappa.^(3/4),talpha));
+Ntot = @(tolovsig,kappa,nsigma,alpha) ...
+    nsigma+Nmubound(tolovsig,kappa,nsigma,alpha);
+kurtmax = @(nsigma,alpha,fudge2) ...
+    (nsigma-3)/(nsigma-1)+((alpha*nsigma)/(1-alpha))*(1-1/fudge2)^2;
 
 %% Initialize sample sizes
-NCLTvec=NCLT(tolovsigvec); %CLT sample size
+NCLTvec=NCLT(tolovsigvec,alpha); %CLT sample size
 NChebBEvec=zeros(ntol,nkappa); %Berry-Esseen sample size
-NChebBEwhich=zeros(ntol,nkappa); %Berry-Esseen sample size
+NChebBEwhich=NChebBEvec; %Berry-Esseen sample size
 Ntotvec0=NChebBEvec; %Upper bound on total sample ssize
 nsigoptvec=NChebBEvec; %Optimal nsigma
-Ntotoptvec=NChebBEvec;
-fudgeoptvec=NChebBEvec;
+Ntotoptvec=NChebBEvec; %Ntotal for optimal nsigma
+fudgeoptvec=NChebBEvec; %fudge for optimal nsigma
 nsigma0vec=zeros(1,nkappa);
 fudge0vec=nsigma0vec;
 
@@ -61,32 +71,21 @@ for k=1:nkappa
     kappa=kappavec(k);
     rho=kappa^(3/4);
 
-    %% Plot some stuff to look
-%     nsigmavec=10.^(3:0.1:8)';
-%     nsig=length(nsigmavec);
-%     tolovsig=1e-2;
-%     Ntotvec=zeros(size(nsigmavec));
-%     for i=1:nsig
-%         Ntotvec(i)=Ntot(tolovsig,kappa,nsigmavec(i));
-%     end
-%     figure
-%     loglog(nsigmavec,Ntotvec,'b-','linewidth',2)
-
     %% Compute sample sizes
     nsigma0=kappa*1e4;
     nsigma0vec(k)=nsigma0;
-    fudge0=sqrt(fudge2fun(kappa,nsigma0));
+    fudge0=sqrt(fudge2fun(kappa,nsigma0,talpha));
     fudge0vec(k)=fudge0;
+    minlog10n=max(3,log10(kappa*(1-talpha)/talpha));
     for i=1:ntol
         tolovsig=tolovsigvec(i);
-        [NChebBEvec(i,k) NChebBEwhich(i,k)]=NChebBE(tolovsig,rho);
-        Ntotvec0(i,k)=Ntot(tolovsig,kappa,nsigma0);
-        minlog10n=max(3,log10(kappa*(1-talpha)/talpha));
-        nsigopt=10.^(fminbnd(@(x) Ntot(tolovsig,kappa,10.^x),minlog10n,10));
+        [NChebBEvec(i,k) NChebBEwhich(i,k)]=NChebBE(tolovsig,rho,talpha);
+        Ntotvec0(i,k)=Ntot(tolovsig,kappa,nsigma0,talpha);
+        nsigopt=10.^(fminbnd(@(x) Ntot(tolovsig,kappa,10.^x,talpha),minlog10n,10));
         nsigoptvec(i,k)=round(nsigopt);
-        Ntotoptvec(i,k)=Ntot(tolovsig,kappa,nsigoptvec(i,k));
+        Ntotoptvec(i,k)=Ntot(tolovsig,kappa,nsigoptvec(i,k),talpha);
     end
-    fudgeoptvec(:,k)=sqrt(fudge2fun(kappa,nsigoptvec(:,k)));
+    fudgeoptvec(:,k)=sqrt(fudge2fun(kappa,nsigoptvec(:,k),talpha));
 
     toc
 end
