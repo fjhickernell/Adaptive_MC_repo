@@ -1,5 +1,5 @@
 \def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}\def\Ignore#1{}\def\notesupp#1{}
-\begin{thebibliography}{28}
+\begin{thebibliography}{29}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -30,11 +30,6 @@ Hale N, Trefethen LN, Driscoll TA (2012) Chebfun Version 4
 \bibitem[{Hall(1988)}]{Hal88a}
 Hall P (1988) Theoretical comparisons of bootstrap confidence intervals. Ann\
   Statist 16(3):927--953
-
-\bibitem[{Halton(2005)}]{Hal05a}
-Halton JH (2005) Quasi-probability: {W}hy quasi-{M}onte-{C}arlo methods are
-  statistically valid and how their errors can be estimated statistically.
-  Monte Carlo Methods and Appl 11:203--350
 
 \bibitem[{Hong and Hickernell(2003)}]{HonHic00a}
 Hong HS, Hickernell FJ (2003) Algorithm 823: Implementing scrambled digital
@@ -68,6 +63,10 @@ Mukhopadhyay N, Datta S (1996) On sequential fixed-width confidence intervals
   for the mean and second-order expansions of the associated coverage
   probabilities. Ann\ Inst\ Statist\ Math 48(3):497--507
 
+\bibitem[{Nefedova and Shevtsova(2012)}]{NefShe12a}
+Nefedova YS, Shevtsova IG (2012) On non-uniform convergence rate estimates in
+  the central limit theorem. Theory Probab\ Appl 57:62--97
+
 \bibitem[{Niederreiter(1992)}]{Nie92}
 Niederreiter H (1992) Random Number Generation and Quasi-{M}onte {C}arlo
   Methods. CBMS-NSF Regional Conference Series in Applied Mathematics, SIAM,
@@ -98,6 +97,11 @@ Serfling RJ, Wackerly DD (1976) Asymptotic theory of sequential fixed-width
 \bibitem[{Shampine(2008)}]{Sha08a}
 Shampine LF (2008) Vectorized adaptive quadrature in matlab. J Comput\ Appl\
   Math 211:131--140
+
+\bibitem[{Shevtsova(2011)}]{She11a}
+Shevtsova I (2011) On the absolute constants in the {B}erry--{E}sseen type
+  inequalities for identically distributed summands. arXiv:1111.6554v1
+  [math.PR]
 
 \bibitem[{Siegmund(1985)}]{Sie85a}
 Siegmund D (1985) Sequential Analysis: Tests and Confidence Intervals.

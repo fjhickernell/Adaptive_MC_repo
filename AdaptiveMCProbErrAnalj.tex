@@ -89,7 +89,7 @@
 \date{\today}
 \title*{Guaranteed Conservative Fixed Width Confidence Intervals Via Monte Carlo Sampling
 \thanks{The first and second authors were partially supported by the National
-Science Foundation under DMS-0923111 and DMS-1115392}}
+Science Foundation under DMS-0923111 and DMS-1115392.  The fourth author was partially supported by the National Science Foundation under DMS-0906056.}}
 \titlerunning{Fixed Width Confidence Intervals}
 \author{Fred J. Hickernell\inst{1} \and
 Lan Jiang\inst{1} \and Yuewei Liu\inst{2} \and Art Owen \inst{3}}
@@ -109,7 +109,7 @@ Department of Statistics, Stanford University, Stanford, CA, 94305, USA,
 %
 \maketitle
 
-\abstract{Monte Carlo methods are used to approximate the means, $\mu$, of random variables $Y$, whose distributions are not known explicitly.  The key idea is that the average of a random sample, $Y_1, \ldots, Y_n$, tends to $\mu$ as $n$ tends to infinity. This article explores how one can confidently construct a confidence interval for $\mu$ with a prescribed half-width (or error tolerance) $\varepsilon$.  Our proposed two stage algorithm assumes that the \emph{kurtosis} of $Y$ does not exceed some user-specified bound. An initial independent and identically distributed (IID) sample is used to confidently estimate the variance of $Y$.  A Berry-Esseen inequality then makes it possible to determine the size of the IID sample required to construct the desired confidence interval for $\mu$.  We discuss the important case where $Y=f(\vX)$ and $\vX$ is a random $d$-vector with probability density $\rho$.  In this case $\mu$ can be interpreted as the integral $\int_{\reals^d} f(\vx) \rho(\vx) \, \dif \vx$, and the Monte Carlo method becomes a method for multidimensional cubature. }
+\abstract{Monte Carlo methods are used to approximate the means, $\mu$, of random variables $Y$, whose distributions are not known explicitly.  The key idea is that the average of a random sample, $Y_1, \ldots, Y_n$, tends to $\mu$ as $n$ tends to infinity. This article explores how one can reliably construct a confidence interval for $\mu$ with a prescribed half-width (or error tolerance) $\varepsilon$.  Our proposed two stage algorithm assumes that the \emph{kurtosis} of $Y$ does not exceed some user-specified bound. An initial independent and identically distributed (IID) sample is used to confidently estimate the variance of $Y$.  A Berry-Esseen inequality then makes it possible to determine the size of the IID sample required to construct the desired confidence interval for $\mu$.  We discuss the important case where $Y=f(\vX)$ and $\vX$ is a random $d$-vector with probability density $\rho$.  In this case $\mu$ can be interpreted as the integral $\int_{\reals^d} f(\vx) \rho(\vx) \, \dif \vx$, and the Monte Carlo method becomes a method for multidimensional cubature. }
 
 
 \section{Introduction}
@@ -131,12 +131,12 @@ where
 \item $\alpha$ is the level of \emph{uncertainty}, e.g., $1\%$ or $0.1\%$, which is fixed in advance.
 
 \end{itemize}
+
 Often the sample size, $n$, is fixed in advance, and the central limit theorem (CLT) provides an approximate value for $\varepsilon$ in terms of $n$ and 
 \begin{equation} \label{sigmadef}
 \sigma^2=\var(Y)=\e[(Y-\mu)^2],
 \end{equation}
 which itself may be approximated by the sample variance.
-
 The goal here is somewhat different.  We want to fix $\varepsilon$ in advance and then determine how large the sample size must be to obtain a fixed
 width confidence intervals of the form \eqref{confint}. Moreover, we want to make sure that our confidence interval is correct, not just approximately correct, or correct in the limit of vanishing $\varepsilon$.  In this paper we present Algorithm \ref{twostagealgo} for obtaining such a fixed width confidence interval for the mean of a real random
 variable when one is performing Monte Carlo sampling.
@@ -190,7 +190,7 @@ random variable $Y$:
 (The quantity $\tkappa-3$ is commonly called the kurtosis.)  Under such an assumption we present
 a two stage algorithm: the first stage generates
 a conservative upper bound on the variance, and the second stage
-uses this variance bound and a Berry-Esseen Theorem, which can be thought of as a non-asymptotic CLT, to determine how large $n$ must be for the sample mean to satisfy confidence interval \eqref{confint}.  Theorem \ref{mainadaptthm} then demonstrates the validity of the fixed width confidence interval, and Theorem \ref{costtheorem} demonstrates that the cost of this algorithm is reasonable.  These are our main new theoretical results.
+uses this variance bound and a Berry-Esseen Theorem, which can be thought of as a non-asymptotic CLT, to determine how large $n$ must be for the sample mean to satisfy confidence interval \eqref{confint}.  Theorem \ref{mainadaptthm} demonstrates the validity of the fixed width confidence interval, and Theorem \ref{costtheorem} demonstrates that the cost of this algorithm is reasonable.  These are our main new theoretical results.
 
 Our procedure is a two-stage procedure
 rather than a fully sequential one.  In
@@ -214,7 +214,7 @@ Given the problem of evaluating $\mu=\int_{\reals^d} g(\vx) \, \dif \vx$, one mu
 \norm[p]{f} :=\left\{\int_{\reals^d} \abs{f(\vx)}^p \rho(\vx) \, \dif \vx\right\}^{1/p}, \qquad
 \sigma^2 = \norm[2]{f-\mu}^2, \qquad \tkappa = \frac{\norm[4]{f-\mu}^4}{\norm[2]{f-\mu}^4}.
 \end{equation}
-For a given $g$, the choice of $\rho$ is not unique, and making an optimal choice belongs to the realm of \emph{importance sampling}. The assumption of bounded kurtosis, \eqref{kurtassump}, required by Algorithm \ref{twostagealgo}, corresponds to an assumption about the integrand $f$ lying in the \emph{cone} of functions
+For a given $g$, the choice of $\rho$ is not unique, and making an optimal choice belongs to the realm of \emph{importance sampling}. The assumption of bounded kurtosis, \eqref{kurtassump}, required by Algorithm \ref{twostagealgo}, corresponds to an assumption that the integrand $f$ lies in the \emph{cone} of functions
 \begin{equation} \label{conedef}
 \cc_{\tkappa_{\max}} = \{ f \in \cl_4 : \norm[4]{f-\mu(f)} \le \tkappa_{\max}^{1/4} \norm[2]{f-\mu(f)} \}.
 \end{equation}
@@ -341,19 +341,20 @@ follows that:
 \end{theorem}
 
 Berry-Esseen type theorems govern the rate at which
-a CLT takes hold. We will use the following one.
+a CLT takes hold. We will use the following one which combines recent work from a couple of sources on uniform and non-uniform versions.
 
-\begin{theorem}[Non-uniform Berry-Esseen Inequality] \label{BE} Let $Y_1,\dots,Y_n$ be IID random variables with mean
+\begin{theorem}[Berry-Esseen Inequality] \label{BE} Let $Y_1,\dots,Y_n$ be IID random variables with mean
 $\mu$, variance $\sigma^2>0$, and third centered moment $M_3=E\abs{Y_i - \mu}^3/\sigma^3 < \infty$.  Let $\hmu_n=(Y_1 +\cdots + Y_n)/n$ denote the sample mean.
 Then
 \begin{multline*}
 \abs{\Prob\left[\frac{\hmu-\mu}{\sigma/\sqrt{n}} <x
 \right]-\Phi(x)} \\
-\leq \Delta_n(x,M_3) := \frac{1}{\sqrt{n}} \min\left(0.3328(M_3+0.429), \frac{30.54 M_3}{1+\abs{x}^{3}} \right) \qquad \forall x \in \reals,
+\leq \Delta_n(x,M_3) := \frac{1}{\sqrt{n}} \min\left(A_1(M_3+A_2), \frac{A_3 M_3}{1+\abs{x}^{3}} \right) \qquad \forall x \in \reals,
 \end{multline*}
+where $A_1=0.3328$ and $A_2=0.429$ \citep{She11a}, and $A_3=18.1139$ \citep{NefShe12a}.
 \end{theorem}
-\begin{proof}  The first term in the minimum comes from \cite{???}, and the second term in the minimum comes from \cite{???}.
-\end{proof}
+
+The constants in the Berry-Esseen Inequality above have been an area of active research.  We would not be surprised if there are further improvements in the near future.
 
 Our method requires probabilistic bounds on the sample variance, $s_n^2$. For that,
 we will use some moments of the variance estimate.
@@ -412,12 +413,12 @@ defined at \eqref{eq:samplevar}, and let $\tilde\kappa=\kappa+3$.  Then
 \end{subequations}
 \end{lemma}
 \begin{proof} Applying Theorem \ref{Varvarthm} and choosing
-$$a=\sqrt{\var(s^2_n) \frac{1-\alpha}{\alpha} } = \sigma^2\sqrt{\left(\kappa-\frac{n-3}{n-1}\right)\left(\frac{1-\alpha}{\alpha n}\right)} >0,
+$$a=\sqrt{\var(s^2_n) \frac{1-\alpha}{\alpha} } = \sigma^2\sqrt{\left(\tkappa-\frac{n-3}{n-1}\right)\left(\frac{1-\alpha}{\alpha n}\right)} >0,
 $$
 it follows from Cantelli's inequality (Theorem  \ref{Can})  that
 \begin{multline*}
 \Prob\left[s^2_n-\sigma^2 \geq
-\sigma^2\sqrt{\left(\kappa-\frac{n-3}{n-1}\right)\left(\frac{1-\alpha}{\alpha n}\right)} \right]  = \Prob\left[s^2_n-\sigma^2 \geq
+\sigma^2\sqrt{\left(\tkappa-\frac{n-3}{n-1}\right)\left(\frac{1-\alpha}{\alpha n}\right)} \right]  = \Prob\left[s^2_n-\sigma^2 \geq
 a \right]\\
  \leq \frac{\var(s^2_n)}{a^2+\var(s^2_n)} 
 =\frac{\var(s^2_n)}{\var(s^2_n) \frac{1-\alpha}{\alpha}+\var(s^2_n)}  
@@ -447,7 +448,7 @@ This condition is the explicit version of \eqref{kurtassump} mentioned in the in
 \subsection{Conservative interval widths}
 
 Here we consider how to choose the sample size
-$n=n_\mu$ to get the desired coverage level
+$n_\mu$ to get the desired coverage level
 from an interval with half-length at most $\varepsilon$.
 We suppose here that $\sigma$ is known.  
 In practice we will use a conservative (biased high) estimate
@@ -524,9 +525,9 @@ an initial sample size for variance estimation, $n_\sigma \in \{2,3, \ldots\}$,
 \item
 a variance inflation factor $\fudge^2\in(1,\infty)$,
 \item
-an uncertainty tolerance $\alpha\in(0,1)$, and,
+an uncertainty $\alpha\in(0,1)$, and,
 \item
-an error tolerance or confidence interval width, $\varepsilon>0$.
+an error tolerance or confidence interval half-width, $\varepsilon>0$.
 \end{itemize}
 
 At the first stage of the algorithm,
@@ -577,7 +578,7 @@ The first stage yields a variance estimate satisfying
 $
 \Pr( \hsigma^2 >\sigma^2)\ge 1-\tilde\alpha
 $
-by the argument preceding the kurtosis bound in \eqref{kappamaxdef} applied with uncertainty tolerance $\tilde\alpha$.
+by the argument preceding the kurtosis bound in \eqref{kappamaxdef} applied with uncertainty $\tilde\alpha$.
 The second stage yields
 $\Pr( |\hat\mu-\mu|\le\varepsilon)\ge 1-\tilde\alpha$
 by the Berry-Esseen result~\eqref{BEresult},
@@ -602,7 +603,7 @@ N_{\mu}(\varepsilon,\sigma,\alpha,M)
 := \max\bigl( n_{\sigma}, \min\bigl(N_{\text{Cheb}}(\varepsilon,\sigma,\alpha), 
 N_{\text{BE}}(\varepsilon,\sigma,\alpha,M) \bigr) \bigr)
 \end{equation} 
-instead of \eqref{NCBdef} to determine the sample size for the sample mean.  By the error bound following from Chebychev's inequality (Theorem \ref{Chebineqthm}), this means that the fixed width confidence interval constructed by Algorithm \ref{twostagealgo} also holds for random variables, $Y$, with $\sigma^2 \le \varepsilon^2 \alpha n_{\sigma}$.
+instead of \eqref{NCBdef} to determine the sample size for the sample mean.  By the error bound following from Chebychev's inequality (Theorem \ref{Chebineqthm}), this means that the fixed width confidence interval constructed by Algorithm \ref{twostagealgo} also holds for any random variables, $Y$, with small variance, namely, $\sigma^2 \le \varepsilon^2 \alpha n_{\sigma}$, even if its kurtosis is arbitrarily large.
 \end{remark}
 
 \bigskip
@@ -617,7 +618,7 @@ $$\Pr( |\hat\mu-\mu|\le\varepsilon)\ge 1-\alpha.$$
 
 \subsection{Cost of the Algorithm}  The number of function values required by the two-stage Algorithm \ref{twostagealgo} is $n_{\sigma}+n_\mu$, the sum of the initial sample size used to estimate the variance of $Y$ and the sample size used to estimate the mean of $Y$.  Although $n_{\sigma}$ is deterministic, $n_\mu$ is a random variable, and so the cost of this algorithm might be best defined probabilistically.  Moreover, the only random quantity in the formula for $n_{\mu}$ in \eqref{nmudef} is $\hsigma^2$, the upper bound on variance.  Clearly this depends on the unknown population variance, $\sigma^2$, and we expect $\hsigma^2$ not to overestimate $\sigma^2$ by much.  Thus, the algorithm cost is defined below in terms of $\sigma^2$ and the error tolerance (interval half-width) $\varepsilon$.  An upper bound on the cost is then derived in Theorem \ref{costtheorem}.
 
-Let $A$ be any random algorithm that takes as its input, a method for generating random samples, $Y_1, Y_2, \ldots $ with common distribution function $F$ having variance $\sigma^2$ and modified kurtosis $\tkappa$.  Additional algorithm inputs are an error tolerance, $\varepsilon$, an uncertainty tolerance, $\alpha$, and a maximum modified kurtosis, $\tkappa_{\max}$.  The algorithm then computes $\hmu=A(F,\varepsilon,\alpha,\tkappa_{\max})$, an approximation to $\mu=\e(Y)$, based on a total of $N_{\text{tot}}(\varepsilon,\alpha,\tkappa_{\max},F)$ samples. The probabilistic cost of the algorithm, with uncertainty $\beta$, for integrands of variance no greater than $\sigma^2_{\max}$ and modified kurtosis no greater than $\tkappa_{\max}$ is defined as 
+Let $A$ be any random algorithm that takes as its input, a method for generating random samples, $Y_1, Y_2, \ldots $ with common distribution function $F$ having variance $\sigma^2$ and modified kurtosis $\tkappa$.  Additional algorithm inputs are an error tolerance, $\varepsilon$, an uncertainty, $\alpha$, and a maximum modified kurtosis, $\tkappa_{\max}$.  The algorithm then computes $\hmu=A(F,\varepsilon,\alpha,\tkappa_{\max})$, an approximation to $\mu=\e(Y)$, based on a total of $N_{\text{tot}}(\varepsilon,\alpha,\tkappa_{\max},F)$ samples. The probabilistic cost of the algorithm, with uncertainty $\beta$, for integrands of variance no greater than $\sigma^2_{\max}$ and modified kurtosis no greater than $\tkappa_{\max}$ is defined as 
 \begin{equation}
 N_{\text{tot}}(\varepsilon,\alpha,\beta,\tkappa_{\max},\sigma_{\max})
 := \sup_{\substack{\tkappa \le \tkappa_{\max} \\ \sigma \le \sigma_{\max}} } \min\left\{N : \Prob[N_{\text{tot}}(\varepsilon,\alpha,\tkappa_{\max},F) \le N] \ge 1-\beta  \right \}.
@@ -664,20 +665,20 @@ Note that the Chebychev sample size, $N_{\text{Cheb}}$, defined in \eqref{NCdef}
 \includegraphics[width=2.3in]{MCnsigmafudge}\\
 (b)
 \end{minipage}
-\caption{(a) The cost ratios of $N_{\rm{up}}(\varepsilon,0.01,0.01, \tkappa_{\max}, \sigma)/N_{\mathrm{CLT}}(\varepsilon,\sigma,0.01)$ for $\tkappa_{\max}=10,100$, and $1000$ with $n_\sigma=10000\tkappa_{\max}$ (dashed) and $n_\sigma$ optimized (solid); (b) the optimal values of $n_\sigma$ (solid) and $\fudge$ (dashed).\label{Costfig}}
+\caption{(a) The cost ratios of $N_{\rm{up}}(\varepsilon,0.01,0.01, \tkappa_{\max}, \sigma)/N_{\mathrm{CLT}}(\varepsilon,\sigma,0.01)$ for $\tkappa_{\max}=2, 10,$ and $100$, with $n_\sigma=4000\tkappa_{\max}$ (dashed) and $n_\sigma$ optimized (solid); (b) the optimal values of $n_\sigma$ (solid) and $\fudge$ (dashed).\label{Costfig}}
 \end{figure}
 
-Figure \ref{Costfig}a shows the ratio of the upper bound of the cost, $N_{\rm{up}}(\varepsilon,0.01,0.01, \tkappa_{\max}, \sigma)$, to the ideal CLT cost, $N_{\mathrm{CLT}}(\varepsilon,\sigma,0.01)=\lceil (2.58\sigma/\varepsilon)^2\rceil$, for a range of $\sigma/\varepsilon$ ratios and for $\tkappa_{\max}=10,100$, and $1000$. In these graphs the formula defining $N_{\rm{up}}$ in Theorem \ref{costtheorem} uses the alternative and somewhat costlier formula for $N_{\mu}$ in \eqref{NCBpracticaldef}. The dashed curves in Figure \ref{Costfig}a show these cost ratios with $n_\sigma=10000\tkappa_{\max}$, which corresponds to $\fudge \approx 1.05$.  The solid curves denote the case where $n_\sigma$ and $\fudge$ vary with $\sigma/\varepsilon$ to minimize $N_{\rm{up}}$.  Figure \ref{Costfig}b displays the optimal values of $n_\sigma$ (solid) and $\fudge$ (dashed).  In both figures, higher curves correspond to higher values of $\tkappa_{\max}$. 
+Figure \ref{Costfig}a shows the ratio of the upper bound of the cost, $N_{\rm{up}}(\varepsilon,0.01,0.01, \tkappa_{\max}, \sigma)$, to the ideal CLT cost, $N_{\mathrm{CLT}}(\varepsilon,\sigma,0.01)=\lceil (2.58\sigma/\varepsilon)^2\rceil$, for a range of $\sigma/\varepsilon$ ratios and for $\tkappa_{\max}=2, 10$, and $100$. In these graphs the formula defining $N_{\rm{up}}$ in Theorem \ref{costtheorem} uses the alternative and somewhat costlier formula for $N_{\mu}$ in \eqref{NCBpracticaldef}. The dashed curves in Figure \ref{Costfig}a show these cost ratios with $n_\sigma=4000\tkappa_{\max}$, which corresponds to $\fudge \approx 1.1$.  The solid curves denote the case where $n_\sigma$ and $\fudge$ vary with $\sigma/\varepsilon$ to minimize $N_{\rm{up}}$.  Figure \ref{Costfig}b displays the optimal values of $n_\sigma$ (solid) and $\fudge$ (dashed).  In both figures, higher curves correspond to higher values of $\tkappa_{\max}$. 
 
-Here, $N_{\mathrm{CLT}}$ denotes the ideal cost if one knew the variance of $Y$ a priori and knew that the distribution of the sample mean was close to Gaussian. The cost ratio is the penalty for having a guaranteed fixed width confidence interval in the absence of this knowledge about the distribution of $Y$.  For smaller values of $N_{\mathrm{CLT}}$, equivalently smaller  $\sigma/\varepsilon$, this cost ratio can be rather large.  However the absolute effect of this large penalty is mitigated by the fact that the total number of samples needed is not much.  For larger $N_{\mathrm{CLT}}$, equivalently larger  $\sigma/\varepsilon$, the cost ratio approaches somewhat less than $1.5$ in the case of optimal $n_\sigma$ and $\fudge$, and somewhat less than $4$ for $n_\sigma=1000\tkappa_{\max}$.
+Here, $N_{\mathrm{CLT}}$ denotes the ideal cost if one knew the variance of $Y$ a priori and knew that the distribution of the sample mean was close to Gaussian. The cost ratio is the penalty for having a guaranteed fixed width confidence interval in the absence of this knowledge about the distribution of $Y$.  For smaller values of $N_{\mathrm{CLT}}$, equivalently smaller  $\sigma/\varepsilon$, this cost ratio can be rather large.  However the absolute effect of this large penalty is mitigated by the fact that the total number of samples needed is not much.  For larger $N_{\mathrm{CLT}}$, equivalently larger  $\sigma/\varepsilon$, the cost ratio approaches somewhat less than $1.4$ in the case of optimal $n_\sigma$ and $\fudge$, and somewhat less than $2$ for $n_\sigma=1000\tkappa_{\max}$.
 
 The ideal case of optimizing $n_\sigma$ and $\fudge$ with respect to $\sigma/\varepsilon$ is impractical, since $\sigma$ is not known in advance.  Our suggestion is to choose $\fudge$ around $1.1$, and then choose $n_\sigma$ as large as needed to ensure that $\tkappa_{\max}$ is as large as desired. For example with  $\fudge = 1.1$ and 
-$\tilde \kappa = 10, 100, 1000$
-we get $n_\sigma = 29581$, $325389,$ and $3283468$ respectively.
+$\tilde \kappa = 2, 10$, and $100$
+we get $n_\sigma = 6593$, $59311,$ and $652417$ respectively.
 
 \section{Numerical Examples} \label{numerexsec}
 
-\subsection{Univariate Integration Examples}
+\subsection{Univariate Fooling Functions for Deterministic Algorithms}
 
 Several commonly used software packages have automatic algorithms for integrating functions of a single variable.  These include 
 \begin{itemize} 
@@ -702,6 +703,7 @@ For these three automatic algorithms one can easily probe where they sample the 
 \caption{Plots of fooling functions, $f$, with $\mu=\int_0^1 f(x) \, \dif x=1$, but for which the corresponding algorithms return values of $\hmu=0$. \label{foolfunfig}}
 \end{figure}
 
+\subsection{Integrating a Univariate Hump}
 
 Accuracy and timing results have been recorded for the integration problem $\mu=\int_{[0,1]^d} f(\vx) \, \dif \vx$ for a single hump test integrand
 \begin{equation} \label{GaussianTestFun}
@@ -727,18 +729,18 @@ These ranges of parameters are chosen so that the algorithms being tested fail t
 \begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1iidheavyErrTime.eps} \\ Algorithm \ref{twostagealgo} (heavy duty)\end{minipage}
 \begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1SobolErrTime.eps} \\  Sobol'\end{minipage}
 \begin{minipage}{5.7cm} \centering \includegraphics[width=5.7cm]{gaussiand=1SobolheavyErrTime.eps} \\ Sobol' (heavy duty) \end{minipage}
-\caption{Execution times and errors for test function \eqref{GaussianTestFun} for $d=1$ and error tolerance $\varepsilon=10^{-3}$, and a variety of parameters giving a range of $\sigma$ and $\kappa$. Those points to the left/right of the dashed horizontal line represent successes/failures of the automatic algorithms.  The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times.  For the Algorithm \ref{twostagealgo} the points labeled * are those for which the Corollary \ref{integcor} guarantees the error tolerance.\label{GaussianTestFunFig} }
+\caption{Execution times and errors for test function \eqref{GaussianTestFun} for $d=1$ and error tolerance $\varepsilon=10^{-3}$, and a variety of parameters giving a range of $\sigma$ and $\tkappa$. Those points to the left/right of the dashed horizontal line represent successes/failures of the automatic algorithms.  The solid line shows that cumulative distribution of actual errors, and the dot-dashed line shows the cumulative distribution of execution times.  For the Algorithm \ref{twostagealgo} the points labeled * are those for which the Corollary \ref{integcor} guarantees the error tolerance.\label{GaussianTestFunFig} }
 \end{figure}
 
-These $500$ random constructions of $f$ with $d=1$ are integrated using {\tt quad},  {\tt quadgk}, {\tt chebfun}, Algorithm \ref{twostagealgo}, and an automatic quasi-Monte Carlo algorithm that uses scrambled Sobol' sampling \citep{Owe95,Owe96,Owe97,Mat98,HonHic00a,DicPil10a}.  For the Sobol' sampling algorithm the error is estimated by an inflation factor of $1.5$ times the sample standard deviation of $8$ internal replicates of one scrambled Sobol' sequence \citep{Owe06a}.  The sample size is increased until this error estimate decreases to no less than the tolerance.  We have not yet found simple conditions on integrands for which this procedure is guaranteed to produce the correct answer, and so we do not discuss it in detail.  We are however, intrigued by the fact that it does seem to perform rather well in practice.
+These $500$ random constructions of $f$ with $d=1$ are integrated using {\tt quad},  {\tt quadgk}, {\tt chebfun}, Algorithm \ref{twostagealgo}, and an automatic quasi-Monte Carlo algorithm that uses scrambled Sobol' sampling \citep{Owe95,Owe96,Owe97,Mat98,HonHic00a,DicPil10a}.  For the Sobol' sampling algorithm the error is estimated by an inflation factor of $1.1$ times the sample standard deviation of $8$ internal replicates of one scrambled Sobol' sequence \citep{Owe06a}.  The sample size is increased until this error estimate decreases to no less than the tolerance.  We have not yet found simple conditions on integrands for which this procedure is guaranteed to produce the correct answer, and so we do not discuss it in detail.  We are however, intrigued by the fact that it does seem to perform rather well in practice.
 
-For all but {\tt chebfun}, the specified absolute error tolerance is $\epsilon=0.001$.  The algorithm {\tt chebfun} attempts to do all calculations to near machine precision.  The observed error and execution times are plotted in Figure \ref{GaussianTestFunFig}.  Whereas {\tt chebfun} uses a minimum of $2^3+1=9$ function values, the figure labeled ``{\tt chebfun} (heavy duty)'' displays the results of requiring chebfun to use at least $2^{10}+1=1025$ function values.  Algorithm \ref{twostagealgo} takes $\alpha=0.01$, and $\fudge=1.5$.  For the plot on the left, $n_\sigma=2^{10}=1024$, which corresponds to  $\tkappa_{\max}=2.59$.  For the heavy duty plot on the right, $n_\sigma=2^{17}=131072$, which corresponds to  $\kappa_{\max}=205$.  The same initial sample sizes are used for the Sobol' sampling algorithm.
+For all but {\tt chebfun}, the specified absolute error tolerance is $\epsilon=0.001$.  The algorithm {\tt chebfun} attempts to do all calculations to near machine precision.  The observed error and execution times are plotted in Figure \ref{GaussianTestFunFig}.  Whereas {\tt chebfun} uses a minimum of $2^3+1=9$ function values, the figure labeled ``{\tt chebfun} (heavy duty)'' displays the results of requiring chebfun to use at least $2^{8}+1=257$ function values.  Algorithm \ref{twostagealgo} takes $\alpha=0.01$, and $\fudge=1.1$.  For the plot on the left, $n_\sigma=2^{13}=8192$, which corresponds to  $\tkappa_{\max}=2.24$.  For the heavy duty plot on the right, $n_\sigma=2^{18}=262144$, which corresponds to  $\tkappa_{\max}=40.1$.  The same initial sample sizes are used for the Sobol' sampling algorithm.
 
-Figure \ref{GaussianTestFunFig} shows that {\tt quad} and {\tt quadgk} are quite fast, nearly always providing an answer in less that $0.01$ seconds.  Unfortunately, they successfully meet the error tolerance only about $30\%$ of the time for {\tt quad} and $50$--$60\%$ of the time for {\tt quadgk}.  The difficult cases are those where $c_1$ is quite small, and these algorithms miss the sharp peak.  The performance of {\tt chebfun} is similar to that of {\tt quad} and {\tt quadgk}.  The heavy duty version of  {\tt chebfun} fares somewhat better.  
+Figure \ref{GaussianTestFunFig} shows that {\tt quad} and {\tt quadgk} are quite fast, nearly always providing an answer in less that $0.01$ seconds.  Unfortunately, they successfully meet the error tolerance only about $30\%$ of the time for {\tt quad} and $50$--$60\%$ of the time for {\tt quadgk}.  The difficult cases are those where $c_1$ is quite small, and these algorithms miss the sharp peak.  The performance of {\tt chebfun} is similar to that of {\tt quad} and {\tt quadgk}.  The heavy duty version of  {\tt chebfun} fares somewhat better.  For both of the {\tt chebfun} plots there are a significant proportion of the data that do not appear because there errors are smaller than $10^{-5}$.
 
-In the plots for Algorithm \ref{twostagealgo} the alternative and somewhat costlier formula for $N_{\mu}$ in \eqref{NCBpracticaldef} is employed. An asterisk is used to label those points satisfying $\tkappa \le \tkappa_{\max}$, where $\tkappa$ was defined in \eqref{Lpnormdef}. All such points fall within the prescribed error tolerance even though this is guaranteed to happen only $99\%$ of the time.  For Algorithm \ref{twostagealgo} (heavy duty) $\kappa_{\max}$ is larger, so there are more points for which the guarantee holds.  Those points labeled with a dot, are those for which $\tkappa > \tkappa_{\max}$, and so no guarantee holds. The points labeled with a diamond are those for which Algorithm \ref{twostagealgo} attempts to exceed the cost budget that we set, i.e., it wants to choose $n_\mu$ such that $n_{\sigma}+n_\mu > N_{\max}:=10^9$. In these cases $n_\mu$ was chosen as $\lfloor 10^9 - n_\sigma \rfloor$, which often was still large enough to get the correct answer.  Algorithm \ref{twostagealgo} performs somewhat more robustly than {\tt quad}, {\tt quadgk}, and {\tt chebfun}, because it requires only a low degree of smoothness and takes a fairly large minimum sample. The more important point is that Algorithm \ref{twostagealgo} has a guarantee, where to our knowledge, the other routines do not.
+In the plots for Algorithm \ref{twostagealgo} the alternative and somewhat costlier formula for $N_{\mu}$ in \eqref{NCBpracticaldef} is employed. An asterisk is used to label those points satisfying $\tkappa \le \tkappa_{\max}$, where $\tkappa$ was defined in \eqref{Lpnormdef}. All such points fall within the prescribed error tolerance even though this is guaranteed to happen only $99\%$ of the time.  For Algorithm \ref{twostagealgo} (heavy duty) $\tkappa_{\max}$ is larger, so there are more points for which the guarantee holds.  Those points labeled with a dot, are those for which $\tkappa > \tkappa_{\max}$, and so no guarantee holds. The points labeled with a diamond are those for which Algorithm \ref{twostagealgo} attempts to exceed the cost budget that we set, i.e., it wants to choose $n_\mu$ such that $n_{\sigma}+n_\mu > N_{\max}:=10^9$. In these cases $n_\mu$ was chosen as $\lfloor 10^9 - n_\sigma \rfloor$, which often was still large enough to get the correct answer.  Algorithm \ref{twostagealgo} performs somewhat more robustly than {\tt quad}, {\tt quadgk}, and {\tt chebfun}, because it requires only a low degree of smoothness and takes a fairly large minimum sample. Algorithm \ref{twostagealgo} is generally much slower than the other algorithms because it does not assume any smoothness of the integrand. The more important point is that Algorithm \ref{twostagealgo} has a guarantee, whereas to our knowledge, the other routines do not.
 
-From Figure \ref{GaussianTestFunFig}, the Sobol' sampling algorithm is more reliable and takes less time than Algorithm \ref{twostagealgo}.  This is due primarily to the fact that in dimension one, Sobol' sampling is equivalent to stratified sampling, where the points are more evenly spread.
+From Figure \ref{GaussianTestFunFig}, the Sobol' sampling algorithm is more reliable and takes less time than Algorithm \ref{twostagealgo}.  This is due primarily to the fact that in dimension one, Sobol' sampling is equivalent to stratified sampling, where the points are more evenly spread than IID sampling.
 
 \subsection{Integrating a Multivariate Hump}
 
@@ -788,13 +790,13 @@ For this example the true kurtosis of $Y^{(d)}$ is unknown.  Both  Algorithm \re
 
 Practitioners often construct CLT-based confidence intervals with the true variance estimated by the sample variance, perhaps multiplied by some inflation factor.  Often, this approach works, but it has no guarantee of success.  The two stage algorithm presented here is similar to the approach just described, but it carries guarantees. These are derived by employing Cantelli's inequality to ensure a reliable variance upper bound, and by employing a Berry-Esseen inequality to ensure a large enough sample for the sample mean.  
 
-In certain cases our procedure multiplies the computational cost by a large factor such as $4$ or $10$ or even $100$ compared to what one might spend based on the CLT with a known value of $\sigma$.  While this seems inefficient, one should remember that the total elapsed time may still be well below several seconds.  Furthermore, one typically does not know $\sigma$ in advance, and our adaptive algorithm estimates $\sigma$ and then an appropriate sample size $n_\mu$ from the data.  Our algorithmic cost will be low when the unknown $\sigma$ is small and large when $\sigma$ is large.
+In certain cases our procedure multiplies the computational cost by a large factor such as $2$ or $10$ or even $100$ compared to what one might spend based on the CLT with a known value of $\sigma$ (see Figure \ref{Costfig}).  While this seems inefficient, one should remember that the total elapsed time may still be well below several seconds.  Furthermore, one typically does not know $\sigma$ in advance, and our adaptive algorithm estimates $\sigma$ and then an appropriate sample size $n_\mu$ from the data.  Our algorithmic cost will be low when the unknown $\sigma$ is small and large when $\sigma$ is large.
 
-Like any algorithm with guarantees, our algorithm does need to make assumptions about the random variable $Y$.  We assume a known bound on the kurtosis of $Y$, either specified directly or implied by the user's choice of the sample size for estimating the variance, $n_\sigma$, and the variance inflation factor, $\fudge^2$.  In practice the user may not know a priori if $\tkappa \le \tkappa_{\max}$ since it is even more difficult to estimate the $\tkappa$ from a sample than it is to estimate $\sigma^2$.  Thus, the choice of $\tkappa_{\max}$ relies on the user's best judgement.  However, as one can see in Figure \ref{Costfig}, in the limit of vanishing $\varepsilon/\sigma$, i.e., $N_{\text{CLT}} \to \infty$, the choice of $\tkappa_{\max}$ makes a negligible contribution to the total cost of the algorithm.
+Like any algorithm with guarantees, our algorithm does need to make assumptions about the random variable $Y$.  We assume a known bound on the kurtosis of $Y$, either specified directly or implied by the user's choice of the sample size for estimating the variance, $n_\sigma$, and the variance inflation factor, $\fudge^2$.  In practice the user may not know a priori if $\tkappa \le \tkappa_{\max}$ since it is even more difficult to estimate $\tkappa$ from a sample than it is to estimate $\sigma^2$.  Thus, the choice of $\tkappa_{\max}$ relies on the user's best judgement.  However, as one can see in Figure \ref{Costfig}, in the limit of vanishing $\varepsilon/\sigma$, i.e., $N_{\text{CLT}} \to \infty$, the choice of $\tkappa_{\max}$ makes a negligible contribution to the total cost of the algorithm.
 
-\cite{BahSav56} prove in Corollary 2 that it is \emph{impossible} to construct exact confidence intervals for the mean of random variable whose distribution lies in a set satisfying a few assumptions. One of these assumptions is that the set of distributions is convex.  This assumption is violated by our assumption of bounded kurtosis in Theorem \ref{mainadaptthm}. 
+\cite{BahSav56} prove in Corollary 2 that it is \emph{impossible} to construct exact confidence intervals for the mean of random variable whose distribution lies in a set satisfying a few assumptions. One of these assumptions is that the set of distributions is convex.  This assumption is violated by our assumption of bounded kurtosis in Theorem \ref{mainadaptthm}. Thus, we are able to construct guaranteed confidence intervals.
 
-Our algorithm is adaptive because $n_\mu$ is determined from the sample variance.  Information-based complexity theory tells us that adaptive information does not help for the integration problem for convex sets of integrands in the worst case and probabilistic settings \citep[Chapter 4, Theorem 5.2.1; Chapter 8, Corollary 5.3.1]{TraWasWoz88}.  Here, in Corollary \ref{integcor} the cone, $\cc_{\kappa_{\max}}$, is not a convex set, so it is possible for adaption to help.
+Our algorithm is adaptive because $n_\mu$ is determined from the sample variance.  Information-based complexity theory tells us that adaptive information does not help for the integration problem for convex sets of integrands in the worst case and probabilistic settings \citep[Chapter 4, Theorem 5.2.1; Chapter 8, Corollary 5.3.1]{TraWasWoz88}.  Here, in Corollary \ref{integcor} the cone, $\cc_{\tkappa_{\max}}$, is not a convex set, so it is possible for adaption to help.
 
 There are a couple of areas that suggest themselves for further investigation.  One is relative error, i.e., a fixed width confidence interval of the form 
 \[
@@ -805,7 +807,7 @@ Here the challenge is that the right hand side of the first inequality includes 
 Another area for further work is to provide guarantees for automatic quasi-Monte Carlo algorithms. Here the challenge is finding reliable formulas for error estimation.  Typical error bounds involve a semi-norm of the integrand that is harder to compute than the original integral.  For randomized quasi-Monte Carlo an estimate of the variance of the sample mean using $n$ samples does not tell you much about the variance of the sample mean using a different number of samples.
 
 
-\section*{Acknowledgements} The authors gratefully acknowledge discussions with Erich Novak and Henryk Wo\'zniakowski.  The plots of the univariate fooling functions were prepared with the help of Nicholas Clancy and Caleb Hamilton.
+\section*{Acknowledgements} The authors gratefully acknowledge discussions with Erich Novak and Henryk Wo\'zniakowski.  The plots of the univariate fooling functions were prepared with the help of Nicholas Clancy and Caleb Hamilton.  The first and fourth authors would like to express their thanks to the local organizers of the Tenth International Conference on Monte Carlo and Quasi-Monte Carlo Methods in Scientific Computing for the hosting a wonderful conference.
 
 \bibliographystyle{spbasic}
 \bibliography{FJH22,FJHown22}

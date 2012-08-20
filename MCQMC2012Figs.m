@@ -11,7 +11,8 @@ beta=0.01;
 A1=0.3328;
 A2=0.429;
 %A3=25.7984;
-A3=30.54;
+%A3=30.54;
+A3=18.1139;
 
 %% Set eps/sigma and kappa range
 tolovsigvec=-norminv(talpha/2)./sqrt(10.^(4:0.02:9)');
@@ -46,7 +47,7 @@ fudge2fun = @(kappa,nsigma,alpha) 1./(1 - sqrt((kappa-(nsigma-3)./(nsigma-1)).* 
 Nmubound = @(tolovsig,kappa,nsigma,alpha) ...
     max(nsigma,...
     NChebBE(tolovsig/vweight(alpha,beta,fudge2fun(kappa,nsigma,alpha)),...
-    kappa.^(3/4),talpha));
+    kappa.^(3/4),alpha));
 Ntot = @(tolovsig,kappa,nsigma,alpha) ...
     nsigma+Nmubound(tolovsig,kappa,nsigma,alpha);
 kurtmax = @(nsigma,alpha,fudge2) ...
@@ -72,7 +73,7 @@ for k=1:nkappa
     rho=kappa^(3/4);
 
     %% Compute sample sizes
-    nsigma0=kappa*1e4;
+    nsigma0=kappa*4e3;
     nsigma0vec(k)=nsigma0;
     fudge0=sqrt(fudge2fun(kappa,nsigma0,talpha));
     fudge0vec(k)=fudge0;
