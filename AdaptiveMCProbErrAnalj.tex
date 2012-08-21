@@ -94,7 +94,7 @@ Science Foundation under DMS-0923111 and DMS-1115392.  The fourth author was par
 \author{Fred J. Hickernell\inst{1} \and
 Lan Jiang\inst{1} \and Yuewei Liu\inst{2} \and Art Owen \inst{3}}
 \institute{Department of Applied Mathematics,
-Illinois Institute of Technology, Chicago, IL, 60521, USA,
+Illinois Institute of Technology, Chicago, IL, 60616, USA,
 \texttt{hickernell@iit.edu,ljiang14@hawk.iit.edu}
 \and
 School of Mathematics and Statistics, Lanzhou University, Lanzhou City, Gansu, China 730000, \texttt{lyw@lzu.edu.cn}
@@ -341,7 +341,7 @@ follows that:
 \end{theorem}
 
 Berry-Esseen type theorems govern the rate at which
-a CLT takes hold. We will use the following one which combines recent work from a couple of sources on uniform and non-uniform versions.
+a CLT takes hold. We will use the following theorem which combines recent work on both uniform and non-uniform ($x$-dependent right hand side) versions.
 
 \begin{theorem}[Berry-Esseen Inequality] \label{BE} Let $Y_1,\dots,Y_n$ be IID random variables with mean
 $\mu$, variance $\sigma^2>0$, and third centered moment $M_3=E\abs{Y_i - \mu}^3/\sigma^3 < \infty$.  Let $\hmu_n=(Y_1 +\cdots + Y_n)/n$ denote the sample mean.
@@ -594,7 +594,7 @@ Thus, in the two stage algorithm we have
 \end{align*}
 \end{proof}
 
-\begin{remark} As pointed out earlier, this guarantees in this theorem require that the the modified kurtosis of $Y$ not exceed the specified upper bound $\tkappa_{\max}$.  As it is presented, Algorithm \ref{twostagealgo} takes as inputs, $n_\sigma$, $\fudge$, and $\alpha$, and uses these to compute  $\tkappa_{\max}$ according to \eqref{kappamaxdef}.  The reason for doing so is that one might have a better intuition for $n_\sigma$, $\fudge$, and $\alpha$.  Alternatively, one may specify $n_\sigma$ and $\tkappa_{\max}$ and use \eqref{kappamaxdef} to compute $\fudge$, or specify $\fudge$ and $\tkappa_{\max}$ and use \eqref{kappamaxdef} to compute $n_\sigma$.
+\begin{remark} As pointed out earlier, this guarantees in this theorem require that the modified kurtosis of $Y$ not exceed the specified upper bound $\tkappa_{\max}$.  As it is presented, Algorithm \ref{twostagealgo} takes as inputs, $n_\sigma$, $\fudge$, and $\alpha$, and uses these to compute  $\tkappa_{\max}$ according to \eqref{kappamaxdef}.  The reason for doing so is that one might have a better intuition for $n_\sigma$, $\fudge$, and $\alpha$.  Alternatively, one may specify $n_\sigma$ and $\tkappa_{\max}$ and use \eqref{kappamaxdef} to compute $\fudge$, or specify $\fudge$ and $\tkappa_{\max}$ and use \eqref{kappamaxdef} to compute $n_\sigma$.
 \end{remark}
 
 \begin{remark} In this algorithm it is possible to choose $n_{\mu}$ much smaller than  $n_\sigma$ if the sample variance is small.  As a practical matter we suggest that if one is willing to invest $n_\sigma$ samples to estimate the variance then one should be willing to invest at least that many additional samples to estimate the mean.  Therefore, in the numerical examples of Section \ref{numerexsec} we use
@@ -603,7 +603,7 @@ N_{\mu}(\varepsilon,\sigma,\alpha,M)
 := \max\bigl( n_{\sigma}, \min\bigl(N_{\text{Cheb}}(\varepsilon,\sigma,\alpha), 
 N_{\text{BE}}(\varepsilon,\sigma,\alpha,M) \bigr) \bigr)
 \end{equation} 
-instead of \eqref{NCBdef} to determine the sample size for the sample mean.  By the error bound following from Chebychev's inequality (Theorem \ref{Chebineqthm}), this means that the fixed width confidence interval constructed by Algorithm \ref{twostagealgo} also holds for any random variables, $Y$, with small variance, namely, $\sigma^2 \le \varepsilon^2 \alpha n_{\sigma}$, even if its kurtosis is arbitrarily large.
+instead of \eqref{NCBdef} to determine the sample size for the sample mean.  Because the variance is typically harder to estimate accurately than the mean, one may wonder whether $n_\sigma$ should be chosen greater than $n_\mu$.  However, for Monte Carlo simulation we only need the variance to one or two digits accuracy, whereas we typically want to know the mean to a much higher accuracy.  By the error bound following from Chebychev's inequality (Theorem \ref{Chebineqthm}), the definition of $N_{\mu}$ in \eqref{NCBpracticaldef} means that the fixed width confidence interval constructed by Algorithm \ref{twostagealgo} also holds for any random variables, $Y$, with small variance, namely, $\sigma^2 \le \varepsilon^2 \alpha n_{\sigma}$, even if its kurtosis is arbitrarily large.
 \end{remark}
 
 \bigskip
@@ -619,16 +619,16 @@ $$\Pr( |\hat\mu-\mu|\le\varepsilon)\ge 1-\alpha.$$
 \subsection{Cost of the Algorithm}  The number of function values required by the two-stage Algorithm \ref{twostagealgo} is $n_{\sigma}+n_\mu$, the sum of the initial sample size used to estimate the variance of $Y$ and the sample size used to estimate the mean of $Y$.  Although $n_{\sigma}$ is deterministic, $n_\mu$ is a random variable, and so the cost of this algorithm might be best defined probabilistically.  Moreover, the only random quantity in the formula for $n_{\mu}$ in \eqref{nmudef} is $\hsigma^2$, the upper bound on variance.  Clearly this depends on the unknown population variance, $\sigma^2$, and we expect $\hsigma^2$ not to overestimate $\sigma^2$ by much.  Thus, the algorithm cost is defined below in terms of $\sigma^2$ and the error tolerance (interval half-width) $\varepsilon$.  An upper bound on the cost is then derived in Theorem \ref{costtheorem}.
 
 Let $A$ be any random algorithm that takes as its input, a method for generating random samples, $Y_1, Y_2, \ldots $ with common distribution function $F$ having variance $\sigma^2$ and modified kurtosis $\tkappa$.  Additional algorithm inputs are an error tolerance, $\varepsilon$, an uncertainty, $\alpha$, and a maximum modified kurtosis, $\tkappa_{\max}$.  The algorithm then computes $\hmu=A(F,\varepsilon,\alpha,\tkappa_{\max})$, an approximation to $\mu=\e(Y)$, based on a total of $N_{\text{tot}}(\varepsilon,\alpha,\tkappa_{\max},F)$ samples. The probabilistic cost of the algorithm, with uncertainty $\beta$, for integrands of variance no greater than $\sigma^2_{\max}$ and modified kurtosis no greater than $\tkappa_{\max}$ is defined as 
-\begin{equation}
+\begin{equation*}
 N_{\text{tot}}(\varepsilon,\alpha,\beta,\tkappa_{\max},\sigma_{\max})
 := \sup_{\substack{\tkappa \le \tkappa_{\max} \\ \sigma \le \sigma_{\max}} } \min\left\{N : \Prob[N_{\text{tot}}(\varepsilon,\alpha,\tkappa_{\max},F) \le N] \ge 1-\beta  \right \}.
-\end{equation}
-Note that $\tkappa_{\max}$ is an input to the algorithm, but $\sigma_{\max}$ is not.
+\end{equation*}
+Note that $\tkappa_{\max}$ is an input to the algorithm, but $\sigma_{\max}$ is not.  The cost of an arbitrary algorithm, $A$ may also depend on other parameters, such as $n_\sigma$ and $\fudge$ in our Algorithm \ref{twostagealgo}, which are related to $\tkappa_{\max}$.  However, this dependence is not shown explicitly to keep the notation simple.
 
 The cost of the particular two-stage Monte Carlo algorithm defined in Algorithm \ref{twostagealgo} is
-\begin{equation}
+\begin{equation*}
 \sup_{\substack{\tkappa \le \tkappa_{\max} \\ \sigma \le \sigma_{\max}}} \min\left\{N : \Prob(n_{\sigma} + N_{\mu}(\varepsilon,\hsigma,\tilde\alpha,\tilde\kappa_{\max}^{3/4}) \le N) \ge 1-\beta  \right \}.
-\end{equation}
+\end{equation*}
 Since $n_{\sigma}$ is fixed, bounding this cost depends on bounding $N_{\mu}(\varepsilon,\hsigma,\tilde\alpha,\tilde\kappa_{\max}^{3/4})$, which depends on $\hsigma$ as given by Algorithm \ref{twostagealgo}.  Moreover, $\hsigma$ can be bounded above using \eqref{sampvarup} in Lemma~\ref{propCant}.  For $\tkappa \le \tkappa_{\max}$, 
 \begin{align*}
 1-\beta & \le \Prob\left[s^2_{n_{\sigma}} < \sigma^2 \left\{1 + \sqrt{\left ( \tkappa  - \frac{n_{\sigma}-3}{n_{\sigma}-1}\right)\left(\frac{1-\beta}{\beta n_{\sigma}}\right)}\right\} \right] \\
@@ -672,6 +672,8 @@ Figure \ref{Costfig}a shows the ratio of the upper bound of the cost, $N_{\rm{up
 
 Here, $N_{\mathrm{CLT}}$ denotes the ideal cost if one knew the variance of $Y$ a priori and knew that the distribution of the sample mean was close to Gaussian. The cost ratio is the penalty for having a guaranteed fixed width confidence interval in the absence of this knowledge about the distribution of $Y$.  For smaller values of $N_{\mathrm{CLT}}$, equivalently smaller  $\sigma/\varepsilon$, this cost ratio can be rather large.  However the absolute effect of this large penalty is mitigated by the fact that the total number of samples needed is not much.  For larger $N_{\mathrm{CLT}}$, equivalently larger  $\sigma/\varepsilon$, the cost ratio approaches somewhat less than $1.4$ in the case of optimal $n_\sigma$ and $\fudge$, and somewhat less than $2$ for $n_\sigma=1000\tkappa_{\max}$.
 
+The discontinuous derivatives in the curves in Figure \ref{Costfig} arise from the minimum and maximum values arising in formulas \eqref{NB} and \eqref{NCBpracticaldef} for $N_{\text{BE}}$ and $N_\mu$, respectively. Taking the upper dashed curve in Figure \ref{Costfig}a as an example, for $N_{\text{CLT}}$ less than about $3.5\times 10^4$, $N_\mu=n_\sigma$.  For $N_{\text{CLT}}$ from about $3.5\times 10^4$ to about $6\times 10^6$, $N_\mu$ corresponds to the second term in the minimum in the Berry-Esseen inequality, \eqref{NB}, i.e., the non-uniform term.  For $N_{\text{CLT}}$ greater than $6\times 10^6$, $N_\mu$ corresponds to the first term in the minimum in the Berry-Esseen inequality, \eqref{NB}, i.e., the uniform term.
+
 The ideal case of optimizing $n_\sigma$ and $\fudge$ with respect to $\sigma/\varepsilon$ is impractical, since $\sigma$ is not known in advance.  Our suggestion is to choose $\fudge$ around $1.1$, and then choose $n_\sigma$ as large as needed to ensure that $\tkappa_{\max}$ is as large as desired. For example with  $\fudge = 1.1$ and 
 $\tilde \kappa = 2, 10$, and $100$
 we get $n_\sigma = 6593$, $59311,$ and $652417$ respectively.
@@ -703,7 +705,7 @@ For these three automatic algorithms one can easily probe where they sample the 
 \caption{Plots of fooling functions, $f$, with $\mu=\int_0^1 f(x) \, \dif x=1$, but for which the corresponding algorithms return values of $\hmu=0$. \label{foolfunfig}}
 \end{figure}
 
-\subsection{Integrating a Univariate Hump}
+\subsection{Integrating a Single Hump}
 
 Accuracy and timing results have been recorded for the integration problem $\mu=\int_{[0,1]^d} f(\vx) \, \dif \vx$ for a single hump test integrand
 \begin{equation} \label{GaussianTestFun}
@@ -734,15 +736,13 @@ These ranges of parameters are chosen so that the algorithms being tested fail t
 
 These $500$ random constructions of $f$ with $d=1$ are integrated using {\tt quad},  {\tt quadgk}, {\tt chebfun}, Algorithm \ref{twostagealgo}, and an automatic quasi-Monte Carlo algorithm that uses scrambled Sobol' sampling \citep{Owe95,Owe96,Owe97,Mat98,HonHic00a,DicPil10a}.  For the Sobol' sampling algorithm the error is estimated by an inflation factor of $1.1$ times the sample standard deviation of $8$ internal replicates of one scrambled Sobol' sequence \citep{Owe06a}.  The sample size is increased until this error estimate decreases to no less than the tolerance.  We have not yet found simple conditions on integrands for which this procedure is guaranteed to produce the correct answer, and so we do not discuss it in detail.  We are however, intrigued by the fact that it does seem to perform rather well in practice.
 
-For all but {\tt chebfun}, the specified absolute error tolerance is $\epsilon=0.001$.  The algorithm {\tt chebfun} attempts to do all calculations to near machine precision.  The observed error and execution times are plotted in Figure \ref{GaussianTestFunFig}.  Whereas {\tt chebfun} uses a minimum of $2^3+1=9$ function values, the figure labeled ``{\tt chebfun} (heavy duty)'' displays the results of requiring chebfun to use at least $2^{8}+1=257$ function values.  Algorithm \ref{twostagealgo} takes $\alpha=0.01$, and $\fudge=1.1$.  For the plot on the left, $n_\sigma=2^{13}=8192$, which corresponds to  $\tkappa_{\max}=2.24$.  For the heavy duty plot on the right, $n_\sigma=2^{18}=262144$, which corresponds to  $\tkappa_{\max}=40.1$.  The same initial sample sizes are used for the Sobol' sampling algorithm.
+For all but {\tt chebfun}, the specified absolute error tolerance is $\epsilon=0.001$.  The algorithm {\tt chebfun} attempts to do all calculations to near machine precision.  The observed error and execution times are plotted in Figure \ref{GaussianTestFunFig}.  Whereas {\tt chebfun} uses a minimum of $2^3+1=9$ function values, the figure labeled ``{\tt chebfun} (heavy duty)'' displays the results of requiring {\tt chebfun} to use at least $2^{8}+1=257$ function values.  Algorithm \ref{twostagealgo} takes $\alpha=0.01$, and $\fudge=1.1$.  For the plot on the left, $n_\sigma=2^{13}=8192$, which corresponds to  $\tkappa_{\max}=2.24$.  For the heavy duty plot on the right, $n_\sigma=2^{18}=262144$, which corresponds to  $\tkappa_{\max}=40.1$.  The same initial sample sizes are used for the Sobol' sampling algorithm.
 
 Figure \ref{GaussianTestFunFig} shows that {\tt quad} and {\tt quadgk} are quite fast, nearly always providing an answer in less that $0.01$ seconds.  Unfortunately, they successfully meet the error tolerance only about $30\%$ of the time for {\tt quad} and $50$--$60\%$ of the time for {\tt quadgk}.  The difficult cases are those where $c_1$ is quite small, and these algorithms miss the sharp peak.  The performance of {\tt chebfun} is similar to that of {\tt quad} and {\tt quadgk}.  The heavy duty version of  {\tt chebfun} fares somewhat better.  For both of the {\tt chebfun} plots there are a significant proportion of the data that do not appear because there errors are smaller than $10^{-5}$.
 
 In the plots for Algorithm \ref{twostagealgo} the alternative and somewhat costlier formula for $N_{\mu}$ in \eqref{NCBpracticaldef} is employed. An asterisk is used to label those points satisfying $\tkappa \le \tkappa_{\max}$, where $\tkappa$ was defined in \eqref{Lpnormdef}. All such points fall within the prescribed error tolerance even though this is guaranteed to happen only $99\%$ of the time.  For Algorithm \ref{twostagealgo} (heavy duty) $\tkappa_{\max}$ is larger, so there are more points for which the guarantee holds.  Those points labeled with a dot, are those for which $\tkappa > \tkappa_{\max}$, and so no guarantee holds. The points labeled with a diamond are those for which Algorithm \ref{twostagealgo} attempts to exceed the cost budget that we set, i.e., it wants to choose $n_\mu$ such that $n_{\sigma}+n_\mu > N_{\max}:=10^9$. In these cases $n_\mu$ was chosen as $\lfloor 10^9 - n_\sigma \rfloor$, which often was still large enough to get the correct answer.  Algorithm \ref{twostagealgo} performs somewhat more robustly than {\tt quad}, {\tt quadgk}, and {\tt chebfun}, because it requires only a low degree of smoothness and takes a fairly large minimum sample. Algorithm \ref{twostagealgo} is generally much slower than the other algorithms because it does not assume any smoothness of the integrand. The more important point is that Algorithm \ref{twostagealgo} has a guarantee, whereas to our knowledge, the other routines do not.
 
 From Figure \ref{GaussianTestFunFig}, the Sobol' sampling algorithm is more reliable and takes less time than Algorithm \ref{twostagealgo}.  This is due primarily to the fact that in dimension one, Sobol' sampling is equivalent to stratified sampling, where the points are more evenly spread than IID sampling.
-
-\subsection{Integrating a Multivariate Hump}
 
 Figure \ref{GaussianTestFunHDFig} repeats the simulation shown in Figure \ref{GaussianTestFunFig} for the same test function \eqref{GaussianTestFun}, but now with $d=2, \ldots, 8$ chosen randomly and uniformly.  For this case the univariate integration algorithms are inapplicable, but the multidimensional routines can be used.  There are more cases where the Algorithm \ref{twostagealgo} tries to exceed the maximum sample size allowed, i.e., $(n_{\sigma}+n_\mu)d > N_{\max}:=10^9$, but the behavior seen for $d=1$ still generally applies.  
 
@@ -767,7 +767,7 @@ Y=\max\biggl(\exp\Bigl(\int_0^T \log(S(t)) \, \dif t \Bigr) - K,0 \biggr)\me^{-r
 \end{equation}
 The fair price of this option is $\mu=\e(Y)$. One of our chief reasons for choosing this option for numerical experiments is that its price can be computed analytically.
 
-Numerically, one must not only compute the mean of the discounted payoff, but one must approximate the integral over time.  We did so using a trapezoidal rule for $d$ trapezoids.  Moreover, we discretized the Brownian motion exactly using a Brownian bridge construction.  This means that the for one instance of the Brownian motion we first compute $B(T)$, then $B(T/2)$, etc., using independent Gaussian random variables $X_1, \ldots, X_d$, suitably scaled. The Brownian bridge accounts for more of the motion of the stock price into the $X_j$ with smaller $j$, which allows the Sobol' sampling algorithm to do a better job.  
+Numerically, one must not only compute the mean of the discounted payoff, but one must approximate the integral over time.  We did so using a trapezoidal rule for $d$ trapezoids.  Moreover, we discretized the Brownian motion exactly using a Brownian bridge construction.  This means that for one instance of the Brownian motion we first compute $B(T)$, then $B(T/2)$, etc., using independent Gaussian random variables $X_1, \ldots, X_d$, suitably scaled. The Brownian bridge accounts for more of the motion of the stock price into the $X_j$ with smaller $j$, which allows the Sobol' sampling algorithm to do a better job.  
 
 Letting $Y^{(d)}$ denote the discretization of \eqref{payoff} using $d$ trapezoids, we approximated $\mu^{(d)}=\e(Y^{(d)})$ by Algorithm \ref{twostagealgo} and the Sobol' sampling algorithm using an error tolerance of $\varepsilon=0.05$, and compared it to the analytic value of $\mu^{(d)}$.  The result of $500$ replications is given in Figure \ref{AsianGeoMeanCallFig}.  Some of the parameters were set to be fixed values, namely,
 \[

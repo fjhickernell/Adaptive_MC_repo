@@ -15,7 +15,7 @@ A2=0.429;
 A3=18.1139;
 
 %% Set eps/sigma and kappa range
-tolovsigvec=-norminv(talpha/2)./sqrt(10.^(4:0.02:9)');
+tolovsigvec=-norminv(alpha/2)./sqrt(10.^(4:0.02:9)');
 ntol=length(tolovsigvec);
 kappavec=[2 10 100];
 nkappa=length(kappavec);
