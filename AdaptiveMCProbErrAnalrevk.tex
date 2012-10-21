@@ -1,5 +1,16 @@
 \documentclass[graybox]{svmult}
 
+%needs graphics files
+%     MCSampleSizes, MCnsigmafudge, Foolquadbw.eps ,Foolquadgkbw.eps, Foolchebintbw.eps
+%     gaussiand=1quadErrTime.eps, gaussiand=1quadgkErrTime.eps 
+%     gaussiand=1chebfunErrTime.eps, gaussiand=1chebfunheavyErrTime.eps
+%     gaussiand=1iidErrTime.eps, gaussiand=1iidheavyErrTime.eps
+%     gaussiand=1SobolErrTime.eps, gaussiand=1SobolheavyErrTime.eps
+%     gaussiand=6iidErrTime.eps, gaussiand=6iidheavyErrTime.eps
+%     gaussiand=6SobolErrTime.eps, gaussiand=6SobolheavyErrTime.eps
+%     geomeaniidErrTime.eps, geomeaniidheavyErrTime.eps
+%     geomeanSobolErrTime.eps, geomeanSobolheavyErrTime.eps
+
 % choose options for [] as required from the list
 % in the Reference Guide
 
@@ -24,27 +35,9 @@
                        % please use the style svind.ist with
                        % your makeindex program
                        
-%\input FJHDef.tex
-%\renewcommand{\bvec}[1]{\textbf{\itshape #1}}
-%\renewcommand{\bvec}[1]{\boldsymbol{#1}}
-\newcommand{\cube}{[0,1)^d}
-\newcommand{\tcube}{\widetilde{[0,1)}^d}
-\newcommand{\hv}{\hat{v}}
 \newcommand{\fudge}{\mathfrak{C}}
-\DeclareMathOperator{\MSE}{MSE}
-\DeclareMathOperator{\RMSE}{RMSE}
-\DeclareMathOperator{\rnd}{rnd}
-\DeclareMathOperator{\abso}{abs}
-\DeclareMathOperator{\rel}{rel}
-\DeclareMathOperator{\nor}{nor}
-\DeclareMathOperator{\err}{err}
-\DeclareMathOperator{\third}{third}
-\DeclareMathOperator{\qse}{qse}
-\DeclareMathOperator{\card}{card}
-\DeclareMathOperator{\cost}{cost}
 \spdefaulttheorem{algo}{Algorithm}{\upshape \bfseries}{\upshape}
 \newcommand{\me}{\ensuremath{\mathrm{e}}} % for math number 'e', 2.718 281 8..., tha base of natural logarithms
-
 
 \newcommand\reals{\mathbb{R}}
 \newcommand\real{\mathbb{R}}
@@ -66,18 +59,13 @@
 \newcommand{\naturals}{\mathbb{N}}
 \newcommand{\dif}{\rd}
 
-\newcommand{\halpha}{\hat{\alpha}}
-\newcommand{\hdelta}{\hat{\delta}}
-\newcommand{\hvareps}{\hat{\varepsilon}}
 \newcommand{\hsigma}{\hat{\sigma}}
 \newcommand{\talpha}{\tilde{\alpha}}
-\newcommand{\tdelta}{\tilde{\delta}}
 \newcommand{\tkappa}{\tilde{\kappa}}
 \newcommand{\tmu}{\tilde{\mu}}
 \newcommand{\cb}{\mathcal{B}}
 \newcommand{\fc}{\mathfrak{C}}
 \newcommand{\cc}{\mathcal{C}}
-\newcommand{\cf}{\mathcal{F}}
 \newcommand{\cl}{\mathcal{L}}
 \def\abs#1{\ensuremath{\left \lvert #1 \right \rvert}}
 \newcommand{\norm}[2][{}]{\ensuremath{\left \lVert #2 \right \rVert}_{#1}}
@@ -220,9 +208,11 @@ For a given $g$, the choice of $\rho$ is not unique, and making an optimal choic
 \end{equation}
 This is in contrast to a \emph{ball} of functions, which would be the case if one was satisfying a bounded variance condition, \eqref{boundedvar}.
 
-From the perspective of numerical analysis, if $\rho$ has independent marginals, one may apply a product form of a univariate quadrature rule to evaluate $\mu$.  However, this consumes a geometrically increasing number of samples as $d$ increases, and moreover, such methods often require rather strict smoothness assumptions on $f$.  If $f$ satisfies moderate smoothness conditions, then (randomized) quasi-Monte Carlo methods, or low discrepancy sampling methods for evaluating $\mu$ are more efficient than simple Monte Carlo \citep{Nie92,SloJoe94,Lem09a,DicPil10a}.  Unfortunately, practical error estimation remains a challenge for quasi-Monte Carlo methods.  
+From the perspective of numerical analysis, if $\rho$ has independent marginals, one may apply a product form of a univariate quadrature rule to evaluate $\mu$.  However, this consumes a geometrically increasing number of samples as $d$ increases, and moreover, such methods often require rather strict smoothness assumptions on $f$.  
+
 %FJH starting here
-Heuristic methods have been proposed, but they lack theoretical justification. One such heuristic is used with reasonable success in the numerical examples of Section \ref{numerexsec}.  Independent randomizations of quasi-Monte Carlo rules of fixed sample size can be used to estimate their errors, but they do not yet lead to guaranteed, fixed width confidence intervals.
+If $f$ satisfies moderate smoothness conditions, then (randomized) quasi-Monte Carlo methods, or low discrepancy sampling methods for evaluating $\mu$ are more efficient than simple Monte Carlo \citep{Nie92,SloJoe94,Lem09a,DicPil10a}.  
+Unfortunately, practical error estimation remains a challenge for quasi-Monte Carlo methods.  Heuristic methods have been proposed, but they lack theoretical justification. One such heuristic is used with reasonable success in the numerical examples of Section \ref{numerexsec}.  Independent randomizations of quasi-Monte Carlo rules of fixed sample size can be used to estimate their errors, but they do not yet lead to guaranteed, fixed width confidence intervals.
 %FJH ending here
 
 Computational mathematicians have also addressed the problem of constructing automatic algorithms, i.e., given an error tolerance of $\varepsilon$, one computes an approximation, $\hmu$, based on $n$ evaluations of the integrand $f$, such that $\abs{\mu-\hmu} \le \varepsilon$. For example, MATLAB \citep{MAT7.12}, a popular numerical package, contains {\tt quad}, an adaptive Simpson's rule for univariate quadrature routine developed by \cite{GanGau00a}. Although {\tt quad} and other automatic rules generally work well in practice, they do not have any rigorous guarantees that the error tolerance is met, and it is relatively simple to construct functions that fool them.  This is discussed in Section \ref{numerexsec}.  Since a random algorithm, like Monte Carlo, gives a random answer, any statements about satisfying an error criterion must be probabilistic.  This leads us back to the problem of finding a fixed width confidence interval, \eqref{confint}.
@@ -601,7 +591,7 @@ Thus, in the two-stage algorithm we have
 %FJH                                   ^^^
 modified kurtosis of $Y$ not exceed the specified upper bound $\tkappa_{\max}$.  As it is presented, Algorithm \ref{twostagealgo} takes as inputs, $n_\sigma$, $\fudge$, and $\alpha$, and uses these to compute  $\tkappa_{\max}$ according to \eqref{kappamaxdef}.  The reason for doing so is that one might have a better intuition for $n_\sigma$, $\fudge$, and $\alpha$.  Alternatively, one may specify $n_\sigma$ and $\tkappa_{\max}$ and use \eqref{kappamaxdef} to compute $\fudge$, or specify $\fudge$ and $\tkappa_{\max}$ and use \eqref{kappamaxdef} to compute $n_\sigma$.  
 %FJH start 
-The issue of how one should choose $n_\sigma$, $\fudge$, and $\tkappa_{\max}$ in practice is given in Section \ref{discusssec}.
+The issue of how one should choose $n_\sigma$, $\fudge$, and $\tkappa_{\max}$ in practice is discussed further in Section \ref{discusssec}.
 %FJH end
 \end{remark}
 
@@ -748,13 +738,20 @@ represent successes/failures of the automatic algorithms.  The solid line shows 
 
 These $500$ random constructions of $f$ with $d=1$ are integrated using {\tt quad},  {\tt quadgk}, {\tt chebfun}, Algorithm \ref{twostagealgo}, and an automatic quasi-Monte Carlo algorithm that uses scrambled Sobol' sampling \citep{Owe95,Owe96,Owe97,Mat98,HonHic00a,DicPil10a}.  For the Sobol' sampling algorithm the error is estimated by an inflation factor of $1.1$ times the sample standard deviation of $8$ internal replicates of one scrambled Sobol' sequence \citep{Owe06a}.  The sample size is increased until this error estimate decreases to no more than the tolerance.  We 
 %FJH                                                        ^^^^
-have not yet found simple conditions on integrands for which this procedure is guaranteed to produce the correct answer, and so we do not discuss it in detail.  We are however, intrigued by the fact that it does seem to perform rather well in practice.
+have not yet found simple conditions on integrands for which this procedure is guaranteed to produce an estimate satisfying the error tolerance, 
+%FJH          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+and so we do not discuss it in detail.  We are however, intrigued by the fact that it does seem to perform rather well in practice.
 
 For all but {\tt chebfun}, the specified absolute error tolerance is $\epsilon=0.001$.  The algorithm {\tt chebfun} attempts to do all calculations to near machine precision.  The observed error and execution times are plotted in Figure \ref{GaussianTestFunFig}.  Whereas {\tt chebfun} uses a minimum of $2^3+1=9$ function values, the figure labeled ``{\tt chebfun} (heavy duty)'' displays the results of requiring {\tt chebfun} to use at least $2^{8}+1=257$ function values.  Algorithm \ref{twostagealgo} takes $\alpha=0.01$, and $\fudge=1.1$.  For the plot on the left, $n_\sigma=2^{13}=8192$, which corresponds to  $\tkappa_{\max}=2.24$.  For the heavy duty plot on the right, $n_\sigma=2^{18}=262144$, which corresponds to  $\tkappa_{\max}=40.1$.  The same initial sample sizes are used for the Sobol' sampling algorithm.
 
 Figure \ref{GaussianTestFunFig} shows that {\tt quad} and {\tt quadgk} are quite fast, nearly always providing an answer in less that $0.01$ seconds.  Unfortunately, they successfully meet the error tolerance only about $30\%$ of the time for {\tt quad} and $50$--$60\%$ of the time for {\tt quadgk}.  The difficult cases are those where $c_1$ is quite small, and these algorithms miss the sharp peak.  The performance of {\tt chebfun} is similar to that of {\tt quad} and {\tt quadgk}.  The heavy duty version of  {\tt chebfun} fares somewhat better.  For both of the {\tt chebfun} plots there are a significant proportion of the data that do not appear because there errors are smaller than $10^{-5}$.
 
-In the plots for Algorithm \ref{twostagealgo} the alternative and somewhat costlier formula for $N_{\mu}$ in \eqref{NCBpracticaldef} is employed. An asterisk is used to label those points satisfying $\tkappa \le \tkappa_{\max}$, where $\tkappa$ was defined in \eqref{Lpnormdef}. All such points fall within the prescribed error tolerance even though this is guaranteed to happen only $99\%$ of the time.  For Algorithm \ref{twostagealgo} (heavy duty) $\tkappa_{\max}$ is larger, so there are more points for which the guarantee holds.  Those points labeled with a dot, are those for which $\tkappa > \tkappa_{\max}$, and so no guarantee holds. The points labeled with a diamond are those for which Algorithm \ref{twostagealgo} attempts to exceed the cost budget that we set, i.e., it wants to choose $n_\mu$ such that $n_{\sigma}+n_\mu > N_{\max}:=10^9$. In these cases $n_\mu$ was chosen as $\lfloor 10^9 - n_\sigma \rfloor$, which often was still large enough to get the correct answer.  Algorithm \ref{twostagealgo} performs somewhat more robustly than {\tt quad}, {\tt quadgk}, and {\tt chebfun}, because it requires only a low degree of smoothness and takes a fairly large minimum sample. Algorithm \ref{twostagealgo} is generally much slower than the other algorithms because it does not assume any smoothness of the integrand. The more important point is that Algorithm \ref{twostagealgo} has a guarantee, whereas to our knowledge, the other routines do not.
+In the plots for Algorithm \ref{twostagealgo} the alternative and somewhat costlier formula for $N_{\mu}$ in \eqref{NCBpracticaldef} is employed. An asterisk is used to label those points satisfying $\tkappa \le \tkappa_{\max}$, where $\tkappa$ is defined in \eqref{Lpnormdef}. All such points fall within the prescribed error tolerance,
+which is even better than the guaranteed confidence of $99\%$.  
+%FJH ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
+For Algorithm \ref{twostagealgo} (heavy duty) $\tkappa_{\max}$ is larger, so there are more points for which the guarantee holds.  Those points labeled with a dot, are those for which $\tkappa > \tkappa_{\max}$, and so no guarantee holds. The points labeled with a diamond are those for which Algorithm \ref{twostagealgo} attempts to exceed the cost budget that we set, i.e., it wants to choose $n_\mu$ such that $n_{\sigma}+n_\mu > N_{\max}:=10^9$. In these cases $n_\mu$ is chosen as $\lfloor 10^9 - n_\sigma \rfloor$, which often is still large enough to get an answer that satisfies the error tolerance. 
+%FJH                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Algorithm \ref{twostagealgo} performs somewhat more robustly than {\tt quad}, {\tt quadgk}, and {\tt chebfun}, because it requires only a low degree of smoothness and takes a fairly large minimum sample. Algorithm \ref{twostagealgo} is generally much slower than the other algorithms because it does not assume any smoothness of the integrand. The more important point is that Algorithm \ref{twostagealgo} has a guarantee, whereas to our knowledge, the other routines do not.
 
 From Figure \ref{GaussianTestFunFig}, the Sobol' sampling algorithm is more reliable and takes less time than Algorithm \ref{twostagealgo}.  This is due primarily to the fact that in dimension one, Sobol' sampling is equivalent to stratified sampling, where the points are more evenly spread than IID sampling.
 
@@ -771,23 +768,26 @@ Figure \ref{GaussianTestFunHDFig} repeats the simulation shown in Figure \ref{Ga
 
 \subsection{Asian Geometric Mean Call Option Pricing}
 
-The next example involves pricing an Asian geometric mean call option.  Suppose that the price of a stock $S$ at time $t$ follows a geometric Brownian motion with constant interest rate, $r$, and constant volatility, $v$.  One may express the stock price in terms of the initial condition, $S(0)$, as 
+The next example involves pricing an Asian geometric mean call option.  Suppose that the price of a stock $S$ at time $t$ follows a geometric Brownian motion with constant interest rate, $r$, and constant volatility, $v$.  
+One may express the stock price in terms of the initial condition, $S(0)$, as 
 \[
 S(t)=S(0) \exp[(r-v^2/2)t + v B(t)], \qquad t \ge 0,
 \]
-where $B$ is a standard Brownian motion.  The discounted payoff of the Asian geometric mean call option with an expiry of $T$ years and a strike price of $K$ is 
+where $B$ is a standard Brownian motion.  
+%FJH start
+The discounted payoff of the Asian geometric mean call option with an expiry of $T$ years, a strike price of $K$, and assuming a discretization at $d$ times is 
 \begin{equation} \label{payoff}
-Y=\max\biggl(\exp\Bigl(\int_0^T \log(S(t)) \, \dif t \Bigr) - K,0 \biggr)\me^{-rT}.
+Y=\max\biggl(\sqrt{S(0)}S(T/d) S(2T/d)\cdots S(T(d-1)/d) \sqrt{S(T)} - K,0 \biggr)\me^{-rT}.
 \end{equation}
-The fair price of this option is $\mu=\e(Y)$. One of our chief reasons for choosing this option for numerical experiments is that its price can be computed analytically.
+The fair price of this option is $\mu=\e(Y)$. One of our chief reasons for choosing this option for numerical experiments is that its price can be computed analytically, while the numerical computation is non-trivial.
 
-Numerically, one must not only compute the mean of the discounted payoff, but one must approximate the integral over time.  We did so using a trapezoidal rule for $d$ trapezoids.  Moreover, we discretized the Brownian motion exactly using a Brownian bridge construction.  This means that for one instance of the Brownian motion we first compute $B(T)$, then $B(T/2)$, etc., using independent Gaussian random variables $X_1, \ldots, X_d$, suitably scaled. The Brownian bridge accounts for more of the motion of the stock price into the $X_j$ with smaller $j$, which allows the Sobol' sampling algorithm to do a better job.  
+In our numerical experiments, the values of the Brownian motion at different times required for evaluating the stock price, $B(T/d), B(2T/d), \ldots,  B(T)$, are computed via a  Brownian bridge construction.  This means that for one instance of the Brownian motion we first compute $B(T)$, then $B(T/2)$, etc., using independent Gaussian random variables $X_1, \ldots, X_d$, suitably scaled. The Brownian bridge accounts for more of the low frequency motion of the stock price by the $X_j$ with smaller $j$, which allows the Sobol' sampling algorithm to do a better job.  
 
-Letting $Y^{(d)}$ denote the discretization of \eqref{payoff} using $d$ trapezoids, we approximated $\mu^{(d)}=\e(Y^{(d)})$ by Algorithm \ref{twostagealgo} and the Sobol' sampling algorithm using an error tolerance of $\varepsilon=0.05$, and compared it to the analytic value of $\mu^{(d)}$.  The result of $500$ replications is given in Figure \ref{AsianGeoMeanCallFig}.  Some of the parameters were set to be fixed values, namely,
+The option price, $\mu=\e(Y)$, is approximated by Algorithm \ref{twostagealgo} and the Sobol' sampling algorithm using an error tolerance of $\varepsilon=0.05$, and compared to the analytic value of $\mu$.  The result of $500$ replications is given in Figure \ref{AsianGeoMeanCallFig}.  Some of the parameters are set to be fixed values, namely,
 \[
 S(0)=K=100, \qquad T=1, \qquad r=0.03.
 \]
-The volatility, $v$, was drawn uniformly between $0.1$ and $0.7$.  The number of trapezoids, $d$, was chosen to be uniform over $\{1, 2, 4, 8, 16, 32\}$.  The true value of $\mu^{(d)}$ for these parameters is between about $2.8$ and $14$.
+The volatility, $v$, is drawn uniformly between $0.1$ and $0.7$.  The number of time steps, $d$, is chosen to be uniform over $\{1, 2, 4, 8, 16, 32\}$.  The true value of $\mu$ for these parameters is between about $2.8$ and $14$.
 
 \begin{figure}
 \centering
@@ -798,7 +798,9 @@ The volatility, $v$, was drawn uniformly between $0.1$ and $0.7$.  The number of
 \caption{Execution times and errors for the Asian geometric mean call option for $d=1, 2, 4, 8, 16, 32$ and $\varepsilon=0.05$.\label{AsianGeoMeanCallFig}}
 \end{figure}
 
-For this example the true kurtosis of $Y^{(d)}$ is unknown.  Both  Algorithm \ref{twostagealgo} and the  Sobol' sampling algorithm compute the option price to the desired error tolerance with high reliability.  For the IID sampling Algorithm \ref{twostagealgo} and the ordinary Sobol' sampling algorithm it can be seen that some of the errors are barely under the error tolerance, meaning that the sample size was not 
+For this example the true kurtosis of $Y$ is unknown.  
+%FJH end
+Both  Algorithm \ref{twostagealgo} and the  Sobol' sampling algorithm compute the option price to the desired error tolerance with high reliability.  For the IID sampling Algorithm \ref{twostagealgo} and the ordinary Sobol' sampling algorithm it can be seen that some of the errors are barely under the error tolerance, meaning that the sample size is not 
 %FJH^^  vv
 chosen too conservatively.  For the heavy duty Sobol' algorithm, the high initial sample size seems to lead to smaller than expected errors and larger than necessary 
 computation times.
@@ -810,12 +812,12 @@ Practitioners often construct CLT-based confidence intervals with the true varia
 
 In certain cases our procedure multiplies the computational cost by a large factor such as $2$ or $10$ or even $100$ compared to what one might spend based on the CLT with a known value of $\sigma$ (see Figure \ref{Costfig}).  While this seems inefficient, one should remember that the total elapsed time may still be well below several seconds.  Furthermore, one typically does not know $\sigma$ in advance, and our adaptive algorithm estimates $\sigma$ and then an appropriate sample size $n_\mu$ from the data.  Our algorithmic cost will be low when the unknown $\sigma$ is small and large when $\sigma$ is large.
 
-Like any algorithm with guarantees, our algorithm does need to make assumptions about the random variable $Y$.  We assume a known bound on the kurtosis of $Y$, either specified directly or implied by the user's choice of the sample size for estimating the variance, $n_\sigma$, and the variance inflation factor, $\fudge^2$.  In practice the user may not know a priori if $\tkappa \le \tkappa_{\max}$ since it is even more difficult to estimate $\tkappa$ from a sample than it is to estimate $\sigma^2$.  Thus, the choice of $\tkappa_{\max}$ relies on the user's best judgement.  
-
 %FJH start 
-Here are a few thoughts that might help.  One might try a sample of typical problems for which one knows the answers and use these problems to suggest $\tkappa_{\max}$.  Alternatively, one may think of $\tkappa_{\max}$ not as a parameter to be prescribed, but as a reflection of the robustness of one's Monte Carlo algorithm having chosen $\alpha$, $n_\sigma$ and $\fudge$.  The discussion at the end of Section \ref{algcostsubsec} also provides guidance on how to choose $n_\sigma$ and $\fudge$ to achieve a given $\tkappa_{\max}$ in a manner that minimizes total computational cost.  Briefly, one should not skimp on $n_\sigma$, but choose $n_\sigma$ to be several thousand times $\tkappa_{\max}$ and employ a $\fudge$ that is relatively close to unity.  Another way to look at the Theorem \ref{mainadaptthm} is that, like a pathologist, it tells you what went wrong if the two-stage adaptive algorithm fails:  the kurtosis of the random variable must have been too large.
+Like any algorithm with guarantees, our algorithm does need to make assumptions about the random variable $Y$.  We assume a known bound on the kurtosis of $Y$, either specified directly or implied by the user's choice of the sample size for estimating the variance, $n_\sigma$, and the variance inflation factor, $\fudge^2$.  This is a philosophical choice.  We prefer to not to construct an algorithm that assumes a bound on the variance of $Y$, because such an algorithm would not be guaranteed for $cY$ with $\abs{c}$ large enough.  If our algorithm works for $Y$, it will also work for $cY$, no matter how large $\abs{c}$ is. 
+
+In practice the user may not know a priori if $\tkappa \le \tkappa_{\max}$ since it is even more difficult to estimate $\tkappa$ from a sample than it is to estimate $\sigma^2$.  Thus, the choice of $\tkappa_{\max}$ relies on the user's best judgement.  Here are a few thoughts that might help.  One might try a sample of typical problems for which one knows the answers and use these problems to suggest an appropriate $\tkappa_{\max}$.  Alternatively, one may think of $\tkappa_{\max}$ not as a parameter to be prescribed, but as a reflection of the robustness of one's Monte Carlo algorithm having chosen $\alpha$, $n_\sigma$ and $\fudge$.  The discussion at the end of Section \ref{algcostsubsec} provides guidance on how to choose $n_\sigma$ and $\fudge$ to achieve a given $\tkappa_{\max}$ in a manner that minimizes total computational cost.  Briefly, one should not skimp on $n_\sigma$, but choose $n_\sigma$ to be several thousand times $\tkappa_{\max}$ and employ a $\fudge$ that is relatively close to unity.  Another way to look at the Theorem \ref{mainadaptthm} is that, like a pathologist, it tells you what went wrong if the two-stage adaptive algorithm fails: the kurtosis of the random variable must have been too large.
+In any case, as one can see in Figure \ref{Costfig}, in the limit of vanishing $\varepsilon/\sigma$, i.e., $N_{\text{CLT}} \to \infty$, the choice of $\tkappa_{\max}$ makes a negligible contribution to the total cost of the algorithm.  The main determinant of computational cost is $\varepsilon/\sigma$.
 %FJH end
-In any case, as one can see in Figure \ref{Costfig}, in the limit of vanishing $\varepsilon/\sigma$, i.e., $N_{\text{CLT}} \to \infty$, the choice of $\tkappa_{\max}$ makes a negligible contribution to the total cost of the algorithm.
 
 \cite{BahSav56} prove in Corollary 2 that it is \emph{impossible} to construct exact confidence intervals for the mean of random variable whose distribution lies in a set satisfying a few assumptions. One of these assumptions is that the set of distributions is convex.  This assumption is violated by our assumption of bounded kurtosis in Theorem \ref{mainadaptthm}. Thus, we are able to construct guaranteed confidence intervals.
 
